@@ -6,27 +6,27 @@ Grade 11 Video Game Design is a course that teaches the fundamentals of this fie
  
 ### Course Outcomes
 
-	The student is expected to develop skills in the following areas :
+The student is expected to develop skills in the following areas :
 
-	* Gain a working knowledge of the components of the Unity Engine
-		* Sprite Manipulation
-		* Collision Events
-		* Music and Sound
-		* Physics Based Interactions
-		* Level Design
+* Gain a working knowledge of the components of the Unity Engine
+	* Sprite Manipulation
+	* Collision Events
+	* Music and Sound
+	* Physics Based Interactions
+	* Level Design
 		
-	* Create games using existing assets to quickly create functioning games
-	* Develop a game concept from start to finish with a team.
+* Create games using existing assets to quickly create functioning games
+* Develop a game concept from start to finish with a team.
 	
 ### Evaluation
 
-	In this course you will be evaluated on project work, and tutorial assignments.  Some work will be marked based on completion (assignment work) and other work will be assessed based on individuated criteria. The breakdown of the marks is as follows :
+In this course you will be evaluated on project work, and tutorial assignments.  Some work will be marked based on completion (assignment work) and other work will be assessed based on individuated criteria. The breakdown of the marks is as follows :
 	
-	> Rube Goldberg Machine 10%  
-	> Dice Game 10%  
-	> Top Down Arcade Game 10%  
-	> Platformer 20%  
-	> Final Project 40%
+> Rube Goldberg Machine 10%  
+> Dice Game 10%  
+> Top Down Arcade Game 10%  
+> Platformer 20%  
+> Final Project 40%
 	
 <hr>
 
