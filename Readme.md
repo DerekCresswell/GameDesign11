@@ -30,7 +30,7 @@ In this course you will be evaluated on project work, and tutorial assignments. 
 	
 <hr>
 
-## Hand In Info
+## Hand In Info (For KSS Students Only)
 
 All work should be put into the following location  
 `Data (I):/Handin/Kramer/Video Game Design 11 12`
