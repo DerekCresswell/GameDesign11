@@ -28,10 +28,11 @@ What we need to do to make our object visible is :
 
 1. Next we need to give this object a "Sprite" or picture to actually appear as when we look at it. We do this by giving the "Sprite Renderer" a "Sprite".
 
-![SetSprite](Images/SetSprite.JPG)
 	* On the right side on the screen under the "Inspector" find the "Sprite Renderer".
 	* The top setting here should be "Sprite", look to right at the bar that says "None (Sprite)". Just at the right edge there is a small circle. Click this.
 	* A menu like the one shown above will appear. These are all of the Sprites in your project. For now we just have the default ones. Go ahead and select "Knob".
+
+	![SetSprite](Images/SetSprite.JPG)
 
 1. Now you can see the circle in the Scene View though it's very small. Let's fix this. 
 	* In the "Inspector" find the Transform again.
