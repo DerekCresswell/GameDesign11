@@ -73,3 +73,20 @@ Let's go over what we have here :
 * A "Child" is any Object with a Parent. The Child will inherit properties from it's Parents. In our case, it's position.
 * You can have multiple levels in your Hierarchy. As in a Child itself can have a child.
 
+Feel free to take a some time right now to just play around with what we have. Try rotating your circles, or scaling them differently. You could even add more Objects. Just have some fun and get a feel for this.
+
+### Components
+
+Now we are going to talk about components.
+Components allow us to add more functionality to our Objects. Our circle already has a few components on it, "Transform", and "Sprite Renderer". Both of these add something to the object. "Transform" lets the Object have a position in our scene and the "Sprite Renderer" lets the Object display a sprite.
+There are tons of built in Components in Unity and later on we will make our own. 
+Let's add a "Rigidbody" Component to our Circle. This Component will add the functionality of being affected by physics, like gravity.
+Select your Circle and click "Add Component" in the Inspector. Start typing "Rigidbody" and when the option pops up choose "Rigidbody 2D" (2D is very important here as our project is going to be 2D).
+
+![AddComponent](Images/AddComponent.JPG)
+
+For simplicity sake I will "Detach" the second Circle from our First. To do this click and drag the "Circle2" in the Hierarchy and move it off of "Circle". You can tell it is not a parent because the name will no longer be indented below "Circle".
+Go ahead and press Play now. This will show us the "Game View" or what is actually happening when someone were to play our game.
+The Rigidbody we added to the circle makes it affected by gravity and falls off the screen. We will talk more about the Rigidbody in the next lesson.
+
+As you can see Components let us have functionality wrapped into a nice clean package. It also allows use to reuse and have better control when making changes.
