@@ -30,7 +30,7 @@ What we need to do to make our object visible is :
 
 	* On the right side on the screen under the "Inspector" find the "Sprite Renderer".
 	* The top setting here should be "Sprite", look to right at the bar that says "None (Sprite)". Just at the right edge there is a small circle. Click this.
-	* A menu like the one shown above will appear. These are all of the Sprites in your project. For now we just have the default ones. Go ahead and select "Knob".
+	* A menu like the one shown above will appear. These are all of the Sprites in your project. For now we just have the default ones. Go ahead and select "Knob". (Later in this project we will add our own sprites.)
 
 	![SetSprite](Images/SetSprite.JPG)
 
