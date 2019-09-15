@@ -4,19 +4,21 @@ This is explaining the layout of Unitys' Launcher and Editor layout.
 
 ## The Launcher
 
-Before we can dive right into making a game we need to get a project set up in Unity.\
-So start by opening Unity.
+If you haven't downloaded Unity visit [their website](https://store.unity.com/download) to download it.\
+Before we can dive right into making a game we need to get a project set up in Unity.
 
 ![UnityLauncher](Images/UnityLauncher.JPG)  
 
-Go ahead and click the "New project" button in the middle.
+Go ahead and click the "New project" button in the middle.\
+*Note : If you are using Unity Hub click "NEW" in the top right.*
 
 ![NewProject](Images/NewProject.JPG)  
 
 * Give your project a name! (If you are are using this in a class make sure to include YOUR name in the name).  
 * Then make sure to set "Template" to "2D".
 * And finally choose the location. You probably want to have one main folder to hold all of the projects in these lessons.
-*Don't worry about the bottom bit about organizations or analytics. If they have default settings just leave them alone.*  
+*Don't worry about the bottom bit about organizations or analytics. If they have default settings just leave them alone.*
+   
 Now press "Create project" and let it load.  
 
 ## The Editor
