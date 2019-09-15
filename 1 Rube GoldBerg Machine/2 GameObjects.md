@@ -16,7 +16,7 @@ Move your mouse over the "Hierarchy" on the left of your screen, right click, ho
 You will now see that there is a "New Sprite" object underneath the "Main Camera".\
 Right click this and select "Rename" and give it a name like "Circle". We need to keep our objects named well otherwise it becomes very confusing to fix issues when there are tons of objects.\
 We cannot yet see this Object in the Scene. Let's fix this quick.\
-Click on the "New Sprite" object and look at the "Inspector" on the right side of the screen.\
+Click on the "New Sprite" object and look at the "Inspector" on the right side of the screen.
 
 ![Inspector](Images/Inspector.JPG)
 
@@ -51,14 +51,14 @@ Our circle shoud be now be clearly visible in our Scene.
 Unity saves things as "Scenes". This can be thought of more or less as a level in your game. When you make a new Unity project it creates a "SampleScene" for you, We are going to use our own though.\
 Press "Ctrl + S" or click on "Save" under "File" in the top left corner. This should bring up your File Explorer. There will be a file there named "Scenes", double click this, change the name of your file to something like "MyScene", and hit save.\
 This will create a new Scene with our Object saved in it.\
-Make sure you save your project frequently!\
+Make sure you save your project frequently!
 
 ### Hierarchies
 
 Here we're going to go onto a tangent to learn about hierarchies. These are a way to attach an object to another object. This way we can manipulate the "Parent" object and affect the "Child".\
 Hierarchies can be very complex and very usefull but for now we will just be showing the idea behind a hierarchy.\
 Start By duplicating the "Circle" we created earlier. Rename the new Object to keep everything organized. Then change it's Position to "-2", "2", "0" respectively.\
-This should something like this.\
+This should something like this.
 
 ![DuplicateCircles](Images/DuplicateCircles.JPG)
 
@@ -81,12 +81,12 @@ Now we are going to talk about components.\
 Components allow us to add more functionality to our Objects. Our circle already has a few components on it, "Transform", and "Sprite Renderer". Both of these add something to the object. "Transform" lets the Object have a position in our scene and the "Sprite Renderer" lets the Object display a sprite.\
 There are tons of built in Components in Unity and later on we will make our own.\
 Let's add a "Rigidbody" Component to our Circle. This Component will add the functionality of being affected by physics, like gravity.\
-Select your Circle and click "Add Component" in the Inspector. Start typing "Rigidbody" and when the option pops up choose "Rigidbody 2D" (2D is very important here as our project is going to be 2D).\
+Select your Circle and click "Add Component" in the Inspector. Start typing "Rigidbody" and when the option pops up choose "Rigidbody 2D" (2D is very important here as our project is going to be 2D).
 
 ![AddComponent](Images/AddComponent.JPG)
 
 For simplicity sake I will "Detach" the second Circle from our First. To do this click and drag the "Circle2" in the Hierarchy and move it off of "Circle". You can tell it is not a parent because the name will no longer be indented below "Circle".\
 Go ahead and press Play now. This will show us the "Game View" or what is actually happening when someone were to play our game.\
-The Rigidbody we added to the circle makes it affected by gravity and falls off the screen. We will talk more about the Rigidbody in the next lesson.\
+The Rigidbody we added to the circle makes it affected by gravity and falls off the screen. We will talk more about the Rigidbody in the next lesson.
 
 As you can see Components let us have functionality wrapped into a nice clean package. It also allows use to reuse and have better control when making changes.

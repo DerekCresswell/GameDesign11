@@ -4,13 +4,15 @@ This is explaining the layout of Unitys' Launcher and Editor layout.
 
 ## The Launcher
 
-Before we can dive right into making a game we need to get a project set up in Unity.
-So start by opening Unity.  
+Before we can dive right into making a game we need to get a project set up in Unity.\
+So start by opening Unity.
 
 ![UnityLauncher](Images/UnityLauncher.JPG)  
+
 Go ahead and click the "New project" button in the middle.
 
 ![NewProject](Images/NewProject.JPG)  
+
 * Give your project a name! (If you are are using this in a class make sure to include YOUR name in the name).  
 * Then make sure to set "Template" to "2D".
 * And finally choose the location. You probably want to have one main folder to hold all of the projects in these lessons.
@@ -22,6 +24,7 @@ Now press "Create project" and let it load.
 Now lets point out some of the main features and important parts of the Unity Editor. Don't worry if you don't know what a term means, everything will be explained.
 
 ![UnityEditor](Images/UnityEditor.JPG)  
+
 1. This is the "Scene View". Here you will be able to navigate your "Scene" and build your levels. It's also where you will see your game when you play it.
 1. This is the "Hierarchy". All of the "Objects" in your scene view will be listed here.
 1. This is the "Inspector". When you click on an object in the hierarchy or scene view the details will come up here. It's basically a list of settings for what ever you selected.
