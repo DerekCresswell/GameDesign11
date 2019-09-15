@@ -46,13 +46,6 @@ Our circle shoud be now be clearly visible in our Scene.
 *A Note*
 * You can use the various "Gizmos" in the top left corner to manipulate your objects. Try clicking on any of them ("Move", "Rotate", "Scale") and use the arrows / lines that appear with in the Scene View to change the respective parameter on the object.
 
-### Saving
-
-Unity saves things as "Scenes". This can be thought of more or less as a level in your game. When you make a new Unity project it creates a "SampleScene" for you, We are going to use our own though.\
-Press "Ctrl + S" or click on "Save" under "File" in the top left corner. This should bring up your File Explorer. There will be a file there named "Scenes", double click this, change the name of your file to something like "MyScene", and hit save.\
-This will create a new Scene with our Object saved in it.\
-Make sure you save your project frequently!
-
 ### Hierarchies
 
 Here we're going to go onto a tangent to learn about hierarchies. These are a way to attach an object to another object. This way we can manipulate the "Parent" object and affect the "Child".\

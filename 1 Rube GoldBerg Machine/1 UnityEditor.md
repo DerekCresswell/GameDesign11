@@ -38,3 +38,10 @@ Now lets point out some of the main features and important parts of the Unity Ed
 		* The first three have to do with projects involving multiple people. We will leave these alone for now.
 		* Next we have the "Layers". Layers let us have objects only interact with certain layers.
 		* The last is the "Layout" this changes where the different windows are positioned in Unity. Feel free to change this to something you like better. If you do change this you might have a tougher time following along. Make sure you know which window is which!
+
+## Saving
+
+Unity saves things as "Scenes". This can be thought of more or less as a level in your game. When you make a new Unity project it creates a "SampleScene" for you, We are going to use our own though.\
+Press "Ctrl + S" or click on "Save" under "File" in the top left corner. This should bring up your File Explorer. There will be a file there named "Scenes", double click this, change the name of your file to something like "MyScene", and hit save.\
+This will create a new Scene with our Object saved in it.\
+Make sure you save your project frequently!
