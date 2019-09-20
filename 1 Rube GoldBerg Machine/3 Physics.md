@@ -27,8 +27,9 @@ Later on you may find other Gizmos getting in your way. Try searching them up in
 
 ### Colliders
 
-In order for our objects to collide we need to give a Collider. //CONT\
-Colliders are added to an Object the exact same way as Rigidbody. This is because a Collider is yet another Component.
+In order for our objects to collide we need to give a Collider. This allows an object to collide or hit other collider Objects.\
+Colliders are added to an Object the exact same way as Rigidbody. This is because a Collider is yet another Component.\
+Click on our first Circle Object and click add component. 
 
 ## Physics
 
