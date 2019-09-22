@@ -2,37 +2,28 @@
 
 ## About This Course
 
-Grade 11 Video Game Design is a course that teaches the fundamentals of this field. From simple manipulation of graphics to 2D platformers to 3D full featured games, the core concepts are the same and that is what we will explore.\
-We will be working through a robust curriculum that introduces students to the fundamentals.  Animation, music, visual effects, particle effects, collision events, scoring, graphical user interfaces: we will cover them all.\
-The Game industry is larger by dollar value than the movie industry, it is huge and only getting larger with the advent of mobile technology.\
-If you have an interest in gaming and are excited by the possibility to create a game of your own design, then this is the course for you. 
+This is an intro level course to help you get familiar with the [Unity Engine](https://unity.com/).\
+The Unity Engine is a free Game Engine that anyone can learn to use and make awesome games with.\
+This course features five total projects with in depth tutorials for each. They aim to give you an understanding of Unity so that you can take concepts and apply them else where rather than just telling you what to do.\
+Along the way there are always external resources and extra challenges given to help you get that extra boost in skills needed to pursue Game Development!
  
 ### Course Outcomes
 
-The student is expected to develop skills in the following areas :
+Through this course you will gain a working knowledge of the Unity Engine with skills like :
 
-* Gain a working knowledge of the components of the Unity Engine
-	* Sprite Manipulation
-	* Collision Events
-	* Music and Sound
-	* Physics Based Interactions
-	* Level Design	
-* Create games using existing assets to quickly create functioning games
-* Develop a game concept from start to finish with a team.
+* Sprite Manipulation
+* Collision Events
+* Physics Based Interactions
+* Level Design
+* Music and Sound
 	
-### Evaluation
+### Projects
 
-In this course you will be evaluated on project work, and tutorial assignments.  Some work will be marked based on completion (assignment work) and other work will be assessed based on individuated criteria. The breakdown of the marks is as follows :
+In this course you will be making a number of projects. Each project contains relevant tutorials and information to complete the project as well as extra resources and challenges.\
+The projects should be completed in the order shown here (or the numbers in the folder names for each) as the skills of each builds off of the previous entries in the course.
 	
-> Rube Goldberg Machine 10%  
-> Dice Game 10%  
-> Top Down Arcade Game 10%  
-> Platformer 20%  
-> Final Project 40%
-	
-<hr>
-
-## Hand In Info (For KSS Students Only)
-
-All work should be put into the following location  
-`Data (I):/Handin/Kramer/Video Game Design 11 12`
+1. [Rube Goldberg Machine](https://github.com/DerekCresswell/GameDesign11/tree/master/1%20Rube%20GoldBerg%20Machine)
+1. [Dice Game](https://github.com/DerekCresswell/GameDesign11/tree/master/2%20Dice%20Game)
+1. [Top Down Arcade Game](https://github.com/DerekCresswell/GameDesign11/tree/master/3%20Top%20Down%20Arcade)
+1. [Platformer](https://github.com/DerekCresswell/GameDesign11/tree/master/4%20Platformer)  
+1. [Final Project](https://github.com/DerekCresswell/GameDesign11/tree/master/5%20Final%20Project)
