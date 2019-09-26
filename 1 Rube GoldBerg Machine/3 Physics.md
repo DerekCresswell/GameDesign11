@@ -20,7 +20,7 @@ Colliders are added to an Object the exact same way as Rigidbody. This is becaus
 Click on our first Circle Object and click add component and begin typing "Collider" until "Circle Collider 2D" shows up. Click on it.\
 
 <p align="center">
-	<img src="Images/CircleCollider">
+	<img src="Images/CircleCollider.JPG">
 </p>
 
 *Note, keen eyes might've noticed my Inspector looks different. I've simply collapsed the components to reduce visual clutter. Click the grey arrow in the top left corner of the component.*	
@@ -36,7 +36,7 @@ In order for us to see the Collider in action we need something else to collide 
 * Add a "Rigidbody 2D" to it.
 * Add a "Box Collider 2D". This should be the proper size, but you can change it if not.
 
-It should look like this :\
+It should look like this :
 //IMG Coming
 
 Now run your game!\
@@ -64,15 +64,19 @@ I encourage you to try setting up the world on your own now. Based on the pictur
 If you can't get this setup just click below for the cheat sheet. But do try it on your own first!
 
 <details>
-	<summary>Scene Setup</summary>
+	<summary>Scene Setup Help</summary>
 	<br />
 
-	* Add a Circle Collider 2D and Rigidbody to the second circle. Just like on the first one.
-	* Shift the second circle a little to the left.
-	* Create a second Box with a Rigidbody set to Static and a box collider.
-	* Set that boxs Position to "-5, -4.5", the Rotations Z to "-45" and the Scale to "30, 2, 1".
+<p>
 
-	These numbers don't need to be exact and you can change around the Scene to your liking. Feel free to play around with this. You might be able to learn something.
+* Add a Circle Collider 2D and Rigidbody to the second circle. Just like on the first one.
+* Shift the second circle a little to the left.
+* Create a second Box with a Rigidbody set to Static and a box collider.
+* Set that boxs Position to "-5, -4.5", the Rotations Z to "-45" and the Scale to "30, 2, 1".
+
+These numbers don't need to be exact and you can change around the Scene to your liking. Feel free to play around with this. You will be able to understand this better if you do this yourself.
+
+</p>
 
 </details>
 
