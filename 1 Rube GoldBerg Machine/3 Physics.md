@@ -17,7 +17,7 @@ First thing we are going to do is disable the Camera "Gizmo" so we can better se
 
 In order for our objects to collide we need to give a Collider. This allows an object to collide or hit other collider Objects.\
 Colliders are added to an Object the exact same way as Rigidbody. This is because a Collider is yet another Component.\
-Click on our first Circle Object and click add component and begin typing "Collider" until "Circle Collider 2D" shows up. Click on it.\
+Click on our first Circle Object and click add component and begin typing "Collider" until "Circle Collider 2D" shows up. Click on it.
 
 <p align="center">
 	<img src="Images/CircleCollider.JPG">
@@ -82,3 +82,7 @@ These numbers don't need to be exact and you can change around the Scene to your
 
 ## Physics
 
+Unity has a built in physics engine to make all of your game objects behave realistically. Rigidbodies and Colliders are key parts of the physics in Unity but don't strictly need to be affected by the physics.\
+We're now going to talk about how you can change the way physics behave by using Physics Materials and Zones.
+
+### Physics Materials
