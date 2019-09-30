@@ -25,7 +25,9 @@ Click on our first Circle Object and click add component and begin typing "Colli
 
 *Note, keen eyes might've noticed my Inspector looks different. I've simply collapsed the components to reduce visual clutter. Click the grey arrow in the top left corner of the component.*	
 
-You will now see there is a green circle around your circle. This is what the Collider considers its edge. If this isn't accurate to the size of the circle we can click the "Edit Collider" button and drag the green squares to change it.\
+You will now see there is a green circle within your circle. This is what the Collider considers its edge.\
+Since this green circle is too small we need to change the size of the it. You can click on the "Edit Collider" button and drag the green squares to change it or in this case set the Radius to "0.5".\
+You can tell if the collider is the right size by simply seeing if the size of the green circle is close to the size of the white
 In order for us to see the Collider in action we need something else to collide with. 
 
 * Add a new Sprite to your scene.
