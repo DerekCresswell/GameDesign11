@@ -89,3 +89,11 @@ Unity has a built in physics engine to make all of your game objects behave real
 We're now going to talk about how you can change the way physics behave by using Physics Materials and Zones.
 
 ### Physics Materials
+
+In Unity we can give our Rigidbody a Material. These affect the way physics are calculated on our Objects. We can change the bounciness and friction of our elements.\
+There are other things we can do but these are the most basic and useful to use.\
+*Just a note, Physics Material and Material are different things but I will be refering to Physics Material here.*
+
+We need to make a Material first. We are going to up hold our current organization and start by making a new folder in our Project call it "Physics Materials". Just like we did before with the Sprites.
+
+### Zones
