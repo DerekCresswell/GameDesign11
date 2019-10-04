@@ -94,6 +94,13 @@ In Unity we can give our Rigidbody a Material. These affect the way physics are 
 There are other things we can do but these are the most basic and useful to use.\
 *Just a note, Physics Material and Material are different things but I will be refering to Physics Material here.*
 
-We need to make a Material first. We are going to up hold our current organization and start by making a new folder in our Project call it "Physics Materials". Just like we did before with the Sprites.
+We need to make a Material first. We are going to up hold our current organization and start by making a new folder in our Project call it "Physics Materials". Just like we did before with the Sprites.\
+
+<p align="center">
+	<img src="Images/Folders.JPG">
+</p>
+
+Navigate into that folder, right click, and then find and click on "Physics Material 2D".\
+Now name that Material "Bouncy".
 
 ### Zones
