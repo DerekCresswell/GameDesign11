@@ -67,8 +67,9 @@ I encourage you to try setting up the world on your own now. Based on the pictur
 If you can't get this setup just click below for the cheat sheet. But do try it on your own first!
 
 <details>
-	<summary>Scene Setup Help</summary>
-	<br />
+
+<summary>Scene Setup Help</summary>
+<br />
 
 <p>
 
@@ -103,11 +104,17 @@ We need to make a Material first. We are going to up hold our current organizati
 Navigate into that folder, right click, and then find and click on "Physics Material 2D".\
 Now name that Material "Bouncy".
 
-// IMG COMING
+<p align="center">
+	<img src="Images/PhysicsMaterial.JPG">
+</p>
 
 Go and click on the new Material. If you look over at the Inspector I bet you can guess what we are going to change.\
 That's right! Set the "Bounciness" property to 1. It can be whatever you'd like but it's best not to go too high.\
 When we change the "Bounciness" of a material we increase or decrease the amount of energy retained after each collision.
+
+Go and put that Material, Bouncy, onto our first circle.
+
+
 
 Let's make another "Physics Material 2D" and name this one "HighFriction".\
 Click on the Material and turn the Friction up to "2" will do.\
