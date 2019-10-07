@@ -112,17 +112,31 @@ Go and click on the new Material. If you look over at the Inspector I bet you ca
 That's right! Set the "Bounciness" property to 1. It can be whatever you'd like but it's best not to go too high.\
 When we change the "Bounciness" of a material we increase or decrease the amount of energy retained after each collision.
 
-Go and put that Material, Bouncy, onto our first circle.
+Go and put that Material, Bouncy, onto our first circle.\
+Click onto the Circle and then into its RigidBody. Setting named "Material", go ahead 
 
+<p align="center">
+	<img src="Images/MaterialOnBody.JPG">
+</p>
 
+If you play the game now you will notice the first circle bounces much higher.\
+Go ahead and play with that value until you find something you like.
 
-Let's make another "Physics Material 2D" and name this one "HighFriction".\
-Click on the Material and turn the Friction up to "2" will do.\
-Now if you were to apply this Material to our slope you might not notice a lot of effect. This is because the Friction is calculated mainly based on the Points of Contact between two Objects.\
-A circle and a box will techniacally only have one point of contact. The effect of friction is more notable with a box on box collision. Like so :
+The other property on the the Physics Material 2D is Friction.\
+The idea behind Friction is the same as the real world but the execution in Unity is a bit different.\
+Unity's friction is calculated based on the number of points of contact between two objects. Meaning that a circle isn't really affected by friction as technically there's only ever one point of contact.
+
+Below is is the effect in action.
 
 // Gif of two ramps to come
 // Might get rid of making the HighFriction
+// Color code materials
+
+If you'd like to get a feel for this yourself go ahead and set this up.\
+You can do it right beside what's already there. You may need to move the camera though.\
+If you are having trouble with this click below for some more details. It's highly encouraged that you try and set this up on your own first.
+
+//Setup Details
 
 Feel free to set something like this up yourself and play around!
 
