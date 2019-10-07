@@ -103,4 +103,20 @@ We need to make a Material first. We are going to up hold our current organizati
 Navigate into that folder, right click, and then find and click on "Physics Material 2D".\
 Now name that Material "Bouncy".
 
+// IMG COMING
+
+Go and click on the new Material. If you look over at the Inspector I bet you can guess what we are going to change.\
+That's right! Set the "Bounciness" property to 1. It can be whatever you'd like but it's best not to go too high.\
+When we change the "Bounciness" of a material we increase or decrease the amount of energy retained after each collision.
+
+Let's make another "Physics Material 2D" and name this one "HighFriction".\
+Click on the Material and turn the Friction up to "2" will do.\
+Now if you were to apply this Material to our slope you might not notice a lot of effect. This is because the Friction is calculated mainly based on the Points of Contact between two Objects.\
+A circle and a box will techniacally only have one point of contact. The effect of friction is more notable with a box on box collision. Like so :
+
+// Gif of two ramps to come
+// Might get rid of making the HighFriction
+
+Feel free to set something like this up yourself and play around!
+
 ### Zones
