@@ -133,11 +133,40 @@ Below is is the effect in action.
 // Color code materials
 
 If you'd like to get a feel for this yourself go ahead and set this up.\
-You can do it right beside what's already there. You may need to move the camera though.\
+You can do it right beside what's already there in your project. You may need to move the camera though.\
 If you are having trouble with this click below for some more details. It's highly encouraged that you try and set this up on your own first.
 
-//Setup Details
+<details>
+	
+<summary>Setup to test friction</summary>
+<br />
 
-Feel free to set something like this up yourself and play around!
+<p>
+
+*All the numbers used here are just suggestions. Go ahead and change it up to what you want.*
+
+First we have to make our Physics Material for friction. 
+* Make a new "Physics Material 2D" in the "Physics Materials" folder and name it "HighFriction".
+* Click on the Material and set the "Friction" property to "2".
+
+Then we need to set up our ramps.
+
+* Start by making a new sprite, set its sprite to "WhiteBox", set it's scale in the X to "5", and rotate it in the Z axis to about "20". Name it something like "Ramp".
+* Give the sprite a "Rigidbody 2D" and "Box Collider 2D" component. Make sure the Rigidbody is set to "Static".
+* Duplicate the Ramp and move the new one out of the way of the old one. Rename the new one to "Ramp2".
+* Give one of the ramps the "HighFriction" material.
+
+And then our Boxes.
+
+* Create a new sprite and set its sprite to "WhiteBox". Name it "Box1" or similar.
+* Give the sprite a "Rigidbody 2D" and "Box Collider 2D" component.
+* Position this Box a little above one of the ramps. Duplicate it, rename it, and move it onto the other ramp.
+
+The setup does not need to be exact. Feel free to play around with this and make this to your liking. The result should be similar when you press play.\
+You'll notice the Box that is going down the high friction ramp is sticking much more.
+
+</p>
+
+</details>
 
 ### Zones
