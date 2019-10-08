@@ -6,7 +6,7 @@ In this section we will be covering the basics of Unity along with making a fun 
 Topics covered include : 
 * The Unity Launcher and Editor.
 * Game Objects, Components, and Hierarchies.
-* Physics Materials and Zones.
+* Colliders, Physics, and Physics Materials.
 * Sprites.
 
 Then after going through these we will make a Rube Goldberg Machine. This is a great way to get familiar with many of the main components of Unity.\
