@@ -87,7 +87,7 @@ These numbers don't need to be exact and you can change around the Scene to your
 ## Physics
 
 Unity has a built in physics engine to make all of your game objects behave realistically. Rigidbodies and Colliders are key parts of the physics in Unity but don't strictly need to be affected by the physics.\
-We're now going to talk about how you can change the way physics behave by using Physics Materials and Zones.
+We're now going to talk about how you can change the way physics behave by using Physics Materials.
 
 ### Physics Materials
 
@@ -126,10 +126,9 @@ The other property on the the Physics Material 2D is Friction.\
 The idea behind Friction is the same as the real world but the execution in Unity is a bit different.\
 Unity's friction is calculated based on the number of points of contact between two objects. Meaning that a circle isn't really affected by friction as technically there's only ever one point of contact.
 
-Below is is the effect in action.
+Below is is the effect in action. I've colored the high friction slope to be red for you.
 
 // Gif of two ramps to come
-// Might get rid of making the HighFriction
 // Color code materials
 
 If you'd like to get a feel for this yourself go ahead and set this up.\
@@ -151,9 +150,9 @@ First we have to make our Physics Material for friction.
 
 Then we need to set up our ramps.
 
-* Start by making a new sprite, set its sprite to "WhiteBox", set it's scale in the X to "5", and rotate it in the Z axis to about "20". Name it something like "Ramp".
+* Start by making a new sprite, set its sprite to "WhiteBox", set it's scale in the X to "5", and rotate it in the Z axis to about "20". Name it something like "FrictionRamp".
 * Give the sprite a "Rigidbody 2D" and "Box Collider 2D" component. Make sure the Rigidbody is set to "Static".
-* Duplicate the Ramp and move the new one out of the way of the old one. Rename the new one to "Ramp2".
+* Duplicate the Ramp and move the new one out of the way of the old one. Rename the new one to "FrictionRamp2".
 * Give one of the ramps the "HighFriction" material.
 
 And then our Boxes.
@@ -168,5 +167,3 @@ You'll notice the Box that is going down the high friction ramp is sticking much
 </p>
 
 </details>
-
-### Zones
