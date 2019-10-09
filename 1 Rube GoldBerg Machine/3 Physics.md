@@ -95,7 +95,7 @@ In Unity we can give our Rigidbody a Material. These affect the way physics are 
 There are other things we can do but these are the most basic and useful to use.\
 *Just a note, Physics Material and Material are different things but I will be refering to Physics Material here.*
 
-We need to make a Material first. We are going to up hold our current organization and start by making a new folder in our Project call it "Physics Materials". Just like we did before with the Sprites.\
+We need to make a Material first. We are going to up hold our current organization and start by making a new folder in our Project call it "Physics Materials". Just like we did before with the Sprites.
 
 <p align="center">
 	<img src="Images/Folders.JPG">
@@ -113,7 +113,7 @@ That's right! Set the "Bounciness" property to 1. It can be whatever you'd like 
 When we change the "Bounciness" of a material we increase or decrease the amount of energy retained after each collision.
 
 Go and put that Material, Bouncy, onto our first circle.\
-Click onto the Circle and then into its RigidBody. Setting named "Material", go ahead 
+Click onto the Circle and then into its RigidBody. Click the setting named "Material", and choose our new Material.
 
 <p align="center">
 	<img src="Images/MaterialOnBody.JPG">
@@ -128,8 +128,7 @@ Unity's friction is calculated based on the number of points of contact between 
 
 Below is is the effect in action. I've colored the high friction slope to be red for you.
 
-// Gif of two ramps to come
-// Color code materials
+![FrictionDemo](https://media.giphy.com/media/L39MSN192NeEOdvlwZ/giphy.gif)
 
 If you'd like to get a feel for this yourself go ahead and set this up.\
 You can do it right beside what's already there in your project. You may need to move the camera though.\

@@ -1,6 +1,6 @@
 # Rube Goldberg Machine
 
-The last section we are going to talk about are Sprites. You might've noticed that we've already been using these in the form of our "WhiteCircle" and "WhiteBox", which is correct. There's a lot more to Sprites than this, more than we could cover now.\ 
+The last section we are going to talk about are Sprites. You might've noticed that we've already been using these in the form of our "WhiteCircle" and "WhiteBox", which is correct. There's a lot more to Sprites than this, more than we could cover now.\
 For now, we will just go over putting your own sprites into the game using them in a few ways.
 
 ## Sprites
