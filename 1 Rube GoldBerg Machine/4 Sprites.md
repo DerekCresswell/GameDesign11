@@ -31,4 +31,10 @@ Here are the ones I found :
 </p>
 
 After you have these three sprites go ahead and import them into Unity as we did in the [Game Objects Lesson](/2%20GameObjects.md). Refer back to that if you need a refresher.\
-Once you've got those in the file we are going to use them in place of the circle and box we've been using.
+Once you've got those in the file we are going to use them in place of the circle and box we've been using.\
+After that your game should be looking a little more custom like so :
+
+//Img coming
+
+Now let's get the background in. We are just going to do a simple but effective way of making a backgrounds.\
+Start by making a new Sprite, like we've done before, and name it "Background."
