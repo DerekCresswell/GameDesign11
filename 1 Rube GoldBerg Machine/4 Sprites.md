@@ -34,7 +34,10 @@ After you have these three sprites go ahead and import them into Unity as we did
 Once you've got those in the file we are going to use them in place of the circle and box we've been using.\
 After that your game should be looking a little more custom like so :
 
-//Img coming
+![CustomSprites](Images/CustomSprites.JPG)
+
+//unity likes 100 x 100
+//Tile Sprites later\
 
 Now let's get the background in. We are just going to do a simple but effective way of making a backgrounds.\
 Start by making a new Sprite, like we've done before, and name it "Background."
