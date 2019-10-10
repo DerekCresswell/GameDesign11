@@ -166,3 +166,5 @@ You'll notice the Box that is going down the high friction ramp is sticking much
 </p>
 
 </details>
+
+In the next lesson we are going to talk more about the Sprites we've been using and customizing them. After that we are going to get to this units' project!
