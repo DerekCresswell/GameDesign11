@@ -36,8 +36,16 @@ After that your game should be looking a little more custom like so :
 
 ![CustomSprites](Images/CustomSprites.JPG)
 
-//unity likes 100 x 100
-//Tile Sprites later\
+Parts of mine look okay but the ramps look very stretched. It's likely your sprites look bigger or larger than they should also.\
+This would be mainly cause by the size of image. The grid shown in Unitys Scene is 100 by 100 pixels. If your image is larger or smaller than this it will appear distorted.\
+An easy way to fix this is to scale the image to 100 by 100 in photoshop or we can do it with Unitys built in editor.\
+If you want to use the built in editor this is how :
 
-Now let's get the background in. We are just going to do a simple but effective way of making a backgrounds.\
+//In unity editor
+
+//Tile Sprites later
+
+### Backgrounds With Sprites
+
+Now let's get the background in here. We are just going to do a simple but effective way to make this.\
 Start by making a new Sprite, like we've done before, and name it "Background."
