@@ -25,9 +25,9 @@ If you are an artist, don't worry. There will be better opportunities later to m
 Here are the ones I found :
 
 <p float="left">
-  <img src="Images/Mountains.PNG" width="100" />
-  <img src="Images/PokeBall.PNG" width="100" /> 
-  <img src="Images/WoodenCrate.PNG" width="100" />
+  <img src="Images/Mountains.png" width="100" />
+  <img src="Images/PokeBall.png" width="100" /> 
+  <img src="Images/WoodenCrate.png" width="100" />
 </p>
 
 After you have these three sprites go ahead and import them into Unity as we did in the [Game Objects Lesson](/2%20GameObjects.md). Refer back to that if you need a refresher.\
