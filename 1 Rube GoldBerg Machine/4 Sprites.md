@@ -46,9 +46,18 @@ If you want to use the built in features this is how :
 
 ![SpriteInspector](Images/SpriteInspector)
 
-You can play with that value until it works if needed. Don't worry we can always make things work, it just might mean later on you'll need to pay more attention to something like the size of your Colliders.
+You can play with that value until it works if needed. Don't worry we can always make things work, it just might mean later on you'll need to pay more attention to something like the size of your Colliders.\
+In the future when working with Sprites made by you or an artist it is a good idea to follow one scale for all. Meaning if two sprites are supposed to be the same size make them the same pixel size.
 
-//Tile Sprites later
+Now that we've got that working we will still need to fix the ramps as they are very stretched.\
+Again there are a few ways to do this. We can Tile sprites or use 9-Slicing.\
+I will demonstrate both and it is up to you to decide which is best in your senacario.
+
+#### Tiling
+
+Tiling sprites means that our sprites repeat rather than strech when it reaches it's max size.
+
+#### 9-Slicing
 
 ### Backgrounds With Sprites
 
