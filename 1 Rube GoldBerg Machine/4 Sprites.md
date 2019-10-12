@@ -44,7 +44,7 @@ If you want to use the built in features this is how :
 * Click on your Sprite, the one in the folders, not the Hierarchy. Then click on "Pixels Per Unit" in the Inspector.
 * Set the value of this to the same as your images size (Works best if the image is square).
 
-![SpriteInspector](Images/SpriteInspector)
+![SpriteInspector](Images/SpriteInspector.JPG)
 
 You can play with that value until it works if needed. Don't worry we can always make things work, it just might mean later on you'll need to pay more attention to something like the size of your Colliders.\
 In the future when working with Sprites made by you or an artist it is a good idea to follow one scale for all. Meaning if two sprites are supposed to be the same size make them the same pixel size.
