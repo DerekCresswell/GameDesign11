@@ -79,6 +79,8 @@ For now I will do this with a scale of "1, 1, 1". This means we'll need to manua
 
 *Note this does squish our sprite vertically. For me it looks ok but if yours does not set it to something that does. If you do just be careful while working with the colliders size.*
 
+*Also note, this might cause the sprite to be cutoff, simply change "Tile Mode" to "Adaptive". This is just below the "Width" and "Height" settings.*
+
 Now go to the "Box Collider 2D".
 
 * Click the "Edit Collider" button. This is just to see the size of the collider easier.
@@ -95,6 +97,59 @@ If you run the game you should see it works just as before but now it looks nice
 Now let's try out the other technique and see which is better for your sprites.
 
 ### 9-Slicing
+
+9-Slicing is the process of dividing a Sprite into 9 slices or parts. Each part scales differently. Some only scale horizontally or vertically, some in both, and some don't scale at all.
+
+To start let's slice our sprite.
+
+* Find the sprite you'd like to slice in the Sprites folder.
+* Click on this sprite and find the "Sprite Editor" Button.
+
+<p align="center">
+	<img src="Images/SpriteEditorInspector.JPG">
+</p>
+
+Let's stop here and explain 9-Slicing a little more.
+
+![9SliceDescription](Images/9SliceDescription.png)
+
+As mentioned before we split the sprite into 9 parts. This is clearly shown in the image above.\
+You could more or less think of this as defining the perimeter of the sprite. Each section is scaled differently.
+
+* Sections 1, 3, 7, and 9 are not scaled at all. The corners will stay the same.
+* Sections 2 and 8 are only scaled horizontally.
+* Sections 4 and 6 are only scaled vertically.
+* And section 5 is scaled in both directions.
+
+This technique works very well for sprites that have a distinct outline and a middle that is not distinct.\
+It's up to you to determine where to slice your sprite. Let's head back to Unity and do just that.
+
+To slice the Sprite in the Sprite Editor drag the green boxes around the edge to where they should be. You will need to decide where a good place to place these are.\
+For me it looks like this :
+
+![9SliceEditor](Images/9SliceEditor.JPG)
+
+Close that window and hit "Apply" when you are happy.\
+
+* Now click on one of your ramps. Same as above I'm going to set the scale back to "1" in all directions.
+* Set the "Draw Mode" of the "Sprite Renderer" to "Sliced".
+* Then on the "Sprite Renderer" set the "Width" to "10" and the "Height" to "0.5".
+
+Now the sprite is the same size as before but depending on the sprite used it might still look bad. In my case this is true and it is easier to see the effects of slicing at a smaller width.
+
+![9Sliced](Images/9Sliced.JPG)
+
+As seen here the corners and edges look normal while the middle has been stretched.
+
+I will be setting both of my ramps to Tiled for the next bit as it looks better than Slicing. If this is not true for you, please use the best fit method.
+
+*Remember*
+Doesn't matter with technique you use you will still need to manually set the Colliders size if you reset the scale.\
+You'll also need to do this for each other Object you change in this way.
+
+*Note*
+If you go back to tiling and notice your sprites look a little different this is because of the slicing.\
+To fix open the Sprite in the "Sprite Editor" and reset the green lines back to the edges. Or all four values of "Border" (in the grey box that appears in the editor) to 0.
 
 ### Backgrounds With Sprites
 
