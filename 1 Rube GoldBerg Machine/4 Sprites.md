@@ -55,7 +55,44 @@ I will demonstrate both and it is up to you to decide which is best in your sena
 
 #### Tiling
 
-Tiling sprites means that our sprites repeat rather than strech when it reaches it's max size.
+Tiling sprites means that our sprites repeat rather than stretch when it reaches it's max size. Like a repeating pattern of bricks.
+
+The first thing we need to do is set our sprite to be a tiled sprite. Click on the Object you'd like to edit and find its "Sprite Renderer" in the Inspector.\
+Find the "Draw Mode" property and set it to "Tiled".
+
+![TiledMode](Images/TiledMode.JPG)
+
+This will bring up an expanded menu below.\
+Right now I'd like you to stop for a minute and simply play with the new "Width" and "Height" values. You can also use the "Rect Tool" in the top left of the screen and drag the blue balls that appear around the Object.\
+As you may notice the values of this "Width" and "Height" denote how big a sprite should be before it tiles.\
+It is important to note that these values are based on the Scale values in the Transform of an object.\
+Typically in Unity it is a good idea to leave the scale at "1, 1, 1" when possible simply because this makes them easier to work with in the future.
+
+For now I will do this with a scale of "1, 1, 1". This means we'll need to manually adjust the size of the box collider and sprite.
+
+* Start by setting our scale back to "1, 1, 1".
+* Then on the "Sprite Renderer" set the "Width" to "10" and the "Height" to "0.5". 
+
+<p align="center">
+	<img src="Images/TiledValues.JPG">
+</p>
+
+*Note this does squish our sprite vertically. For me it looks ok but if yours does not set it to something that does. If you do just be careful while working with the colliders size.*
+
+Now go to the "Box Collider 2D".
+
+* Click the "Edit Collider" button. This is just to see the size of the collider easier.
+* You can drag the green squares that apear in the scene view if you'd like but I will use the "Size" settings to be percise.
+* On the "Size" Property set the values of "X", and "Y" to "10", and "0.5" respectively.
+
+<p align="center">
+	<img src="Images/TiledCollider.JPG">
+</p>
+
+Make sure those values work for the size of your sprite. Check this by seeing if the green outline of the Collider matches the sprite.
+
+If you run the game you should see it works just as before but now it looks nicer.\
+Now let's try out the other technique and see which is better for your sprites.
 
 #### 9-Slicing
 
