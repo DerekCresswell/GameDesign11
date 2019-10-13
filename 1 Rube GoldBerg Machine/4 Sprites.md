@@ -53,7 +53,7 @@ Now that we've got that working we will still need to fix the ramps as they are 
 Again there are a few ways to do this. We can Tile sprites or use 9-Slicing.\
 I will demonstrate both and it is up to you to decide which is best in your senacario.
 
-#### Tiling
+### Tiling
 
 Tiling sprites means that our sprites repeat rather than stretch when it reaches it's max size. Like a repeating pattern of bricks.
 
@@ -94,7 +94,7 @@ Make sure those values work for the size of your sprite. Check this by seeing if
 If you run the game you should see it works just as before but now it looks nicer.\
 Now let's try out the other technique and see which is better for your sprites.
 
-#### 9-Slicing
+### 9-Slicing
 
 ### Backgrounds With Sprites
 
