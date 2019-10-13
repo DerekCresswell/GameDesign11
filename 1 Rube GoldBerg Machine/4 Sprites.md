@@ -154,4 +154,39 @@ To fix open the Sprite in the "Sprite Editor" and reset the green lines back to 
 ### Backgrounds With Sprites
 
 Now let's get the background in here. We are just going to do a simple but effective way to make this.\
-Start by making a new Sprite, like we've done before, and name it "Background."
+Start by making a new Sprite, like we've done before, and name it "Background." Then set the Sprite to the sprite you've chosen for your background.\
+Don't worry about the size of the background for now, we will fix that later. For now just move the background so it's in the center of the rest of your objects.
+
+To ensure that our other sprites are never hidden behind the background set the "Z" value of your backgrounds "Positon" to any number greater than "0". I'll do "5".\
+You likely won't think much has changed. This is because I haven't told you the full truth yet.\
+Are you ready? Ok...
+
+**Our game is actually still 3D!**
+
+In the top left of your screen click the button that says "2D"
+
+![SwitchTo3D](Images/SwitchTo3D.JPG)
+
+Now hold the right mouse button and use WASD and QE to move around.\
+As you can see our game is still fully rendered and computed in 3D space.\
+When we made this project and selected "2D" Unity just changes some default settings to make the game seem 2D even though it isn't.
+
+![3DView](Images/3DView.JPG)
+
+The biggest difference between 3D projects and 2D is that in 2D we don't typically move an object along the Z axis. Though it still exists.\
+When we moved the background farther into the Z axis we are making sure unity always renders it behind anything else. But because our camera is Isometric everything appears to be at the same depth.\
+Don't worry if that sounds to technical to understand. Just know :
+
+* All our objects that interact with each other should be at the same Z level.
+* Our background should have a higher value than anything infront of it.
+
+Switch back to 2D using the button up top.
+
+Now to resize our background we can just change the Scale values because we won't have to worry about Colliders or Rigidbodies with this.\
+Make it just a little bit bigger than the Cameras size. You can see the cameras size just by clicking it in the Hierarchy.
+
+Once the size is good just run the game and appreciate how beautiful you've made it.
+
+![FinishedSprites](Images/FinishedSprites.JPG)
+
+Now we should know everything we need to to carry onto the project for this unit!
