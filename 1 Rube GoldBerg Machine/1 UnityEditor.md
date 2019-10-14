@@ -45,3 +45,6 @@ Unity saves things as "Scenes". This can be thought of more or less as a level i
 Press "Ctrl + S" or click on "Save" under "File" in the top left corner. This should bring up your File Explorer. There will be a file there named "Scenes", double click this, change the name of your file to something like "MyScene", and hit save.\
 This will create a new Scene with our Object saved in it.\
 Make sure you save your project frequently!
+
+Now that we understand the layout of Unity and the editor we can start making a basic game!\
+Refer back to this if you forget which part is which. From now on we will be refering to each part of Unity by name and not position.
