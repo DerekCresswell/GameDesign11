@@ -129,7 +129,7 @@ For me it looks like this :
 
 ![9SliceEditor](Images/9SliceEditor.JPG)
 
-Close that window and hit "Apply" when you are happy.\
+Close that window and hit "Apply" when you are happy.
 
 * Now click on one of your ramps. Same as above I'm going to set the scale back to "1" in all directions.
 * Set the "Draw Mode" of the "Sprite Renderer" to "Sliced".
