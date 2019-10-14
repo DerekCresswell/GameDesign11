@@ -94,3 +94,5 @@ To do this click on "Gizmos" at the top right of the screen view. This will give
 
 If you'd like to enable it, do the same thing. We are leaving it off for now though.\
 Later on you may find other Gizmos getting in your way. Try searching them up in the dropdown menu to disable/enable them by which component is making the Gizmo.
+
+Now that we understand the idea behind Components we are going to use them to them to play with physics and explore the basics behind our Rube Goldberg Machine.
