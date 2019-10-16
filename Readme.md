@@ -16,6 +16,7 @@ Through this course you will gain a working knowledge of the Unity Engine with s
 * Physics Based Interactions
 * Level Design
 * Music and Sound
+* Writing and using Code
 	
 ### Projects
 
