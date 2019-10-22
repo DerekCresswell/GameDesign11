@@ -17,7 +17,7 @@ There is a lot to code. But I think a good way to start is to simply jump into i
 Start by making a new Unity project. Make the project 2D, though for this project that doesn't really matter.
 
 As stated before, Scripts are just another type of component. Let's start by making a new Folder in our Assets and call it "Scripts".\
-Go into that folder and right click, create, and click "New C# Script". Give this script a name like "TestScript". 
+Go into that folder and right click, create, and click "C# Script". Give this script a name like "TestScript". 
 
 //IMG Coming - Script in Folder
 
