@@ -14,19 +14,38 @@ You can more or less think of `{}` or curly braces as a container. When we make 
 So if you look at the code below you'll notice after we "declare" our `class` we have a `{` then at the bottom of the code a `}`. So everything between these two brackets is inside the `class TestScript`.
 
 ```
-using UnityEngine;
-using System.Collections;
-
 public class TestScript : MonoBehaviour {
 
 	// Use this for initialization
-	void Start () {
+	void Start() {
 	
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update() {
 	
 	}
 }
 ```
+
+This is what is contained within the class `TestScript`. Using this same logic we can apply it to the `Start()` function. Look for the curly braces just after it.
+
+```
+	void Start () {
+	
+	}
+```
+
+Since we want to write inside this function we can type it on the line after `void Start() {` but before the `}`.\
+Let's type this in `Console.WriteLine("Hello World");`. For now just write this exactly and we'll customize it later.\
+The function should look like this :
+
+```
+	void Start () {
+		Console.WriteLine("Hello World");
+	}
+```
+
+*Note my spacing, we'll bring that up later as well.*
+
+Save this script and return to Unity.
