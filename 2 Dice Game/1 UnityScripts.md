@@ -19,7 +19,7 @@ Start by making a new Unity project. Make the project 2D, though for this projec
 As stated before, Scripts are just another type of component. Let's start by making a new Folder in our Assets and call it "Scripts".\
 Go into that folder and right click, create, and click "C# Script". Give this script a name like "TestScript". 
 
-//IMG Coming - Script in Folder
+![ScriptInFolder](Images/ScriptInFolder.JPG)
 
 Open that up. I'm making this project with Windows and the default Code Editor with Unity, Visual Studio.\
 If you are on a different system this may be different. No worries it's all the same you just might need to search for a button a little more.\
@@ -66,12 +66,6 @@ Then we have `void Start()` and `void Update()`. These are functions. Functions 
 The two functions written here are from the `MonoBehaviour` class we talked about above.\
 `void` is the type of data the function gives back to us, in this case nothing.
 
-### Basics Of Code
-
 That's quite a bit of info to take in. That might not have all made a bunch of sense but that's ok. There is a good bit to code and especially to start with. It's typically easier once we start writing code to understand these things.\
 We also have a file of refrence material with links to videos and tutorials that go a lot more into the explanation if you need that.\
 Let's write some code!
-
-#### Syntax
-
-Our scripts have to follow specific rules otherwise the computer cannot understand these instructions. We call these rules Syntax.\
