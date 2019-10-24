@@ -54,9 +54,9 @@ Let's just create a new "Empty Object" and give it a name.\
 Click onto it and add our script to it. Just like you would with the collider. The name of the component will be the same you gave the script.\
 It should look like this after :
 
-//IMG Coming / Script on Object
+![ScriptOnObject](Images/ScriptOnObject.JPG)
 
 Now hover over "Window" along the top bar, go down to "General", and then find and click on "Console". This brings up the Console which is where Unity will type messages for us from errors, code, and the likes.\
 With this open, run the game. You should see :
 
-//IMG Coming / Console msg
+![ConsoleMessage](Images/ConsoleMessage.JPG)
