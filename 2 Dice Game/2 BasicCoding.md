@@ -37,15 +37,26 @@ This is what is contained within the class `TestScript`. Using this same logic w
 ```
 
 Since we want to write inside this function we can type it on the line after `void Start() {` but before the `}`.\
-Let's type this in `Console.WriteLine("Hello World");`. For now just write this exactly and we'll customize it later.\
+Let's type this in `Debug.log("Hello World");`. For now just write this exactly and we'll customize it later.\
 The function should look like this :
 
 ```
 	void Start () {
-		Console.WriteLine("Hello World");
+		Debug.Log("Hello World");
 	}
 ```
 
 *Note my spacing, we'll bring that up later as well.*
 
-Save this script and return to Unity.
+Save this script and return to Unity.\
+Now we need to put our script into the scene. We do this the same way we put a component on our object.\
+Let's just create a new "Empty Object" and give it a name.\
+Click onto it and add our script to it. Just like you would with the collider. The name of the component will be the same you gave the script.\
+It should look like this after :
+
+//IMG Coming / Script on Object
+
+Now hover over "Window" along the top bar, go down to "General", and then find and click on "Console". This brings up the Console which is where Unity will type messages for us from errors, code, and the likes.\
+With this open, run the game. You should see :
+
+//IMG Coming / Console msg
