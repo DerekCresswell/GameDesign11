@@ -23,8 +23,8 @@ Through this course you will gain a working knowledge of the Unity Engine with s
 In this course you will be making a number of projects. Each project contains relevant tutorials and information to complete the project as well as extra resources and challenges.\
 The projects should be completed in the order shown here (or the numbers in the folder names for each) as the skills of each builds off of the previous entries in the course.
 	
-1. [Rube Goldberg Machine](https://github.com/DerekCresswell/GameDesign11/tree/master/1%20Rube%20GoldBerg%20Machine)
-1. [Dice Game](https://github.com/DerekCresswell/GameDesign11/tree/master/2%20Dice%20Game)
-1. [Top Down Arcade Game](https://github.com/DerekCresswell/GameDesign11/tree/master/3%20Top%20Down%20Arcade)
-1. [Platformer](https://github.com/DerekCresswell/GameDesign11/tree/master/4%20Platformer)  
-1. [Final Project](https://github.com/DerekCresswell/GameDesign11/tree/master/5%20Final%20Project)
+1. [Rube Goldberg Machine](./1%20Rube%20GoldBerg%20Machine)
+1. [Dice Game](./2%20Dice%20Game)
+1. [Top Down Arcade Game](./3%20Top%20Down%20Arcade)
+1. [Platformer](./4%20Platformer)
+1. [Final Project](./5%20Final%20Project)
