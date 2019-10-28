@@ -60,3 +60,9 @@ Now hover over "Window" along the top bar, go down to "General", and then find a
 With this open, run the game. You should see :
 
 ![ConsoleMessage](Images/ConsoleMessage.JPG)
+
+And there you go. You've written code and passed the age old tradition of saying "Hello World".\
+Now how did we do this? This might seem like a lot of info but trust me, once you get it all on paper you can break it down easier.\
+Let's start small and work upwards.  
+
+What does `Debug.Log("Hello World")` actually do? 
