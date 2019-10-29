@@ -14,9 +14,14 @@ We will be going through the following topics in this unit :
 The big project for this unit is making a Dice Game. We will create code to generate random numbers. Then we use those numbers to take away health from our players until someone wins. All the while writing a story for us to follow.\
 The idea is something like a basic game of Dungeons and Dragons.
 
-## Requirements
+### Requirements
 
 To fully complete this project you must meet the following criteria :  
 * Go through all the tutorials in this project. 
 * A Dice Game the functions properly and creates unique stories to follow.
 * A general theme with the story.
+
+## Unity Scripting API
+
+Unity has something called their Scripting API which is the docs for all of the code built into Unity. If you'd like to know more about anything in this project or any techincal details use [this](https://docs.unity3d.com/ScriptReference/index.html).\
+Say you wanted to know what commands you can use on one of Unity's scripts then you could just look up the name in here and find all the details. We'll also have a demo of how you might use this in a later lesson.
