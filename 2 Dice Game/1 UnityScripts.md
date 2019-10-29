@@ -25,7 +25,7 @@ Open that up. I'm making this project with Windows and the default Code Editor w
 If you are on a different system this may be different. No worries it's all the same you just might need to search for a button a little more.\
 The script should look like this :
 
-```
+```csharp
 using UnityEngine;
 using System.Collections;
 

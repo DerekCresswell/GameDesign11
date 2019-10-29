@@ -13,7 +13,7 @@ The `Start` and `Update` functions are inside of the `class TestScript`. How do 
 You can more or less think of `{}` or curly braces as a container. When we make our `class` we "open" a curly brace, put what we want in the class inside the brace, then "close" the brace.\
 So if you look at the code below you'll notice after we "declare" our `class` we have a `{` then at the bottom of the code a `}`. So everything between these two brackets is inside the `class TestScript`.
 
-```
+```csharp
 public class TestScript : MonoBehaviour {
 
 	// Use this for initialization
@@ -30,7 +30,7 @@ public class TestScript : MonoBehaviour {
 
 This is what is contained within the class `TestScript`. Using this same logic we can apply it to the `Start()` function. Look for the curly braces just after it.
 
-```
+```csharp
 	void Start () {
 	
 	}
@@ -40,7 +40,7 @@ Since we want to write inside this function we can type it on the line after `vo
 Let's type this in `Debug.log("Hello World");`. For now just write this exactly and we'll customize it later.\
 The function should look like this :
 
-```
+```csharp
 	void Start () {
 		Debug.Log("Hello World");
 	}
