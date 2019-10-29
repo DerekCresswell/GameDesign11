@@ -25,3 +25,8 @@ To fully complete this project you must meet the following criteria :
 * A Rube Goldberg Machine that must complete a task (turn on a light, put a ball in a basket, score a goal etc.).
 * Backgrounds and sprites must be of a unified theme (Like an ice hockey rink with a puck that collides with hockey sticks and ends in a net).
 * Minimum of 10 steps with different physics interactions.
+
+## Unity Manual
+
+Unity has documentation for everything in Unity right [here](https://docs.unity3d.com/Manual/).\
+If you want more info on a "object" you are working with try looking it up here for some extra techincal details. In a later lesson we will go use this together so you know how to use it.
