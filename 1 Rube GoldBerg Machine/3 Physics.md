@@ -4,20 +4,19 @@ Here we will talk more about the Rigidbody and Physics in Unity.
 
 ## Rigidbody
 
-In the last lesson we added a Rigidbody to our circle and saw it fall. Let's talk a bit more about how this Rigidbody works.\
+In the last lesson we added a [Rigidbody](https://docs.unity3d.com/Manual/class-Rigidbody2D.html) to our circle and saw it fall. Let's talk a bit more about how this Rigidbody works.\
 The basic idea behind the Rigidbody is that it gives an object a physical presence in the world. Just like how you have mass and therefore are affected by gravity. If you didn't have mass you wouldn't be affected by gravity.\
 There are many other things the Rigidbody, such as apply drag to objects, but we are just using the basics of the component for this project.
 
 ## Collisions
 
-Collisions are one of the most important part of making your game work so let's get some going.\
-First thing we are going to do is disable the Camera "Gizmo" so we can better see our scene.
+Collisions are one of the most important part of making your game work so let's get some going.
 
 ### Colliders
 
-In order for our objects to collide we need to give a Collider. This allows an object to collide or hit other collider Objects.\
+In order for our objects to collide we need to give them a [Collider](https://docs.unity3d.com/Manual/Collider2D.html). This allows an object to collide or hit other collider Objects.\
 Colliders are added to an Object the exact same way as Rigidbody. This is because a Collider is yet another Component.\
-Click on our first Circle Object and click add component and begin typing "Collider" until "Circle Collider 2D" shows up. Click on it.
+Click on our first Circle Object and click add component and begin typing "Collider" until ["Circle Collider 2D"](https://docs.unity3d.com/Manual/class-CircleCollider2D.html) shows up. Click on it.
 
 <p align="center">
 	<img src="Images/CircleCollider.JPG">
@@ -37,7 +36,7 @@ In order for us to see the Collider in action we need something else to collide 
 * Add the "WhiteBox" file from the Assets folder to the Sprites folder in the Project.
 * Set the Sprite to the "WhiteBox" sprite.
 * Add a "Rigidbody 2D" to it.
-* Add a "Box Collider 2D". This should be the proper size, but you can change it if not.
+* Add a ["Box Collider 2D"](https://docs.unity3d.com/Manual/class-BoxCollider2D.html). This should be the proper size, but you can change it if not.
 
 It should look like this :
 
@@ -45,7 +44,7 @@ It should look like this :
 
 Now run your game!\
 Oh hold on, that was kinda lame. The box fell too. What good is ground if it falls?\
-Let's fix this quick. We just need to change the boxs Rigidbody "Body Type" from "Dynamic" to "Static".\
+Let's fix this quick. We just need to change the boxs Rigidbody "Body Type" from ["Dynamic"](https://docs.unity3d.com/Manual/class-Rigidbody2D.html) to ["Static"](https://docs.unity3d.com/Manual/class-Rigidbody2D.html).\
 The "Body Type" tells Unity how to compute the physics of the Object. In our case Dynamic means the Object is affected by physics and Static means the Object is present in the "Physics Space" but not changed by interactions.
 
 Let's run the game again.\
@@ -91,9 +90,9 @@ We're now going to talk about how you can change the way physics behave by using
 
 ### Physics Materials
 
-In Unity we can give our Rigidbody a Material. These affect the way physics are calculated on our Objects. We can change the bounciness and friction of our elements.\
+In Unity we can give our Rigidbody a [Physics Material](https://docs.unity3d.com/Manual/class-PhysicsMaterial2D.html). These affect the way physics are calculated on our Objects. We can change the bounciness and friction of our elements.\
 There are other things we can do but these are the most basic and useful to use.\
-*Just a note, Physics Material and Material are different things but I will be refering to Physics Material here.*
+*Just a note, Physics Materials and Materials are different things but I will be refering to Physics Material here.*
 
 We need to make a Material first. We are going to up hold our current organization and start by making a new folder in our Project call it "Physics Materials". Just like we did before with the Sprites.
 
@@ -167,4 +166,4 @@ You'll notice the Box that is going down the high friction ramp is sticking much
 
 </details>
 
-In the next lesson we are going to talk more about the Sprites we've been using and customizing them. After that we are going to get to this units' project!
+In the next lesson we are going to talk more about the [Sprites](https://docs.unity3d.com/Manual/Sprites.html) we've been using and customizing them. After that we are going to get to this units' project!
