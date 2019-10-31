@@ -1,6 +1,6 @@
 # Rube Goldberg Machine
 
-The last section we are going to talk about are Sprites. You might've noticed that we've already been using these in the form of our "WhiteCircle" and "WhiteBox", which is correct. There's a lot more to Sprites than this, more than we could cover now.\
+The last section we are going to talk about are [Sprites](https://docs.unity3d.com/Manual/Sprites.html). You might've noticed that we've already been using these in the form of our "WhiteCircle" and "WhiteBox", which is correct. There's a lot more to Sprites than this, more than we could cover now.\
 For now, we will just go over putting your own sprites into the game using them in a few ways.
 
 ## Sprites
@@ -38,7 +38,7 @@ After that your game should be looking a little more custom like so :
 
 Parts of mine look okay but the ramps look very stretched. It's likely your sprites look bigger or smaller than they should also.\
 This would be mainly cause by the size of image. The grid shown in Unitys Scene is 100 by 100 pixels. If your image is larger or smaller than this it will appear distorted.\
-An easy way to fix this is to scale the image to 100 by 100 in photoshop or we can do it within Unity.\
+An easy way to fix this is to scale the image to 100 by 100 in Photoshop or we can do it within Unity.\
 If you want to use the built in features this is how :
 
 * Click on your Sprite, the one in the folders, not the Hierarchy. Then click on "Pixels Per Unit" in the Inspector.
@@ -50,20 +50,20 @@ You can play with that value until it works if needed. Don't worry we can always
 In the future when working with Sprites made by you or an artist it is a good idea to follow one scale for all. Meaning if two sprites are supposed to be the same size make them the same pixel size.
 
 Now that we've got that working we will still need to fix the ramps as they are very stretched.\
-Again there are a few ways to do this. We can Tile sprites or use 9-Slicing.\
+Again there are a few ways to do this. We can [Tile sprites or use 9-Slicing](https://docs.unity3d.com/Manual/9SliceSprites.html).\
 I will demonstrate both and it is up to you to decide which is best in your senacario.
 
 ### Tiling
 
 Tiling sprites means that our sprites repeat rather than stretch when it reaches it's max size. Like a repeating pattern of bricks.
 
-The first thing we need to do is set our sprite to be a tiled sprite. Click on the Object you'd like to edit and find its "Sprite Renderer" in the Inspector.\
+The first thing we need to do is set our sprite to be a tiled sprite. Click on the Object you'd like to edit and find its ["Sprite Renderer"](https://docs.unity3d.com/Manual/class-SpriteRenderer.html) in the Inspector.\
 Find the "Draw Mode" property and set it to "Tiled".
 
 ![TiledMode](Images/TiledMode.JPG)
 
 This will bring up an expanded menu below.\
-Right now I'd like you to stop for a minute and simply play with the new "Width" and "Height" values. You can also use the "Rect Tool" in the top left of the screen and drag the blue balls that appear around the Object.\
+Right now I'd like you to stop for a minute and simply play with the new "Width" and "Height" values. You can also use the ["Rect Tool"](https://docs.unity3d.com/Manual/Toolbar.html) in the top left of the screen and drag the blue balls that appear around the Object.\
 As you may notice the values of this "Width" and "Height" denote how big a sprite should be before it tiles.\
 It is important to note that these values are based on the Scale values in the Transform of an object.\
 Typically in Unity it is a good idea to leave the scale at "1, 1, 1" when possible simply because this makes them easier to work with in the future.
@@ -79,7 +79,7 @@ For now I will do this with a scale of "1, 1, 1". This means we'll need to manua
 
 *Note this does squish our sprite vertically. For me it looks ok but if yours does not set it to something that does. If you do just be careful while working with the colliders size.*
 
-*Also note, this might cause the sprite to be cutoff, simply change "Tile Mode" to "Adaptive". This is just below the "Width" and "Height" settings.*
+*Also note, this might cause the sprite to be cutoff, simply change ["Tile Mode" to "Adaptive"](https://docs.unity3d.com/Manual/9SliceSprites.html). This is just below the "Width" and "Height" settings.*
 
 Now go to the "Box Collider 2D".
 
@@ -98,12 +98,12 @@ Now let's try out the other technique and see which is better for your sprites.
 
 ### 9-Slicing
 
-9-Slicing is the process of dividing a Sprite into 9 slices or parts. Each part scales differently. Some only scale horizontally or vertically, some in both, and some don't scale at all.
+[9-Slicing](https://docs.unity3d.com/Manual/9SliceSprites.html) is the process of dividing a Sprite into 9 slices or parts. Each part scales differently. Some only scale horizontally or vertically, some in both, and some don't scale at all.
 
 To start let's slice our sprite.
 
 * Find the sprite you'd like to slice in the Sprites folder.
-* Click on this sprite and find the "Sprite Editor" Button.
+* Click on this sprite and find the ["Sprite Editor"](https://docs.unity3d.com/Manual/SpriteEditor.html) Button.
 
 <p align="center">
 	<img src="Images/SpriteEditorInspector.JPG">
@@ -151,13 +151,16 @@ You'll also need to do this for each other Object you change in this way.
 If you go back to tiling and notice your sprites look a little different this is because of the slicing.\
 To fix open the Sprite in the "Sprite Editor" and reset the green lines back to the edges. Or all four values of "Border" (in the grey box that appears in the editor) to 0.
 
+*Note Note*
+You can combine 9 slicing with tiling to create even better looking sprites. We won't talk about that here but try to play around with it if you want.
+
 ### Backgrounds With Sprites
 
 Now let's get the background in here. We are just going to do a simple but effective way to make this.\
 Start by making a new Sprite, like we've done before, and name it "Background." Then set the Sprite to the sprite you've chosen for your background.\
 Don't worry about the size of the background for now, we will fix that later. For now just move the background so it's in the center of the rest of your objects.
 
-To ensure that our other sprites are never hidden behind the background set the "Z" value of your backgrounds "Positon" to any number greater than "0". I'll do "5".\
+To ensure that our other sprites are never hidden behind the background set the "Z" value of your backgrounds ["Positon"](https://docs.unity3d.com/Manual/class-Transform.html) to any number greater than "0". I'll do "5".\
 You likely won't think much has changed. This is because I haven't told you the full truth yet.\
 Are you ready? Ok...
 
@@ -178,7 +181,7 @@ When we moved the background farther into the Z axis we are making sure unity al
 Don't worry if that sounds to technical to understand. Just know :
 
 * All our objects that interact with each other should be at the same Z level.
-* Our background should have a higher value than anything infront of it.
+* Our background should have a higher Z value than anything infront of it.
 
 Switch back to 2D using the button up top.
 
