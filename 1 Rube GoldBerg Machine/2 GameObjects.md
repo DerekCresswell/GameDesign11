@@ -4,7 +4,7 @@ This is explaining the concept and implementation of "Game Objects" in Unity.
 
 ## Game Objects
 
-A [Game Object}(https://docs.unity3d.com/Manual/GameObjects.html) is really anything you put into your game. Everytime you see a character, camera, or piece of the land it is a Game Object. Game Objects hold a list of "Components" that act as it's settings and behaviours. 
+A [Game Object](https://docs.unity3d.com/Manual/GameObjects.html) is really anything you put into your game. Everytime you see a character, camera, or piece of the land it is a Game Object. Game Objects hold a list of "Components" that act as it's settings and behaviours. 
 
 ### Creating A Game Object
 
