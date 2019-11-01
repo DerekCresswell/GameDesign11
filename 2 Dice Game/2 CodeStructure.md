@@ -2,7 +2,7 @@
 
 Here we are going to write our first program.
 
-### Structure
+## Structure
 
 To begin we need to know where to actually write our code.\
 In the Editor duh!\
@@ -31,7 +31,7 @@ public class TestScript : MonoBehaviour {
 This is what is contained within the class `TestScript`. Using this same logic we can apply it to the `Start()` function. Look for the curly braces just after it.
 
 ```csharp
-	void Start () {
+	void Start() {
 	
 	}
 ```
@@ -41,14 +41,34 @@ Let's type this in `Debug.log("Hello World");`. For now just write this exactly 
 The function should look like this :
 
 ```csharp
-	void Start () {
+	void Start() {
 		Debug.Log("Hello World");
 	}
 ```
 
-*Note my spacing, we'll bring that up later as well.*
+## Syntax
 
-### Adding Scripts To Objects
+Before we continue we should talk about my spacing. You'll notice that the `Start` and `Update` functions are tabbed in and now the `Debug.Log` is tabbed in again.\
+This is to ensure our code is "readable" so when have to come back to it or someone else wants to look at the code it is very easy to see where everything is and what it does.\
+The main idea with tabbing in our code is that we want to be able to see what is inside of what. `Debug.Log` is inside our `Start` function. We know this because of the curly braces. So we make `Debug.Log` indented a little further than start.\
+Most editors (like the one Unity will have opened for you) automatically indent your code and help maintain a standard "Syntax". Syntax is our fancy word for the formatting of code.\
+
+There are tons of rules you can follow for writing syntactically nice code. Certain people prefer certain rule sets over others. This is mainly down to personal choice but it is **extremely** encouraged to follow a rule set, otherwise you will not have a good time.\
+There are too many rules to go over here so I will give you [this resource](https://dzone.com/articles/10-tips-how-to-improve-the-readability-of-your-sof) to read up on. Not everything might make sense now but as we move on continue to refer back to it.
+
+There is one point of syntax I will touch on specifically. White space.\
+White space is spaces ` ` just like that. C# is a white space insensitive language.\
+Meaning :  
+
+```csharp
+	void     Start                   (){
+Debug.Log     ("Hello World")      ; 
+			}
+```
+
+//FINISH
+
+## Adding Scripts To Objects
 
 Save this script and return to Unity.\
 Now we need to put our script into the scene. We do this the same way we put a component on our object.\
@@ -67,7 +87,7 @@ And there you go. You've written code and passed the age old tradition of saying
 Now how did we do this? This might seem like a lot of info but trust me, once you get it all on paper you can break it down easier.\
 Let's start small and work upwards.  
 
-### How This Works
+## How This Works
 
 What does `Debug.Log("Hello World");` actually do? There's four parts to this :  
 
