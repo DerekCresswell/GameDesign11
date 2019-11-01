@@ -30,7 +30,7 @@ What we need to do to make our object visible is :
 
 	* First we need to import a Sprite into Unity.
 		* Right click on the Project section of Unity (bottom bar), hover over "Create" and click on "Folder". Name the folder "Sprites". Remember, organization is key!
-		* Go to the Assets folder in this project and drag "WhiteCircle" into the folder you just made.
+		* Go to the [Assets folder](./Assets) in this project and drag ["WhiteCircle"](./Assets/WhiteCircle.png) into the folder you just made.
 
 	![ImportSprite](Images/ImportSprite.JPG)
 
@@ -78,7 +78,7 @@ Select your Circle and click "Add Component" in the Inspector. Start typing "Rig
 ![AddComponent](Images/AddComponent.JPG)
 
 For simplicity sake I will "Detach" the second Circle from our First. To do this click and drag the "Circle2" in the Hierarchy and move it off of "Circle". You can tell it is not a parent because the name will no longer be indented below "Circle".\
-Go ahead and press Play now. This will show us the "Game View" or what is actually happening when someone were to play our game.\
+Go ahead and press Play now. This will show us the ["Game View"](https://docs.unity3d.com/Manual/GameView.html) or what is actually happening when someone were to play our game.\
 The Rigidbody we added to the circle makes it affected by gravity and falls off the screen. We will talk more about the Rigidbody in the next lesson.
 
 As you can see Components let us have functionality wrapped into a nice clean package. It also allows use to reuse and have better control when making changes.

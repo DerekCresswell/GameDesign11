@@ -36,7 +36,7 @@ Now lets point out some of the main features and important parts of the Unity Ed
 	* In the middle we have the "Play Button". These three buttons let you play and play the game.
 	* On the right we have a few settings. 
 		* The first three have to do with projects involving multiple people. We will leave these alone for now.
-		* Next we have the "Layers". Layers let us have objects only interact with certain layers.
+		* Next we have the ["Layers"](https://docs.unity3d.com/Manual/Layers.html). Layers let us have objects only interact with certain layers.
 		* The last is the ["Layout"](https://docs.unity3d.com/Manual/CustomizingYourWorkspace.html) this changes where the different windows are positioned in Unity. Feel free to change this to something you like better. If you do change this you might have a tougher time following along. Make sure you know which window is which!
 
 ## Saving
