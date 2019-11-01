@@ -1,16 +1,16 @@
-# Rube GoldBerg Machine
+# Rube Goldberg Machine
 
 Let's first go over everything we've learned so far :
 
-* The setup and usage of Unitys Editor.
-* Game Objects.
-* Hierarchies.
-* Components.
-* Rigidbodies.
-* Colliders.
-* Physics Materials.
-* Sprites.
-* Tiling and 9-Slicing.
+* [The setup and usage of Unitys Editor](./1%20UnityEditor.md).
+* [Game Objects](./2%20GameObjects.md).
+* [Hierarchies](./2%20GameObjects.md/#hierarchies).
+* [Components](./2%20GameObjects.md/#components).
+* [Rigidbodies](./3%20Physics.md/#rigidbody).
+* [Colliders](./3%20Physics.md/#colliders).
+* [Physics Materials](./3%20Physics.md/#physics-materials).
+* [Sprites](./4%20Sprites.md).
+* [Tiling and 9-Slicing](./4%20Sprites.md/#tiling).
 
 Seems like a lot but most build off of each other so they fall into place nicely when in practice.\
 If any of these seem foggy to you please refer back to their coresponding section and brush up.\
@@ -31,6 +31,6 @@ Here's the requirements for a sufficient machine :
 	* Dynamic and Static objects.
 
 And most importantly, be creative! You can set up your level in any way you want. Not just a series of ramps to roll a ball down.\
-Go back to the Readme file in this unit and / or Google Rube Goldberg Machines for some ideas.
+Go back to the [Readme file](./Readme.md) in this unit and / or Google Rube Goldberg Machines for some ideas.
 
 Go on and try something unique and have fun!
