@@ -75,6 +75,10 @@ Just because you can does **not** mean you should.
 
 *Note that inside of quotes `""` __is__ white space sensitive. You'll find out why in the next lesson.*
 
+Here is a little write up of the syntax used in these courses if you'd like to use it.
+
+//ADD SYNTAX FILE
+
 ### Case Sensitivity
 
 Case or capitalisation is important in C#. `Debug.Log()` is **not** the same as `debug.log()` or `deBUG.loG()`.\
