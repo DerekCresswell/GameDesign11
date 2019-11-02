@@ -51,7 +51,7 @@ The function should look like this :
 Before we continue we should talk about my spacing. You'll notice that the `Start` and `Update` functions are tabbed in and now the `Debug.Log` is tabbed in again.\
 This is to ensure our code is "readable" so when have to come back to it or someone else wants to look at the code it is very easy to see where everything is and what it does.\
 The main idea with tabbing in our code is that we want to be able to see what is inside of what. `Debug.Log` is inside our `Start` function. We know this because of the curly braces. So we make `Debug.Log` indented a little further than start.\
-Most editors (like the one Unity will have opened for you) automatically indent your code and help maintain a standard "Syntax". Syntax is our fancy word for the formatting of code.\
+Most editors (like the one Unity will have opened for you) automatically indent your code and help maintain a standard "Syntax". Syntax is our fancy word for the formatting of code.
 
 There are tons of rules you can follow for writing syntactically nice code. Certain people prefer certain rule sets over others. This is mainly down to personal choice but it is **extremely** encouraged to follow a rule set, otherwise you will not have a good time.\
 There are too many rules to go over here so I will give you [this resource](https://dzone.com/articles/10-tips-how-to-improve-the-readability-of-your-sof) to read up on. Not everything might make sense now but as we move on continue to refer back to it.
