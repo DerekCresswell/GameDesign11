@@ -6,7 +6,7 @@ Here we are going to write our first program.
 
 To begin we need to know where to actually write our code.\
 In the Editor duh!\
-Not exactly we can't just put it anywhere in this file. For this we need to use the `Start()` function.\
+Not exactly we can't just put it anywhere in this file. For this we need to use the `Start()` function.
 
 Let's just talk a bit more about those functions.\
 The `Start` and `Update` functions are inside of the `class TestScript`. How do we tell this? the `{}`!\
