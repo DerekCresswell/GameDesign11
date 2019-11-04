@@ -65,7 +65,7 @@ Now we move on to setting up, manipulating, and using variables.
 
 In code, when we make a variable it is called a declaration.\
 C# is what's called a "strongly typed" langauge. This means that once a variable is declared it can **not** change type. This also means we need to tell the computer what type of variable it will be before we declare one.\
-Let's take a look at the parts.
+Let's take a look at the parts. Go ahead and type these out and play with them throughout.
 
 ```csharp
 int myInt = 4;
@@ -83,13 +83,13 @@ Here we've just shown an example of each of the types we've used so far. What yo
 Variable declarations are made of three parts no matter the type :
 
 * First we need to declare the type as stated earlier. This is represented by the first part of the line.\
-For instance with the first line we wanted an integer value so we used `int` as the first word. We can get the type name we want from the table at the top of this lesson under the "Declaration" column.
+For instance with the first line we wanted an integer value so we used `int` as the first word. We can get the type name we want from the table at the top of this lesson under the "Declaration" column.\
 These declarations do require at least one space after them.
 
 * Next is the variable name. This is the name associated with our variable and how we will access them later in our code.\
 It comes after the type of variable with at least one space inbetween them. Variables name can include all letters, hyphens `-`, underscores `_`, and the dollar sign `$`.\
 You'll notice my variable names are written in lowerCamelCase. This is because Unity's prewritten variables use this format and it's nice to have everything match. Keeps the code readable like we talked about in the [last lesson](./2%20CodeStructure.md).\
-Another rule to follow when making variable names is to make them descriptive, but don't make it redundant. Then later when you want to use your variable you will be able to tell what it does. Like so :\
+Another rule to follow when making variable names is to make them descriptive, but don't make it redundant. Then later when you want to use your variable you will be able to tell what it does.\
 If you had a float to store your bank account balance a good name could be `accountBalance`. A bad name would be `x` or `myCurrentBankAccountBalance`.
 
 * Last we **can** set the value of our variable.\
@@ -115,4 +115,21 @@ Also note the white space left within the quotations in `myString`.
 Go ahead and try decaring your own variables. Your editor will likely tell you if something is wrong.\
 You can write these within the `Start` function like we did with `Debug.Log()`.
 
-## Manipulating Variables
+## Using Variables
+
+There are a few main reasons we use variables in our code.\
+They make it easier to read through, quicker to change values, and allow for storing of info.\
+
+Let's start with how we use variables. We're going to pretend we've declared all of the variables in the above section.\
+If we wanted access to our variable we could simply write `myInt;` or any of the other names. This will do absolutely nothing though, we need to use this variable for something.\
+Currently myInt stores the value `4`. What if we wanted to change that?\
+Pretty simply you can just type `myInt = 5` or whatever or number / equation you wanted.\
+We can even set a variable equal to another variable.
+
+```csharp
+float myNewFloat = 4.56;
+myFloat = myNewFloat;
+```
+
+Go ahead and try setting some of the other variables to new values.
+
