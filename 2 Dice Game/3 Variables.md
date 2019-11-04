@@ -124,12 +124,79 @@ Let's start with how we use variables. We're going to pretend we've declared all
 If we wanted access to our variable we could simply write `myInt;` or any of the other names. This will do absolutely nothing though, we need to use this variable for something.\
 Currently myInt stores the value `4`. What if we wanted to change that?\
 Pretty simply you can just type `myInt = 5` or whatever or number / equation you wanted.\
-We can even set a variable equal to another variable.
+We can even set a variable equal to another variable. I'd say the easiest way to think of it is just if you type the name of the variable imagine it being replaced verbatiam with the value.
 
 ```csharp
 float myNewFloat = 4.56;
 myFloat = myNewFloat;
 ```
 
-Go ahead and try setting some of the other variables to new values.
+Go ahead and try setting some of the other variables to new values.\
 
+Before we mentioned we can set these variables via an equation. Let's try making one with a variable.
+
+```csharp
+int myNewInt = 4;
+myInt = myNewInt + 3 * 2;
+```
+
+This here will set `myInt` to 10. This is because the order of operations is still followed.
+
+Another important thing to mention is that you can use a variable when setting that variable.
+
+```csharp
+myInt = myInt + 1;
+```
+
+This here will increase `myInt` by one. Operations like this are very common, for instance incrementing or decrementing a number, dividing it or multiplying by two. Since these are commong they have shortcuts.
+
+```csharp
+myInt = myInt + 1;
+myInt += 1;
+myInt++;
+
+myInt = myInt - 1;
+myInt -= 1;
+myInt--;
+
+myInt = myInt * 2;
+myInt *= 2;
+
+myInt = myInt / 2;
+myInt /= 2;
+```
+
+Each group of commands are equivilant. You'll notice that incrementing and decrementing are so common they've been shortened even further.\
+Try these out and experiment.
+
+The last big point of using variables we need to touch on  using them in the context of functions.\
+We talked earlier how we used `"Hello World"` in the `Debug.Log` function to print it to the console. In this context the `"Hello World"` is just a string. We just didn't bother setting it to a variable.\
+Try replacing your current `Debug.Log` with this :
+
+```csharp
+myString = "Print this variable";
+Debug.Log(myString);
+```
+
+This works just as well. As said before when we type the variables name it's easy to just pretend that it gets replaced with the value of the variable.\
+As long as the type of the variable matches the type the function needs you can use it.\
+You can also combine strings and variables.
+
+```csharp
+int numOfApples = 4;
+Debug.Log("I have " + numOfApples + " apples.");
+```
+
+This will print out : `I have 4 apples.`
+
+## On Your Own
+
+Things like this can be very complex. It can be much harder to understand if you only read through. Here are some things you can try to help you understand the material so far.
+
+1. Print out a small story using `Debug.Log`.
+
+1. Print a count down using a variable to keep track of the number.
+
+1. Use variables and equations to give you give you the volume of a sphere (4/3 * pi * r^3).
+
+In the next lesson we will be talking more about booleans and how we can use them to create inteligent code.
