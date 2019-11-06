@@ -56,7 +56,7 @@ Most editors (like the one Unity will have opened for you) automatically indent 
 There are tons of rules you can follow for writing syntactically nice code. Certain people prefer certain rule sets over others. This is mainly down to personal choice but it is **extremely** encouraged to follow a rule set, otherwise you will not have a good time.\
 There are too many rules to go over here so I will give you [this resource](https://dzone.com/articles/10-tips-how-to-improve-the-readability-of-your-sof) to read up on. Not everything might make sense now but as we move on continue to refer back to it.
 
-There are two points of syntax I will touch on specifically.
+There are three points of syntax I will touch on specifically.
 
 ### White Space
 
@@ -92,6 +92,16 @@ It is typically recomended to use this yourself in order to have your code look 
 Now that is for Unity's functions, classes, and the likes. Unity does use lowerCamelCase for it's variables. We will talk about what variables are in the next lesson. For now just know they are written in lowerCamelCase. I bet you can guess what that means.
 
 A variable we wanted to call `my great variable` would actually be called `myGreatVariable`. We'll leave the examples alone for now. Again this is usually recomended to follow these guidelines for now.
+
+### Comments
+
+We already talked about comments in the [last lesson](./1%20UnityScripts.md/#comments) but will mention them again.\
+Comments are invaluable to keep track of code you write. You might think you can remember it all but trust me, you can not.\
+Use comments to quickly tell you what a block of code, or function, does. You don't need to use it for obvious things.
+
+Good : `Returns the average of all elements in an array`
+
+Bad : `Adds two numbers` or `blahh it does some stuff`
 
 All the code written in these lessons will be using my prefered syntax. It's recomended to use it as well until you understand enought to figure out what you'd prefer and set up your editor to help.\
 Just follow along with my spacing and indenting but remember it does not need to be exact. You'll pick up these skills along the way.
