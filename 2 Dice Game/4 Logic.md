@@ -35,4 +35,105 @@ myBool = 40 = 40;
 
 ### Greater And Lesser Than
 
-As stated above we've talked about `<` and `>` being used to see which side of the operator is larger.
+As stated above we've talked about `<` and `>` being used to see which side of the operator is larger.\
+A very common situation is wanting to is if a value is larger **or** equal to another value. The single signs only count if the value is larger or lesser. If the two are equal they return false.\
+To compare greater / lesser or equal to we can use two shorthad operators. `<=` and `>=`.
+
+These are most useful for number values.
+
+```csharp
+bool myBool = 3 < 3;
+// myBool is false.
+
+myBool = 3 <= 3;
+// myBool is true.
+```
+
+### Not Operator
+
+Now we start into some new territory. The "Not Operator" is specifically for booleans. We use the `!` exclamation mark to denote this operator.\
+This simply switches our boolean. `true` becomes `false` and `false` becomes `true`.
+
+We write it like this.
+
+```csharp
+bool myBool = !true;
+// myBool is false.
+
+myBool = !myBool;
+// myBool is true.
+
+myBool = !!myBool;
+// myBool is still true.
+```
+
+Here we will show you a new tool to see how these work. Truth tables.\
+Now that our operator works only with bools we can easily lay out all possibilities. Here represented using `1` for `true` and `0` for `false`.
+
+`B = !A`
+
+A | B
+- | -
+`0` | `1`
+`1` | `0`
+
+This is a simple one but shows off the use of truth tables well.
+
+### And Operator
+
+The "And Operator" checks to see if both of two booleans are true. If either or both are false the operator returns false.\
+We use the `&&` double ampersand with a boolean on each side to denote this operator. Just like this :
+
+```csharp
+bool myBool = true && false;
+// myBool is false.
+```
+
+And for all possibilities here's the truth table.
+
+`C = A && B`
+
+A | B | C
+- | - | -
+`0` | `0` | `0`
+`1` | `0` | `0`
+`0` | `1` | `0`
+`1` | `1` | `1`
+
+### Or Operator
+
+The "Or Operator" checks if either of two booleans are true. We use `||` double pipe separators to denote this function.\
+Do note if both booleans are true the operator will still return true.
+
+```csharp
+bool myBool = true || false;
+// myBool is true.
+```
+
+`C = A || B`
+
+A | B | C
+- | - | -
+`0` | `0` | `0`
+`1` | `0` | `1`
+`0` | `1` | `1`
+`1` | `1` | `1`
+
+### Boolean Order Of Operations
+
+Remember that boolean statments still use an order of operations when calculating.\
+This does brackets first followed by left to right.
+
+```csharp
+bool myBool = !true || false;
+// myBool is false.
+// !true is evaluated first followed by the ||.
+
+myBool = !(true || false);
+// myBool is true.
+// The || is evaluated first followed by the !.
+
+myBool = true || false && true;
+// myBool is true.
+// The || is evaluated first as it is the left most operator.
+```
