@@ -1,3 +1,4 @@
+
 # Dice Game
 
 Here we will be talking about boolean algebra and how we can use logic in our code to create smarter code.
@@ -73,7 +74,7 @@ Now that our operator works only with bools we can easily lay out all possibilit
 `B = !A`
 
 A | B
-- | -
+--- | ---
 `0` | `1`
 `1` | `0`
 
@@ -94,7 +95,7 @@ And for all possibilities here's the truth table.
 `C = A && B`
 
 A | B | C
-- | - | -
+--- | --- | ---
 `0` | `0` | `0`
 `1` | `0` | `0`
 `0` | `1` | `0`
@@ -113,7 +114,7 @@ bool myBool = true || false;
 `C = A || B`
 
 A | B | C
-- | - | -
+--- | --- | ---
 `0` | `0` | `0`
 `1` | `0` | `1`
 `0` | `1` | `1`
