@@ -99,9 +99,9 @@ We already talked about comments in the [last lesson](./1%20UnityScripts.md/#com
 Comments are invaluable to keep track of code you write. You might think you can remember it all but trust me, you can not.\
 Use comments to quickly tell you what a block of code, or function, does. You don't need to use it for obvious things.
 
-Good : `Returns the average of all elements in an array`
+Good : `// Returns the average of all elements in an array`
 
-Bad : `Adds two numbers` or `blahh it does some stuff`
+Bad : `// Adds two numbers` or `// blahh it does some stuff`
 
 All the code written in these lessons will be using my prefered syntax. It's recomended to use it as well until you understand enought to figure out what you'd prefer and set up your editor to help.\
 Just follow along with my spacing and indenting but remember it does not need to be exact. You'll pick up these skills along the way.
