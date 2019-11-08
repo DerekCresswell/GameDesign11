@@ -138,3 +138,7 @@ myBool = true || false && true;
 // myBool is true.
 // The || is evaluated first as it is the left most operator.
 ```
+
+## Control Structures
+
+Know that we can create more complex boolean statements we need a way to use them.

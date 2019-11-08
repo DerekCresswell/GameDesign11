@@ -25,3 +25,9 @@ To fully complete this project you must meet the following criteria :
 
 Unity has something called their Scripting API which is the docs for all of the code built into Unity. If you'd like to know more about anything in this project or any techincal details use [this](https://docs.unity3d.com/ScriptReference/index.html).\
 Say you wanted to know what commands you can use on one of Unity's scripts then you could just look up the name in here and find all the details. We'll also have a demo of how you might use this in a later lesson.
+
+## C&#35; Documentation
+
+While the [Unity Scripting API](https://docs.unity3d.com/ScriptReference/) has info for all of the code within Unity it does not have much on the langauge of C#.\
+For questions about the code itself use the [Microsoft C# Docs](https://docs.microsoft.com/en-us/dotnet/csharp/).\
+It may be confusing to use these docs at first as they are made for developers but as you become more familiar with coding it will become easier. 
