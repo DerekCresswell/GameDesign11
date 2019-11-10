@@ -6,10 +6,10 @@ Here we are going to write our first program.
 
 To begin we need to know where to actually write our code.\
 In the Editor duh!\
-Not exactly we can't just put it anywhere in this file. For this we need to use the `Start()` function.
+Not exactly we can't just put it anywhere in this file. For this we need to use the ["Start()"](https://docs.unity3d.com/ScriptReference/MonoBehaviour.Start.html) function.
 
 Let's just talk a bit more about those functions.\
-The `Start` and `Update` functions are inside of the `class TestScript`. How do we tell this? the `{}`!\
+The `Start` and `Update` functions are inside of the `class TestScript`. How do we know this? The `{}`!\
 You can more or less think of `{}` or curly braces as a container. When we make our `class` we "open" a curly brace, put what we want in the class inside the brace, then "close" the brace.\
 So if you look at the code below you'll notice after we "declare" our `class` we have a `{` then at the bottom of the code a `}`. So everything between these two brackets is inside the `class TestScript`.
 
@@ -36,8 +36,32 @@ This is what is contained within the class `TestScript`. Using this same logic w
 	}
 ```
 
-Since we want to write inside this function we can type it on the line after `void Start() {` but before the `}`.\
-Let's type this in `Debug.log("Hello World");`. For now just write this exactly and we'll customize it later.\
+### Using The Scripting API
+
+Now why do we want to use the `Start` function?\
+We're going to try out using the [Unity Scripting API](https://docs.unity3d.com/ScriptReference/) for this.\
+Say we were perusing through this code and we stumbled across this function and didn't know what it does. Well, we'd go to the Scripting API and search "Start", the name of the function, up. When you do, you should be greeted by this :
+
+![ScriptingSearch](Images/ScriptingSearch.JPG)
+
+This is a list of all the `Start` functions in Unity. Now we need to find the one we are actually using in our script.\
+In this case we should look at the class we are using. In the [last lesson](./1%20UnityScripts.md/#classes) we mentioned how the `TestScript` class we made is ["inheriting"](https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/inheritance) from the `MonoBehaviour` class.\
+With this logic we can say that the `Start` function is part of the `MonoBehaviour`. When we look at our search result, you can see that the seventh one down is ["Monobehaviour.Start"](https://docs.unity3d.com/ScriptReference/MonoBehaviour.Start.html). Click on that.
+
+On this page, Unity tells us everything about `MonoBehaviour.Start` that we need to know.
+
+> Start is called on the frame when a script is enabled just before any of the Update methods are called the first time.
+> Like the Awake function, Start is called exactly once in the lifetime of the script. However, Awake is called when the script object is initialised, regardless of whether or not the script is enabled. Start may not be called on the same frame as Awake if the script is not enabled at initialisation time.
+
+This might sound a little confusing as it is written by and for more experienced developers. That is ok though, you'll begin to understand it better as we go along.\
+For now I will paraphrase it.
+
+> The Start function is run as soon as the script becomes active in your game. It's only ever called once.
+
+When we press play in our game if our script is loaded onto an object (we'll get to that [later](#adding-scripts-to-objects)) the `Start` function on that script (if there is one) is run.
+
+Since we want our code to run by itself we will write it inside this function we can type it on the line after `void Start() {` but before the `}`.\
+Let's type this in `Debug.Log("Hello World");`. For now just write this exactly and we'll customize it later.\
 The function should look like this :
 
 ```csharp
