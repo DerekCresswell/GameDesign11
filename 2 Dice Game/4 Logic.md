@@ -5,7 +5,7 @@ Here we will be talking about boolean algebra and how we can use logic in our co
 
 ## Boolean Logic
 
-We've already talked about how booleans can be a true or a false value but now we will use them to decide what to do with our code.
+We've already talked about how [booleans](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/bool) can be a true or a false value but now we will use them to decide what to do with our code.
 
 ### Boolean Operators
 
@@ -50,9 +50,9 @@ myBool = 3 <= 3;
 // myBool is true.
 ```
 
-### Not Operator
+### NOT Operator
 
-Now we start into some new territory. The "Not Operator" is specifically for booleans. We use the `!` exclamation mark to denote this operator.\
+Now we start into some new territory. The "NOT Operator" is specifically for booleans. We use the `!` exclamation mark to denote this operator.\
 This simply switches our boolean. `true` becomes `false` and `false` becomes `true`.
 
 We write it like this.
@@ -80,9 +80,9 @@ A | B
 
 This is a simple one but shows off the use of truth tables well.
 
-### And Operator
+### AND Operator
 
-The "And Operator" checks to see if both of two booleans are true. If either or both are false the operator returns false.\
+The "AND Operator" checks to see if both of two booleans are true. If either or both are false the operator returns false.\
 We use the `&&` double ampersand with a boolean on each side to denote this operator. Just like this :
 
 ```csharp
@@ -101,9 +101,9 @@ A | B | C
 `0` | `1` | `0`
 `1` | `1` | `1`
 
-### Or Operator
+### OR Operator
 
-The "Or Operator" checks if either of two booleans are true. We use `||` double pipe separators to denote this function.\
+The "OR Operator" checks if either of two booleans are true. We use `||` double pipe separators to denote this function.\
 Do note if both booleans are true the operator will still return true.
 
 ```csharp
@@ -122,8 +122,15 @@ A | B | C
 
 ### Boolean Order Of Operations
 
-Remember that boolean statments still use an order of operations when calculating.\
-This does brackets first followed by left to right.
+Remember that boolean statments still use an [order of operations](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/boolean-logical-operators#operator-precedence) when calculating.\
+The order is as follows :
+
+1. Parentheses `()`
+1. NOT operator `!`
+1. AND operator `&&`
+1. OR operator `||`
+
+If there are two or more of the same on a single line it will be evaluated left to right.
 
 ```csharp
 bool myBool = !true || false;
@@ -134,11 +141,13 @@ myBool = !(true || false);
 // myBool is true.
 // The || is evaluated first followed by the !.
 
-myBool = true || false && true;
+myBool = true && false || true;
 // myBool is true.
-// The || is evaluated first as it is the left most operator.
+// The && is evaluated first followed by the ||.
 ```
+
+When you are in doubt, just use parantheses.
 
 ## Control Structures
 
-Know that we can create more complex boolean statements we need a way to use them.
+Know that we can create more complex boolean statements we need a way to use them. This is where Control structures come in.
