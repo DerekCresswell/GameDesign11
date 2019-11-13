@@ -8,8 +8,8 @@ To begin we need to know where to actually write our code.\
 In the Editor duh!\
 Not exactly we can't just put it anywhere in this file. For this we need to use the ["Start()"](https://docs.unity3d.com/ScriptReference/MonoBehaviour.Start.html) function.
 
-Let's just talk a bit more about those functions.\
-The `Start` and `Update` functions are inside of the `class TestScript`. How do we know this? The `{}`!\
+Let's just talk a bit more about those [functions](https://docs.microsoft.com/en-us/dotnet/csharp/methods).\
+The ["Start"](https://docs.unity3d.com/ScriptReference/MonoBehaviour.Start.html) and ["Update"](https://docs.unity3d.com/ScriptReference/MonoBehaviour.Update.html) functions are inside of the [class](https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/intro-to-csharp/introduction-to-classes) `TestScript`. How do we know this? The `{}`!\
 You can more or less think of `{}` or curly braces as a container. When we make our `class` we "open" a curly brace, put what we want in the class inside the brace, then "close" the brace.\
 So if you look at the code below you'll notice after we "declare" our `class` we have a `{` then at the bottom of the code a `}`. So everything between these two brackets is inside the `class TestScript`.
 
@@ -73,8 +73,8 @@ The function should look like this :
 ## Syntax
 
 Before we continue we should talk about my spacing. You'll notice that the `Start` and `Update` functions are tabbed in and now the `Debug.Log` is tabbed in again.\
-This is to ensure our code is "readable" so when have to come back to it or someone else wants to look at the code it is very easy to see where everything is and what it does.\
-The main idea with tabbing in our code is that we want to be able to see what is inside of what. `Debug.Log` is inside our `Start` function. We know this because of the curly braces. So we make `Debug.Log` indented a little further than start.\
+This is to ensure our code is ["readable"](https://medium.com/@egonelbre/psychology-of-code-readability-d23b1ff1258a) so when have to come back to it or someone else wants to look at the code it is very easy to see where everything is and what it does.\
+The main idea with [tabbing](http://mrbool.com/importance-of-code-indentation/29079) in our code is that we want to be able to see what is inside of what. `Debug.Log` is inside our `Start` function. We know this because of the curly braces. So we make `Debug.Log` indented a little further than start.\
 Most editors (like the one Unity will have opened for you) automatically indent your code and help maintain a standard "Syntax". Syntax is our fancy word for the formatting of code.
 
 There are tons of rules you can follow for writing syntactically nice code. Certain people prefer certain rule sets over others. This is mainly down to personal choice but it is **extremely** encouraged to follow a rule set, otherwise you will not have a good time.\
@@ -84,7 +84,7 @@ There are three points of syntax I will touch on specifically.
 
 ### White Space
 
-White space is spaces " " just like that. C# is a white space insensitive language.\
+[White space](https://www.oreilly.com/library/view/programming-c/0596001177/ch03s04.html) is spaces " " just like that. C# is a white space insensitive language.\
 Meaning :
 
 ```csharp
@@ -113,7 +113,7 @@ UpperCamelCase just means that the first letter is capitalized along with the fi
 So `my code program` is written in UpperCamelCase as `MyCodeProgram`. As you'll notice this is the same as Unity's functions like `Start` or `UnityEngine`.\
 It is typically recomended to use this yourself in order to have your code look the same as to avoid confusion.
 
-Now that is for Unity's functions, classes, and the likes. Unity does use lowerCamelCase for it's variables. We will talk about what variables are in the next lesson. For now just know they are written in lowerCamelCase. I bet you can guess what that means.
+Now that is for Unity's functions, classes, and the likes. Unity does use [lowerCamelCase](https://whatis.techtarget.com/definition/lowerCamelCase) for it's variables. We will talk about what variables are in the next lesson. For now just know they are written in lowerCamelCase. I bet you can guess what that means.
 
 A variable we wanted to call `my great variable` would actually be called `myGreatVariable`. We'll leave the examples alone for now. Again this is usually recomended to follow these guidelines for now.
 
@@ -135,17 +135,17 @@ Just follow along with my spacing and indenting but remember it does not need to
 Save this script and return to Unity.\
 Now we need to put our script into the scene. We do this the same way we put a component on our object.\
 Let's just create a new "Empty Object" and give it a name.\
-Click onto it and add our script to it. Just like you would with the collider. The name of the component will be the same you gave the script.\
+Click onto it and [add our script to it](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html). Just like you would with the collider. The name of the component will be the same you gave the script.\
 It should look like this after :
 
 ![ScriptOnObject](Images/ScriptOnObject.JPG)
 
-Now hover over "Window" along the top bar, go down to "General", and then find and click on "Console". This brings up the Console which is where Unity will type messages for us from errors, code, and the likes.\
+Now hover over "Window" along the top bar, go down to "General", and then find and click on ["Console"](https://docs.unity3d.com/Manual/Console.html). This brings up the Console which is where Unity will type messages for us from errors, code, and the likes.\
 With this open, run the game. You should see :
 
 ![ConsoleMessage](Images/ConsoleMessage.JPG)
 
-And there you go. You've written code and passed the age old tradition of saying "Hello World".\
+And there you go. You've written code and passed the [age old tradition](https://blog.hackerrank.com/the-history-of-hello-world/) of saying "Hello World".\
 Now how did we do this? This might seem like a lot of info but trust me, once you get it all on paper you can break it down easier.\
 Let's start small and work upwards.  
 
@@ -153,16 +153,16 @@ Let's start small and work upwards.
 
 What does `Debug.Log("Hello World");` actually do? There's four parts to this :  
 
-1. `Debug` is a class in Unity. We mentioned classes in the last [lesson](./1%20UnityScripts.md). In this case the class `Debug` contains lots of different functions we can use to "debug" or find and fix problems in our game.\
+1. `Debug` is a [class](https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/intro-to-csharp/introduction-to-classes) in Unity. We mentioned classes in the last [lesson](./1%20UnityScripts.md). In this case the class `Debug` contains lots of different functions we can use to "debug" or find and fix problems in our game.\
 To use the `Debug` class simply type it and make sure you have `using UnityEngine;` at the top of your code.
 
-1. `Log()` is one of the functions in the class `Debug`. In this case the `Log` function "prints" out text into the Console that we opened up a moment ago.\
+1. `Log()` is one of the [functions](https://docs.unity3d.com/ScriptReference/Debug.Log.html) in the class `Debug`. In this case the `Log` function "prints" out text into the Console that we opened up a moment ago.\
 Because this function is part of the `Debug` class we need to call from the class. What this means is if were to just call `Log("Hello World");` our code would error. Feel free to try this if you want to see for yourself.\
-They way we call `Log` on `Debug` is by using the period `.` or the dot as it is commonly refered to. The dot allows us to "access" function or variable from something like a class.\
+They way we call `Log` on `Debug` is by using the [period](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/member-access-operators) `.` or the dot as it is commonly refered to. The dot allows us to "access" function or variable from something like a class.\
 When we write `Debug.Log` we are calling the `Log` function that is part of the `Debug` class.\
-We also have the brakcets, `()`. These are similar to the curly braces but rather than containing the code to make up a function or class they contain the values "pased" into our function.
+We also have the brakcets, `()`. These are similar to the curly braces but rather than containing the code to make up a function or class they contain the values ["passed"](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/passing-value-type-parameters) into our function.
 
-1. `"Hello World"` is a "string" passed as a value into the function `Log`. These values must be within the brackets `()` of the function.\
+1. `"Hello World"` is a ["string"](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/reference-types) passed as a value into the function `Log`. These values must be within the brackets `()` of the function.\
 In the next lesson we'll talk about what string means so for now just call it a value. A function can take values and use them to do just about anything, in our case write out the value.\
 The quotation marks `""` are specific to strings and not any value passing into a function.
 
