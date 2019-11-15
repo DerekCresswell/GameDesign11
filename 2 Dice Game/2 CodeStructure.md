@@ -99,10 +99,6 @@ Just because you can does **not** mean you should.
 
 *Note that inside of quotes `""` __is__ white space sensitive. You'll find out why in the next lesson.*
 
-Here is a little write up of the syntax used in these courses if you'd like to use it.
-
-//ADD SYNTAX FILE
-
 ### Case Sensitivity
 
 Case or capitalisation is important in C#. `Debug.Log()` is **not** the same as `debug.log()` or `deBUG.loG()`.\
@@ -129,6 +125,8 @@ Bad : `// Adds two numbers` or `// blahh it does some stuff`
 
 All the code written in these lessons will be using my prefered syntax. It's recomended to use it as well until you understand enought to figure out what you'd prefer and set up your editor to help.\
 Just follow along with my spacing and indenting but remember it does not need to be exact. You'll pick up these skills along the way.
+
+[Here](./Syntax.md) is a little write up of the syntax used in these courses if you'd like to use it.
 
 ## Adding Scripts To Objects
 
