@@ -73,7 +73,7 @@ The function should look like this :
 ## Syntax
 
 Before we continue we should talk about my spacing. You'll notice that the `Start` and `Update` functions are tabbed in and now the `Debug.Log` is tabbed in again.\
-This is to ensure our code is ["readable"](https://medium.com/@egonelbre/psychology-of-code-readability-d23b1ff1258a) so when have to come back to it or someone else wants to look at the code it is very easy to see where everything is and what it does.\
+This is to ensure our code is ["readable"](https://medium.com/@egonelbre/psychology-of-code-readability-d23b1ff1258a) (*Note* some may call not like calling this syntax and instead use coding standards) so when have to come back to it or someone else wants to look at the code it is very easy to see where everything is and what it does.\
 The main idea with [tabbing](http://mrbool.com/importance-of-code-indentation/29079) in our code is that we want to be able to see what is inside of what. `Debug.Log` is inside our `Start` function. We know this because of the curly braces. So we make `Debug.Log` indented a little further than start.\
 Most editors (like the one Unity will have opened for you) automatically indent your code and help maintain a standard "Syntax". Syntax is our fancy word for the formatting of code.
 
