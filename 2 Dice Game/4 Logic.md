@@ -153,3 +153,77 @@ When you are in doubt, just use parantheses.
 ## Control Structures
 
 Know that we can create more complex boolean statements we need a way to use them. This is where Control structures come in.
+
+### If Statements
+
+The ["if statement"](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/if-else) is used to determine which block of code should be run based on a boolean value. Let's hop right into an example.
+
+```csharp
+bool myBool = true;
+
+if(myBool) {
+	// Code within these curly braces will be executed if myBool IS true.
+	Debug.Log("Hi");
+	myBool = false;
+}
+// The above block of code will run as myBool was declared as true.
+
+if(myBool) {
+	Debug.Log("Bye");
+}
+// The above block of code will NOT run as myBool was set to false in the first block.
+```
+
+The out put of that program is :\
+`Hi`
+
+`Bye` is not printed because in the first statement we set the value of `myBool` to false.\
+The structure of an `if` has three parts :
+
+1. The keyword `if` denotes that this is an `if` statment. Pretty simple.
+1. Next you have parenthesis `()`. These contain the boolean value, or boolean expression, that determines if the statement body should run.
+1. Then you have curly braces `{}` with the code to run in between them. Indent the code in here to keep it pretty.
+
+To determine whether or not the code executes you can use any boolean expression.\
+Above we directly use a bool to say `true` or `false`.\
+Similarily we can use expressions (like `if(true || false)`, `if(4 >= 2)`, and others shown [above](#boolean-order-of-operations)).\
+
+### Else Statements
+
+The ["else statement"](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/if-else) is basically just a second `if`.\
+The code within an `else` statement is executed if the `if` does not execute. So if the `if` is `false`.
+
+```csharp
+bool myBool = true;
+
+if(myBool) {
+	// Code within these curly braces will be executed if myBool IS true.
+	Debug.Log("Hi");
+	myBool = false;
+} else {
+	// Code within these curly braces will be executed if myBool IS false.
+	Debug.Log("Bye");
+}
+// The above block of code will run the if statement.
+
+if(myBool) {
+	Debug.Log("If");
+} else {
+	Debug.Log("Else");
+}
+// The above block of code will run the else statement.
+```
+
+The out put of that program is :\
+`Hi`\
+`Else`
+
+`Bye` is not printed because in the first statement the `if` is executed.\
+In the second the `else` is executed because the `if` is false.\
+Think of it like :
+
+> If a condition is meant, do this. Else do this.
+
+Almost seems like they though about the name.
+
+### Else If Statements
