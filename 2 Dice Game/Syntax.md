@@ -93,6 +93,7 @@ class Test {
 
     static int TESTVAR;
 
+    [Range(0,1)]
     public int var1;
     public int var2;
 
@@ -108,4 +109,11 @@ class Test {
 
 ```
 
-New lines should be used to break up groups of similar variables.
+New lines should be used to break up groups of similar variables.\
+Properties (Header, Range, Serializable) are placed on the line preceding their coresponding variable.\
+Arrange variables based on their Access Levels. Typically top to bottom like :
+
+* Static
+* Public
+* Default
+* Private
