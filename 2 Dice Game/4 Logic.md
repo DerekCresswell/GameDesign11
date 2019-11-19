@@ -186,7 +186,7 @@ The structure of an `if` has three parts :
 
 To determine whether or not the code executes you can use any boolean expression.\
 Above we directly use a bool to say `true` or `false`.\
-Similarily we can use expressions (like `if(true || false)`, `if(4 >= 2)`, and others shown [above](#boolean-order-of-operations)).\
+Similarily we can use expressions (like `if(true || false)`, `if(4 >= 2)`, and others shown [above](#boolean-order-of-operations)).
 
 ### Else Statements
 
