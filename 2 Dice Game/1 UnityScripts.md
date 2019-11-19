@@ -54,6 +54,8 @@ A very common use for comments are adding notes to your code so that others can 
 They can also be written :
 
 ```csharp
+// The Computer will not know this exists!
+
 /*
 	This is commented out.
 	And so is this.
@@ -73,13 +75,14 @@ An example I like to think of is a car. A car has wheels, an engine, and a steer
 Instead of saying what a car is a bunch of times I can simply make `class Car` that contains things like the type of engine, the color, the ability to speed up.\
 Then whenever I want to make a new car I can use this predefined `class` to speed up thaat process.\
 Classes are blueprints that can build off of each other. In this case `TestScript` inherits from ["MonoBehaviour"](https://docs.unity3d.com/ScriptReference/MonoBehaviour.html), denoted by the `:`, which is a class created by Unity.\
-Here we can use all of the functionality that was made in `MonoBehaviour` in a new way.
+Here we can use all of the functionality that was made in `MonoBehaviour` in a new way.\
+Topics like Classes can be extremely confusing at first. Don't worry if this sounds real funky, it'll become second nature soon.
 
 #### Functions
 
 Then we have `void Start()` and `void Update()`. These are [functions](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/methods) (in some situations functions are called ["methods"](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/methods) but they are the same for our case). Functions allow us to write code once then call it lots of times throughout your code.\
 The two functions written here are from the `MonoBehaviour` class we talked about above.\
-`void` is the [type](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/) of data the function gives back to us, in this case [nothing]((https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/void)).
+`void` is the [type](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/) of data the function gives back to us, in this case [nothing](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/void).
 
 That's quite a bit of info to take in. That might not have all made a bunch of sense but that's ok. There is a good bit to code and especially to start with. It's typically easier once we start writing code to understand these things.\
 We also have a file of refrence material with links to videos and tutorials that go a lot more into the explanation if you need that.\
