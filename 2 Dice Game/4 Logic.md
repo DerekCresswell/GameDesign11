@@ -222,7 +222,7 @@ The out put of that program is :\
 In the second the `else` is executed because the `if` is false.\
 Think of it like :
 
-> If a condition is meant, do this. Else do this.
+> If a condition is met, do this. Else do this.
 
 Almost seems like they though about the name.
 
