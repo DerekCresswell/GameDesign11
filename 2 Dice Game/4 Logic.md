@@ -227,3 +227,31 @@ Think of it like :
 Almost seems like they though about the name.
 
 ### Else If Statements
+
+Now the last thing we need to talk about for `if` statements is that we chain them together using an ["else if statement"](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/if-else).\
+We do this like so :
+
+```csharp
+bool myBool = false;
+bool mySecondBool = true;
+
+if(myBool) {
+	// This code will be run if the "if" is evaluates to true.
+	Debug.Log("Hi");
+} else if(mySecondBool) {
+	// This code will be run if the first "if" is false and this one evaluates to true.
+	Debug.Log("Bye");
+} else {
+	// This code will run if the other statements fail.
+	Debug.Log("See ya later");
+}
+
+```
+
+We are effectively chaining the `if`'s together. If the first one fails we check against the next one, then the next, until finally if all else fails, our `else` runs.\
+It is important to note that only **ONE** block of code can run like this. If two `if` statements are both true, only the first one in the list will be run. If you need more than one `if` statement to be checked and run do not chain them with `else` statements.\
+Go and make your own series of `if` statements 
+
+## Scope
+
+The last part of this lesson we are talking about "Scope". Scope is the idea of where our program can "see" different variables.
