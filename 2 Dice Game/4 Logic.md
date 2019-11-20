@@ -254,4 +254,58 @@ Go and make your own series of `if` statements
 
 ## Scope
 
-The last part of this lesson we are talking about "Scope". Scope is the idea of where our program can "see" different variables.
+The last part of this lesson we are talking about "Scope". Scope is the idea of where our program can "see" different variables.\
+Let's do a quick example.
+
+```csharp
+class Test {
+
+	int var1;
+
+	function myFunc() {
+
+		int var2;
+
+		if(true) {
+
+			int var3;
+
+		}
+
+
+	}
+
+}
+```
+
+Here we see three "levels" or scopes to our code. Inside our class, inside our function, and inside the if statement. These scopes can been seen usually with the curly braces `{}`.\
+Let's change this program up to see how these scopes affect our variables.
+
+```csharp
+class Test {
+
+	int var1;
+
+	function myFunc() {
+
+		var1 = 3;
+		int var2 = var1; // This works. var2 == 3.
+
+		if(true) {
+
+			int var3 = var1; // This works. var3 == 3;
+
+		}
+
+		var2 = var3; // This errors. var3 is not declared within this scope.
+
+
+	}
+
+}
+```
+
+As shown by the comments above some of these assignments work and others don't.\
+Since `myFunc` is within the scope (the curly braces `{}`) of the class `Test` we have access to the var `var1`.\
+Within the `if` statement we can also access `var1`. Again this is because the `if` is within the scope of the class `Test`. Though you might say the `if` is within `myFunc` which is within `Test`. Either work.\
+Then after our `if` statement we can see that trying to access `var3` and it errors.
