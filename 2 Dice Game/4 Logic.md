@@ -299,7 +299,6 @@ class Test {
 
 		var2 = var3; // This errors. var3 is not declared within this scope.
 
-
 	}
 
 }
@@ -308,4 +307,25 @@ class Test {
 As shown by the comments above some of these assignments work and others don't.\
 Since `myFunc` is within the scope (the curly braces `{}`) of the class `Test` we have access to the var `var1`.\
 Within the `if` statement we can also access `var1`. Again this is because the `if` is within the scope of the class `Test`. Though you might say the `if` is within `myFunc` which is within `Test`. Either work.\
-Then after our `if` statement we can see that trying to access `var3` and it errors.
+Then after our `if` statement we can see that trying to access `var3` and it errors. Since `var3` exists within the scope of the `if` we cannot access it from the scope of `myFunc`. This is because scopes only work one way, you can access something in a higher scope but not a lower scope.
+
+I've always thought of scopes as a series of doors.\
+You start in one room (the class) with some variables. You can use these variables however you'd like. Then you go into the next room (a function) and you leave the door open behind you.\
+In this new room there are new variables that you can use. Since you left the door open you can still look back to the previous room and use those variables.\
+Once you are done in the function you leave the room and close the door meaning you can't see those variables (in the function) anymore.\
+Hopefully that makes some sense.
+
+// GRAPHIC NEEDED
+
+A side part of scopes would be this :
+
+```csharp
+class Test {
+
+	var1 = 3; // ERROR, var1 is not defined.
+	int var1; // var1 is defined here.
+
+}
+```
+
+Since our script runs top to bottom (ish) we cannot use a variable unless it's been declared already, Just like above.
