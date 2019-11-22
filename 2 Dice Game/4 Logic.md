@@ -317,6 +317,7 @@ Hopefully that makes some sense.
 
 // GRAPHIC NEEDED
 
+*Note*
 A side part of scopes would be this :
 
 ```csharp
@@ -329,3 +330,34 @@ class Test {
 ```
 
 Since our script runs top to bottom (ish) we cannot use a variable unless it's been declared already, Just like above.
+
+## On Your Own
+
+Alright that was a lot of content to get through. We've got a little more to come still. To prepare for that try out some activities on your own to familiarize yourself with these concepts.
+
+1. See if you can combine boolean operators to create these truth table (where C is the output) :
+
+`A` | `B` | `C`
+--- | --- | ---
+`0` | `0` | `0`
+`1` | `0` | `1`
+`0` | `1` | `1`
+`1` | `1` | `0`
+
+<hr />
+
+`A` | `B` | `C`
+--- | --- | ---
+`0` | `0` | `1`
+`1` | `0` | `1`
+`0` | `1` | `1`
+`1` | `1` | `0`
+
+<hr />
+
+`A` | `B` | `C`
+--- | --- | ---
+`0` | `0` | `1`
+`1` | `0` | `0`
+`0` | `1` | `0`
+`1` | `1` | `0`
