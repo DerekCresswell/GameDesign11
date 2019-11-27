@@ -7,7 +7,7 @@ Here we will talk about loops in our code.
 We've already seen functions in our code and how they hold blocks of code so we can reuse them.\
 Functions aren't always the best fit for our problems though. Lot's of the time a loop better suits our needs. Let's go over the two main types of loops we will use.
 
-### For Loop
+### For Loops
 
 The "For Loop" is used to repeat through a block of code a certain amount of times.\
 As usual let's get an example up and then walk through it.
@@ -70,4 +70,30 @@ This misses some of the nuances of the loop but will do for our purposes.\
 Use loops to repeat code a certain amount of times or until a condition is met.
 
 ### While Loops
+
+A "While Loop" is really the same thing as the `for` loop except with a different declaration.\
+A `while` loop only takes a boolean or boolean expression. For instance :
+
+```csharp
+int i = 5;
+while(i > 0) {
+	Debug.Log(i);
+	i--;
+}
+```
+
+The output of this is :
+
+```csharp
+5
+4
+3
+2
+1
+```
+
+This one is counting down for variety, no reason it couldn't do the same as the `for` loop.\
+Since there is not too much different between `while` and `for` loops we are going to move right on to the next important part of loops.
+
+### Infinite Loops
 
