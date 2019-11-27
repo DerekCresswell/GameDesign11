@@ -97,3 +97,20 @@ Since there is not too much different between `while` and `for` loops we are goi
 
 ### Infinite Loops
 
+Infinite loops are dangerous. One wrongly placed `>` can quickly stop all of your code execution.\
+These infinite loops are caused when the boolean statement given to the loop will never become false. Our code will break because the computer will loop forever and never be able to break out of the loop. Eventually the computer will run out of memory and decide to exit your program with an error.\
+Here are two examples :
+
+```csharp
+while(true) {}
+// This should be fairly self explanatory.
+
+int myInt = 5;
+while(myInt < 0) {
+	myInt++;
+}
+// myInt is being incremented NOT decremented and will never be less than 0.
+```
+
+Go ahead and try running these. Don't worry your computer won't burst into flames, it will just tell you that something is wrong.\
+When you get errors like this try stepping your code carefully. Often there is a single character out of place. Other times you may need to look more at the overlying logic of your code. Perhaps an `if` statement inside the loop has a loophole that will make it never be true.
