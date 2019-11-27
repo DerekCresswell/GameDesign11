@@ -114,3 +114,12 @@ while(myInt < 0) {
 
 Go ahead and try running these. Don't worry your computer won't burst into flames, it will just tell you that something is wrong.\
 When you get errors like this try stepping your code carefully. Often there is a single character out of place. Other times you may need to look more at the overlying logic of your code. Perhaps an `if` statement inside the loop has a loophole that will make it never be true.
+
+## On Your Own
+
+Loops can seem simplier on the outside than perhaps the [boolean logic](./4%20Logic.md) we just went through but they can become very versatile.\
+Here's a few ideas to practice with.
+
+1. Make a loop that prints only even numbers, then make it print only odd numbers.
+
+1. Try putting a loop inside of another loop and figure out how it prints out some numbers.
