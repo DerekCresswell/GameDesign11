@@ -123,3 +123,5 @@ Here's a few ideas to practice with.
 1. Make a loop that prints only even numbers, then make it print only odd numbers.
 
 1. Try putting a loop inside of another loop and figure out how it prints out some numbers.
+
+1. Print out a mathematical sequence of numbers. Exponential, the Fibonacci sequence, mulitples of x, or factorials perhaps.
