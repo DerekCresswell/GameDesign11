@@ -17,4 +17,26 @@ With this is mind let's disect the problem into smaller chunks. We'll start it o
 
 1. Alternate between the players turns generating a random value for each.
 
-Hopefully you can see the pattern. Take the big problem and try to break it into a smaller task.
+Hopefully you can see the pattern. Take the big problem and try to break it into a smaller task.\
+Try to write down the rest of what we might need. Once you are done or if you get stuck take a peek below.
+
+<details>
+<summary>The pieces of the puzzle</summary>
+ 
+1. Have two "players" with a value of sorts to keep track of (EX : health).
+
+1. Alternate between the players turns generating a random value for each.
+
+1. Do something based off of the dice value (EX : attack, heal).
+
+1. Print out what happened.
+
+1. Check to see if someone has won. If so stop and print out the winner.
+
+1. Repeat.
+ 
+</details>
+
+With this plan in mind we can start building a template. Follow along with this to get the idea of how we are building this game. Afterwards you will have this as a template to work with and expand for the actual dice game.
+
+### The Players
