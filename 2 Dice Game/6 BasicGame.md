@@ -40,3 +40,28 @@ Try to write down the rest of what we might need. Once you are done or if you ge
 With this plan in mind we can start building a template. Follow along with this to get the idea of how we are building this game. Afterwards you will have this as a template to work with and expand for the actual dice game.
 
 ### The Players
+
+To start let's first make a [new C# Script](./1%20UnityScripts.md#adding-scripts-in-unity) or even a new project if you'd like a fresh start.\
+Give this script the name "DiceGameTemplate" or similar. Open it up and let's start coding!
+
+```csharp
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class DiceGameTemplate : MonoBehaviour {
+
+    // Start is called before the first frame update
+    void Start() {
+        
+    }
+
+    // Update is called once per frame
+    void Update() {
+        
+    }
+
+}
+```
+
+For the template we are going to use very generic names and story. Make sure to be more creative for your own.\
