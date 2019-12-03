@@ -25,7 +25,9 @@ Try to write down the rest of what we might need. Once you are done or if you ge
  
 1. Have two "players" with a value of sorts to keep track of (EX : health).
 
-1. Alternate between the players turns then generating a random value for each.
+1. Alternate between the players turns.
+
+1. Generating random values for each turn.
 
 1. Do something based off of the dice value (EX : attack, heal).
 
@@ -98,7 +100,7 @@ That's a fine starting point and does what we needed to do in the first part of 
 
 ### Taking Turns
 
-The next part of our problem involves alternating between our players turn and then "rolling the dice". Let's start with the first bit of this problem which is taking turns.\
+The next part of our problem involves alternating between our players turns. Let's start with figuring out how we should go about this.\
 This may not be inherently obvious but we are going to use another `int` and check if it is even or odd. This is a very common method.\
 Start by creating another variable called "turnCounter" or similar. It will be an `int` and have an intial value of "0";
 
@@ -125,3 +127,50 @@ public class DiceGameTemplate : MonoBehaviour {
 
 }
 ```
+
+Then as we said, we need to check it `turnCounter` is even or odd. We can do this with the ["modulus operator"](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators#remainder-operator-).\
+The modulus or remainder operator gives us the remainder of division between two numbers. It's used like `5 % 2` will return `1` because `2` can go into `5` twice with one left over.\
+Perhaps you can see just from that how we can check for even-ness. All we need to do is take the remainder of two. If it returns one, the number is odd. If it returns zero, the number is even. We can test this like so :
+
+```csharp
+3 % 2; // Equal to 1
+6 % 2; // Equal to 0
+0 % 2; // Equal to 0
+13 % 2; // Equal to 1
+```
+
+With this info we can test if a number is even using `if(num % 2 == 0)` where `num` is the number we are checking. Using this in our code will look like this : (full script omitted for brevity)
+
+```csharp
+    // Start is called before the first frame update
+    void Start() {
+        
+    	if(turnCounter % 2 == 0) {
+    		// Player One's Turn
+    	} else {
+    		// Player Two's Turn
+    	}
+
+    }
+```
+
+Now we do need to update the `turnCounter` value otherwise it will stay zero forever. We want to always increment `turnCounter` regardless of who's turn it is so we should increment the value **After** the `if` and `else` statement.
+
+```csharp
+    // Start is called before the first frame update
+    void Start() {
+        
+    	if(turnCounter % 2 == 0) {
+	   		// Player One's Turn
+    	} else {
+    		// Player Two's Turn
+    	}
+
+    	turnCounter++;
+
+    }
+```
+
+That should be all for determining who's turn it is. Onto the next bit of the turns, generating the random numbers.
+
+### Random Numbers
