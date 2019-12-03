@@ -154,6 +154,7 @@ With this info we can test if a number is even using `if(num % 2 == 0)` where `n
     }
 ```
 
+Just put this code into the `Start` function for now.
 Now we do need to update the `turnCounter` value otherwise it will stay zero forever. We want to always increment `turnCounter` regardless of who's turn it is so we should increment the value **After** the `if` and `else` statement.
 
 ```csharp
@@ -174,3 +175,30 @@ Now we do need to update the `turnCounter` value otherwise it will stay zero for
 That should be all for determining who's turn it is. Onto the next bit of the turns, generating the random numbers.
 
 ### Random Numbers
+
+After getting our turns setup we need to actually do something in our turns. Otherwise this would be one boring game.\
+We now need to "roll some dice". We can do this using a pre-made Unity class called ["Random"](https://docs.unity3d.com/ScriptReference/Random.html). The Random class has a method perfect for us called ["Range"](https://docs.unity3d.com/ScriptReference/Random.Range.html).\
+If you open up that page you can read a bit about how it works. You can also see from the examples how we need to access this function. First we need to reference the class, `Random`, then access the `Range` function with a `.` like so `Random.Range();`.\
+Now this will error because we have not given the function any parameters. If you look at the [Scripting API](https://docs.unity3d.com/Manual/index.html) it will tell you that `Range` needs two numbers. These can be either `float` or `int` types, but seeing as we are simulating dice we will only want whole numbers.\
+Let's start typing it out.
+
+```csharp
+    // Start is called before the first frame update
+    void Start() {
+        
+    	int dieOne = Random.Range(0, 7);
+
+    	if(turnCounter % 2 == 0) {
+	   		// Player One's Turn
+    	} else {
+    		// Player Two's Turn
+    	}
+
+    	turnCounter++;
+
+    }
+```
+
+Alright that might seem a little weird so let's pick it apart.\
+First thing is that we want to store this random number into a variable (`int dieOne`) because will need to use this number throughout the turn. If we did not store the number to a variable we'd only be able to access it once. Every time we call the `Range` function it creates a **new** number so we need to use a variable to access it more than once.\
+Next is the placement. We've put it above the `if` statements because it doesn't matter who's turn it is we need a random number. This also makes it accessiable throughout the rest of the turn and in any `if`s we have.
