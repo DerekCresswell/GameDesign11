@@ -186,7 +186,7 @@ Let's start typing it out.
     // Start is called before the first frame update
     void Start() {
         
-    	int dieOne = Random.Range(0, 7);
+    	int dieOne = Random.Range(1, 7);
 
     	if(turnCounter % 2 == 0) {
 	   		// Player One's Turn
@@ -201,4 +201,12 @@ Let's start typing it out.
 
 Alright that might seem a little weird so let's pick it apart.\
 First thing is that we want to store this random number into a variable (`int dieOne`) because will need to use this number throughout the turn. If we did not store the number to a variable we'd only be able to access it once. Every time we call the `Range` function it creates a **new** number so we need to use a variable to access it more than once.\
-Next is the placement. We've put it above the `if` statements because it doesn't matter who's turn it is we need a random number. This also makes it accessiable throughout the rest of the turn and in any `if`s we have.
+Next is the placement. We've put it above the `if` statements because it doesn't matter who's turn it is we always need a random number. This also makes it accessiable throughout the rest of the turn and in any `if`s we have.\
+The last bit is the values we've passed in, `1` and `7`. Now you could pass whatever you would like into this, here we are simply emulating a six sided die. The reason `1` is the lower limit and `7` is the upper limit is because the [Scripting API](https://docs.unity3d.com/Manual/index.html) tells us the integer version of `Range`, which we are using, has an inclusive minimum and exclusive maximum.\
+What this means is the first number passed in, here being `1`, is going to be inclusive. `Range` **can** return `1`.\
+The second number, here being `7`, is going to be exclusive. `Range` **cannot** return `7` but can return up to it.\
+Because of these inclusive and exclusive rules the possible numbers we can get back are `1, 2, 3, 4, 5, 6` when we input `(1, 7)` into range. As a more flexible definition think of it like this.
+
+> When we pass in the parameters `min` and `max` to `Range` we can receive a value from and including `min` up to and including `max - 1`.
+
+All of this boils down to having `dieOne` set to a random number between one and six at the start of a players turn.
