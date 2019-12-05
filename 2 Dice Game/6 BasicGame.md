@@ -282,4 +282,10 @@ Now if `dieOne` was set to `4` the first two statements would fail and not execu
 As you can see, this logic is flawed for our purpose as multiple `if`'s can be true and we do not want that, thus, we should use `else` statements. Of course you can use just `if`'s but the logic needs to be laied out differently.
 
 Now for the arbitrary choice.\
-This would be the logic we have put inside of our `if` statements.
+This would be the logic we have put inside of our `if` statements. Let's start by saying you could write this any way you'd like and if it works, it pretty well should be good.\
+Here we've started with checking `6` directly with a `==`. This is simply because we want to check if the number rolled was a `6`. Then the same goes for `5`. In our little list above we had `6` and `5` seperate so it makes sense to test for them individually.\
+After that we have `dieOne >= 3`. This checks to see if `dieOne` is `3` or above. As we showed above, if the number is `5` or `6` you may think that this will still trigger here. But remember, because we've used `else` statements only one of them may execute. Because we only have to check this third statement if both of the first two fail we can be certain the number is not `5` or `6`.\
+The same goes for the last `else` statement. We do not strictly need an `if` here because if all of the above checks have failed the only options left are `1` and `2` so it must be true. Of course you can just as well put `if(dieOne >= 1)` and nothing will change.\
+There are really countless ways to do this. You can check every number with a `==` if you'd like. As long as it works when you test it. what we have here would be considered the "right" way of doing this.
+
+Now that we've got the structure layed out let's start doing some damage, literally!
