@@ -210,3 +210,19 @@ Because of these inclusive and exclusive rules the possible numbers we can get b
 > When we pass in the parameters `min` and `max` to `Range` we can receive a value from and including `min` up to and including `max - 1`.
 
 All of this boils down to having `dieOne` set to a random number between one and six at the start of a players turn.
+
+### Doing something
+
+// MAKE TITLE BETTER
+
+Now that we have a random number and have figured out who's turn it is, we ought to do something.\
+In this template we will use the number rolled to determine the "power" of an attack and take that away from the players health. If that makes sense it's encouraged that you try doing this on your own first and see how it goes. You can always come back after and use the methods listed here. There isn't really a wrong way to do this so go ahead and try it!\
+First let's list out what we'd like each dice roll to do. For the this template how about :
+
+* `1` & `2` deal `5` damage.
+* `3` & `4` deal `10` damage.
+* `5` deals `15` damage.
+* `6` will deal `30` damage!
+
+Chose to do whatever you'd like for these.\
+Now that we've got that plan let's start implementing it. We will simply use `if else` statements to decide on the damage.
