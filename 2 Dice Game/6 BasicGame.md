@@ -200,7 +200,7 @@ Let's start typing it out.
 ```
 
 Alright that might seem a little weird so let's pick it apart.\
-First thing is that we want to store this random number into a variable (`int dieOne`) because will need to use this number throughout the turn. If we did not store the number to a variable we'd only be able to access it once. Every time we call the `Range` function it creates a **new** number so we need to use a variable to access it more than once.\
+First thing is that we want to store this random number into a variable (`int dieOne`, We've used the suffix `One` here as there will be two dice later) because will need to use this number throughout the turn. If we did not store the number to a variable we'd only be able to access it once. Every time we call the `Range` function it creates a **new** number so we need to use a variable to access it more than once.\
 Next is the placement. We've put it above the `if` statements because it doesn't matter who's turn it is we always need a random number. This also makes it accessiable throughout the rest of the turn and in any `if`s we have.\
 The last bit is the values we've passed in, `1` and `7`. Now you could pass whatever you would like into this, here we are simply emulating a six sided die. The reason `1` is the lower limit and `7` is the upper limit is because the [Scripting API](https://docs.unity3d.com/Manual/index.html) tells us the integer version of `Range`, which we are using, has an inclusive minimum and exclusive maximum.\
 What this means is the first number passed in, here being `1`, is going to be inclusive. `Range` **can** return `1`.\
@@ -225,4 +225,61 @@ First let's list out what we'd like each dice roll to do. For the this template 
 * `6` will deal `30` damage!
 
 Chose to do whatever you'd like for these.\
-Now that we've got that plan let's start implementing it. We will simply use `if else` statements to decide on the damage.
+Now that we've got that plan let's start implementing it. We will simply use `if else` statements to decide on the damage.\
+The main thing we need to consider with this bit of logic is the order to do it in. If we lay out our if statements right we can make them simpiler and faster.\
+Let's get the structure down.
+
+```csharp
+    // Start is called before the first frame update
+    void Start() {
+        
+    	int dieOne = Random.Range(1, 7);
+
+    	if(turnCounter % 2 == 0) {
+	   		
+	   		// Player One's Turn
+    		if(dieOne == 6) {
+
+    		} else if(dieOne == 5) {
+
+    		} else if(dieOne >= 3) {
+
+    		} else {
+
+    		}
+
+    	} else {
+    		// Player Two's Turn
+    	}
+
+    	turnCounter++;
+
+    }
+```
+
+We've made a few arbitrary choices here and a few important ones.
+
+To start with the necessary choices. This is mainly the fact that we are using `if else` statements rather than simply `if` statements.\
+The reason for this is that if the die has one value, that is the only value we should use. Meaning if `dieOne` is `5` we only want to use the logic in `5`'s section of the if statement and not the `3` and `4` section obviously. By using `else` statements we can make sure only one thing will happen per die value.\
+If we were to re-write this without the `else`'s it would look like this :
+
+```csharp
+if(dieOne == 6) {
+
+} 
+if(dieOne == 5) {
+
+} 
+if(dieOne >= 3) {
+
+} 
+if(dieOne >= 1) {
+
+}
+```
+
+Now if `dieOne` was set to `4` the first two statements would fail and not execute their code. Then it would hit the third statement and it be true and execute that code. Then because there is no `else` statements, `dieOne` would be checked against the fourth `if` statement. Since `4` is greater or equal to `1` the code within that `if` would execute.\
+As you can see, this logic is flawed for our purpose as multiple `if`'s can be true and we do not want that, thus, we should use `else` statements. Of course you can use just `if`'s but the logic needs to be laied out differently.
+
+Now for the arbitrary choice.\
+This would be the logic we have put inside of our `if` statements.
