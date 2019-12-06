@@ -162,7 +162,7 @@ Now we do need to update the `turnCounter` value otherwise it will stay zero for
     void Start() {
         
     	if(turnCounter % 2 == 0) {
-	   		// Player One's Turn
+	   	// Player One's Turn
     	} else {
     		// Player Two's Turn
     	}
@@ -189,7 +189,7 @@ Let's start typing it out.
     	int dieOne = Random.Range(1, 7);
 
     	if(turnCounter % 2 == 0) {
-	   		// Player One's Turn
+	   	// Player One's Turn
     	} else {
     		// Player Two's Turn
     	}
@@ -237,7 +237,7 @@ Let's get the structure down.
 
     	if(turnCounter % 2 == 0) {
 	   		
-	   		// Player One's Turn
+	   	// Player One's Turn
     		if(dieOne == 6) {
 
     		} else if(dieOne == 5) {
