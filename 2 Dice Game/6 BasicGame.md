@@ -211,9 +211,7 @@ Because of these inclusive and exclusive rules the possible numbers we can get b
 
 All of this boils down to having `dieOne` set to a random number between one and six at the start of a players turn.
 
-### Doing something
-
-// MAKE TITLE BETTER
+### Turn Logic
 
 Now that we have a random number and have figured out who's turn it is, we ought to do something.\
 In this template we will use the number rolled to determine the "power" of an attack and take that away from the players health. If that makes sense it's encouraged that you try doing this on your own first and see how it goes. You can always come back after and use the methods listed here. There isn't really a wrong way to do this so go ahead and try it!\
@@ -225,6 +223,9 @@ First let's list out what we'd like each dice roll to do. For the this template 
 * `6` will deal `30` damage!
 
 Chose to do whatever you'd like for these.\
+
+#### Structure
+
 Now that we've got that plan let's start implementing it. We will simply use `if else` statements to decide on the damage.\
 The main thing we need to consider with this bit of logic is the order to do it in. If we lay out our if statements right we can make them simpiler and faster.\
 Let's get the structure down.
@@ -289,3 +290,5 @@ The same goes for the last `else` statement. We do not strictly need an `if` her
 There are really countless ways to do this. You can check every number with a `==` if you'd like. As long as it works when you test it. what we have here would be considered the "right" way of doing this.
 
 Now that we've got the structure layed out let's start doing some damage, literally!
+
+#### Dealing Damage
