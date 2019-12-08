@@ -222,7 +222,7 @@ First let's list out what we'd like each dice roll to do. For the this template 
 * `5` deals `15` damage.
 * `6` will deal `30` damage!
 
-Chose to do whatever you'd like for these.\
+Chose to do whatever you'd like for these.
 
 #### Structure
 
