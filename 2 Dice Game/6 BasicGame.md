@@ -292,3 +292,33 @@ There are really countless ways to do this. You can check every number with a `=
 Now that we've got the structure layed out let's start doing some damage, literally!
 
 #### Dealing Damage
+
+Now that our turn is set up properly we can start actually doing something with our dice rolls. This bit is nice and easy as we will simply subtract the values we stated [above](#turn-logic) from the players health.\
+This is all we will do in the example but if you can think of a different set of rules to go with try it out. Perhaps dealing damage times the die roll or use two dice and add in bonus damage if you roll snake eyes, damage based on current health, etc.\
+We simply need to add `playerVar -= damageValue` to each of our if statements while subbing in the correct values.
+
+```csharp
+if(dieOne == 6) {
+
+	playerOneHealth -= 30;
+
+} else if(dieOne == 5) {
+
+	playerOneHealth -= 15;
+
+} else if(dieOne >= 3) {
+
+	playerOneHealth -= 10;
+
+} else {
+
+	playerOneHealth -= 5;
+
+}
+```
+
+*Note* we are just working within player one's turn for now.
+
+Now when we roll a die we should see our player's health decrease by that much. If you were to run the game right now you won't see anything though. Let's remedy that by actually printing out what happened.
+
+### Printing A Story
