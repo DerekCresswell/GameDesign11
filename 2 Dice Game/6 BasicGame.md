@@ -347,7 +347,7 @@ if(dieOne == 6) {
 }
 ```
 
-Refer back to the [variables lesson](./3%20Variables.md/#using-variables) for more info on why we would do this.
+Refer back to the [variables lesson](./3%20Variables.md/#using-variables) for more info on why we would do this. You could also use this to say "they have X health left".
 
 Now we can just expand our code to print everytime we deal damage.
 
@@ -376,7 +376,8 @@ if(dieOne == 6) {
 ```
 
 You will have to make your messages more unique for your own dice game. We've done a little of that here.\
-You can also add messages to the start of the game or anywhere else in order to flesh out the story. Perhaps `Welcome to the game` at the beginning of the start function.
+You can also add messages to the start of the game or anywhere else in order to flesh out the story. Perhaps `Welcome to the game` at the beginning of the start function.\
+You can now go and take this logic for damage and printing and copy paste it into player two's turn. Remember, you will have to change the variable names.
 
 ### Winning The Game
 
@@ -408,3 +409,92 @@ We've put this after dealing the damage because checking for a win is not specif
 Hopefully using `<= 0` is fairly obvious. We are seeing if the player's health is zero or less. We do need to check both players as the game ends whenever one of them dies. We can do this in one `if` using an ["or"](./4%20Logic.md/#or-operator) (`||`) to combine the two checks. If you don't remember what the or does check back to [here](./4%20Logic.md/#or-operator).
 
 ### Looping Through Turns
+
+If you play your game right now it will likely be very boring. There will only be one turn printed. This is because our code is in the [start function](./2%20CodeStructure.md/#using-the-scripting-api) which is only run once.\
+Since we want to loop through the turns until one player dies we will use a [while loop](./5%20Loops.md/#while-loops).\
+We need to wrap our entire turn in this loop like so :
+
+```csharp
+ // Start is called before the first frame update
+    void Start() {
+        
+    	while(/*Boolean Statement*/) {
+
+	    	int dieOne = Random.Range(1, 7);
+
+	    	if(turnCounter % 2 == 0) {
+		   		// Code Omitted for brevity
+	    	} else {
+	    		// Code Omitted for brevity
+	    	}
+
+	    	if(playerOneHealth <= 0 || playerTwoHealth <= 0) {
+	    		Debug.Log("The game ended.");
+	    	}
+
+	    	turnCounter++;
+
+    	}
+
+    }
+```
+
+We aren't using a `for` loop because we don't know how many turns we will have. Because of this `while` loops will be much nicer.\
+Now we just need to figure out what to put in our `while` loop for a boolean statement. Well, we want to keep taking turns until one player dies and we already did that.\
+Using the same boolean statement we used when checking if the game ended we can set up our loop to go until someone wins like this :
+
+```csharp
+ // Start is called before the first frame update
+    void Start() {
+        
+    	while(playerOneHealth <= 0 || playerTwoHealth <= 0) {
+
+	    	int dieOne = Random.Range(1, 7);
+
+	    	if(turnCounter % 2 == 0) {
+		   		// Code Omitted for brevity
+	    	} else {
+	    		// Code Omitted for brevity
+	    	}
+
+	    	if(playerOneHealth <= 0 || playerTwoHealth <= 0) {
+	    		Debug.Log("The game ended.");
+	    	}
+
+	    	turnCounter++;
+
+    	}
+
+    }
+```
+
+You might notice that now our check for a win is a little redundant seeing as the loop will stop if someone wins. So we can just move our print to after the loop and it will be printed when someone wins.
+
+```csharp
+ // Start is called before the first frame update
+    void Start() {
+        
+    	while(playerOneHealth <= 0 || playerTwoHealth <= 0) {
+
+	    	int dieOne = Random.Range(1, 7);
+
+	    	if(turnCounter % 2 == 0) {
+		   		// Code Omitted for brevity
+	    	} else {
+	    		// Code Omitted for brevity
+	    	}
+
+	    	turnCounter++;
+
+    	}
+
+    	Debug.Log("The game ended.");
+
+    }
+```
+
+Woo hoo! We should have a working dice game now. In the next lesson we'll talk about the criteria for your dice game and you'll set off to make a wonderful game.
+
+## Advanced Layout
+
+// Functions 
