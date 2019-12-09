@@ -115,6 +115,77 @@ while(myInt < 0) {
 Go ahead and try running these. Don't worry your computer won't burst into flames, it will just tell you that something is wrong.\
 When you get errors like this try stepping your code carefully. Often there is a single character out of place. Other times you may need to look more at the overlying logic of your code. Perhaps an `if` statement inside the loop has a loophole that will make it never be true.
 
+### Loop Statement Keywords
+
+There are two main statements used to control our loops, ["break"](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/break) and ["continue"](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/continue).\
+These aren't too complex, can be very useful, and do exactly what they say.
+
+#### Break
+
+Break simply breaks out a loop. It is written simply as `break;` but it must be within a `for` or `while` loop.\
+When the break is executed the loop is stopped where it is and program moves to after the loop.
+
+```csharp
+for(int i = 1; i < 10; i++) {
+
+	if(i == 5) {
+		break;
+	}
+
+	Debug.Log(i);
+
+}
+
+Debug.Log("The loop is over.");
+```
+
+The output of this will be :
+
+```
+1
+2
+3
+4
+The loop is over.
+```
+
+As you can see once `i == 5` we "break" out of the loop and non of the next iterations are done.
+
+#### Continue
+
+Continue simply moves onto the next iteration of a loop. It is written as `continue;` but is must be within a `for` or `while` loop.\
+`continue` does not stop the whole loop it only skips the rest of that iteration.
+
+```csharp
+for(int i = 1; i < 10; i++) {
+
+	if(i == 5) {
+		continue;
+	}
+
+	Debug.Log(i);
+
+}
+
+Debug.Log("The loop is over.");
+```
+
+The output of this will be :
+
+```
+1
+2
+3
+4
+6
+7
+8
+9
+The loop is over.
+```
+
+You'll notice that `5` is missing from the output as when `i == 5` we "continued" onto the next iteration.
+
 ## On Your Own
 
 Loops can seem simplier on the outside than perhaps the [boolean logic](./4%20Logic.md) we just went through but they can become very versatile.\
