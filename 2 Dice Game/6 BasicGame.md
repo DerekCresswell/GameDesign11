@@ -379,3 +379,32 @@ You will have to make your messages more unique for your own dice game. We've do
 You can also add messages to the start of the game or anywhere else in order to flesh out the story. Perhaps `Welcome to the game` at the beginning of the start function.
 
 ### Winning The Game
+
+Of course we can't really have a game if you can't win. We should check after dealing damage if either player's health is zero or below. Again this should be just a simple `if`.
+
+```csharp
+ // Start is called before the first frame update
+    void Start() {
+        
+    	int dieOne = Random.Range(1, 7);
+
+    	if(turnCounter % 2 == 0) {
+	   		// Code Omitted for brevity
+    	} else {
+    		// Code Omitted for brevity
+    	}
+
+    	if(playerOneHealth <= 0 || playerTwoHealth <= 0) {
+    		Debug.Log("The game ended.");
+    	}
+
+    	turnCounter++;
+
+    }
+```
+
+Now obviously for this template we're being rather basic. For yours make sure the message is more interesting than "Game Over".\
+We've put this after dealing the damage because checking for a win is not specific to who's turn it is.\
+Hopefully using `<= 0` is fairly obvious. We are seeing if the player's health is zero or less. We do need to check both players as the game ends whenever one of them dies. We can do this in one `if` using an ["or"](./4%20Logic.md/#or-operator) (`||`) to combine the two checks. If you don't remember what the or does check back to [here](./4%20Logic.md/#or-operator).
+
+### Looping Through Turns
