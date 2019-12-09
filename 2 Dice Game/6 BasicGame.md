@@ -322,3 +322,60 @@ if(dieOne == 6) {
 Now when we roll a die we should see our player's health decrease by that much. If you were to run the game right now you won't see anything though. Let's remedy that by actually printing out what happened.
 
 ### Printing A Story
+
+Again this bit should not be too hard. We will simply use `Debug.Log` to write out some messages.
+
+```csharp
+if(dieOne == 6) {
+
+	playerOneHealth -= 30;
+	Debug.Log("Player one has taken 30 damage!");
+
+}
+```
+
+This is fairly simple and works well for our purposes but we will leave an extra note here.\
+If your damage is **not** constant you will need to do something along the lines of :
+
+```csharp
+if(dieOne == 6) {
+
+	int damageToDeal = (Put some math here);
+	playerOneHealth -= damageToDeal;
+	Debug.Log("Player one has taken " + damageToDeal + " damage!");
+
+}
+```
+
+Refer back to the [variables lesson](./3%20Variables.md/#using-variables) for more info on why we would do this.
+
+Now we can just expand our code to print everytime we deal damage.
+
+```csharp
+if(dieOne == 6) {
+
+	playerOneHealth -= 30;
+	Debug.Log("Player one has taken a big hit of 30 damage!");
+
+} else if(dieOne == 5) {
+
+	playerOneHealth -= 15;
+	Debug.Log("Player one has taken 15 damage.");
+
+} else if(dieOne >= 3) {
+
+	playerOneHealth -= 10;
+	Debug.Log("Player one has taken 10 damage.");
+
+} else {
+
+	playerOneHealth -= 5;
+	Debug.Log("Player one has taken a measly 5 damage.");
+
+}
+```
+
+You will have to make your messages more unique for your own dice game. We've done a little of that here.\
+You can also add messages to the start of the game or anywhere else in order to flesh out the story. Perhaps `Welcome to the game` at the beginning of the start function.
+
+### Winning The Game
