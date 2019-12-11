@@ -452,7 +452,7 @@ Using the same boolean statement we used when checking if the game ended we can 
 	    	int dieOne = Random.Range(1, 7);
 
 	    	if(turnCounter % 2 == 0) {
-		   		// Code Omitted for brevity
+	        	// Code Omitted for brevity
 	    	} else {
 	    		// Code Omitted for brevity
 	    	}
@@ -497,4 +497,79 @@ Woo hoo! We should have a working dice game now. In the next lesson we'll talk a
 
 ## Advanced Layout
 
-// Functions 
+**Only do this section if you feel confident with coding.**
+
+There are a few things we can do to our code to make it run a bit better. None of these are required as you can see that your game works just fine without them. Here we will talk about these things in order to make our code better or more practical.\
+The main thing to go over here are [functions](./1%20UnityScripts.md/functions).\
+If you take a look at the code we have here you may notice something.
+
+```csharp
+ // Start is called before the first frame update
+    void Start() {
+        
+    	while(playerOneHealth <= 0 || playerTwoHealth <= 0) {
+
+	    	int dieOne = Random.Range(1, 7);
+
+	    	if(turnCounter % 2 == 0) {
+
+	    		// Player One's turn
+		   		if(dieOne == 6) {
+
+					playerOneHealth -= 30;
+					Debug.Log("Player one has taken a big hit of 30 damage!");
+
+				} else if(dieOne == 5) {
+
+					playerOneHealth -= 15;
+					Debug.Log("Player one has taken 15 damage.");
+
+				} else if(dieOne >= 3) {
+
+					playerOneHealth -= 10;
+					Debug.Log("Player one has taken 10 damage.");
+
+				} else {
+
+					playerOneHealth -= 5;
+					Debug.Log("Player one has taken a measly 5 damage.");
+
+				}
+
+	    	} else {
+	    		
+	    		// Player Two's turn
+	    		if(dieOne == 6) {
+
+					playerTwoHealth -= 30;
+					Debug.Log("Player two has taken a big hit of 30 damage!");
+
+				} else if(dieOne == 5) {
+
+					playerTwoHealth -= 15;
+					Debug.Log("Player two has taken 15 damage.");
+
+				} else if(dieOne >= 3) {
+
+					playerTwoHealth -= 10;
+					Debug.Log("Player two has taken 10 damage.");
+
+				} else {
+
+					playerTwoHealth -= 5;
+					Debug.Log("Player two has taken a measly 5 damage.");
+
+				}
+
+	    	}
+
+	    	turnCounter++;
+
+    	}
+
+    	Debug.Log("The game ended.");
+
+    }
+```
+
+If you ask me, it looks very repetitive and that signals that we should likely use a function. That's what we will do here.
