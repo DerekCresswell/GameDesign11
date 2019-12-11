@@ -5,7 +5,7 @@
 This unit covers the basics of coding to create a game about rolling dice. It's more interesting than it sounds, don't worry.\
 We will be going through the following topics in this unit :
 * Basics of coding in C# including :
-	* [How our code runs and works with Unity](./1%20UnityEditor.md).
+	* [How our code runs and works with Unity](./1%20UnityScripts.md).
 	* [Writing proper and reabable code](./2%20CodeStructure.md).
 	* [Control structures](./4%20Logic.md/#control-structures) and [boolean logic](./4%20Logic.md).
 	* [Variables](./3%20Variables.md), [scope](./4%20Logic.md/#scope), and [loops](./5%20Loops.md).
