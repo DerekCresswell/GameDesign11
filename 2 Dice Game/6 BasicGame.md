@@ -572,4 +572,60 @@ If you take a look at the code we have here you may notice something.
     }
 ```
 
-If you ask me, it looks very repetitive and that signals that we should likely use a function. That's what we will do here.
+If you ask me, it looks very repetitive and that signals that we should likely use a function. That's what we will do here.\
+Let's take a closer look at the bit of code we'd like to turn into a function.
+
+```csharp
+if(dieOne == 6) {
+
+    playerHealth -= 30;
+    Debug.Log("Player has taken a big hit of 30 damage!");
+
+} else if(dieOne == 5) {
+
+    playerHealth -= 15;
+    Debug.Log("Player has taken 15 damage.");
+
+} else if(dieOne >= 3) {
+
+    playerHealth -= 10;
+    Debug.Log("Player has taken 10 damage.");
+
+} else {
+
+    playerHealth -= 5;
+    Debug.Log("Player has taken a measly 5 damage.");
+
+}
+```
+
+We want to use a function to try and reuse this multiple times. This means we want to use this for both players.\
+You might have noticed I got rid of the `One` and `Two`'s in that code because of that. We will need to change this up to use variables and dynamically print out those messages. Let's go back and talk about functions quick.
+
+### Function Parameters
+
+Functions can take in variables when you call it to and use their values during their execution. Similar to how we've been "passing" a `string` into the function `Debug.Log` to let it print out said `string`.\
+What do we want to pass into this function? Well if we look at the snippet above, or even put it into your editor to see the errors, we can see that `dieOne` needs to be defined. So we can flip that problem over and say we need to pass in the value of the die roll. With that let's turn this into a function.
+
+```csharp
+void decideDamage(int dieRoll) {
+
+    if(dieRoll == 6) {
+        playerHealth -= 30;
+        Debug.Log("Player has taken a big hit of 30 damage!");
+    } else {
+        // Rest of the if statement ommitted for brevity
+    }
+
+}
+``` 
+
+What we've done is add a parameter to the declarition of our function. This goes inside the parantheises `()`.\
+This is basically like declaring a variable as it goes type (`int`) and then name (`dieRoll`). We do not need set the value of this variable as we will be passing in a value when we call our function.\
+Now within the [scope](./6%20BasicGame.md/#scope) of this function we can use and manipulate the variable `dieRoll`. Make sure to use `dieRoll` in place of `dieOne` as that is the variable we are using now.
+
+// Player number in string
+
+### Function Return Types
+
+// Return damage to to deal with player vars
