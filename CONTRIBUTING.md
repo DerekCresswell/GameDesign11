@@ -1,0 +1,84 @@
+# Contributing
+
+Thank you for your intrest in building this repository!\
+Please read through this before submitting [issues](#issues) and [pull requests](#pull-requests). Also contained are the [guidelines to follow](#guidelines) when writing material.
+
+## Issues
+
+Before beginning to work on an issue please comment on the issue and ask if the work is still needed and up for grabs. This will prevent duplicate work and save everyone time.
+
+Please check the issues for duplicates before making a new one.\
+For submitting new issues there are a few other things :
+
+* For students, if you don't understand a concept or like the way it was explained please make an issue and specifically reference the area which caused the struggle. Please also include as much detail as to why it did not work. If you can look elsewhere and find out how the concept really works before submitting an issue please do. This can make it easier to discover what was wrong with an explanation.
+
+* For writers, please include all details that are relevant to the topic. If you are adding a request for a new section please explain why it is important and where it will fit in. For issues regarding typos / small fixes try and group a few together or comment on a larger issue of the same kind to reduce the overall number of issues.
+
+## Pull Requests
+
+Pull requests should be constrained to a single issue or addition. Please mention the issues in the title or body of the request.\
+Do not add extra things to a PR that do not pertain to it's main topic.\
+The [guidelines](#guidelines) need to followed for choice of language, linking, and markdown formatting.\
+If you are unsure about the quality of a PR just ask for a stricter review. If you have questions about the purpose of a PR please ask with / in an issue.
+
+## Guidelines
+
+These guidelines need to be followed when adding and editing content.
+
+### Markdown
+
+All our main lessons are written as `.md` files.\
+This will not go over how to write markdown, if you need this please checkout a [guide on the topic](https://guides.github.com/features/mastering-markdown/).\
+There are a couple style rules we follow to keep the structure of our work.
+
+#### Headers
+
+`h1`'s are only used once at the top of the file to list the name of unit (I.E. `# 1 Rube Goldberg Machine`).\
+Smaller headers should be used to break up sections (I.E. this file) and need to be in sequential order. So an `h4` needs to have an `h3` above it before an `h2`.\
+Leave one space between the hashes and the title. Write titles in Upper-Camel-Case with no puncuation. Leave on blank line before and after each header.
+
+```
+# Unit Title
+
+Content
+
+## Main Section
+
+More Content
+
+### Sub Section
+```
+
+#### New Lines
+
+Split paragraphs into new lines at appropriate sections with a backslash directly after the last character similar to this.`\`\
+Do not use double spaces to split lines. You may also leave a blank line with <kbd>Enter</kbd> if you need to split a section but don't need a new header.\
+Always add new lines before and after 
+
+```
+This is some content.\
+And my new line of content.
+
+Here is a different idea.
+```
+
+#### Code Blocks
+
+When using code blocks always format as csharp `\```csharp` unless you really need not to.\
+A couple rules for our code syntax can be found in the [syntax file](./2%20Dice%20Game/Syntax.md). There is not many fancy tricks there.\
+Try to avoid repeating large code blocks. If you do skip a part make sure to leave a comment in it's place to avoid any confusion for students.\
+Use inline code when refering to statements, variables, and the likes.
+
+### Language
+
+The main thing to highlight here is to avoid "I" as much as possible. Use "we".\
+When refering to certain parts of the repo the structure is as follows :
+
+* The repo itself is refered to as the "Course".
+* The folders within (I.E. the Rube Goldberg Folder) are refered to as a "Unit".
+* The files within the units are refered to as "Lessons".
+* The final game of each unit is the "Project".
+
+### Structure
+
+### Refrences and Links
