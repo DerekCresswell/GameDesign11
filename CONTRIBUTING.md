@@ -81,4 +81,22 @@ When refering to certain parts of the repo the structure is as follows :
 
 ### Structure
 
+To keep our files nice and organized Follow the structure of :
+
+* Course
+  * Unit
+    * Assets
+    * Images
+    * Lesson
+    * Lesson
+  * Unit
+* Course
+
+Where "Images" is a folder for all the images used within the lessons and "Assets" are things the student can use such as a sprite.\
+The naming convention for files is :
+
+* Unit : "1 Name Like This"
+* Lesson : "1 NameLikeThis"
+* Files (I.E. image) : "NameLikeThis"
+
 ### Refrences and Links
