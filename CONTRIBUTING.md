@@ -53,7 +53,7 @@ More Content
 
 Split paragraphs into new lines at appropriate sections with a backslash directly after the last character similar to this.`\`\
 Do not use double spaces to split lines. You may also leave a blank line with <kbd>Enter</kbd> if you need to split a section but don't need a new header.\
-Always add new lines before and after 
+Always add new lines before and after things like lists, images, code blocks, etc.
 
 ```
 This is some content.\
@@ -100,3 +100,7 @@ The naming convention for files is :
 * Files (I.E. image) : "NameLikeThis"
 
 ### Refrences and Links
+
+When mentioning a topic, item, or concept for the first time put it in double quotes ["Like So"](#refrences-and-links) and make it a link to relevant parts of the course or the C# Docs / Unity Manual. Please also capitalize accordingly.\ 
+After something has been written and linked for the first time you do not need to capitalize and quote it. Only link it again if you are in a new section.\
+Do not link things inside of inline code blocks.
