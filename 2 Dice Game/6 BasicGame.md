@@ -102,7 +102,7 @@ That's a fine starting point and does what we needed to do in the first part of 
 
 The next part of our problem involves alternating between our players turns. Let's start with figuring out how we should go about this.\
 This may not be inherently obvious but we are going to use another `int` and check if it is even or odd. This is a very common method.\
-Start by creating another variable called "turnCounter" or similar. It will be an `int` and have an intial value of "0";
+Start by creating another variable called `turnCounter` or similar. It will be an `int` and have an intial value of `0`;
 
 ```csharp
 using System.Collections;
@@ -189,9 +189,9 @@ Let's start typing it out.
     	int dieOne = Random.Range(1, 7);
 
     	if(turnCounter % 2 == 0) {
-	   	// Player One's Turn
+            // Player One's Turn
     	} else {
-    		// Player Two's Turn
+            // Player Two's Turn
     	}
 
     	turnCounter++;
@@ -238,7 +238,7 @@ Let's get the structure down.
 
     	if(turnCounter % 2 == 0) {
 	   		
-	   	// Player One's Turn
+            // Player One's Turn
     		if(dieOne == 6) {
 
     		} else if(dieOne == 5) {
@@ -390,9 +390,9 @@ Of course we can't really have a game if you can't win. We should check after de
     	int dieOne = Random.Range(1, 7);
 
     	if(turnCounter % 2 == 0) {
-	   		// Code Omitted for brevity
+            // Code Omitted for brevity
     	} else {
-    		// Code Omitted for brevity
+            // Code Omitted for brevity
     	}
 
     	if(playerOneHealth <= 0 || playerTwoHealth <= 0) {

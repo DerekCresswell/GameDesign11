@@ -43,7 +43,7 @@ What we need to do to make our object visible is :
 Our circle shoud be now be clearly visible in our Scene.
 
 *A Note*
-* You can use the various "Gizmos" in the top left corner to manipulate your objects. Try clicking on any of them ("Move", "Rotate", "Scale") and use the arrows / lines that appear with in the Scene View to change the respective parameter on the object.
+You can use the various "Gizmos" in the top left corner to manipulate your objects. Try clicking on any of them ("Move", "Rotate", "Scale") and use the arrows / lines that appear with in the Scene View to change the respective parameter on the object.
 
 ### Hierarchies
 

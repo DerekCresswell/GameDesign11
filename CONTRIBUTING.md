@@ -64,7 +64,7 @@ Here is a different idea.
 
 #### Code Blocks
 
-When using code blocks always format as csharp `\```csharp` unless you really need not to.\
+When using code blocks always format as csharp ```` ```csharp```` unless you really need not to.\
 A couple rules for our code syntax can be found in the [syntax file](./2%20Dice%20Game/Syntax.md). There is not many fancy tricks there.\
 Try to avoid repeating large code blocks. If you do skip a part make sure to leave a comment in it's place to avoid any confusion for students.\
 Use inline code when refering to statements, variables, and the likes.
@@ -101,6 +101,6 @@ The naming convention for files is :
 
 ### Refrences and Links
 
-When mentioning a topic, item, or concept for the first time put it in double quotes ["Like So"](#refrences-and-links) and make it a link to relevant parts of the course or the C# Docs / Unity Manual. Please also capitalize accordingly.\ 
+When mentioning a topic, item, or concept for the first time put it in double quotes ["Like So"](#refrences-and-links) and make it a link to relevant parts of the course or the C# Docs / Unity Manual. Please also capitalize accordingly.\
 After something has been written and linked for the first time you do not need to capitalize and quote it. Only link it again if you are in a new section.\
 Do not link things inside of inline code blocks.

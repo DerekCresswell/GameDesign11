@@ -1,6 +1,6 @@
 # Rube Goldberg Machine
 
-This is explaining the layout of Unitys' Launcher and Editor layout.
+This is explaining the layout of Unity's Launcher and Editor layout.
 
 ## The Launcher
 
