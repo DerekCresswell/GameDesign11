@@ -13,7 +13,9 @@ Here is what is covered in this unit :
 	* Changes animations.
 * Work with animations and particle effects.
 
-After all the lessons we will be making a top down arcade game. This may be anything from Space Invaders to Dungeon Crawlers. There will be a lot more creative freedom in this unit. This game will have a lot of moving parts and we can actually play this one rather than just watch.
+After all the lessons we will be making a top down arcade game. This may be anything from Space Invaders to Dungeon Crawlers. There will be a lot more creative freedom in this unit. This game will have a lot of moving parts and we can actually play this one rather than just watch.\
+Unlike with the [Dice Game](../2%20Dice%20Game) there will not be a single template file to follow. This unit will give you all the means to go through and create your own game.\
+However there will be a few scripts that are for you to use that are complete but simple. You will need to expand them to make your game unique.
 
 ### Requirements
 
