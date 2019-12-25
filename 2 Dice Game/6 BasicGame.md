@@ -297,22 +297,24 @@ Now that our turn is set up properly we can start actually doing something with 
 This is all we will do in the example but if you can think of a different set of rules to go with try it out. Perhaps dealing damage times the die roll or use two dice and add in bonus damage if you roll snake eyes, damage based on current health, etc.\
 We simply need to add `playerVar -= damageValue` to each of our if statements while subbing in the correct values.
 
+*Note : This is player ONE's turn so we should damage player TWO.*
+
 ```csharp
 if(dieOne == 6) {
 
-	playerOneHealth -= 30;
+	playerTwoHealth -= 30;
 
 } else if(dieOne == 5) {
 
-	playerOneHealth -= 15;
+	playerTwoHealth -= 15;
 
 } else if(dieOne >= 3) {
 
-	playerOneHealth -= 10;
+	playerTwoHealth -= 10;
 
 } else {
 
-	playerOneHealth -= 5;
+	playerTwoHealth -= 5;
 
 }
 ```
@@ -328,8 +330,8 @@ Again this bit should not be too hard. We will simply use `Debug.Log` to write o
 ```csharp
 if(dieOne == 6) {
 
-	playerOneHealth -= 30;
-	Debug.Log("Player one has taken 30 damage!");
+	playerTwoHealth -= 30;
+	Debug.Log("Player two has taken 30 damage!");
 
 }
 ```
@@ -341,8 +343,8 @@ If your damage is **not** constant you will need to do something along the lines
 if(dieOne == 6) {
 
 	int damageToDeal = (Put some math here);
-	playerOneHealth -= damageToDeal;
-	Debug.Log("Player one has taken " + damageToDeal + " damage!");
+	playerTwoHealth -= damageToDeal;
+	Debug.Log("Player two has taken " + damageToDeal + " damage!");
 
 }
 ```
@@ -354,23 +356,23 @@ Now we can just expand our code to print everytime we deal damage.
 ```csharp
 if(dieOne == 6) {
 
-	playerOneHealth -= 30;
-	Debug.Log("Player one has taken a big hit of 30 damage!");
+	playerTwoHealth -= 30;
+	Debug.Log("Player two has taken a big hit of 30 damage!");
 
 } else if(dieOne == 5) {
 
-	playerOneHealth -= 15;
-	Debug.Log("Player one has taken 15 damage.");
+	playerTwoHealth -= 15;
+	Debug.Log("Player two has taken 15 damage.");
 
 } else if(dieOne >= 3) {
 
-	playerOneHealth -= 10;
-	Debug.Log("Player one has taken 10 damage.");
+	playerTwoHealth -= 10;
+	Debug.Log("Player two has taken 10 damage.");
 
 } else {
 
-	playerOneHealth -= 5;
-	Debug.Log("Player one has taken a measly 5 damage.");
+	playerTwoHealth -= 5;
+	Debug.Log("Player two has taken a measly 5 damage.");
 
 }
 ```
@@ -516,31 +518,6 @@ If you take a look at the code we have here you may notice something.
 	    		// Player One's turn
 		   		if(dieOne == 6) {
 
-					playerOneHealth -= 30;
-					Debug.Log("Player one has taken a big hit of 30 damage!");
-
-				} else if(dieOne == 5) {
-
-					playerOneHealth -= 15;
-					Debug.Log("Player one has taken 15 damage.");
-
-				} else if(dieOne >= 3) {
-
-					playerOneHealth -= 10;
-					Debug.Log("Player one has taken 10 damage.");
-
-				} else {
-
-					playerOneHealth -= 5;
-					Debug.Log("Player one has taken a measly 5 damage.");
-
-				}
-
-	    	} else {
-	    		
-	    		// Player Two's turn
-	    		if(dieOne == 6) {
-
 					playerTwoHealth -= 30;
 					Debug.Log("Player two has taken a big hit of 30 damage!");
 
@@ -558,6 +535,31 @@ If you take a look at the code we have here you may notice something.
 
 					playerTwoHealth -= 5;
 					Debug.Log("Player two has taken a measly 5 damage.");
+
+				}
+
+	    	} else {
+	    		
+	    		// Player Two's turn
+	    		if(dieOne == 6) {
+
+					playerOneHealth -= 30;
+					Debug.Log("Player one has taken a big hit of 30 damage!");
+
+				} else if(dieOne == 5) {
+
+					playerOneHealth -= 15;
+					Debug.Log("Player one has taken 15 damage.");
+
+				} else if(dieOne >= 3) {
+
+					playerOneHealth -= 10;
+					Debug.Log("Player one has taken 10 damage.");
+
+				} else {
+
+					playerOneHealth -= 5;
+					Debug.Log("Player one has taken a measly 5 damage.");
 
 				}
 

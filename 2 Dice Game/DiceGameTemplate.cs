@@ -63,21 +63,21 @@ public class DiceGameTemplate : MonoBehaviour {
                 // Then apply damage based on that number
     		    if(dieOne == 6) {
 
-            	    playerOneHealth -= 30;
+            	    playerTwoHealth -= 30;
                     // Add in some story throughout
                     // Debug.Log("Player one takes 30 damage and now has " + playerOneHealth + " health left." );
 
                 } else if(dieOne == 5) {
 
-            	    playerOneHealth -= 15;
+            	    playerTwoHealth -= 15;
 
                 } else if(dieOne >= 3) {
 
-	                playerOneHealth -= 10;
+	                playerTwoHealth -= 10;
 
                 } else {
 
-	                playerOneHealth -= 5;
+	                playerTwoHealth -= 5;
 
                 }
 
