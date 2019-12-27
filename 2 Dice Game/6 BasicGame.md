@@ -626,7 +626,36 @@ What we've done is add a parameter to the declarition of our function. This goes
 This is basically like declaring a variable as it goes type (`int`) and then name (`dieRoll`). We do not need set the value of this variable as we will be passing in a value when we call our function.\
 Now within the [scope](./6%20BasicGame.md/#scope) of this function we can use and manipulate the variable `dieRoll`. Make sure to use `dieRoll` in place of `dieOne` as that is the variable we are using now.
 
-// Player number in string
+The next chunk here is making the printed string dynamic so it can display which player has been hit.\
+To start let's add in another parameter to our function. We can make this an integer aswell and will name it along the lines of "playerNumber". We can do this by putting a comma after the current parameter. Like so :
+
+```csharp 
+void decideDamage(int dieRoll, int playerNumber) {
+
+}
+```
+
+We can now utilise an `int` called `playerNumber` inside of our function. Now let's incorperate it into our printed string. Remember we can do this using the `+` operator.
+
+```csharp
+void decideDamage(int dieRoll, int playerNumber) {
+
+    if(dieRoll == 6) {
+        playerHealth -= 30;
+        Debug.Log("Player " + playerNumber + " has taken a big hit of 30 damage!");
+    } else {
+        // Rest of the if statement ommitted for brevity
+    }
+}
+```
+
+Now that should be setup pretty well. We can use the function to determine the damage to deal to a player (that's good naming).\
+***BUT!***\
+There is another problem that you may have spotted. Our `playerHealth` variable doesn't exist.\
+"Add it as a parameter", you say.\
+Sadly that will not work. This is beyond the scope of our lesson but basically the variable we pass into a function (`func(varToPass);`) and the variable the function uses (`func(int myVar)`) are **not** the same. So if we edit the var inside the function the one we passed in will not change.
+
+Let's move on and finish up this function.
 
 ### Function Return Types
 
