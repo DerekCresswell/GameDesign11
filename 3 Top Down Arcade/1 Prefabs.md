@@ -24,12 +24,13 @@ So how do we make a prefab?
 ## How To Make Prefabs
 
 While first we need to create an object that we will make into a prefab. At this point you just need to try and make one, it does not need a purpose in your project here.\
-You can put whatever you want onto this object. Perhaps make a "Ball" object that has a sprite (look up a ball sprite online or use the circle from the [Rube Goldberg](../1%20Rube%20Goldberg%20Machine/Assets/WhiteCircle.png)), a circle collider, and rigidbody 2D.\
+You can put whatever you want onto this object. Perhaps make a "Ball" object that has a sprite (look up a ball sprite online or use the circle from the [Rube Goldberg](../1%20Rube%20Goldberg%20Machine/Assets/WhiteCircle.png)), a circle collider, and rigidbody 2D.
 
 // Add image
 
-Once we have that all set up to our liking all we have to do is drag the object from our hierarchy into our project window.\
 For best practice, first create a new folder in your project window and name it "Prefabs". Then drag the object into that folder.
+Once we have that all set up to our liking all we have to do is drag the object from our hierarchy into our project window, and more specifically with into our prefabs folder.\
+It's that easy. You'll now see our object was turned into a prefab inside the folder. Now we can use that in our scene instead of making new objects.
 
 ## Using Prefabs
 
