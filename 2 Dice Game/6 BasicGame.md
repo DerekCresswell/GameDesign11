@@ -162,7 +162,7 @@ Now we do need to update the `turnCounter` value otherwise it will stay zero for
     void Start() {
         
     	if(turnCounter % 2 == 0) {
-	   	// Player One's Turn
+		// Player One's Turn
     	} else {
     		// Player Two's Turn
     	}
@@ -238,7 +238,7 @@ Let's get the structure down.
 
     	if(turnCounter % 2 == 0) {
 	   		
-            // Player One's Turn
+            	// Player One's Turn
     		if(dieOne == 6) {
 
     		} else if(dieOne == 5) {
@@ -481,7 +481,7 @@ You might notice that now our check for a win is a little redundant seeing as th
 	    	int dieOne = Random.Range(1, 7);
 
 	    	if(turnCounter % 2 == 0) {
-		   		// Code Omitted for brevity
+			// Code Omitted for brevity
 	    	} else {
 	    		// Code Omitted for brevity
 	    	}
@@ -516,52 +516,52 @@ If you take a look at the code we have here you may notice something.
 	    	if(turnCounter % 2 == 0) {
 
 	    		// Player One's turn
-		   		if(dieOne == 6) {
+		   	if(dieOne == 6) {
 
-					playerTwoHealth -= 30;
-					Debug.Log("Player two has taken a big hit of 30 damage!");
+				playerTwoHealth -= 30;
+				Debug.Log("Player two has taken a big hit of 30 damage!");
 
-				} else if(dieOne == 5) {
+			} else if(dieOne == 5) {
 
-					playerTwoHealth -= 15;
-					Debug.Log("Player two has taken 15 damage.");
+				playerTwoHealth -= 15;
+				Debug.Log("Player two has taken 15 damage.");
 
-				} else if(dieOne >= 3) {
+			} else if(dieOne >= 3) {
 
-					playerTwoHealth -= 10;
-					Debug.Log("Player two has taken 10 damage.");
+				playerTwoHealth -= 10;
+				Debug.Log("Player two has taken 10 damage.");
 
-				} else {
+			} else {
 
-					playerTwoHealth -= 5;
-					Debug.Log("Player two has taken a measly 5 damage.");
+				playerTwoHealth -= 5;
+				Debug.Log("Player two has taken a measly 5 damage.");
 
-				}
+			}
 
 	    	} else {
 	    		
 	    		// Player Two's turn
 	    		if(dieOne == 6) {
 
-					playerOneHealth -= 30;
-					Debug.Log("Player one has taken a big hit of 30 damage!");
+				playerOneHealth -= 30;
+				Debug.Log("Player one has taken a big hit of 30 damage!");
 
-				} else if(dieOne == 5) {
+			} else if(dieOne == 5) {
 
-					playerOneHealth -= 15;
-					Debug.Log("Player one has taken 15 damage.");
+				playerOneHealth -= 15;
+				Debug.Log("Player one has taken 15 damage.");
 
-				} else if(dieOne >= 3) {
+			} else if(dieOne >= 3) {
 
-					playerOneHealth -= 10;
-					Debug.Log("Player one has taken 10 damage.");
+				playerOneHealth -= 10;
+				Debug.Log("Player one has taken 10 damage.");
 
-				} else {
+			} else {
 
-					playerOneHealth -= 5;
-					Debug.Log("Player one has taken a measly 5 damage.");
+				playerOneHealth -= 5;
+				Debug.Log("Player one has taken a measly 5 damage.");
 
-				}
+			}
 
 	    	}
 
