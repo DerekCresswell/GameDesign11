@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-/*
+﻿/*
  * ___________________________________________________
  * 
  *                     GameDesign11 
@@ -31,6 +27,10 @@ using UnityEngine;
  * Attach this script to a game object and run your story a couple times to make sure all your code is working.
  * 
  */
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class DiceGameTemplate : MonoBehaviour {
 
