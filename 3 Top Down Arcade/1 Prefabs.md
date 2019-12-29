@@ -37,3 +37,7 @@ It's that easy. You'll now see our object was turned into a prefab inside the fo
 // Making into instances
 // Updating prefabs
 // Checkover and fill out extra info in this file.
+
+## Player Prefab
+
+// Make mock up player prefab. (Collider, blank move script, etc)
