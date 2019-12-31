@@ -108,3 +108,54 @@ void Update() {
 
 Every frame our game will check to see if we are pressing any keys correspoinding to movement. Then it will create a new `Vector3` with these values and add that to our position in effect, moving our player.\
 Let's go and test this out.
+
+// Gif
+
+Now we'll likely need to adjust that speed. First we will set this up and then make it editable from Unity rather than our text editor.\
+To start we know that we are adding a number between -1 and 1 to our movement vector. Because of this we can declare a max speed and use the value from our axis to give us a ratio of that max speed.\
+Start by adding in a new `float` and call it `maxSpeed` or similar. We then want to mulitple our axis value by that variable.
+
+```csharp
+// Update is called once per frame
+void Update() {
+
+	float maxSpeed = 1;
+
+	float hAxis = Input.GetAxis("Horizontal");
+	float vAxis = Input.GetAxis("Vertical");
+
+	Vector3 movement = new Vector3(hAxis * maxSpeed, vAxis * maxSpeed, 0);
+	transform.position += movement;
+
+}
+```
+
+Obviously setting `maxSpeed` to `1` does nothing to our speed. You could open your script and change this to a different value but there is a better way.\
+So far we've only worked inside the `Update` and `Start` function but if you look up you'll see that these are inside a class named after the file. One very useful part of this class is that we can declare a variable outside of functions and set the value of that variable in Unity.\
+To start move the declaration of `maxSpeed` out of the update function but still within the class, in this case called `PlayerMovement`. It doesn't matter where about you place this but to make your file look nice and remain readable variable are typically the first thing in a class. Like so :
+
+```csharp
+public class PlayerMovement : MonoBehaviour {
+
+	float maxSpeed = 1;
+
+	// Update is called once per frame
+	void Update() {
+
+		float hAxis = Input.GetAxis("Horizontal");
+		float vAxis = Input.GetAxis("Vertical");
+
+		Vector3 movement = new Vector3(hAxis * maxSpeed, vAxis * maxSpeed, 0);
+		transform.position += movement;
+
+	}
+}
+```
+
+Now this will still work but we can't change the value of `maxSpeed` with Unity yet. To do this we need to make the variable ["public"](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/public). We just need to put `public` in front of the variable. Like :
+
+```csharp
+public float maxSpeed = 1;
+```
+
+Now save that and return to Unity. Click on your Player object and and under the PlayerMovement script you should see an option for "maxSpeed". Try setting this value and playing the game!
