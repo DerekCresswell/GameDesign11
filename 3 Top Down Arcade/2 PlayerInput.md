@@ -11,7 +11,7 @@ Unity has a very convient way for us to get input with the ["Input Class"](https
 To use these we simply need to call the function from the `Input` class (just like `Debug.Log`). In the case of `GetAxis` we pass in a `string` of which axis we want to get. For us, the ones we'll use are `"Horizontal"` and `"Vertical"` which by default tell us if the player is pressing "WASD" or the arrow keys.\
 For `GetButton`, which we'll use a bit later, we pass in a button name and the function will tell us whether or not that button is pressed.
 
-## Player Movemnt
+## Player Movement
 
 To start let's make sure we know how to use the `Input` class. We will start by just printing out our key press then modify it to actually move our player.
 
