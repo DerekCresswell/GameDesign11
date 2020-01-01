@@ -29,4 +29,4 @@ To fully complete this project you must meet the following criteria :
 ## Unity Manual
 
 Unity has documentation for everything in Unity right [here](https://docs.unity3d.com/Manual/).\
-If you want more info on a "object" you are working with try looking it up here for some extra techincal details. In a later lesson we will go use this together so you know how to use it.
+This is an extremely comprehensive look into every part of the Unity Engine. If you have any questions about what something is try looking it up in the manual first. It's an important skill to have.
