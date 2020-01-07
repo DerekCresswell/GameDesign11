@@ -2,7 +2,7 @@
 
 Interested in making your own video games?\
 This is an Open Source game design curriculum built to be used in a classroom enviroment. The course is built for absolute beginners to get the core skills of building a game. There are also resources along to way to help more advanced user to test their skills.\
-Throughout the course there is opportunity for every type of student to show there skill. Programmers, Artists, Designers, and Musicians.
+Throughout the course there is opportunity for every type of student to show their skills including Programmers, Artists, Designers, and Musicians.
 
 ## About This Course
 
@@ -22,7 +22,7 @@ Through this course you will gain a working knowledge of the Unity Engine with s
 * Music and Sound
 * Writing and using Code
 	
-### Projects
+### Units
 
 In this course you will be making a number of units. Each unit contains relevant tutorials and information to complete the project as well as extra resources and challenges.\
 The units should be completed in the order shown here (or the numbers in the folder names for each) as the skills of each builds off of the previous entries in the course.
@@ -35,4 +35,4 @@ The units should be completed in the order shown here (or the numbers in the fol
 
 ## Contributing
 
-If you are interested in contributing to this course please checkout out our [contributing guidelines](CONTRIBUTING.md).
+If you are interested in contributing to this course, spot a mistake, or have a suggestion please checkout out our [contributing guidelines](CONTRIBUTING.md).
