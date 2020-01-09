@@ -22,15 +22,11 @@ Click on the "New Sprite" object and look at the "Inspector" on the right side o
 
 What we need to do to make our object visible is :
 
-1. We need to move the object so that it is not in the center of the scene and being blocked by the "Main Camera" Object. We do this by changing the ["Transform"](https://docs.unity3d.com/Manual/class-Transform.html) of the Object.
-	* In the top section "Transform" find the set of three numbers beside "Position" and set these to "2", "2", and "0" respectively (You can also see this in the photo below).
-	* (You can also select the "Move Tool" in the top left of Unity and drag the green and red handles that appear).
-
-1. Next we need to give this object a ["Sprite"](https://docs.unity3d.com/Manual/Sprites.html) or picture to actually appear as when we look at it. We do this by giving the "Sprite Renderer" a "Sprite".
+1. We need to give this object a ["Sprite"](https://docs.unity3d.com/Manual/Sprites.html) or picture to actually appear as when we look at it. We do this by giving the "Sprite Renderer" a "Sprite".
 
 	* First we need to import a Sprite into Unity.
 		* Right click on the Project section of Unity (bottom bar), hover over "Create" and click on "Folder". Name the folder "Sprites". Remember, organization is key!
-		* Go to the [Assets folder](./Assets) in this project and drag ["WhiteCircle"](./Assets/WhiteCircle.png) into the folder you just made.
+		* Go to the [Assets folder](./Assets) in this unit and drag ["WhiteCircle"](./Assets/WhiteCircle.png) into the folder you just made.
 
 	![ImportSprite](Images/ImportSprite.JPG)
 
@@ -39,6 +35,10 @@ What we need to do to make our object visible is :
 	* A menu like the one shown above will appear. These are all of the Sprites in your project. Choose the one we imported before, "WhiteCircle".
 
 	![SetSprite](Images/SetSprite.JPG)
+
+1. Next we need to move the object so that it is not in the center of the scene and being blocked by the "Main Camera" Object. We do this by changing the ["Transform"](https://docs.unity3d.com/Manual/class-Transform.html) of the Object.
+	* In the top section "Transform" find the set of three numbers beside "Position" and set these to "2", "2", and "0" respectively (You can also see this in the photo below).
+	* (You can also select the "Move Tool" in the top left of Unity and drag the green and red handles that appear).
 
 Our circle shoud be now be clearly visible in our Scene.
 
@@ -49,7 +49,7 @@ You can use the various "Gizmos" in the top left corner to manipulate your objec
 
 Here we're going to go onto a tangent to learn about hierarchies. These are a way to attach an object to another object. This way we can manipulate the "Parent" object and affect the "Child".\
 Hierarchies can be very complex and very usefull but for now we will just be showing the idea behind a hierarchy.\
-Start By duplicating the "Circle" we created earlier. Rename the new Object to keep everything organized. Then change it's Position to "-2", "2", "0" respectively.\
+Start By duplicating the "Circle" we created earlier. You can right click and press duplicate or alternately use <kbd>Ctrl</kbd> + <kbd>D</kbd> or <kbd>Ctrl</kbd> + <kbd>C</kbd> and <kbd>Ctrl</kbd> + <kbd>V</kbd>. Rename the new Object to keep everything organized. Then change it's Position to "-2", "2", "0" respectively.\
 This should something like this.
 
 ![DuplicateCircles](Images/DuplicateCircles.JPG)

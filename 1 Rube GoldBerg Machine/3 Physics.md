@@ -33,7 +33,7 @@ In order for us to see the Collider in action we need something else to collide 
 * Give it a name like "Ground". 
 * Set it's position to "0, -2, 0".
 * Set it's Scale to "10, 0.5, 1".
-* Add the "WhiteBox" file from the Assets folder to the Sprites folder in the Project.
+* Add the "WhiteBox" file from the Assets folder to the Sprites folder in the Project. This is just like the circle from [last lesson](./2%20GameObjects.md).
 * Set the Sprite to the "WhiteBox" sprite.
 * Add a "Rigidbody 2D" to it.
 * Add a ["Box Collider 2D"](https://docs.unity3d.com/Manual/class-BoxCollider2D.html). This should be the proper size, but you can change it if not.
@@ -43,7 +43,7 @@ It should look like this :
 ![AddedGround](Images/AddedGround.JPG)
 
 Now run your game!\
-Oh hold on, that was kinda lame. The box fell too. What good is ground if it falls?\
+Oh hold on, that was kinda lame. The box fell too. What good is ground if it falls too?\
 Let's fix this quick. We just need to change the boxs Rigidbody "Body Type" from ["Dynamic"](https://docs.unity3d.com/Manual/class-Rigidbody2D.html) to ["Static"](https://docs.unity3d.com/Manual/class-Rigidbody2D.html).\
 The "Body Type" tells Unity how to compute the physics of the Object. In our case Dynamic means the Object is affected by physics and Static means the Object is present in the "Physics Space" but not changed by interactions.
 
@@ -51,9 +51,10 @@ Let's run the game again.\
 Ok still kinda lame, but we're getting better!\
 Let's try one more thing.
 
-* Click on your box and duplicate it.
+* Right click on your box and duplicate it. Alternately use <kbd>Ctrl</kbd> + <kbd>D</kbd> or <kbd>Ctrl</kbd> + <kbd>C</kbd> and <kbd>Ctrl</kbd> + <kbd>V</kbd>. 
 * Rename it to something like "Anchor".
 * Set the Y Position to "-3".
+* Set it's Scale to "1, 1, 1".
 * Finally set the first Boxs' (The big one on top) Body Type back to Dynamic.
 
 Now run it!\
@@ -94,13 +95,13 @@ In Unity we can give our Rigidbody a [Physics Material](https://docs.unity3d.com
 There are other things we can do but these are the most basic and useful to use.\
 *Just a note, Physics Materials and Materials are different things but I will be refering to Physics Material here.*
 
-We need to make a Material first. We are going to up hold our current organization and start by making a new folder in our Project call it "Physics Materials". Just like we did before with the Sprites.
+We need to make a Material first. We are going to up hold our current organization and start by making a new folder in our Project call it "Physics Materials". Just like we did before with the Sprites.\
 
 <p align="center">
 	<img src="Images/Folders.JPG">
 </p>
 
-Navigate into that folder, right click, and then find and click on "Physics Material 2D".\
+Navigate into that folder, right click, and then find and click on "Physics Material 2D" under the create section.\
 Now name that Material "Bouncy".
 
 <p align="center">
