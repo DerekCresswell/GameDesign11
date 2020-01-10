@@ -5,18 +5,19 @@ Please read through this before submitting [issues](#issues) and [pull requests]
 
 ## Issues
 
-Before beginning to work on an issue please comment on the issue and ask if the work is still needed and up for grabs. This will prevent duplicate work and save everyone time.
+Before beginning to work on an [issue](https://github.com/DerekCresswell/GameDesign11/issues) please comment on the issue and ask if the work is still needed and up for grabs. This will prevent duplicate work and save everyone time.
 
 Please check the issues for duplicates before making a new one.\
-For submitting new issues there are a few other things :
+For [submitting new issues](https://github.com/DerekCresswell/GameDesign11/issues/new) there are a few other things :
 
-* For students, if you don't understand a concept or like the way it was explained please make an issue and specifically reference the area which caused the struggle. Please also include as much detail as to why it did not work. If you can look elsewhere and find out how the concept really works before submitting an issue please do. This can make it easier to discover what was wrong with an explanation.
+* For students, if you don't understand a concept or like the way it was explained please make an issue and specifically reference the area which caused the struggle. Please also include as much detail as to why it did not work. If you can look elsewhere and find out how the concept really works before submitting an issue please do. This can make it easier to discover what was wrong with an explanation.\
+Click [here](https://github.com/DerekCresswell/GameDesign11/issues/new) to start a new issue. Please remember to give as much detail as possible.
 
 * For writers, please include all details that are relevant to the topic. If you are adding a request for a new section please explain why it is important and where it will fit in. For issues regarding typos / small fixes try and group a few together or comment on a larger issue of the same kind to reduce the overall number of issues.
 
 ## Pull Requests
 
-Pull requests should be constrained to a single issue or addition. Please mention the issues in the title or body of the request.\
+[Pull requests](https://github.com/DerekCresswell/GameDesign11/pulls) should be constrained to a single [issue](#issues) or addition. Please mention the issues in the title or body of the request.\
 Do not add extra things to a PR that do not pertain to it's main topic.\
 The [guidelines](#guidelines) need to followed for choice of language, linking, and markdown formatting.\
 If you are unsure about the quality of a PR just ask for a stricter review. If you have questions about the purpose of a PR please ask with / in an issue.
