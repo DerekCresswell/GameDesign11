@@ -95,13 +95,13 @@ In Unity we can give our Rigidbody a [Physics Material](https://docs.unity3d.com
 There are other things we can do but these are the most basic and useful to use.\
 *Just a note, Physics Materials and Materials are different things but I will be refering to Physics Material here.*
 
-We need to make a Material first. We are going to up hold our current organization and start by making a new folder in our Project call it "Physics Materials". Just like we did before with the Sprites.\
+We need to make a Material first. We are going to up hold our current organization and start by making a new folder in our Project call it "Physics Materials". Just like we did before with the Sprites.
 
 <p align="center">
 	<img src="Images/Folders.JPG">
 </p>
 
-Navigate into that folder, right click, and then find and click on "Physics Material 2D" under the create section.\
+Navigate into that folder, right click, go to create, and then find and click on "Physics Material 2D" under the create section. Click on that to create a new material.\
 Now name that Material "Bouncy".
 
 <p align="center">
@@ -112,7 +112,7 @@ Go and click on the new Material. If you look over at the Inspector I bet you ca
 That's right! Set the "Bounciness" property to 1. It can be whatever you'd like but it's best not to go too high.\
 When we change the "Bounciness" of a material we increase or decrease the amount of energy retained after each collision.
 
-Go and put that Material, Bouncy, onto our first circle.\
+Go and put that Material, "Bouncy", onto our first circle.\
 Click onto the Circle and then into its RigidBody. Click the setting named "Material", and choose our new Material.
 
 <p align="center">
@@ -120,7 +120,7 @@ Click onto the Circle and then into its RigidBody. Click the setting named "Mate
 </p>
 
 If you play the game now you will notice the first circle bounces much higher.\
-Go ahead and play with that value until you find something you like.
+Go ahead and play with the "Bounciness" value until you find something you like.
 
 The other property on the the Physics Material 2D is Friction.\
 The idea behind Friction is the same as the real world but the execution in Unity is a bit different.\
@@ -154,7 +154,7 @@ Then we need to set up our ramps.
 * Duplicate the Ramp and move the new one out of the way of the old one. Rename the new one to "FrictionRamp2".
 * Give one of the ramps the "HighFriction" material.
 
-And then our Boxes.
+Then our Boxes.
 
 * Create a new sprite and set its sprite to "WhiteBox". Name it "Box1" or similar.
 * Give the sprite a "Rigidbody 2D" and "Box Collider 2D" component.
@@ -167,4 +167,4 @@ You'll notice the Box that is going down the high friction ramp is sticking much
 
 </details>
 
-In the next lesson we are going to talk more about the [Sprites](https://docs.unity3d.com/Manual/Sprites.html) we've been using and customizing them. After that we are going to get to this units' project!
+In the next lesson we are going to talk more about the [Sprites](https://docs.unity3d.com/Manual/Sprites.html) we've been using and customizing them. Now we will get into more detail on how to manipulate them better as well as a bit more background on the idea. After that we are going to get to this units' project!
