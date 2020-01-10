@@ -36,9 +36,44 @@ It's that easy. You'll now see our object was turned into a prefab inside the fo
 
 ## Using Prefabs
 
-// Making into instances
-// Updating prefabs
-// Checkover and fill out extra info in this file.
+Having prefabs are great but now we need to actually use them. This is very simple. Just drag the prefab from the folder into the scene.\
+Go ahead and drag a few onto the scene. When you press play you will notice that they fall because they all have the components we added to the prefab which included a Rigidbody.\
+You can also individually edit these objects. Try changing some colors or size on the objects (from the hierarchy), not the prefab (in the folder).
+
+![PlacingPrefabs](Images/PlacingPrefabs.JPG)
+
+This is great so far but now to show you the real power of prefabs.\
+Say we had a thousand of these balls around our scene and all of a sudden we decide that we need to change something on them. Now we need to go through all of them and update them. We'd likely have to go through different levels of our game and try to find them all. If we miss even one it might seriously mess up our game.\
+Now if we used Prefabs we can update any number of these balls with a single click.\
+Go into the Prefabs folder and double click on the Ball prefab we made. This will open up a window where we can edit just our prefab.
+
+![EditingPrefabs](Images/EditingPrefabs.JPG)
+
+Within here we can edit the prefab itself. So whatever this looks like is what our prefabs will look like when we drag it onto the scene.\
+Let's start by setting the color to green. Now we should see the ball as green. Let's go back to the game view we had.\
+To do this click on "Scenes" in the top left of the scene view window. It should be beside the name of our prefab. Like this :
+
+![SwitchingPrefabViews](Images/SwitchingPrefabViews.JPG)
+
+Now in our scene it should look something like this :
+
+![EditedPrefabs](Images/EditedPrefabs.JPG)
+
+Not all of our circles are green. What's with that?\
+Well if you [look back](#using-prefabs) at the prefabs before we edited the color you'll notice that one of them was blue and two were white. So why did only the white ones change?\
+Well that's because those balls had the "default" color of the prefab. If a change is made to a prefab every instance of theat prefab that has the default of value will update.\
+Since the we made the one ball blue by hand it's color value was not **not** default and therefore not changed. The color was [overriden](https://docs.unity3d.com/Manual/PrefabInstanceOverrides.html).\
+Now try and make one of the green balls red and then go edit the prefab again. Take note of which ones update thier color.
+
+***Note***\
+If you'd like to see whether an object has default values or custom values compared to the prefab you can just look at the Inspector. Any value that is not the default will have a bold name like this :
+
+![OverridenValues](Images/OverridenValues.JPG)
+
+You'll notice the color is in bold and has a blue line on the left of it.\
+If you want to reset these values to the default you can click the "Overrides" dropdown just below the name of the object and revert them as you wish.
+
+![RevertOverrides](Images/RevertOverrides.JPG)
 
 ## Player Prefab
 
