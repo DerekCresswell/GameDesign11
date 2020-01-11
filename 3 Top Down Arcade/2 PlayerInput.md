@@ -11,6 +11,9 @@ Unity has a very convient way for us to get input with the ["Input Class"](https
 To use these we simply need to call the function from the `Input` class (just like `Debug.Log`). In the case of `GetAxis` we pass in a `string` of which axis we want to get. For us, the ones we'll use are `"Horizontal"` and `"Vertical"` which by default tell us if the player is pressing "WASD" or the arrow keys.\
 For `GetButton`, which we'll use a bit later, we pass in a button name and the function will tell us whether or not that button is pressed.
 
+***Note***
+The names of these axises are set through the ["Input Manager"](https://docs.unity3d.com/Manual/class-InputManager.html). You can also add new ones. We will talk more about this in a [section](#setting-up-button-inputs) later on.
+
 ## Player Movement
 
 To start let's make sure we know how to use the `Input` class. We will start by just printing out our key press then modify it to actually move our player.
@@ -162,4 +165,35 @@ Now save that and return to Unity. Click on your Player object and and under the
 Now a fun thing you can try to illustrate the usefulness of this `public` keyword would be to put a second Player prefab into your game and give the second one a different `maxSpeed` value to the first.\
 When you play the game you can see that even though these two objects use the same script they can have different values. This means that, just like prefabs, we can make one script and use it as many times as we like. Also using `public` speeds testing up ten fold. It's also good to note that anything you can turn into a variable can be `public`. Use it whenever you want to quickly alter values.
 
-###
+## Shooting
+
+We've got a moving player, now let's try to add a basic shooting mechanic to our game. What we are going to build here is a basic four point shooting system. What that means is we can shoot up, down, left, and right.\
+This will be expandable to an eight point system (four point plus diagonals) and including in the script library will be a mouse shooting script (aim with the mouse 360 degrees around your player).\
+Don't worry about that yet though, onto the basic four point system.
+
+### Setting Up Button Inputs
+
+First thing to do is to make a new script called "PlayerShoot". Make sure to put it into the Scripts folder. Open it up.\
+Now this script will be controlled with the arrow keys by default.
+
+// Setup input manager
+
+```csharp
+using UnityEngine;
+using System.Collections;
+
+public class PlayerShoot : MonoBehaviour {
+
+    // Use this for initialization
+    void Start () {
+    
+    }
+    
+    // Update is called once per frame
+    void Update () {
+    
+    }
+
+}
+
+```
