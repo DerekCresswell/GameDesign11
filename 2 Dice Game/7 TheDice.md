@@ -28,7 +28,7 @@ Here are the requirements of this game :
 
 There is a template you may use to start off your project. It does not work the way it is currently, you must fix it. All it has is the main structure of a dice game program.\
 Feel free to try making the whole thing yourself, in fact that is encouraged. If you find it too hard then by all means use the template as a starting point. Making some progress is infinitly better than none.\
-[Check it out](./DiceGameTemplate.cs).
+[Check it out](./Library/DiceGameTemplate.cs).
 
 The most important thing is to have fun! Make up a fun narritive, a dragon and knight, a zombie and survivor, or something totally unique.\
 Don't be afraid to try out an idea in code, the worst that can happen is you have to press "ctrl Z". The best way to learn code is to experiment.\

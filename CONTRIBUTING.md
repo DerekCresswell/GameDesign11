@@ -88,6 +88,7 @@ To keep our files nice and organized Follow the structure of :
   * Unit
     * Assets
     * Images
+    * Library
     * Lesson
     * Lesson
   * Unit
