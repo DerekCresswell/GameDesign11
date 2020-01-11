@@ -31,9 +31,9 @@ public class TestScript : MonoBehaviour {
 This is what is contained within the class `TestScript`. Using this same logic we can apply it to the `Start()` function. Look for the curly braces just after it.
 
 ```csharp
-	void Start() {
+void Start() {
 	
-	}
+}
 ```
 
 ### Using The Scripting API
@@ -65,9 +65,9 @@ Let's type this in `Debug.Log("Hello World");`. For now just write this exactly 
 The function should look like this :
 
 ```csharp
-	void Start() {
-		Debug.Log("Hello World");
-	}
+void Start() {
+	Debug.Log("Hello World");
+}
 ```
 
 ## Syntax

@@ -34,67 +34,67 @@ using UnityEngine;
 
 public class DiceGameTemplate : MonoBehaviour {
 
-    // Store health of both players as a number
-    int playerOneHealth = 50;
-    int playerTwoHealth = 50;
+	// Store health of both players as a number
+	int playerOneHealth = 50;
+	int playerTwoHealth = 50;
 
-    // Store the turn number as an integer
-    int turnCounter = 0;
+	// Store the turn number as an integer
+	int turnCounter = 0;
 
-    // Put all of your code in here, except /\ those variables of course
-    void Start() {
-        
-        // Print out the start of the game, tell us what's going to happen
-        //Debug.Log("Once upon a time...");
+	// Put all of your code in here, except /\ those variables of course
+	void Start() {
 
-        // Change this \/ Saying while(true) is an infite loop and will crash your game
-        while(true) {
+		// Print out the start of the game, tell us what's going to happen
+		// Debug.Log("Once upon a time...");
 
-            // Create a random "die roll" by using the Random class
-            // Remember the first number is inclusive and the second is exclusive
-    	    int dieOne = Random.Range(1, 7);
+		// Change this \/ Saying while(true) is an infite loop and will crash your game
+		while(true) {
 
-            // Make a second die roll
+			// Create a random "die roll" by using the Random class
+			// Remember the first number is inclusive and the second is exclusive
+			int dieOne = Random.Range(1, 7);
 
-            // If the turn count is even it is player ones turn, else it's player twos turn
-    	    if(turnCounter % 2 == 0) {
-	   		
-	   	        // Check to see which number was rolled on the die
-                // Then apply damage based on that number
-    		    if(dieOne == 6) {
+			// Make a second die roll
 
-            	    playerTwoHealth -= 30;
-                    // Add in some story throughout
-                    // Debug.Log("Player one takes 30 damage and now has " + playerOneHealth + " health left." );
+			// If the turn count is even it is player ones turn, else it's player twos turn
+			if(turnCounter % 2 == 0) {
 
-                } else if(dieOne == 5) {
+				// Check to see which number was rolled on the die
+				// Then apply damage based on that number
+				if(dieOne == 6) {
 
-            	    playerTwoHealth -= 15;
+					playerTwoHealth -= 30;
+					// Add in some story throughout
+					// Debug.Log("Player one takes 30 damage and now has " + playerOneHealth + " health left." );
 
-                } else if(dieOne >= 3) {
+				} else if(dieOne == 5) {
 
-	                playerTwoHealth -= 10;
+					playerTwoHealth -= 15;
 
-                } else {
+				} else if(dieOne >= 3) {
 
-	                playerTwoHealth -= 5;
+					playerTwoHealth -= 10;
 
-                }
+				} else {
 
-    	    } else { // End of POne turn
+					playerTwoHealth -= 5;
 
-    		    // Player Two's Turn
-                // It is your job to copy and make the if else statements work down here with player 2!
+				}
 
-    	    } // End of PTwo turn
+			} else { // End of POne turn
 
-            // Increment the turn count to switch turns
-    	    turnCounter++;
+				// Player Two's Turn
+				// It is your job to copy and make the if else statements work down here with player 2!
 
-        } // End of Turn while loop
+			} // End of PTwo turn
 
-        // Print out the winner!
+			// Increment the turn count to switch turns
+			turnCounter++;
 
-    } // End of Start function
+		} // End of Turn while loop
+
+		// Print out the winner!
+
+	} // End of Start function
 
 } // End of DiceGame class
