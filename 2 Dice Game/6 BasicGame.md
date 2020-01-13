@@ -506,7 +506,7 @@ The main thing to go over here are [functions](./1%20UnityScripts.md/functions).
 If you take a look at the code we have here you may notice something.
 
 ```csharp
- // Start is called before the first frame update
+	// Start is called before the first frame update
 	void Start() {
 		
 		while(playerOneHealth <= 0 || playerTwoHealth <= 0) {
@@ -657,6 +657,73 @@ Sadly that will not work. This is beyond the scope of our lesson but basically t
 
 Let's move on and finish up this function.
 
-### Function Return Types
+#### Parameter Scope
 
-// Return damage to to deal with player vars
+As we briefly stated the variable used in our function is not actually the same as the one we passed in. Let's quickly demonstrate this because it can be a bit confusing.\
+Stick this code into a new script to test this out :
+
+```csharp
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class testClass : MonoBehaviour {
+
+	void Start() {
+
+		int x = 2;
+		Debug.Log(x);
+		testFunction(x);
+		Debug.Log(x);
+
+	}
+
+	void testFunction(int myInt) {
+
+		myInt = 5;
+
+	}
+
+}
+```
+
+If you run this script (by putting it onto an object) you should get this output :
+
+```
+2
+2
+```
+
+As you can see the variable `x` was not changed to `5` inside the function.\
+Now change it to this :
+
+```csharp
+void Start() {
+
+	int x = 2;
+	testFunction(x);
+
+}
+
+void testFunction(int myInt) {
+
+	Debug.Log(myInt);
+	myInt = 5;
+	Debug.Log(myInt);
+
+}
+```
+
+Now the output should be this :
+
+```
+2
+5
+```
+
+As demonstrated in these two examples we can use and change a variable **within** a function but as soon as we exit the [scope ](./4%20Logic.md/#scope) of our function these changes are discarded.\
+The variable passed into a function is **not** the same as thevariable used in the function.
+
+We will need a different way to find a different way to damage our player. Luckily there is a great method.
+
+### Function Return Types
