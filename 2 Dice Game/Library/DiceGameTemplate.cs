@@ -19,6 +19,10 @@
  * Add a valid condition to the while loop.
  * 
  * Add a second die roll to each turn and adjust values to work with them.
+ *
+ * Fill out the damage dealing and use some unique values.
+ *
+ * Change the if statements to edit what rolls do different things.
  * 
  * Copy and adjust the if else statements from player one's turn to player's two.
  * 
@@ -63,21 +67,21 @@ public class DiceGameTemplate : MonoBehaviour {
 				// Then apply damage based on that number
 				if(dieOne == 6) {
 
-					playerTwoHealth -= 30;
+					playerTwoHealth -= 30; // Customize the damage value
 					// Add in some story throughout
 					// Debug.Log("Player one takes 30 damage and now has " + playerOneHealth + " health left." );
 
 				} else if(dieOne == 5) {
 
-					playerTwoHealth -= 15;
+					// Deal Damage
 
 				} else if(dieOne >= 3) {
 
-					playerTwoHealth -= 10;
+					// Deal Damage
 
 				} else {
 
-					playerTwoHealth -= 5;
+					// Deal Damage
 
 				}
 
