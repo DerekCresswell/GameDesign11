@@ -727,3 +727,77 @@ The variable passed into a function is **not** the same as thevariable used in t
 We will need a different way to find a different way to damage our player. Luckily there is a great method.
 
 ### Function Return Types
+
+Instead of using our variable inside of the function we are going to ["return"](https://docs.microsoft.com/en-us/dotnet/csharp/methods#return-values) a value and use that to change our health.\
+Basically the way this works is at the end of our function we can give back a value.\
+Let's set up our function to return an `int`. We need to change the keyword `void` before the name of our function to `int`.
+
+```csharp
+int decideDamage(int dieRoll, int playerNumber)
+```
+
+Nice and easy. Now we just need to add a `return` statement or else our function will error. If the return type (the type name before our function name) is not `void` you **must** return a value of the return type.\
+How do return a value? Easy just say `return` followed by a value. We want to return the amount of damage to deal so let's change our code to this :
+
+```csharp
+void decideDamage(int dieRoll, int playerNumber) {
+
+	if(dieRoll == 6) {
+		Debug.Log("Player " + playerNumber + " has taken a big hit of 30 damage!");
+		return 30;
+	} else {
+		// Rest of the if statement ommitted for brevity
+	}
+}
+```
+
+We've changed `playerHealth -= 30;` to `return 30;`.\
+It is key to note that the `return` statement has to be after the `Log` otherwise the `Log` will not be run. When you use `return` the function will exit and no code after the `return` will be run.\
+You can expand the return values all the way down your `if else` tree on your own.\
+There is one more thing we need to do in order for this to work. Let's take a look at the whole class.
+
+```csharp
+// Start is called before the first frame update
+void Start() {
+	
+	while(playerOneHealth <= 0 || playerTwoHealth <= 0) {
+
+		int dieOne = Random.Range(1, 7);
+
+		if(turnCounter % 2 == 0) {
+
+			// Player One's turn
+			int dmg = decideDamage(dieOne, 2);
+			playerTwoHealth -= dmg;
+
+		} else {
+			
+			// Player Two's turn
+			int dmg = decideDamage(dieOne, 1);	
+			playerOneHealth -= dmg;
+
+		}
+
+		turnCounter++;
+
+	}
+
+}
+
+void decideDamage(int dieRoll, int playerNumber) {
+
+	if(dieRoll == 6) {
+		Debug.Log("Player " + playerNumber + " has taken a big hit of 30 damage!");
+		return 30;
+	} else {
+		// Rest of the if statement ommitted for brevity
+	}
+}
+```
+
+As you can see, because our function returns an `int` we can use that value to set a variable. We then use this value to subtract our player's health.
+
+This may have not changed the output of our function in anyway but even by just looking at the code you should be able to tell that this is much cleaner and nicer.\
+If you'd like to bring your game to a higher level look for opportunities such as this to utilise the tools C# provides.
+
+Onto the project!
