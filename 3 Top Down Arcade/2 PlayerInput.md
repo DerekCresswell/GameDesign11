@@ -12,7 +12,7 @@ To use these we simply need to call the function from the `Input` class (just li
 For `GetButton`, which we'll use a bit later, we pass in a button name and the function will tell us whether or not that button is pressed.
 
 ***Note***
-The names of these axises are set through the ["Input Manager"](https://docs.unity3d.com/Manual/class-InputManager.html). You can also add new ones. We will talk more about this in a [section](#setting-up-button-inputs) later on.
+The names of these axes are set through the ["Input Manager"](https://docs.unity3d.com/Manual/class-InputManager.html). You can also add new ones. We will talk more about this in a [section](#setting-up-button-inputs) later on.
 
 ## Player Movement
 
@@ -169,9 +169,31 @@ Don't worry about that yet though, onto the basic four point system.
 ### Setting Up Button Inputs
 
 First thing to do is to make a new script called "PlayerShoot". Make sure to put it into the Scripts folder. Open it up.\
-Now this script will be controlled with the arrow keys by default.
+Now this script will be controlled with the arrow keys by default. Which means we need to change our inputs because currently the arrow keys can move our character as well.\
+This is because the arrows keys are by default to set to be in the Horizontal and Vertical axes. The same ones we used in our movement script.
 
-// Setup input manager
+We need to open up our input manager. In the top left go to "Edit", then down to "Project Settings". Once that opens click on "Input".
+
+![ProjectSettings](Images/ProjectSettings.JPG)
+
+This is the input manager. In here we can change which buttons correspond to which axis. We need to move the arrow keys from the Horizatonal and Vertical axis to new axes that will be for shooting.\
+Click on "Horizontal" from the list of axes. Find "Negative Button" and "Positive Button" and delete their corresponding keys ("left" and "right" in this case). It's ok that those two fields are now empty because these axes have alternate keys specified.\
+Do the same for the "Vertical" axis and then play your game. You will notice that the arrow keys no longer move you player but WASD do.
+
+![RemoveArrowInput](Images/RemoveArrowInput.JPG)
+
+Now we can set up our shooting axes. You might notice there is already some axes named "FireX". Let's just modify these. Open up "Fire1".\
+The first thing we should do is change the name. Just like how with our movement axes we need two inputs (one for up and down and another for left and right). Rename this from "Fire1" to "FireLR" for left and right. Then change the "Negative Button" to "left" and "Positive Button" to "right".\
+Now do the same for "Fire2" but using "FireUD" (up / down), "down", and "up" respectively.
+
+![SettingFireButtons](Images/SettingFireButtons.JPG)
+
+With that we are good to go and can start writing a script for shooting.
+
+### Printing Shooting
+
+Just like with movement we are going to start simple by just detecting our key presses. Make a new script (in the scripts folder) and name it "PlayerShoot" or similar.\
+In the `Update` function let's 
 
 ```csharp
 using UnityEngine;
@@ -180,12 +202,12 @@ using System.Collections;
 public class PlayerShoot : MonoBehaviour {
 
     // Use this for initialization
-    void Start () {
+    void Start() {
     
     }
     
     // Update is called once per frame
-    void Update () {
+    void Update() {
     
     }
 
