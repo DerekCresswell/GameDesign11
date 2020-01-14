@@ -26,7 +26,6 @@ In our `Update` function let's add the following.
 // Should this be fixed update??
 
 ```csharp
-// Update is called once per frame
 void Update() {
 
 	float hAxis = Input.GetAxis("Horizontal");
@@ -56,7 +55,6 @@ So how do we change these values within our script? Pretty simple.
 In our script let's start by storing the vertical and horizontal axis values.
 
 ```csharp
-// Update is called once per frame
 void Update() {
 
 	float hAxis = Input.GetAxis("Horizontal");
@@ -70,7 +68,6 @@ This needs to be a ["Vector3"](https://docs.unity3d.com/ScriptReference/Vector3.
 Add the following code :
 
 ```csharp
-// Update is called once per frame
 void Update() {
 
 	float hAxis = Input.GetAxis("Horizontal");
@@ -97,7 +94,6 @@ First we need to actually access our position. This is really easy as all we hav
 After all that you should have something like this :
 
 ```csharp
-// Update is called once per frame
 void Update() {
 
 	float hAxis = Input.GetAxis("Horizontal");
@@ -119,7 +115,6 @@ To start we know that we are adding a number between -1 and 1 to our movement ve
 Start by adding in a new `float` and call it `maxSpeed` or similar. We then want to mulitple our axis value by that variable.
 
 ```csharp
-// Update is called once per frame
 void Update() {
 
 	float maxSpeed = 1;
