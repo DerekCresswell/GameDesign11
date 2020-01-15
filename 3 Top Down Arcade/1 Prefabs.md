@@ -24,7 +24,7 @@ So how do we make a prefab?
 ## How To Make Prefabs
 
 While first we need to create an object that we will make into a prefab. At this point you just need to try and make one, it does not need a purpose in your project here.\
-You can put whatever you want onto this object. Perhaps make a "Ball" object that has a sprite (look up a ball sprite online or use the circle from the [Rube Goldberg](../1%20Rube%20Goldberg%20Machine/Assets/WhiteCircle.png)), a circle collider, and rigidbody 2D.
+You can put whatever you want onto this object. Perhaps make a "Ball" object that has a sprite (look up a ball sprite online or use the circle from the [Rube Goldberg](../1%20Rube%20GoldBerg%20Machine/Assets/WhiteCircle.png)), a circle collider, and rigidbody 2D.
 
 ![BallObject](Images/BallObject.JPG)
 
