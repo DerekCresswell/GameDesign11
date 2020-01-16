@@ -168,6 +168,8 @@ Don't worry about that yet though, onto the basic four point system.
 
 ### Setting Up Button Inputs
 
+// Revise and likely remove this section. Perhaps to extras.
+
 First thing to do is to make a new script called "PlayerShoot". Make sure to put it into the Scripts folder. Open it up.\
 Now this script will be controlled with the arrow keys by default. Which means we need to change our inputs because currently the arrow keys can move our character as well.\
 This is because the arrows keys are by default to set to be in the Horizontal and Vertical axes. The same ones we used in our movement script.
@@ -193,24 +195,57 @@ With that we are good to go and can start writing a script for shooting.
 ### Printing Shooting
 
 Just like with movement we are going to start simple by just detecting our key presses. Make a new script (in the scripts folder) and name it "PlayerShoot" or similar.\
-In the `Update` function let's 
+In the `Update` function we need to detect our key presses similar to our movement but not exactly. We are going to use the method ["Input.GetKeyDown"](https://docs.unity3d.com/ScriptReference/Input.GetKeyDown.html) which uses the key names rather than an axis name.\
+This function returns a `boolean` that is `true` if the key was pressed that frame and `false` otherwise. Because of this `boolean` we can stick the function directly into an `if` statement. Let's try printing something if the player press the key "up". Put this in the `Update` function just like before.
 
 ```csharp
-using UnityEngine;
-using System.Collections;
+void Update() {
 
-public class PlayerShoot : MonoBehaviour {
-
-    // Use this for initialization
-    void Start() {
-    
-    }
-    
-    // Update is called once per frame
-    void Update() {
-    
-    }
+	if(Input.GetKeyDown("left")) {
+		Debug.Log("Left");
+	}
 
 }
-
 ```
+
+Put this script onto your player and try running the game. You should be able to move with WASD and by pressing <kbd>&#8592;</kbd> the console will say "Left".\
+Perfect. Now we just need to expand this to use all four arrow keys. Let's start by adding in the right arrow key. To do this add an `else if` to our current code. Then changed which key we are using and the output.
+
+```csharp
+void Update() {
+
+	if(Input.GetKeyDown("left")) {
+		Debug.Log("Left");
+	} else if(Input.GetKeyDown("right")) {
+		Debug.Log("Right");
+	}
+
+}
+```
+
+We want to use the `else` here because you cannot should left and right at the same time. This makes it so only one can run each frame. Go ahead and try this out.\
+Next we add the <kbd>&#8593;</kbd> and <kbd>&#8595;</kbd> keys to this. We want to duplicate what we currently have so that left and right are an `if else` and up and down are a seperate `if else`.
+
+```csharp
+void Update() {
+
+	if(Input.GetKeyDown("left")) {
+		Debug.Log("Left");
+	} else if(Input.GetKeyDown("right")) {
+		Debug.Log("Right");
+	}
+
+	if(Input.GetKeyDown("up")) {
+		Debug.Log("Up");
+	} else if(Input.GetKeyDown("down")) {
+		Debug.Log("Down");
+	}
+
+}
+```
+
+Now let's move on to turning this into actually shooting a bullet.
+
+### Making A Bullet Prefab
+
+### Spawning A Bullet
