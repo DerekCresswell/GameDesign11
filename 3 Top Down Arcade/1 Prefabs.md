@@ -75,6 +75,9 @@ If you want to reset these values to the default you can click the "Overrides" d
 
 ![RevertOverrides](Images/RevertOverrides.JPG)
 
+Go right ahead and play around with these prefabs. There isn't much you can break when there's a reset button!\
+It is important to understand how to use prefabs in order to make a quality game so spend some time with them.
+
 ## Player Prefab
 
 We are going to create a Player Prefab to use in our game. We won't be able to add everything we need to right now but will build it up throughout this unit.\
@@ -87,3 +90,7 @@ Next add a [Rigidbody 2D](https://docs.unity3d.com/Manual/class-Rigidbody2D.html
 // Double check this definition of kinematic
 
 With that we should be good to make this player into a prefab. Just [drag](#how-to-make-prefabs) it into the prefab folder.
+
+![BasicPlayerPrefab](Images/BasicPlayerPrefab.JPG)
+
+Now we can move on to making some scripts to manipulate that prefab and use input from the player to do so!
