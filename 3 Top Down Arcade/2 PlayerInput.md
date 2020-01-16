@@ -168,8 +168,6 @@ Don't worry about that yet though, onto the basic four point system.
 
 ### Setting Up Button Inputs
 
-// Revise and likely remove this section. Perhaps to extras.
-
 First thing to do is to make a new script called "PlayerShoot". Make sure to put it into the Scripts folder. Open it up.\
 Now this script will be controlled with the arrow keys by default. Which means we need to change our inputs because currently the arrow keys can move our character as well.\
 This is because the arrows keys are by default to set to be in the Horizontal and Vertical axes. The same ones we used in our movement script.
@@ -183,12 +181,6 @@ Click on "Horizontal" from the list of axes. Find "Negative Button" and "Positiv
 Do the same for the "Vertical" axis and then play your game. You will notice that the arrow keys no longer move you player but WASD do.
 
 ![RemoveArrowInput](Images/RemoveArrowInput.JPG)
-
-Now we can set up our shooting axes. You might notice there is already some axes named "FireX". Let's just modify these. Open up "Fire1".\
-The first thing we should do is change the name. Just like how with our movement axes we need two inputs (one for up and down and another for left and right). Rename this from "Fire1" to "FireLR" for left and right. Then change the "Negative Button" to "left" and "Positive Button" to "right".\
-Now do the same for "Fire2" but using "FireUD" (up / down), "down", and "up" respectively.
-
-![SettingFireButtons](Images/SettingFireButtons.JPG)
 
 With that we are good to go and can start writing a script for shooting.
 
