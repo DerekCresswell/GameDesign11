@@ -77,4 +77,13 @@ If you want to reset these values to the default you can click the "Overrides" d
 
 ## Player Prefab
 
-// Make mock up player prefab. (Collider, blank move script, etc)
+We are going to create a Player Prefab to use in our game. We won't be able to add everything we need to right now but will build it up throughout this unit.\
+Let's start by putting the [white square](../1%20Rube%20GoldBerg%20Machine/Assets/WhiteBox.png) we used in the [Rube GoldBerg](../1%20Rube%20GoldBerg%20Machine) unit into our game.\
+Right click on your Hierarchy, scroll down to "2D Object", and create a new "Sprite". Name it "Player".\
+Go into the Inspector and set it's sprite to the white box we just added. Just for fun make it blue (or whatever color you want!) using the Color option.\
+Next we should add a [Box Collider 2D](https://docs.unity3d.com/Manual/class-BoxCollider2D.html) to our object. Make sure to use the 2D option. If you used the box sprite provided from this course the default size of the collider should be good.\
+Next add a [Rigidbody 2D](https://docs.unity3d.com/Manual/class-Rigidbody2D.html). Again, make sure it's 2D. There is one more thing to do here. If you play the game you will notice that the player just falls. To remedy this go onto the Rigidbody component and change "Body Type" from "Dynamic" to "Kinematic". This allows us to move and interact with the world but other forces (like gravity) will not affect it.
+
+// Double check this definition of kinematic
+
+With that we should be good to make this player into a prefab. Just [drag](#how-to-make-prefabs) it into the prefab folder.
