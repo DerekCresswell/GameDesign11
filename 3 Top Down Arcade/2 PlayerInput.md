@@ -240,4 +240,43 @@ Now let's move on to turning this into actually shooting a bullet.
 
 ### Making A Bullet Prefab
 
+Before we can shoot a bullet we need to make a bullet. First let's outline what we are actually about to do.\
+We are going to make a bullet prefab. Then in our `PlayerShoot` script we will spawn an instance of the bullet prefab and give it a velocity. With that in mine we can make a simple bullet prefab.
+
+In your scene make a new sprite (just like with the player prefab) and name it "Bullet".
+
+// Use circle sprite to make a simple bullet 
+
 ### Spawning A Bullet
+
+Now that we have a basic bullet prefab we can start spawning it instead of just printing out a direction. Open up the `PlayerShoot` script.\
+
+At the top of our script add in a new `public` variable of the type ["GameObject"](https://docs.unity3d.com/ScriptReference/GameObject.html). This will be used to store our bullet prefab.
+
+```csharp
+public GameObject BulletPrefab;
+```
+Save that and head back to Unity. If you click on the player prefab you will see the new variable under the PlayerShoot script. Drag the bullet prefab into that slot. This way when we run our game the variable `BulletPrefab` inside of the `PlayerShoot` script.\
+Go back into our shooting script.\
+We are now going to replace the `Debug.Log`'s inside of our `Update` function with spawning a bullet. To spawn a prefab we can use the ["Instantiate"](https://docs.unity3d.com/ScriptReference/Object.Instantiate.html) function from Unity.\
+The `Instantiate` function takes three arguements. The first is the actual prefab we'd like to create. Next it needs a `Vector3` containing the XYZ coordinates of the new objects Transform. The third defines the rotation of the object as a ["Quaternion"](https://docs.unity3d.com/ScriptReference/Quaternion.html).\
+Here we've omitted the other `if` statements as they are trivial.
+
+```csharp
+void Update() {
+	if(Input.GetKeyDown("left")) {
+		Instantiate(BulletPrefab, transform.position, Quaternion.identity);
+	}
+}
+```
+Let's break this down a little. `BulletPrefab` refers to the variable we just made which is our bullet prefab.\
+`transform.position` is the position of the player. `transform` refers to the transform component on the "owner" of the script, in this case the Player. We then call `.position` to get the `Vector3` that is our player's XYZ coordinates.\
+`Quaternion.identity` is a predefined constant that refers to ["no rotation"](https://docs.unity3d.com/ScriptReference/Quaternion-identity.html). You don't need to worry too much about this as it is a high level math concept. Later we can show you an easier way to adjust rotation.
+
+Now go back to Unity and run your game.
+
+// Finish
+
+### Detecting Bullet Hits
+
+// Use tags to detect bullet hits. Delete bullet on collision
