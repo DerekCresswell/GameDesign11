@@ -1,6 +1,8 @@
 # Dice Game
 
-This is the basic syntax that will be followed for all the scripts in this course.
+This is the basic syntax that will be followed for all the scripts in this course.\
+The rules outlined here are by no means required or the only way to organize code. You may write your code however you'd like and nearly every developer will have a different method.\
+The style for this course has been outlined so you don't need to spend time deciphering the formatting of the code. If you need to find a function, you'll know where it should be located.
 
 ## Syntax Specifications
 
@@ -11,31 +13,38 @@ using System.Collections;
 public class Player : MonoBehaviour {
 
     public int maxHealth = 100;
-    public int health = 0;
 
     public int maxSpeed = 10;
     [Range(0,2)]
     public float speedModifier = 1;
 
     bool grounded = true;
+    int health = 0;
 
     private int level;
     private float currentExperience;
 
     void Start() {
     
-
+        health = maxHealth;
 
     }
     
     void Update() {
 		
-
+		if(Input.GetKeyDown("Space")) {
+			Attack();
+		}
 
     }
 
-}
+	void Attack() {
 
+		// Code
+
+	}
+
+}
 ```
 
 Above is just an example file with most things you will come across in this course. It is not meant to be used in a game.\
@@ -56,13 +65,14 @@ class Test {
 
     }
 
-    int ReturnFive() {return 5;}
+    int ReturnFive() {
+        return 5;
+    }
 
 }
 ```
 
-As seen above, blocks of code should be split by one line based mainly on relevance to each other.\
-Code that is very small and self explanitory, such as `ReturnFive` and the `if` in `MyFunction`, can be left with no spaces and even written on a single line.
+As seen above, blocks of code should be split by one line based mainly on relevance to each other.
 
 ### Casing
 
@@ -88,7 +98,6 @@ Which casing standard to use for which parts of our code.
 Variables should follow the [casing style](#casing) denoted above.
 
 ```csharp
-
 class Test {
 
     static int TESTVAR;
@@ -106,7 +115,6 @@ class Test {
     }
 
 }
-
 ```
 
 New lines should be used to break up groups of similar variables.\
@@ -117,3 +125,16 @@ Arrange variables based on their Access Levels. Typically top to bottom like :
 * Public
 * Default
 * Private
+
+### Spacing
+
+Leaving spaces between characters can increase readability. We will leave spaces around equal signs `=`, after commas `,`, and before opening curly braces `{`.
+
+```csharp
+if(myBool) {
+
+	myInt = 9;
+	myFunc(myInt, true);
+
+}
+```
