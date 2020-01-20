@@ -288,9 +288,16 @@ Now let's move on to turning this into actually shooting a bullet.
 Before we can shoot a bullet we need to make a bullet. First let's outline what we are actually about to do.\
 We are going to make a bullet prefab. Then in our `PlayerShoot` script we will spawn an instance of the bullet prefab and give it a velocity. With that in mine we can make a simple bullet prefab.
 
-In your scene make a new sprite (just like with the player prefab) and name it "Bullet".
+* In your scene make a new sprite (just like with the player prefab) and name it "Bullet".
+* Set the sprite to our [white circle sprite](../1%20Rube%20GoldBerg%20Machine/Assets/WhiteCircle.png) and give it a color if you want.
+* Set the scale of this sprite (under the transform) to around `0.5` or whatever looks best in comparision to our player.
+* Add a Rigidbody 2D to the bullet.
+* Add a Circle Collider 2D to the bullet. Make sure the size is right.
 
-// Use circle sprite to make a simple bullet 
+![BulletPrefab](Images/BulletPrefab.JPG)
+
+Once you have that, make it into a prefab by dragging it into the "Prefabs" folder we made.\
+You should be able to get rid of the bullet in the scene now and just keep the prefab.
 
 ### Spawning A Bullet
 
@@ -319,7 +326,36 @@ Let's break this down a little. `BulletPrefab` refers to the variable we just ma
 
 Now go back to Unity and run your game.
 
-// Finish
+As you press the arrow keys you will see bullets popping out of the side of your player. Hardly bullets but still a great step!\
+Now we will work on two more things to make these bullets better.
+
+#### Adding Force To Bullets
+
+First thing about our bullets is that they are rather lame. They need to go fast and because this is top down, gravity shouldn't affect them.\
+To solve the gravity issue simply open up the bullet prefab, scroll down to the Rigidbody and set [Gravity Scale](https://docs.unity3d.com/ScriptReference/Rigidbody2D-gravityScale.html) to `0`.\
+This just says that gravity should not affect this object.
+
+Next we need the bullet to shoot off into the distance.\
+Open up the PlayerShoot script. Add to our script a new function called "ShootBullet". This should return `void` and take one `Vector3` as an arguement.
+
+```csharp
+void ShootBullet(Vector3 direction)
+```
+
+Now we want this function to spawn a bullet and then give it some velocity based on direction.\
+Start by moving our `Instantiate` line of code from our `Update` to here. But we want to now set this equal to a variable. By doing this we hold a reference to the object we just spawned.
+
+```csharp
+void ShootBullet(Vector3 direction) {
+
+	GameObject bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity) as GameObject;
+
+}
+```
+
+// Finish, check as GameObject part
+
+#### Deleting Bullets On A Timer
 
 ### Detecting Bullet Hits
 
