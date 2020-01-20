@@ -160,6 +160,47 @@ Now save that and return to Unity. Click on your Player object and and under the
 Now a fun thing you can try to illustrate the usefulness of this `public` keyword would be to put a second Player prefab into your game and give the second one a different `maxSpeed` value to the first.\
 When you play the game you can see that even though these two objects use the same script they can have different values. This means that, just like prefabs, we can make one script and use it as many times as we like. Also using `public` speeds testing up ten fold. It's also good to note that anything you can turn into a variable can be `public`. Use it whenever you want to quickly alter values.
 
+### Following The Player With The Camera
+
+With our player moving it is obvious that the camera needs to follow the player otherwise we cannot see the player. There is a really simple way to do this but really only works when our player does **not** rotate.\
+All we need to do is ["child"](https://docs.unity3d.com/Manual/Transforms.html) our [Camera](https://docs.unity3d.com/Manual/class-Camera.html) object to our player. This will make the transform of the camera relative to the player rather than the center of the world.\
+Now we want the camera's transform to be `0` for X, `0` for Y, and a negative number for Z. This is because we want the camera centered on the player, that's the X and Y, but it needs to have a negative Z as to not be on the same plane as the player. That is to say :\
+If the camera's Z is also 0 it will be at the same level as the player and cannot see it. Just like you cannot see something directly beside you.
+
+// Insert IMG
+
+If you do want your player to rotate (like if you are going to use the [MouseAim script]()) you will need to add this [simple code](Library/CameraFollow.cs) to a script and place it on the camera.
+
+```csharp
+public class CameraFollow : MonoBehaviour {
+
+	// Set this to the player in the game (NOT the prefab)
+	public GameObject player;
+
+	// Stores the difference between the player and camera
+	Vector3 offset;
+
+	void Start() {
+
+		offset = transform.position - player.transform.position;
+
+	}
+
+	// Update is called once per frame
+	void Update() {
+
+		// Update the cameras position
+		transform.position = player.transform.position + offset;
+
+	}
+}
+```
+
+If you use this script you must do two things.
+
+* Do not have the camera childed to the player for this 
+* Place the camera where you want it in relation to the player before you start the game.
+
 ## Shooting
 
 We've got a moving player, now let's try to add a basic shooting mechanic to our game. What we are going to build here is a basic four point shooting system. What that means is we can shoot up, down, left, and right.\
@@ -250,7 +291,6 @@ In your scene make a new sprite (just like with the player prefab) and name it "
 ### Spawning A Bullet
 
 Now that we have a basic bullet prefab we can start spawning it instead of just printing out a direction. Open up the `PlayerShoot` script.\
-
 At the top of our script add in a new `public` variable of the type ["GameObject"](https://docs.unity3d.com/ScriptReference/GameObject.html). This will be used to store our bullet prefab.
 
 ```csharp
@@ -280,3 +320,4 @@ Now go back to Unity and run your game.
 ### Detecting Bullet Hits
 
 // Use tags to detect bullet hits. Delete bullet on collision
+// Check camerafollow for fixed update / functionality
