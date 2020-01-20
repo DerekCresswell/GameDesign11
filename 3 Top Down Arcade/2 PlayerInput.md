@@ -168,7 +168,7 @@ All we need to do is ["child"](https://docs.unity3d.com/Manual/Transforms.html) 
 Now we want the camera's transform to be `0` for X, `0` for Y, and a negative number for Z. This is because we want the camera centered on the player, that's the X and Y, but it needs to have a negative Z as to not be on the same plane as the player. That is to say :\
 If the camera's Z is also 0 it will be at the same level as the player and cannot see it. Just like you cannot see something directly beside you.
 
-// Insert IMG
+![ChildedCamera](Images/ChildedCamera.JPG)
 
 If you do want your player to rotate (like if you are going to use the [MouseAim script]()) you will need to add this [simple code](Library/CameraFollow.cs) to a script and place it on the camera.
 
@@ -201,6 +201,9 @@ If you use this script you must do two things.
 
 * Do not have the camera childed to the player for this 
 * Place the camera where you want it in relation to the player before you start the game.
+
+Use the above code for now, the [version](Library/CameraFollow.cs) in the [Library](Library) is slightly more advanced to allow for a smoother feel.\
+This will be what is used for the rest of these lessons, though it does not affect you very much.
 
 ## Shooting
 
@@ -321,4 +324,3 @@ Now go back to Unity and run your game.
 ### Detecting Bullet Hits
 
 // Use tags to detect bullet hits. Delete bullet on collision
-// Check camerafollow for fixed update / functionality
