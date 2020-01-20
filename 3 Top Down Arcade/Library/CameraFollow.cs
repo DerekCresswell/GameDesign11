@@ -10,10 +10,13 @@
  * 
  */
 
-/* 
+/*
  *
  * --- What You Need To Do ---
  * 
+ * Do not have the camera childed to the player
+ * Place the camera where you want it in relation to the player before you start the game.
+ *
  */
 
 using System.Collections;
@@ -30,15 +33,16 @@ public class CameraFollow : MonoBehaviour {
 
 	void Start() {
 
+        // Set the offset
 		offset = transform.position - player.transform.position;
 
 	}
 
-	// Update is called once per frame
 	void Update() {
 
 		// Update the cameras position
 		transform.position = player.transform.position + offset;
 
 	}
+
 }
