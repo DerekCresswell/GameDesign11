@@ -336,24 +336,79 @@ To solve the gravity issue simply open up the bullet prefab, scroll down to the 
 This just says that gravity should not affect this object.
 
 Next we need the bullet to shoot off into the distance.\
-Open up the PlayerShoot script. Add to our script a new function called "ShootBullet". This should return `void` and take one `Vector3` as an arguement.
+Open up the PlayerShoot script. Add to our script a new function called "ShootBullet". This should return `void` and take one ["Vector2"](https://docs.unity3d.com/ScriptReference/Vector2.html) as an arguement (This is the same as a `Vector3` but with only an `X` and `Y`).
 
 ```csharp
-void ShootBullet(Vector3 direction)
+void ShootBullet(Vector2 direction)
 ```
 
 Now we want this function to spawn a bullet and then give it some velocity based on direction.\
 Start by moving our `Instantiate` line of code from our `Update` to here. But we want to now set this equal to a variable. By doing this we hold a reference to the object we just spawned.
 
 ```csharp
-void ShootBullet(Vector3 direction) {
+void ShootBullet(Vector2 direction) {
 
-	GameObject bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity) as GameObject;
+	GameObject bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
 
 }
 ```
 
-// Finish, check as GameObject part
+This is no different to any variable you have seen. It's just that the value of the variable is now a instance of the Bullet prefab.\
+Next we need to give the bullet some speed. To do this we need to add a force to the Rigidbody. Unlike the Transform, we need to use the `GetComponent` method to use the Rigidbody in our code.\
+That will look like this :
+
+```csharp
+void ShootBullet(Vector2 direction) {
+
+	GameObject bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
+
+	Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+
+}
+```
+
+This certainly will look foreign. Time to break it down.
+
+* `Rigidbody2D rb` : We want to make a new variable of the `Rigidbody2D` type. This is just a normal variable but the value of it is a `Rigidbody2D`.
+* `GetComponent` : This is simply a function that gets us a reference to a component of an object. It must be called on an object, in this case the bullet.
+* `<RigidBody2D>` : This is part of the above function. It says we want to get the`Rigidbody2D` component from the object.
+* `()` : That is just like a normal function's brackets.
+
+In short, `bullet.GetComponent<Rigidbody2D>()` will give us the Rigidbody that is on our bullet.\
+Now with that we can add a force to the bullet with the conveniently named ["AddForce"](https://docs.unity3d.com/ScriptReference/Rigidbody2D.AddForce.html) function. This takes in a `Vector2` as an arguement and applies it as a force to our object.\
+We have to call `AddForce` on the Rigidbody of the object. So use the `rb` variable we just made.
+
+```csharp
+void ShootBullet(Vector2 direction) {
+
+	GameObject bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
+
+	Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+
+	rb.AddForce(direction);
+
+}
+```
+
+This will work but we don't have much control over the speed of the bullet. Let's make a new `public float` at the top of your script and name it `bulletSpeed`.
+
+```csharp
+public float bulletSpeed = 1;
+```
+
+Now we can just multiply the `direction` variable in our `ShootBullet` function by this new speed.
+
+```csharp
+void ShootBullet(Vector2 direction) {
+
+	GameObject bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
+
+	Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+
+	rb.AddForce(direction * bulletSpeed);
+
+}
+```
 
 #### Deleting Bullets On A Timer
 
