@@ -399,18 +399,55 @@ public float bulletSpeed = 1;
 Now we can just multiply the `direction` variable in our `ShootBullet` function by this new speed.
 
 ```csharp
-void ShootBullet(Vector2 direction) {
+rb.AddForce(direction * bulletSpeed);
+```
 
-	GameObject bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
+*bulletSpeed will likely need to be a rather large number.*
 
-	Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+Time to add a call to the `ShootBullet` function in the `Update` function instead of just instantiating a bullet.\
+You will need to give the function call a direction. What we want to use is `1` to mean up / right and `-1` to mean down / left depending on if it's in the x or y spot.\
+Try and draw out the grid and figure out which directions to give to which key presses (You'll have to pass it like `new Vector2(X, Y)`).\
+Don't simply guess and than look at the answer, go and try turning on the game and see if it works. Playing and testing your game is perhaps the best thing you can do to learn.
 
-	rb.AddForce(direction * bulletSpeed);
+<details>
+<summary>Calling the ShootBullet function</summary>
+
+<br />
+
+```csharp
+void Update() {
+
+	if(Input.GetKeyDown("left")) {
+		ShootBullet(new Vector2(-1, 0));
+	} else if(Input.GetKeyDown("right")) {
+		ShootBullet(new Vector2(1, 0));
+	}
+
+	if(Input.GetKeyDown("up")) {
+		ShootBullet(new Vector2(0, 1));
+	} else if(Input.GetKeyDown("down")) {
+		ShootBullet(new Vector2(0, -1));
+	}
 
 }
 ```
 
-#### Deleting Bullets On A Timer
+[Check out the "Static Properties"](https://docs.unity3d.com/ScriptReference/Vector2.html) and try using these in place of the `new Vector2(X, Y)` we've made here.
+
+</details>
+
+One last thing to do here, promise it's quick.\
+Our bullets are hitting the Player's collider. Add this line into the `ShootBullet` function just below instantiating the bullet.
+
+```csharp
+Physics2D.IgnoreCollision(bullet.GetComponent<CircleCollider2D>(), GetComponent<BoxCollider2D>());
+```
+
+Read through the line and see if you can make sense of it. If not try using the [Scripting API](https://docs.unity3d.com/ScriptReference/Physics2D.IgnoreCollision.html) page.
+
+#### Deleting Bullets
+
+Now what you may notice is that as
 
 ### Detecting Bullet Hits
 
