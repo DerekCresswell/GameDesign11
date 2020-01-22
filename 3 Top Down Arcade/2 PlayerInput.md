@@ -447,7 +447,55 @@ Read through the line and see if you can make sense of it. If not try using the 
 
 #### Deleting Bullets
 
-Now what you may notice is that as
+Now what you may notice is that as we shoot a lot bullets the hierarchy fills up.
+
+![SpawnedBullets](Images/SpawnedBullets.JPG)
+
+This is bad. Everytime we create a bullet it will take resources to calculate the details about the object and will have to do these every frame, forever.\
+We need to get rid of bullets once they are no longer needed. The first thing we should do is destroy the bullet when it hits something.
+
+Go ahead and add some walls to the scene so that we have something to hit with our bullets.\
+Just add some sprites and give them a box collider.
+
+![WallsSetup](Images/WallsSetup.JPG)
+
+To destroy a bullet when it hits something we need to detect a collision on the bullet. Create a new script and name it "BulletDestroy" or similar.\
+We are going to use the built in function from Unity called ["OnCollisionEnter2D"](https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnCollisionEnter2D.html) for this. This will be called automatically when our bullet collides with something.
+
+```csharp
+public class BulletDestroy : MonoBehaviour {
+	
+	void OnCollisionEnter2D(Collision2D collision) {
+
+	}
+
+}
+```
+
+Lucky for us this should be simple as we can just destroy when we hit anything.\
+Add into that function :
+
+```csharp
+Destroy(gameObject);
+```
+
+*Note the lowercase g*\
+The bullets should now disapear when they hit anything.
+
+There is a posibility that your bullets may collide with another bullet so there is one check we should add to our `BulletDestroy`.\
+We can do this using ["tags"](https://docs.unity3d.com/Manual/Tags.html). These just put a name on an object more or less. We can than use these tags to easily check if we collided with a bullet.
+
+Open up the bullet prefab. At the top of the inspector there is a dropdown for tags. It should say "Untagged".
+
+![TagsInInspector](Images/TagsInInspector.JPG)
+
+Click on "Add Tag". This will open a new menu. There should be an empty list of tags. Hit the plus button and add a tag called "BulletTag".
+
+![AddNewTag](Images/AddNewTag.JPG)
+
+Now double click on your bullet prefab to bring it back into the Inspector.\
+Click onto the tags as before but now add the "BulletTag". Save that and open up the BulletDestroy script.\
+Around `Destroy(gameObject);` put an `if` statement. 
 
 ### Detecting Bullet Hits
 
