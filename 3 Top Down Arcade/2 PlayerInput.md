@@ -495,7 +495,28 @@ Click on "Add Tag". This will open a new menu. There should be an empty list of 
 
 Now double click on your bullet prefab to bring it back into the Inspector.\
 Click onto the tags as before but now add the "BulletTag". Save that and open up the BulletDestroy script.\
-Around `Destroy(gameObject);` put an `if` statement. 
+Around `Destroy(gameObject);` put an `if` statement. In the `OnCollisionEnter` function you can see that there is a ["Collision2D"](https://docs.unity3d.com/ScriptReference/Collision2D.html) passed in named "collision".\
+That `Collision2D` object has a variable we can access that contains the info of object we collided with called ["gameObject"](https://docs.unity3d.com/ScriptReference/Collision2D-gameObject.html). On that we can access the objects tag.\
+It would look like this :
+
+```csharp
+collision.gameObject.tag
+```
+
+Now we can compare if the object's tag to a `string` and see if it is **not** "BulletTag".
+
+```csharp
+void OnCollisionEnter2D(Collision2D collision) {
+
+	if(collision.gameObject.tag != "BulletTag") {
+		Destroy(gameObject);
+	}
+
+}
+```
+
+Now our bullets will not collide with other bullets.\
+Now that these bullets are working perfectly we can move onto actually doing bullet things like dealing damage.
 
 ### Detecting Bullet Hits
 
