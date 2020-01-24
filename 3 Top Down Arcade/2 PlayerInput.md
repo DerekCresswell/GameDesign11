@@ -518,6 +518,22 @@ void OnCollisionEnter2D(Collision2D collision) {
 Now our bullets will not collide with other bullets.\
 Now that these bullets are working perfectly we can move onto actually doing bullet things like dealing damage.
 
-### Detecting Bullet Hits
+#### Bullet Lifetimes
 
-// Use tags to detect bullet hits. Delete bullet on collision
+Alright one more thing. This will be quick though, promise.\
+You might notice that if you miss one of these walls the bullet will never be destroyed as it shoots off into infinity.\
+We need to destroy the bullet after some amount of time in case it never hits anything. We can do this with a single line luckily!\
+In our BulletDestroy script add this to the `Start` function.
+
+```csharp
+void Start() {
+
+	Destroy(gameObject, 2);
+
+}
+```
+
+As before we are using the `Destroy` function to delete our game object (in this case a bullet). Lucky for us, Unity lets us pass in a `float` after the object we want to destroy. If you give a value here, Unity will destroy the object after that many seconds.\
+Completely arbitrarily we've done two seconds here. Feels like if a bullet has not found a target in two seconds, it likely missed.
+
+In the next lesson we will go over making a script to track the players and enemies health.
