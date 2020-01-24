@@ -87,3 +87,14 @@ The two functions written here are from the `MonoBehaviour` class we talked abou
 That's quite a bit of info to take in. That might not have all made a bunch of sense but that's ok. There is a good bit to code and especially to start with. It's typically easier once we start writing code to understand these things.\
 We also have a file of refrence material with links to videos and tutorials that go a lot more into the explanation if you need that.\
 Let's write some code!
+
+### Important Note For Visual Studios
+
+If you are using [Visual Studios (VS)](https://visualstudio.microsoft.com/) for your code you may have a big problem. Worry not, we can fix it.\
+What might be happening is that VS has not recognized you are working in a Unity project. An easy way to tell if this is happening is to see if your file is labeled "Miscellaneous Files" near the top left of the editor window.
+
+// Picture 
+
+If this is the case, close VS. Then go to Unity. In the top left click on the menu option "Assets" then go down to "Open C# Project". This will open a folder and let you choose the file to open. There should be a "sln" file from VS. Click that and you should be good to go.
+
+// Picture
