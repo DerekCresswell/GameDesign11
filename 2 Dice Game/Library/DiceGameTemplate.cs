@@ -7,6 +7,9 @@
  * 
  * Author: DerekCresswell
  * https://github.com/DerekCresswell/GameDesign11
+ *
+ * This is a template file to make a dice rolling 
+ * game.
  * 
  */
 
@@ -14,21 +17,29 @@
  *
  * --- What You Need To Do ---
  * 
- * Change the class name from "DiceGameTemplate" to match the name of this file.
+ * Change the class name from "DiceGameTemplate" to 
+ * match the name of this file.
  * 
  * Add a valid condition to the while loop.
  * 
- * Add a second die roll to each turn and adjust values to work with them.
+ * Add a second die roll to each turn and adjust 
+ * values to work with them.
  *
- * Fill out the damage dealing and use some unique values.
+ * Fill out the damage dealing and use some unique 
+ * values.
  *
- * Change the if statements to edit what rolls do different things.
+ * Change the if statements to edit what rolls do 
+ * different things.
  * 
- * Copy and adjust the if else statements from player one's turn to player's two.
+ * Copy and adjust the if else statements from 
+ * player one's turn to player's two.
  * 
- * Print out some story. Use the actual health and damage values to make the story dynamic.
+ * Print out some story. Use the actual health and 
+ * damage values to make the story dynamic.
  * 
- * Attach this script to a game object and run your story a couple times to make sure all your code is working.
+ * Attach this script to a game object and run your 
+ * story a couple times to make sure all your code 
+ * is working.
  * 
  */
 
@@ -51,7 +62,8 @@ public class DiceGameTemplate : MonoBehaviour {
 		// Print out the start of the game, tell us what's going to happen
 		// Debug.Log("Once upon a time...");
 
-		// Change this \/ Saying while(true) is an infite loop and will crash your game
+		// Change this \/ Saying while(true) is an infite loop 
+		// and will crash your game
 		while(true) {
 
 			// Create a random "die roll" by using the Random class
@@ -60,7 +72,8 @@ public class DiceGameTemplate : MonoBehaviour {
 
 			// Make a second die roll
 
-			// If the turn count is even it is player ones turn, else it's player twos turn
+			// If the turn count is even it is player ones turn, 
+			// else it's player twos turn
 			if(turnCounter % 2 == 0) {
 
 				// Check to see which number was rolled on the die
@@ -68,8 +81,8 @@ public class DiceGameTemplate : MonoBehaviour {
 				if(dieOne == 6) {
 
 					playerTwoHealth -= 30; // Customize the damage value
+
 					// Add in some story throughout
-					// Debug.Log("Player one takes 30 damage and now has " + playerOneHealth + " health left." );
 
 				} else if(dieOne == 5) {
 
@@ -88,7 +101,8 @@ public class DiceGameTemplate : MonoBehaviour {
 			} else { // End of POne turn
 
 				// Player Two's Turn
-				// It is your job to copy and make the if else statements work down here with player 2!
+				// It is your job to copy and make the if 
+				// else statements work down here with player 2!
 
 			} // End of PTwo turn
 

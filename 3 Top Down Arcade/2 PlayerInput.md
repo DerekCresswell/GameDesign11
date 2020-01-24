@@ -305,9 +305,9 @@ Now that we have a basic bullet prefab we can start spawning it instead of just 
 At the top of our script add in a new `public` variable of the type ["GameObject"](https://docs.unity3d.com/ScriptReference/GameObject.html). This will be used to store our bullet prefab.
 
 ```csharp
-public GameObject BulletPrefab;
+public GameObject bulletPrefab;
 ```
-Save that and head back to Unity. If you click on the player prefab you will see the new variable under the PlayerShoot script. Drag the bullet prefab into that slot. This way when we run our game the variable `BulletPrefab` inside of the `PlayerShoot` script.\
+Save that and head back to Unity. If you click on the player prefab you will see the new variable under the PlayerShoot script. Drag the bullet prefab into that slot. This way when we run our game the variable `bulletPrefab` inside of the `PlayerShoot` script.\
 Go back into our shooting script.\
 We are now going to replace the `Debug.Log`'s inside of our `Update` function with spawning a bullet. To spawn a prefab we can use the ["Instantiate"](https://docs.unity3d.com/ScriptReference/Object.Instantiate.html) function from Unity.\
 The `Instantiate` function takes three arguements. The first is the actual prefab we'd like to create. Next it needs a `Vector3` containing the XYZ coordinates of the new objects Transform. The third defines the rotation of the object as a ["Quaternion"](https://docs.unity3d.com/ScriptReference/Quaternion.html).\
@@ -316,11 +316,11 @@ Here we've omitted the other `if` statements as they are trivial.
 ```csharp
 void Update() {
 	if(Input.GetKeyDown("left")) {
-		Instantiate(BulletPrefab, transform.position, Quaternion.identity);
+		Instantiate(bulletPrefab, transform.position, Quaternion.identity);
 	}
 }
 ```
-Let's break this down a little. `BulletPrefab` refers to the variable we just made which is our bullet prefab.\
+Let's break this down a little. `bulletPrefab` refers to the variable we just made which is our bullet prefab.\
 `transform.position` is the position of the player. `transform` refers to the transform component on the "owner" of the script, in this case the Player. We then call `.position` to get the `Vector3` that is our player's XYZ coordinates.\
 `Quaternion.identity` is a predefined constant that refers to ["no rotation"](https://docs.unity3d.com/ScriptReference/Quaternion-identity.html). You don't need to worry too much about this as it is a high level math concept. Later we can show you an easier way to adjust rotation.
 
@@ -348,7 +348,7 @@ Start by moving our `Instantiate` line of code from our `Update` to here. But we
 ```csharp
 void ShootBullet(Vector2 direction) {
 
-	GameObject bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
+	GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
 
 }
 ```
@@ -360,7 +360,7 @@ That will look like this :
 ```csharp
 void ShootBullet(Vector2 direction) {
 
-	GameObject bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
+	GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
 
 	Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
 
@@ -381,7 +381,7 @@ We have to call `AddForce` on the Rigidbody of the object. So use the `rb` varia
 ```csharp
 void ShootBullet(Vector2 direction) {
 
-	GameObject bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
+	GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
 
 	Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
 
