@@ -10,6 +10,8 @@
  * 
  * This script will allow you to shoot projectiles
  * using the arrow keys.
+ * This is an eight point system. Meaning you can 
+ * shoot up, down, left, right, and on diagonals.
  *
  */
 
@@ -34,7 +36,7 @@ public class KeyShooting : MonoBehaviour {
 	// Requires : Rigidbody2D
 	public GameObject bulletPrefab;
 
-	// Speed for the bullet to shoot with
+	// Speed for the bullet to shoot out at
 	public float bulletSpeed = 1;
 
 	void Update() {
@@ -66,17 +68,20 @@ public class KeyShooting : MonoBehaviour {
 
 	void ShootBullet(Vector2 direction) {
 
-		// Create a bullet at
+		// Create a bullet at the players current position
 		GameObject bullet = Instantiate(bulletPrefab, 
 								transform.position,
 								Quaternion.identity);
 
+		// Make sure the bullet does not hit the player
+		// You may have to change the two collider types depending
+		// on what you are using
 		Physics2D.IgnoreCollision(bullet.GetComponent<CircleCollider2D>(), 
 						GetComponent<BoxCollider2D>());
 
+		// Add force to the bullet so it flies off
 		Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-
-		rb.AddForce(direction * bulletSpeedu);
+		rb.AddForce(direction * bulletSpeed);
 
 	} // End of ShootBullet function
 
