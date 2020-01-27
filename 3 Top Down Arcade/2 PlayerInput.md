@@ -537,3 +537,15 @@ As before we are using the `Destroy` function to delete our game object (in this
 Completely arbitrarily we've done two seconds here. Feels like if a bullet has not found a target in two seconds, it likely missed.
 
 In the next lesson we will go over making a script to track the players and enemies health.
+
+## On Your Own
+
+Try to expand the current system to let you shoot on the diagonals. Try out creating a vector for the direction of the bullet, figuring out the values, then make a single call to `ShootBullet`.\
+Also try adding a timer that limits how quickly you can shoot.
+
+*Note*
+
+* `GetKey` is different from `GetKeyDown`, try looking it up in the manual.
+* Use `Time.deltaTime` to increment the timer.
+
+After giving this a go you can look at [KeyShooting.cs](./Library/KeyShooting.cs) for an implemantation of these two features.

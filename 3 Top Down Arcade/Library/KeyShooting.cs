@@ -39,30 +39,43 @@ public class KeyShooting : MonoBehaviour {
 	// Speed for the bullet to shoot out at
 	public float bulletSpeed = 1;
 
+	// Delay between shots
+	public float shootDelay;
+
+	private float timer = 0;
+
 	void Update() {
 
-		Vector2 shootDirection = Vector2.zero;
+		// The time since the last shot has been longer than the delay
+		if(timer > shootDelay) {
 
-		// Check if our bullet should go left or right
-		if(Input.GetKeyDown("left")) {
-			shootDirection.x = -1f;
-		} else if(Input.GetKeyDown("right")) {
-			shootDirection.x = 1f;
+			Vector2 shootDirection = Vector2.zero;
+
+			// Check if our bullet should go left or right
+			if(Input.GetKey("left")) {
+				shootDirection.x = -1f;
+			} else if(Input.GetKey("right")) {
+				shootDirection.x = 1f;
+			}
+
+			// Check if our bullet should go up or down
+			if(Input.GetKey("up")) {
+				shootDirection.y = 1f;
+			} else if(Input.GetKey("down")) {
+				shootDirection.y = -1f;
+			}
+
+			// If shootDirection has been set shoot a bullet
+			if(shootDirection != Vector2.zero) {
+
+				ShootBullet(shootDirection);
+				timer = 0;
+
+			}
+
 		}
 
-		// Check if our bullet should go up or down
-		if(Input.GetKeyDown("up")) {
-			shootDirection.y = 1f;
-		} else if(Input.GetKeyDown("down")) {
-			shootDirection.y = -1f;
-		}
-
-		// If shootDirection has been set shoot a bullet
-		if(shootDirection != Vector2.zero) {
-
-			ShootBullet(shootDirection);
-
-		}
+		timer += Time.deltaTime;
 
 	} // End of Update function
 
@@ -85,4 +98,4 @@ public class KeyShooting : MonoBehaviour {
 
 	} // End of ShootBullet function
 
-} // End of PlayerController class
+} // End of KeyShooting class
