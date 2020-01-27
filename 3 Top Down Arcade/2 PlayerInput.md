@@ -23,8 +23,6 @@ To start let's make sure we know how to use the `Input` class. We will start by 
 So in our PlayerMovement script let's simply print out the horizontal axis to start.\
 In our `Update` function let's add the following.
 
-// Should this be fixed update??
-
 ```csharp
 void Update() {
 
@@ -37,8 +35,6 @@ void Update() {
 Here we've stored the value returned from `GetAxis` to a `float` called `hAxis`. The `GetAxis` function returns a `float` and more specifically a number between -1 and 1.\
 This is to inform us of the magnitude of input as well as direction. What we mainly care about is the direction because without using a joystick our key presses don't have a "half pushed" mode, they are simply down or up.\
 The direction is refrencing the grid used by Unity for transformations. Basically meaning the sign of `GetAxis` (positive or negative) releates to the grid in Unity where positive horizontal axis means moving right on the grid.
-
-// Graphic
 
 Now to test that code we've writen.\
 First save the script and return to Unity. Go to your "Player" prefab and add the "PlayerMovement" script to it. Then run the game and watch the console as you press A and D or Left and Right arrow keys.\
