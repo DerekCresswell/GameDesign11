@@ -115,4 +115,70 @@ void OnCollisionEnter2D(Collision2D collision) {
 Now as you can see, when we shoot the enemy enough they are destroyed! This is all we really need to make a basic health script. A number to keep track of the health and a collision that decrements that health.
 
 // knockback ?? Extras section
-// Basic player health via collision
+// Need basic enemy ai
+
+## Player Health
+
+For the sake of simplicity we are going to make the players health a different script. Make a new script and call it "PlayerHealth". To Save time copy over all the contents of the `EnemyHealth` class into the `PlayerHealth` class.
+
+```csharp
+public class EnemyHealth : MonoBehaviour {
+
+	public int currentHealth = 5;
+
+	void OnCollisionEnter2D(Collision2D collision) {
+
+		GameObject otherObject = collision.gameObject;
+
+		if(otherObject.tag == "BulletTag") {
+
+			currentHealth--;
+
+			if(currentHealth <= 0) {
+
+				Destroy(gameObject);
+
+			}
+
+			Debug.Log(currentHealth);
+
+		}
+
+	}
+
+}
+```
+
+Now this would work just fine if our enemies shot bullets. Currently they do not though. We can implement this later but for now our enemies will be more like a zombie and just try to run into the player.\
+We need to detect if the playey has collided with an enemy and we will do this the same as with the bullet. Start by making and subsequently place a "EnemyTag" onto the enemy. If you need a reminder just see the section of [Deleting Bullets](./2%20PlayerInput.md#deleting-bullets) from the [last lesson](./2%20PlayerInput.md).\
+With that we can add this to our tag checking in `PlayerHealth`. Keep the `BulletTag` in there as we can use this later. Duplicate that with the [logical OR operator](../2%20Dice%20Game/4%20Logic.md#or-operator) (`||`).
+
+```csharp
+void OnCollisionEnter2D(Collision2D collision) {
+
+	GameObject otherObject = collision.gameObject;
+
+	if(otherObject.tag == "BulletTag" || otherObject.tag == "EnemyTag") {
+
+		currentHealth--;
+
+		if(currentHealth <= 0) {
+
+			Destroy(gameObject);
+
+		}
+
+		Debug.Log(currentHealth);
+
+	}
+
+}
+```
+
+## Setting Up The Enemy Prefab
+
+
+// Ending
+It's recomended that you remove the `Debug.Log`s from these two scripts as the player of the game cannot see the console. Later we will create a heads up display to show things like health.
+
+You may notice another problem // Script breaking without player
