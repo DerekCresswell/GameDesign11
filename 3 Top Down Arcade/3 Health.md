@@ -177,12 +177,18 @@ void OnCollisionEnter2D(Collision2D collision) {
 It's recomended that you remove the `Debug.Log`s from these two scripts as the player of the game cannot see the console. At least once you export the game. They are just fine now while we are working.\
 Later we will create a heads up display to show things like health.
 
-## Setting Up The Enemy Prefab
+## Basic Enemy AI
+
+This is going to be a basic way of having the enemy chase our player around the game.
+
+### Setting Up The Enemy
 
 Let's start by giving our enemy a Rigidbody2D. Just like before, set "Gravity Scale" to `0` and freeze the `Z` rotation. Then create and add a new script to the enemy called "EnemyMove".\
 We are going to do a quick and crude version of an AI for our enemy. It will simply to towards our player and try to slam into them.
 
 First, in order to move towards our player we need to know where they are. Let's create some code to dynamically finds the player.
+
+### Moving Towards The Player
 
 ```csharp
 public GameObject player;
