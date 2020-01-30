@@ -115,14 +115,13 @@ void OnCollisionEnter2D(Collision2D collision) {
 Now as you can see, when we shoot the enemy enough they are destroyed! This is all we really need to make a basic health script. A number to keep track of the health and a collision that decrements that health.
 
 // knockback ?? Extras section
-// Need basic enemy ai
 
 ## Player Health
 
 For the sake of simplicity we are going to make the players health a different script. Make a new script and call it "PlayerHealth". To Save time copy over all the contents of the `EnemyHealth` class into the `PlayerHealth` class.
 
 ```csharp
-public class EnemyHealth : MonoBehaviour {
+public class PlayerHealth : MonoBehaviour {
 
 	public int currentHealth = 5;
 
@@ -175,10 +174,68 @@ void OnCollisionEnter2D(Collision2D collision) {
 }
 ```
 
+It's recomended that you remove the `Debug.Log`s from these two scripts as the player of the game cannot see the console. At least once you export the game. They are just fine now while we are working.\
+Later we will create a heads up display to show things like health.
+
 ## Setting Up The Enemy Prefab
 
+Let's start by giving our enemy a Rigidbody2D. Just like before, set "Gravity Scale" to `0` and freeze the `Z` rotation. Then create and add a new script to the enemy called "EnemyMove".\
+We are going to do a quick and crude version of an AI for our enemy. It will simply to towards our player and try to slam into them.
 
-// Ending
-It's recomended that you remove the `Debug.Log`s from these two scripts as the player of the game cannot see the console. Later we will create a heads up display to show things like health.
+First, in order to move towards our player we need to know where they are. Let's create some code to dynamically finds the player.
+
+```csharp
+public GameObject player;
+
+void Start() {
+
+	player = GameObject.FindGameObjectWithTag("Player");
+
+}
+```
+
+More tags! They are so lovely.\
+The "Player" tag is pre-defined with Unity all we need to do is put it on our player.\
+Since we've made some important changes to our player we should update the prefab. In the top left of the Inspector click the drop down that says "Overrides" and click "Apply All".
+
+![ApplyingOverrides](Images/ApplyingOverrides.JPG)
+
+When we start the game our enemy will find the player using it's tag and store it as a variable we can use later. Time to get the enemy moving.\
+We can set this up very similar to the player's movement. Just like the [PlayerMovement script](./Library/PlayerMovement.cs) add the part that gets the rigidbody.
+
+```csharp
+public GameObject player;
+
+Rigidbody2D rb;
+
+// Start is called before the first frame update
+void Start() {
+
+	player = GameObject.FindGameObjectWithTag("Player");
+
+	rb = GetComponent<Rigidbody2D>();
+
+}
+```
+
+Then make the `FixedUpdate` function and add the code from `PlayerMovement` again. We will modify this a little.
+
+```csharp
+void FixedUpdate() {
+    
+	Vector2 movement = Vector2.zero;
+
+	Vector2 moveTo = rb.position + movement * moveSpeed * Time.fixedDeltaTime;
+    rb.MovePosition(moveTo);
+
+}
+```
+
+Make sure you add the `moveSpeed` variable to the top of your script!\
+This will not move our enemy at all because `movement` is always zero. Since we have already gotten a reference to our player (just above) we can access the position of the player and move towards it.
+
+// Decide how then change above code.
+//transform.right = player.transform.position - transform.position;
+//transform.LookAt(player.transform.position);
 
 You may notice another problem // Script breaking without player
