@@ -23,7 +23,7 @@
  * the player before you start the game.
  *
  */
-
+ 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,16 +33,16 @@ public class CameraFollow : MonoBehaviour {
 	// Set this to the player in the game (NOT the prefab)
 	public GameObject player;
 
-    // Defines how far the camera "lags" behind the player
-    // Higher value means less lag
-    public float smoothingAmount;
+	// Defines how far the camera "lags" behind the player
+	// Higher value means less lag
+	public float smoothingAmount;
 
 	// Stores the difference in position between the player and camera
 	Vector3 offset;
 
 	void Start() {
 
-        // Set the offset
+		// Set the offset
 		offset = transform.position - player.transform.position;
 
 	}
@@ -50,16 +50,16 @@ public class CameraFollow : MonoBehaviour {
 	void Update() {
 
 		// Store the desired position of the camera
-        Vector3 desiredPosition = player.transform.position + offset;
+		Vector3 desiredPosition = player.transform.position + offset;
 		
-        // Uses Lerp to smoothly move between the cameras current 
-        // and desired location
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, 
-        							desiredPosition, 
-        							smoothingAmount * Time.deltaTime);
-        
-        // Sets the cameras position
-        transform.position = smoothedPosition;
+		// Uses Lerp to smoothly move between the cameras current 
+		// and desired location
+		Vector3 smoothedPosition = Vector3.Lerp(transform.position, 
+									desiredPosition, 
+									smoothingAmount * Time.deltaTime);
+		
+		// Sets the cameras position
+		transform.position = smoothedPosition;
 
 	}
 

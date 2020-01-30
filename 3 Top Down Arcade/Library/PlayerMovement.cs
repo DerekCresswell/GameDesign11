@@ -30,34 +30,34 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
-    // The speed the player should move at
-    public float moveSpeed = 1f;
+// The speed the player should move at
+public float moveSpeed = 1f;
 
-    Rigidbody2D rb;
-    Vector2 movement;
+	Rigidbody2D rb;
+	Vector2 movement;
 
 	void Start() {
 
-        // Grabs the Rigidbody2D from this object
-        rb = GetComponent<Rigidbody2D>();
+		// Grabs the Rigidbody2D from this object
+		rb = GetComponent<Rigidbody2D>();
 
 	}
 
-    // Update is used for general things like capturing input
+	// Update is used for general things like capturing input
 	void Update() {
 
-        movement.x = Input.GetAxis("Horizontal");
-        movement.y = Input.GetAxis("Vertical");
+		movement.x = Input.GetAxis("Horizontal");
+		movement.y = Input.GetAxis("Vertical");
 
 	}
 
-    // FixedUpdate is for physics / movement
-    void FixedUpdate() {
+	// FixedUpdate is for physics / movement
+	void FixedUpdate() {
 
-        // Figures out the desired position and sets it
-        Vector2 moveTo = rb.position + movement * moveSpeed * Time.FixedDeltaTime;
-        rb.MovePosition(moveTo);
+		// Figures out the desired position and moves towards it
+		Vector2 moveTo = rb.position + movement * moveSpeed * Time.fixedDeltaTime;
+		rb.MovePosition(moveTo);
 
-    }
+	}
 
 }
