@@ -4,14 +4,14 @@ Here we will work together to create the basic template for a dice game.
 
 ## Basic Layout
 
-Before we jump right into coding we need to plan out our work. Though it can be really fun to just start coding but without a plan it can be very difficult to break apart a big problem like "make a dice game".
+Before we jump right into coding we need to plan out our work. Though it can be really fun to just start coding, but without a plan it can be very difficult to break apart a big problem like "make a dice game".
 
-First let's go over what our dice game is :
+First, let's go over what our dice game is :
 
-> Two players take turns rolling dice. The value of their rolls will move them closer to winning, perhaps damaging an enemy. With each roll a story of sorts is also printed out. Once a player wins, display their victory to all.
+> Two players take turns rolling dice. The value of their rolls will move them closer to winning, perhaps damaging an enemy. With each roll a story of sorts is also printed out. Once a player wins, display their victory for all to see.
 
 Think of it similar to a game of Dungeons and Dragons.\
-With this is mind let's disect the problem into smaller chunks. We'll start it off here than hopefully you can take over and do the rest yourself.
+With this in mind let us dissect the problem into smaller chunks. We'll start it off here than hopefully you can take over and do the rest yourself.
 
 1. Have two "players" with a value of sorts to keep track of (EX : health).
 
@@ -201,7 +201,7 @@ Let's start typing it out.
 
 Alright that might seem a little weird so let's pick it apart.\
 First thing is that we want to store this random number into a variable (`int dieOne`, We've used the suffix `One` here as there will be two dice later) because will need to use this number throughout the turn. If we did not store the number to a variable we'd only be able to access it once. Every time we call the `Range` function it creates a **new** number so we need to use a variable to access it more than once.\
-Next is the placement. We've put it above the `if` statements because it doesn't matter who's turn it is we always need a random number. This also makes it accessiable throughout the rest of the turn and in any `if`s we have.\
+Next is the placement. We've put it above the `if` statements because it doesn't matter who's turn it is we always need a random number. This also makes it accessible throughout the rest of the turn and in any `if`s we have.\
 The last bit is the values we've passed in, `1` and `7`. Now you could pass whatever you would like into this, here we are simply emulating a six sided die. The reason `1` is the lower limit and `7` is the upper limit is because the [Scripting API](https://docs.unity3d.com/Manual/index.html) tells us the integer version of `Range`, which we are using, has an inclusive minimum and exclusive maximum.\
 What this means is the first number passed in, here being `1`, is going to be inclusive. `Range` **can** return `1`.\
 The second number, here being `7`, is going to be exclusive. `Range` **cannot** return `7` but can return up to it.\
@@ -227,7 +227,7 @@ Chose to do whatever you'd like for these.
 #### Structure
 
 Now that we've got that plan let's start implementing it. We will simply use `if else` statements to decide on the damage.\
-The main thing we need to consider with this bit of logic is the order to do it in. If we lay out our if statements right we can make them simpiler and faster.\
+The main thing we need to consider with this bit of logic is the order to do it in. If we lay out our if statements right we can make them simpler and faster.\
 Let's get the structure down.
 
 ```csharp
@@ -280,16 +280,16 @@ if(dieOne >= 1) {
 ```
 
 Now if `dieOne` was set to `4` the first two statements would fail and not execute their code. Then it would hit the third statement and it be true and execute that code. Then because there is no `else` statements, `dieOne` would be checked against the fourth `if` statement. Since `4` is greater or equal to `1` the code within that `if` would execute.\
-As you can see, this logic is flawed for our purpose as multiple `if`'s can be true and we do not want that, thus, we should use `else` statements. Of course you can use just `if`'s but the logic needs to be laied out differently.
+As you can see, this logic is flawed for our purpose as multiple `if`'s can be true and we do not want that, thus, we should use `else` statements. Of course you can use just `if`'s but the logic needs to be laid out differently.
 
 Now for the arbitrary choice.\
 This would be the logic we have put inside of our `if` statements. Let's start by saying you could write this any way you'd like and if it works, it pretty well should be good.\
-Here we've started with checking `6` directly with a `==`. This is simply because we want to check if the number rolled was a `6`. Then the same goes for `5`. In our little list above we had `6` and `5` seperate so it makes sense to test for them individually.\
+Here we've started with checking `6` directly with a `==`. This is simply because we want to check if the number rolled was a `6`. Then the same goes for `5`. In our little list above we had `6` and `5` separate so it makes sense to test for them individually.\
 After that we have `dieOne >= 3`. This checks to see if `dieOne` is `3` or above. As we showed above, if the number is `5` or `6` you may think that this will still trigger here. But remember, because we've used `else` statements only one of them may execute. Because we only have to check this third statement if both of the first two fail we can be certain the number is not `5` or `6`.\
 The same goes for the last `else` statement. We do not strictly need an `if` here because if all of the above checks have failed the only options left are `1` and `2` so it must be true. Of course you can just as well put `if(dieOne >= 1)` and nothing will change.\
-There are really countless ways to do this. You can check every number with a `==` if you'd like. As long as it works when you test it. what we have here would be considered the "right" way of doing this.
+There are really countless ways to do this. You can check every number with a `==` if you'd like. As long as it works when you test it. What we have here would be considered the "right" way of doing this.
 
-Now that we've got the structure layed out let's start doing some damage, literally!
+Now that we've got the structure laid out let's start doing some damage, literally!
 
 #### Dealing Damage
 
