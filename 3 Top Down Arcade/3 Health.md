@@ -183,7 +183,7 @@ This is going to be a basic way of having the enemy chase our player around the 
 
 ### Setting Up The Enemy
 
-Let's start by giving our enemy a Rigidbody2D. Just like before, set "Gravity Scale" to `0` and freeze the `Z` rotation. Then create and add a new script to the enemy called "EnemyMove".\
+Let's start by giving our enemy a Rigidbody2D. Just like before, set "Gravity Scale" to `0`. Then create and add a new script to the enemy called "EnemyMove".\
 We are going to do a quick and crude version of an AI for our enemy. It will simply to towards our player and try to slam into them.
 
 First, in order to move towards our player we need to know where they are. Let's create some code to dynamically finds the player.
@@ -206,33 +206,27 @@ Since we've made some important changes to our player we should update the prefa
 
 ![ApplyingOverrides](Images/ApplyingOverrides.JPG)
 
-When we start the game our enemy will find the player using it's tag and store it as a variable we can use later. Time to get the enemy moving.\
-We can set this up very similar to the player's movement. Just like the [PlayerMovement script](./Library/PlayerMovement.cs) add the part that gets the rigidbody.
+When we start the game our enemy will find the player using it's tag and store it as a variable we can use later. Time to get the enemy moving.
 
 ```csharp
 public GameObject player;
-
-Rigidbody2D rb;
 
 // Start is called before the first frame update
 void Start() {
 
 	player = GameObject.FindGameObjectWithTag("Player");
 
-	rb = GetComponent<Rigidbody2D>();
-
 }
 ```
 
-Then make the `FixedUpdate` function and add the code from `PlayerMovement` again. We will modify this a little.
+We are going to set this up differently from the player's movement.\
+In `Update` function and add the code from `PlayerMovement` again. We will modify this a little.
 
 ```csharp
-void FixedUpdate() {
-    
-	Vector2 movement = Vector2.zero;
+void Update() {
 
-	Vector2 moveTo = rb.position + movement * moveSpeed * Time.fixedDeltaTime;
-    rb.MovePosition(moveTo);
+	Vector3 moveTo = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+	transform.position = moveTo;
 
 }
 ```
@@ -240,8 +234,18 @@ void FixedUpdate() {
 Make sure you add the `moveSpeed` variable to the top of your script!\
 This will not move our enemy at all because `movement` is always zero. Since we have already gotten a reference to our player (just above) we can access the position of the player and move towards it.
 
-// Decide how then change above code.
-//transform.right = player.transform.position - transform.position;
-//transform.LookAt(player.transform.position);
+Currently the enemy just stays orientated forward. If we want to have the enemy "Look at" the player we can use the following inside of our update function.
 
-You may notice another problem // Script breaking without player
+```csharp
+Quaternion rotation = Quaternion.LookRotation(player.transform.position - transform.position, transform.TransformDirection(Vector3.up));
+transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
+```
+
+This may look a little ugly and it may well be. Don't worry too much about how it works but more that it does work.
+
+That should do it for our basic AI. We now have something you could consider gameplay!
+
+If you are happy with the way this enemy works you should make it into a prefab seeing as you'll likely want more than one enemy.
+
+You may still notice one more problem. If our player dies the game just stops and Unity actually begins erroring.\
+This is due to the camera, and now enemy, trying to find the player that has now been destroyed. In the next lesson we will talk more about Scenes and start switching between levels.
