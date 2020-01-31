@@ -98,8 +98,6 @@ What might be happening is that VS has not recognized you are working in a Unity
 If this is the case, close VS. Then go to Unity. In the top left click on the menu option "Assets" then go down to "Open C# Project".\
 This will open a folder and let you choose the file to open. There should be a "sln" file from VS. Click that and you should be good to go.
 
-// Picture
-
 #### No .sln File?
 
 When you use "Open C# Project" you may be presented with no .sln file, meaning Unity did not create one when you created your project.\
