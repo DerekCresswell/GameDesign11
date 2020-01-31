@@ -93,8 +93,25 @@ Let's write some code!
 If you are using [Visual Studios (VS)](https://visualstudio.microsoft.com/) for your code you may have a big problem. Worry not, we can fix it.\
 What might be happening is that VS has not recognized you are working in a Unity project. An easy way to tell if this is happening is to see if your file is labeled "Miscellaneous Files" near the top left of the editor window.
 
-// Picture 
+![MiscFiles](Images/MiscFiles.JPG)
 
-If this is the case, close VS. Then go to Unity. In the top left click on the menu option "Assets" then go down to "Open C# Project". This will open a folder and let you choose the file to open. There should be a "sln" file from VS. Click that and you should be good to go.
+If this is the case, close VS. Then go to Unity. In the top left click on the menu option "Assets" then go down to "Open C# Project".\
+This will open a folder and let you choose the file to open. There should be a "sln" file from VS. Click that and you should be good to go.
 
 // Picture
+
+#### No .sln File?
+
+When you use "Open C# Project" you may be presented with no .sln file, meaning Unity did not create one when you created your project.\
+Lucky for us, this is not too hard to fix. In the Windows search bar on the bottom left of your screen type in "Visual Studio" and find the option to "Open File Location".\
+From here, drag this shortcut onto your Desktop to copy it there.
+
+![VisualStudioLocation](Images/VisualStudioLocation.jpg)
+
+Now in Unity, click on Edit and from the dropdown menu select Preferences.\ Click on External Tools, the first option on this page will be to set up a script editor with Unity.
+
+![UnityPreferences](Images/UnityPreferences.JPG)
+
+Click on the box beside "External Script Editor" and select Browse. From here find and select the shortcut to Visual Studio we copied to our desktop earlier.\
+Now you are all good to go! Visual Studio will now open properly when you open a script through the "Open C# Project" option or by opening a script through the Assets console.
+
