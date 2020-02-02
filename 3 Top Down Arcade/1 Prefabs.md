@@ -85,11 +85,11 @@ Let's start by putting the [white square](../1%20Rube%20GoldBerg%20Machine/Asset
 Right click on your Hierarchy, scroll down to "2D Object", and create a new "Sprite". Name it "Player".\
 Go into the Inspector and set it's sprite to the white box we just added. Just for fun make it blue (or whatever color you want!) using the Color option.\
 Next we should add a [Box Collider 2D](https://docs.unity3d.com/Manual/class-BoxCollider2D.html) to our object. Make sure to use the 2D option. If you used the box sprite provided from this course the default size of the collider should be good.\
-Next add a [Rigidbody 2D](https://docs.unity3d.com/Manual/class-Rigidbody2D.html). Again, make sure it's 2D. There is one more thing to do here. If you play the game you will notice that the player just falls. To remedy this go onto the Rigidbody component and change "Body Type" from "Dynamic" to "Kinematic". 
+Next add a [Rigidbody 2D](https://docs.unity3d.com/Manual/class-Rigidbody2D.html). Again, make sure it's 2D. There are some other things to do here to ensure our player works with the movement code we will be writing soon.
 
-Here we are using Kinematic as opposed to Static. This is because we still want to move our player around. Static is used for something like ground because it's never going to move.\
-Kinematic allows us to move an object via it's transform. When an object is kinematic the physics engine is not run on it, meaning gravity or something else colliding with the object will **not** make it move. However if a different objects hits the kinematic object the other objects physics will change based on the collision.\
-Use Dynamic when an object should have physics, Static when it should never move, and Kinematic when it should only be moved with code.
+* First set ["Gravity Scale"](https://docs.unity3d.com/ScriptReference/Rigidbody2D-gravityScale.html) to `0` to prevent the gravity from affecting our player.
+* Set ["Collision Detection"](https://docs.unity3d.com/ScriptReference/Rigidbody2D-collisionDetectionMode.html) to ["Continuous"](https://docs.unity3d.com/ScriptReference/CollisionDetectionMode2D.html).
+* And then tick off the ["Freeze Rotation"](https://docs.unity3d.com/ScriptReference/Rigidbody2D-freezeRotation.html) box under ["Constraints"](https://docs.unity3d.com/ScriptReference/Rigidbody2D-constraints.html).
 
 With that we should be good to make this player into a prefab. Just [drag](#how-to-make-prefabs) it into the prefab folder.
 

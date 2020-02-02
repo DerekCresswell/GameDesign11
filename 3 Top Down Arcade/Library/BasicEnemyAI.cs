@@ -18,6 +18,13 @@
  * 
  * Ensure there is an object in your scene with the
  * "Player" tag attached.
+ * 
+ * Create a enemy object with :
+ *  A 2D collider
+ *  A Rigidbody2D with :
+ *      0 for "Gravity Scale"
+ *      A frozen Z rotation
+ *      Continous Collision Detection
  *
  */
 
@@ -25,7 +32,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMove : MonoBehaviour {
+public class BasicEnemyAI : MonoBehaviour {
 
 	// The player you want to follow
 	public GameObject player;
@@ -40,34 +47,43 @@ public class EnemyMove : MonoBehaviour {
 	// Set to infinity to always chase
 	public float maxChaseDistance = Mathf.Infinity; 
 
-    // Start is called before the first frame update
-    void Start() {
-    
+	// Reference to the Rigidbody on the enemy
+	Rigidbody2D rb;
+
+	// Start is called before the first frame update
+	void Start() {
+	
 		// Find the Player tag
 		player = GameObject.FindGameObjectWithTag("Player");
 
-    }
+		// Set the Rigidbody
+		rb = GetComponent<Rigidbody2D>();
 
-    void Update() {
+	}
+
+	// FixedUpdate is for physics like moving a Rigidbody
+	void FixedUpdate() {
 
 		// Are we close enough to the player to "see" them
 		if(Vector3.Distance(transform.position, player.transform.position) < maxChaseDistance) {
 
 			// Move the enemy
 			Vector3 moveTo = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
-			transform.position = moveTo;
+			rb.MovePosition(moveTo);
 
 			// Checks to see if the enemy can rotate
 			if(allowRotation) {
+
 				// Rotates in the Z axis
 				Quaternion rotation = Quaternion.LookRotation(
 										player.transform.position - transform.position, 
 										transform.TransformDirection(Vector3.up));
 				transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
+
 			}
 
 		}
 
-    }
+	}
 
 }

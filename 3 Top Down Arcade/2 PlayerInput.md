@@ -45,87 +45,65 @@ Hopefully this should illustrate how the `GetAxis` function works. Please try to
 Now we can actually use our input to move our player object around the game world.
 
 First let's think of how we can do this.\
-Our player's position in the game is based on the objects Transform component. If we change the values within the position section we can move the player.\
-So how do we change these values within our script? Pretty simple.
+Our player's position in the game is based on the objects Transform component. However we have a Rigidbody on our player which we use for collisions. This means we need to move the player using the Rigidbody.
 
-In our script let's start by storing the vertical and horizontal axis values.
+In our script let's start by storing the vertical and horizontal axis values in a `Vector3` that's declared above the `Update` function.
 
 ```csharp
+Vector2 Movement;
+
 void Update() {
 
-	float hAxis = Input.GetAxis("Horizontal");
-	float vAxis = Input.GetAxis("Vertical");
+	movement.x = Input.GetAxis("Horizontal");
+	movement.y = Input.GetAxis("Vertical");
 
 }
 ```
 
-Now let's setup the actual values for movement we will move.\
-This needs to be a ["Vector3"](https://docs.unity3d.com/ScriptReference/Vector3.html) because that is what `transform.position` is. A `Vector3` is really just three float values that we can access as `x`, `y`, and `z`.\
-Add the following code :
+That takes care of where we want to move to now we need to actually move.\
+As said before, we have to move the Rigidbody of the player. To start add a reference to the Rigidbody of the player using the `Start` function.
 
 ```csharp
-void Update() {
+Rigidbody2D rb;
+void Start() {
 
-	float hAxis = Input.GetAxis("Horizontal");
-	float vAxis = Input.GetAxis("Vertical");
-
-	Vector3 movement = new Vector3(hAxis, vAxis, 0);
+	rb = GetComponent<Rigidbody2D>();
 
 }
 ```
 
-Now this may look a little funky at first but it's really quite simple.
-
-* We declare the variable `movement` as a `Vector3` just like you would with any other variable. Only difference is that we are using `Vector3` rather than, say, `int`.
-* Next we set it equal to a `new Vector3()`. We use the `new` keyword here because `Vector3` is a class. Don't worry too much about the techincalities of this. We then call `Vector3()` with brackets almost like it's a function. We are actually "constructing" a new `Vector3`.
-* Inside the paranthesies we need to give our `Vector3` three `floats` to correspond to it's `x`, `y`, and `z` values.
-* We've passed in the `hAxis` to the `x` value and the `vAxis` to the `y` value. On our grid x will correspond to horizontal movement and y to vertical.
-* Finally we've set the `z` value to `0` because we don't want our character to move on the z-axis. The value still needs to be present because our game is always 3D even if we aren't using it as such.
-
-Next we need to add this `movement` value to our player's position.\
-Note saying we need to add them. This is because we need to move based on our current location.
-
-First we need to actually access our position. This is really easy as all we have to write is `transform.position`. Then we just add it and use the shorthand of `+=` like `transform.position += movement;`.
-
-After all that you should have something like this :
+A **very** key thing to note is that since the Rigidbody is based on physics we need to update it in whats called the ["FixedUpdate"](https://docs.unity3d.com/ScriptReference/MonoBehaviour.FixedUpdate.html). This is very similar to `Update` but it's for physics.\
+We will be using a function called ["MovePosition"](https://docs.unity3d.com/ScriptReference/Rigidbody2D.MovePosition.html) to move our Rigidbody to a given position. Put in the following into your script :
 
 ```csharp
-void Update() {
+void FixedUpdate() {
 
-	float hAxis = Input.GetAxis("Horizontal");
-	float vAxis = Input.GetAxis("Vertical");
-
-	Vector3 movement = new Vector3(hAxis, vAxis, 0);
-	transform.position += movement;
+	Vector2 moveTo; 
+	rb.MovePosition(moveTo);
 
 }
 ```
 
-Every frame our game will check to see if we are pressing any keys correspoinding to movement. Then it will create a new `Vector3` with these values and add that to our position in effect, moving our player.\
-Let's go and test this out.
+Of course this doesn't work as is. We need to figure out where we want to move to ourselves because `MovePosition` will move us straight to the spot and not smoothly transition. We need our current position (this time it's actually the Rigidbody's position) plus where we want to go (the movement vector we made)
 
-// Gif
+```csharp
+Vector2 moveTo = rb.position + movement * Time.fixedDeltaTime;
+```
+
+What's this `Time.fixedDeltaTime` thing? This is simply a `float` that tells us how long it's been since we last ran `FixedUpdate`. It's not needed but makes your code run a bit smoother.\
+Hop back to the game and try this out.
 
 Now we'll likely need to adjust that speed. First we will set this up and then make it editable from Unity rather than our text editor.\
 To start we know that we are adding a number between -1 and 1 to our movement vector. Because of this we can declare a max speed and use the value from our axis to give us a ratio of that max speed.\
-Start by adding in a new `float` and call it `maxSpeed` or similar. We then want to mulitple our axis value by that variable.
+Start by adding in a new `float` and call it `maxSpeed` or similar. We then want to mulitply our `moveTo` vector by that number.
 
 ```csharp
-void Update() {
-
-	float maxSpeed = 1;
-
-	float hAxis = Input.GetAxis("Horizontal");
-	float vAxis = Input.GetAxis("Vertical");
-
-	Vector3 movement = new Vector3(hAxis * maxSpeed, vAxis * maxSpeed, 0);
-	transform.position += movement;
-
-}
+float maxSpeed = 1f;
+Vector2 moveTo = rb.position + movement * maxSpeed * Time.fixedDeltaTime;
 ```
 
 Obviously setting `maxSpeed` to `1` does nothing to our speed. You could open your script and change this to a different value but there is a better way.\
-So far we've only worked inside the `Update` and `Start` function but if you look up you'll see that these are inside a class named after the file. One very useful part of this class is that we can declare a variable outside of functions and set the value of that variable in Unity.\
+So far we've only worked inside the `Update`, `FixedUpdate`, and `Start` function but if you look up you'll see that these are inside a class named after the file. One very useful part of this class is that we can declare a variable outside of functions and set the value of that variable in Unity.\
 To start move the declaration of `maxSpeed` out of the update function but still within the class, in this case called `PlayerMovement`. It doesn't matter where about you place this but to make your file look nice and remain readable variable are typically the first thing in a class. Like so :
 
 ```csharp
@@ -133,18 +111,6 @@ public class PlayerMovement : MonoBehaviour {
 
 	float maxSpeed = 1;
 
-	// Update is called once per frame
-	void Update() {
-
-		float hAxis = Input.GetAxis("Horizontal");
-		float vAxis = Input.GetAxis("Vertical");
-
-		Vector3 movement = new Vector3(hAxis * maxSpeed, vAxis * maxSpeed, 0);
-		transform.position += movement;
-
-	}
-	
-}
 ```
 
 Now this will still work but we can't change the value of `maxSpeed` with Unity yet. To do this we need to make the variable ["public"](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/public). We just need to put `public` in front of the variable. Like :

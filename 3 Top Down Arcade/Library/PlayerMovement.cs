@@ -21,6 +21,7 @@
  *  A Rigidbody2D with :
  *      0 for "Gravity Scale"
  *      A frozen Z rotation
+ *      Continous Collision Detection
  *
  */
 
@@ -30,8 +31,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
-// The speed the player should move at
-public float moveSpeed = 1f;
+	// The speed the player should move at
+	public float moveSpeed = 1f;
 
 	Rigidbody2D rb;
 	Vector2 movement;
