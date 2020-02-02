@@ -68,7 +68,7 @@ public class BasicEnemyAI : MonoBehaviour {
 		if(Vector3.Distance(transform.position, player.transform.position) < maxChaseDistance) {
 
 			// Move the enemy
-			Vector3 moveTo = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+			Vector3 moveTo = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.fixedDeltaTime);
 			rb.MovePosition(moveTo);
 
 			// Checks to see if the enemy can rotate

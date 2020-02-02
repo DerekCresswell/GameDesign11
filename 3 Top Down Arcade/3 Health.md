@@ -183,7 +183,7 @@ This is going to be a basic way of having the enemy chase our player around the 
 
 ### Setting Up The Enemy
 
-Let's start by giving our enemy a Rigidbody2D. Just like before, set "Gravity Scale" to `0`. Then create and add a new script to the enemy called "EnemyMove".\
+Let's start by giving our enemy a Rigidbody2D. Just like before, set "Gravity Scale" to `0` and the "Collision Detection" to "Continous". Then create and add a new script to the enemy called "EnemyMove".\
 We are going to do a quick and crude version of an AI for our enemy. It will simply to towards our player and try to slam into them.
 
 First, in order to move towards our player we need to know where they are. Let's create some code to dynamically finds the player.
@@ -206,7 +206,7 @@ Since we've made some important changes to our player we should update the prefa
 
 ![ApplyingOverrides](Images/ApplyingOverrides.JPG)
 
-When we start the game our enemy will find the player using it's tag and store it as a variable we can use later. Time to get the enemy moving.
+When we start the game our enemy will find the player using it's tag and store it as a variable we can use later.
 
 ```csharp
 public GameObject player;
@@ -219,20 +219,30 @@ void Start() {
 }
 ```
 
-We are going to set this up differently from the player's movement.\
-In `Update` function and add the code from `PlayerMovement` again. We will modify this a little.
+Youshould also put in a reference to the Rigidbody here as well, just like with the player. Add in a variable for the Rigidbody and use `GetComponent<Rigidbody2D>()` in the `Start` function to set the variable.
+
+This will be fairly similar to our player's movement but with some changes. We will use the `MovePosition` function to move our enemy but this time we can use ["Vector3.MoveTowards"](https://docs.unity3d.com/ScriptReference/Vector3.MoveTowards.html) to figure out where we should move to.\
+We won't need the `Update` function because we don't need to handle inputs so set up our code the same way as the player did.
 
 ```csharp
-void Update() {
+void FixedUpdate() {
 
-	Vector3 moveTo = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
-	transform.position = moveTo;
+	Vector2 moveTo; 
+	rb.MovePosition(moveTo);
 
 }
 ```
 
-Make sure you add the `moveSpeed` variable to the top of your script!\
-This will not move our enemy at all because `movement` is always zero. Since we have already gotten a reference to our player (just above) we can access the position of the player and move towards it.
+To set our `moveTo` variable we are using the `MoveTowards` function. This takes in three parameters. The current position, the target position, and how far we can move. Let's fill these in.
+
+```csharp
+Vector2 moveTo = Vector2.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.fixedDeltaTime);
+```
+
+Exactly like with the player, the move speed (or to the `MoveTowards` function, the distance to move) we use our `moveSpeed` and multiply it by `Time.fixedDeltaTime` to keep it smooth.\
+Remember to add the `moveSpeed` as a `public float` to the class.
+
+### Rotating Towards The Player
 
 Currently the enemy just stays orientated forward. If we want to have the enemy "Look at" the player we can use the following inside of our update function.
 
@@ -241,7 +251,8 @@ Quaternion rotation = Quaternion.LookRotation(player.transform.position - transf
 transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
 ```
 
-This may look a little ugly and it may well be. Don't worry too much about how it works but more that it does work.
+This may look a little ugly and it may well be. Don't worry too much about how it works but more that it does work.\
+Remember if you don't want the enemy to rotate you should freeze the Z rotation of the Rigidbody.
 
 That should do it for our basic AI. We now have something you could consider gameplay!
 
@@ -249,3 +260,8 @@ If you are happy with the way this enemy works you should make it into a prefab 
 
 You may still notice one more problem. If our player dies the game just stops and Unity actually begins erroring.\
 This is due to the camera, and now enemy, trying to find the player that has now been destroyed. In the next lesson we will talk more about Scenes and start switching between levels.
+
+## On Your Own
+
+Wouldn't it be cool if our enemy would only chase the player if the player was close to our enemy?\
+Try wrapping the movement of the enemy in an `if` statement that checks how close they are to the player. Perhaps you could use ["Vector2.Distance"](https://docs.unity3d.com/ScriptReference/Vector2.Distance.html).
