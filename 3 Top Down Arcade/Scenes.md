@@ -40,7 +40,7 @@ To detect the collision we just need to add in the `OnCollisionEnter2D` function
 ```csharp
 void OnCollisionEnter2D(Collision2D collision) {
 	
-	if(collision.gameObject.tag == "PlayerTag") {
+	if(collision.gameObject.tag == "Player") {
 		
 	}
 
@@ -63,7 +63,7 @@ If we were to look up "Loading scenes in Unity" you would likely find this funct
 Add this functions call in our `if` statement (You'll need to call it from the ["SceneManager"](https://docs.unity3d.com/ScriptReference/SceneManagement.SceneManager.html) class).
 
 ```csharp
-if(collision.gameObject.tag == "PlayerTag") {
+if(collision.gameObject.tag == "Player") {
 	SceneManager.LoadScene();	
 }
 ```
@@ -75,7 +75,7 @@ public string sceneName;
 
 void OnCollisionEnter2D(Collision2D collision) {
 	
-	if(collision.gameObject.tag == "PlayerTag") {
+	if(collision.gameObject.tag == "Player") {
 			SceneManager.LoadScene(sceneName);
 	}
 
@@ -89,3 +89,12 @@ For now it can just be a box. Give it a unique color and make sure it has a 2D c
 ![LevelSwitcherPrefab](Images/LevelSwitcherPrefab.JPG)
 
 It wouldn't hurt to make that into a prefab.
+
+If you click on the object you can enter a string into the variable for `sceneName` in the inspector. This needs to be exactly the way you spelt the name of the scene. Here that should be "Scene1" (do the opposite of whichever scene you are currently on).\
+If you run your game and run into the level switching object you will get an error along the lines of "Scene couldn't be loaded because it isn't added to the build settings". I'd guess this means we need to add the scene to our build settings.\
+How do we do that? Glad you asked.\
+In the top left of Unity go to "File" and then click on "Build Settings". A window will appear and it should have "Scenes in Build" at the top. Make sure all the scenes you have are added here, you can use the "Add Open Scenes" to add the open scene.
+
+![AddScenesToBuild](Images/AddScenesToBuild.JPG)
+
+Now when you run your game you should be able to switch to which ever scene name is set on the switcher.
