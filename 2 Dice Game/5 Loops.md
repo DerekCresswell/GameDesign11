@@ -9,7 +9,7 @@ Functions aren't always the best fit for our problems though. Lot's of the time 
 
 ### For Loops
 
-The "For Loop" is used to repeat through a block of code a certain amount of times.\
+The ["For Loop"](https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/intro-to-csharp/branches-and-loops?tutorial-step=4) is used to repeat through a block of code a certain amount of times.\
 As usual let's get an example up and then walk through it.
 
 ```csharp
@@ -71,7 +71,7 @@ Use loops to repeat code a certain amount of times or until a condition is met.
 
 ### While Loops
 
-A "While Loop" is really the same thing as the `for` loop except with a different declaration.\
+A ["While Loop"](https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/statements) is really the same thing as the `for` loop except with a different declaration.\
 A `while` loop only takes a boolean or boolean expression. For instance :
 
 ```csharp
@@ -121,8 +121,7 @@ There are two main statements used to control our loops, ["break"](https://docs.
 These aren't too complex, can be very useful, and do exactly what they say.
 
 #### Break
-
-Break simply breaks out a loop. It is written simply as `break;` but it must be within a `for` or `while` loop.\
+[Break](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/break) simply breaks out a loop. It is written simply as `break;` but it must be within a `for` or `while` loop.\
 When the break is executed the loop is stopped where it is and program moves to after the loop.
 
 ```csharp
