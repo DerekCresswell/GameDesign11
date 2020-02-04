@@ -98,3 +98,19 @@ In the top left of Unity go to "File" and then click on "Build Settings". A wind
 ![AddScenesToBuild](Images/AddScenesToBuild.JPG)
 
 Now when you run your game you should be able to switch to which ever scene name is set on the switcher.
+
+That's the basics of switching scenes. Remember, you can call `LoadScene` from anywhere in your code, not just with collisions.\
+Perhaps in the future you want to switch when your player dies. Well then you can put the code into your health script's death function. Possibilities are endless!
+
+## Building Scenes
+
+Now this is a very important subject. We need to discuss the "proper" way to build a scene in Unity (or any game design software that is) in order to reduce our headaches.\
+When we started talking about [prefabs](./1%20Prefabs.md) we used them to place repeated objects, like a ball. We want to apply this idea to building scenes.
+
+Rather than creating enemies, walls, boxes, everything in your game, one by one and piece by piece we need to use prefabs.\
+By using prefabs liberally, we can increase the speed and ease of adding new scenes as well as making adjustments into a breeze.
+
+Instead of jumping straight into making a finished scene start by making a development scene. This is where you will want to test new things as well as build prefabs. Treat it kind of like a playground.\
+This way when you go to build scenes for the final game you will be able to quickly drag and drop assets into place the game.
+
+Remember, it's easier to start with the foundation and building blocks rather as opposed to the top of the tower.
