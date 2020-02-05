@@ -26,4 +26,46 @@ Place this somewhere that looks like a good spot to display health. Here we've a
 
 That's great and all but it does not actually display our health. To do this we need some code, luckily we can do this pretty easily.
 
-Open up the PlayerHealth script.
+### Changing HUD Through Code
+
+Open up the PlayerHealth script.\
+At the very top we need to add a `using` statement.
+
+```csharp
+using UnityEngine.UI;
+```
+
+Then at the top of our class add in a `public` variable like :
+
+```csharp
+public Text healthText;
+```
+
+In a bit we will set this to the [text object](https://docs.unity3d.com/ScriptReference/UIElements.TextElement.html) we created.\
+Now we need to change this text to display our health. the way we will do this is accessing the ["text"](https://docs.unity3d.com/ScriptReference/UIElements.TextElement-text.html) property of the text object. That will look like :
+
+```csharp
+healthText.text = "This text here";
+```
+
+This will change whatever text the object is displaying to what is after the equal sign.\
+That's how you change it but now we need to figure out where to put this. There are two main options that will appear to work the exact same.
+
+* The Update function. This would update our text every frame.
+* Inside the collision function. This would update whenever our health changes.
+
+Both work but since our health won't change every frame it would be more efficient to put this in our collision.\
+We only want to change it if we actually take damage though so let's put this just below where we decrement our health.
+
+```csharp
+if(otherObject.tag == "BulletTag" || otherObject.tag == "EnemyTag") {
+
+	currentHealth--;
+
+	healthText.text = "Health : " + currentHealth;
+```
+
+As you can see here, we've added the `currentHealth` variable to the end of the string. You can set this string up however you want.
+
+If you play the game and get hit by an enemy you will see that the text updates and displays your current health. But we have one more problem, before we've been hit there is no health displayed.\
+This can be easily remedied by adding the same code to the `Start` function. You could also change this to perhaps say "Max Health" or do whatever you want. 
