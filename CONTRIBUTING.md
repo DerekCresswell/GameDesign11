@@ -22,6 +22,42 @@ Do not add extra things to a PR that do not pertain to it's main topic.\
 The [guidelines](#guidelines) need to followed for choice of language, linking, and markdown formatting.\
 If you are unsure about the quality of a PR just ask for a stricter review. If you have questions about the purpose of a PR please ask with / in an issue.
 
+## Adding Scripts
+
+If you have a helpful script and want to add it to the repo you can create an [issue](#issues) / [pull request](#pull-requests) like above to add it to the appropriate library folder.\
+The script must also contain the following at the top : 
+
+```csharp
+/*
+ * ___________________________________________________
+ * 
+ *                     GameDesign11 
+ * ___________________________________________________
+ *  An intro to 2D Game Design using the Unity Engine
+ * 
+ * Author: DerekCresswell & Contributors
+ * https://github.com/DerekCresswell/GameDesign11
+ * 
+ * Add a description about what this script will do.
+ *
+ */
+
+/* 
+ *
+ * --- What You Need To Do ---
+ *  
+ * Add any instructions here about how to set up
+ * the script, object, or others.
+ * Feel free to leave something a little broken so
+ * students need to fix it.
+ *
+ */
+```
+
+Scripts will not be accepted without this.\
+This must be above everything else in the script. Add in an appropriate description and instructions. Follow the [guidelines](#guidelines) below when writing those.\
+Also ensure that the syntax of your code is written with the [syntax of other scripts](./2%20Dice%20Game/Syntax.md).
+
 ## Guidelines
 
 These guidelines need to be followed when adding and editing content.
