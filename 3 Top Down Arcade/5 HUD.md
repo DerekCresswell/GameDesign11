@@ -18,10 +18,14 @@ This canvas is where Unity will put all of our UI or HUD parts.
 To start, how about we just stick a piece of text on our canvas.\
 Right click on the hierarchy and scroll down to "UI" and then click "Text".\
 You will see that Unity has automatically placed this as a child of the canvas object. Now if you look at your game you will see that there is some text displaying. If you play the game and move around you will see that the text does not move.\
-This will be the base of our HUDs. Let's start by moving this to the top right corner to be our health display. You will notice there are some extra markers popping up, this is due to our text using a ["Rect Transform"](https://docs.unity3d.com/Packages/com.unity.ugui@1.0/manual/class-RectTransform.html) as opposed to the normal transform. This is basically the same thing except instead of representing a point (`Vector3`) it represents a full rectangle.
+This will be the base of our HUDs. Let's start by moving this to the top right corner to be our health display. You will notice there are some extra markers popping up, this is due to our text using a ["Rect Transform"](https://docs.unity3d.com/Packages/com.unity.ugui@1.0/manual/class-RectTransform.html) as opposed to the normal transform.\
+This tool has some special features we want to take advantage of, for instance easily anchoring our text to a corner.
+
+// Finish rect transform
 
 Place this somewhere that looks like a good spot to display health. Here we've also changed the default text, bumped up the font size, and colored the text to appear better.
 
+// Edit for rect transform
 ![HealthText](Images/HealthText.JPG)
 
 That's great and all but it does not actually display our health. To do this we need some code, luckily we can do this pretty easily.
@@ -69,3 +73,21 @@ As you can see here, we've added the `currentHealth` variable to the end of the 
 
 If you play the game and get hit by an enemy you will see that the text updates and displays your current health. But we have one more problem, before we've been hit there is no health displayed.\
 This can be easily remedied by adding the same code to the `Start` function. You could also change this to perhaps say "Max Health" or do whatever you want. 
+
+This functionality is not limited to health. You could set up displays like this to show what level or stage you are on, keep track of your ammo, what items you have equipped, or any other thing you could put into text.\
+Displaying it is all the same.
+
+### Sliders In HUD
+
+// Check if wanted
+
+The canvas is not limited to just text. How about we change up our HUD to use a health bar rather than numbers.
+
+### Buttons
+
+// Create basic menu
+
+### Images In HUD
+
+// Check if wanted  
+// Basic character portrait?
