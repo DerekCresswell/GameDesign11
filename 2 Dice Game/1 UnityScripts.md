@@ -4,7 +4,7 @@ Here we are going to figure out what a Script is and how Unity uses them.
 
 ## Scripts
 
-Scripts are what we call our code. Our scripts are simply written files that follow specific rules and can be interpreted by our computer.\
+["Scripts"](https://docs.unity3d.com/Manual/ScriptingSection.html) are what we call our code. Our scripts are simply written files that follow specific rules and can be interpreted by our computer.\
 Scripts in Unity are treated as other Components like a Rigidbody. You can attach them to any Object and they are written using the Language of C#.
 
 [C#](https://docs.microsoft.com/en-us/dotnet/csharp/) is a programming language made by Microsoft and is an Object Oriented language.\

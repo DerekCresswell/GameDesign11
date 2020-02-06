@@ -254,7 +254,7 @@ Go and make your own series of `if` statements
 
 ## Scope
 
-The last part of this lesson we are talking about "Scope". Scope is the idea of where our program can "see" different variables.\
+The last part of this lesson we are talking about ["Scope"](https://docs.microsoft.com/en-us/dotnet/framework/configure-apps/file-schema/wcf/scopes). Scope is the idea of where our program can "see" different variables.\
 Let's do a quick example.
 
 ```csharp
