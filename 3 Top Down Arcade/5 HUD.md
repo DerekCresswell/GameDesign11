@@ -154,7 +154,33 @@ Once you are happy with the HUD you should make it into a prefab so you can easi
 
 ### Buttons
 
-// Create basic menu
+The last big thing about the HUD is ["buttons"](https://docs.unity3d.com/Packages/com.unity.ugui@1.0/manual/script-Button.html).\
+Currently we have two levels and we can switch between them with the level switcher we made. The next thing we need is a menu to start the game.
+
+Make a new scene and call it "Start". Then create a new canvas here.\
+We want to add a new button. This is under the UI dropdown just like all previous UI elements.\
+Let's set the text on the button to say "Start". This is found on the child text object on the button.
+
+The way a button works in Unity is that we can choose which functions to run from a script when clicked. Before we hook up the button let's create a function to load a level.\
+We could jump onto a new script and start writing but that is a little unnecesary. We already have a script that does just that.\
+Open up your LevelSwitch script. Here we want to add a new function called "OnClick". Then we can copy over the same code from the `OnCollisionEnter2D` function we made before. Except, we don't want to check if we hit the player.
+
+```csharp
+void onClick() {
+	SceneManager.LoadScene(SceneName);	
+}
+```
+
+Nice and simple. We didn't even need a new script.\
+Add this script to the button we just made. Then you can set the "Scene Name" to "Scene1" or whatever scene you want to switch to.\
+Now if you look up at to the Button component you will see the bottom where it says "On Click ()" with an empty box. This is where we can set what happens when clickling the button.
+
+![ButtonEmptyOnClick](Images/ButtonEmptyOnClick.JPG)
+
+Then drag
+// Finish, mention public
+
+![ButtonFunctionOnClick](Images/ButtonFunctionOnClick.JPG)
 
 ### Images In HUD
 
