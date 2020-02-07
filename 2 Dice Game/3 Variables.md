@@ -10,7 +10,7 @@ You likely have an understanding of variables from math. While there are some th
 Type | Declaration | Stores | Example
 ---- | ----------- | ------ | -------
 Integer | `int` | Whole numbers | -1, 0, 1, 2
-Float | `float` | Decimal numvers | 1.0, 2.3, 4.75
+Float | `float` | Decimal numbers | 1.0, 2.3, 4.75
 Boolean | `bool` | True or False | T or F
 Character | `char` | Single letters | 'a', 'b'
 String | `string` | A string of letters | "Hello World"
@@ -40,11 +40,11 @@ Adding a decimal, even zero, or a 'f' tells the code that the numbers are floats
 ### Booleans
 
 [Booleans](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/bool), despite only having two possible values, are likely the most useful and can become very complex.\
-Acceptable values for booleans are, `true` and `false` or `1` and `0`.\
+Acceptable values for Booleans are, `true` and `false` or `1` and `0`.\
 The zero and one are just like binary if you know what that is.\
 Booleans are how we interact with "control structures" which we will get to later and are the most useful part of coding.
 
-Booleans can be set with values like `5 > 4` which would give the variable a value of true. A similar order of operations applies to booleans as well but we will talk about that during control structures.
+Booleans can be set with values like `5 > 4` which would give the variable a value of true. A similar order of operations applies to Booleans as well but we will talk about that during control structures.
 
 ### Characters
 
@@ -64,7 +64,7 @@ Now we move on to setting up, manipulating, and using variables.
 ## Declaring Variables
 
 In code, when we make a variable it is called a [declaration](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/value-types#initializing-value-types).\
-C# is what's called a "strongly typed" langauge. This means that once a variable is declared it can **not** change type. This also means we need to tell the computer what type of variable it will be before we declare one.\
+C# is what's called a "strongly typed" language. This means that once a variable is declared it can **not** change type. This also means we need to tell the computer what type of variable it will be before we declare one.\
 Let's take a look at the parts. Go ahead and type these out and play with them throughout.
 
 ```csharp
@@ -87,7 +87,7 @@ For instance with the first line we wanted an integer value so we used `int` as 
 These declarations do require at least one space after them.
 
 * Next is the variable name. This is the name associated with our variable and how we will access them later in our code.\
-It comes after the type of variable with at least one space inbetween them. Variables name can include all letters, hyphens `-`, underscores `_`, and the dollar sign `$`.\
+It comes after the type of variable with at least one space in between them. Variables name can include all letters, hyphens `-`, underscores `_`, and the dollar sign `$`.\
 You'll notice my variable names are written in [lowerCamelCase](https://whatis.techtarget.com/definition/lowerCamelCase). This is because Unity's prewritten variables use this format and it's nice to have everything match. Keeps the code readable like we talked about in the [last lesson](./2%20CodeStructure.md).\
 Another rule to follow when making variable names is to make them descriptive, but don't make it redundant. Then later when you want to use your variable you will be able to tell what it does.\
 If you had a variable to store your bank account balance a good name could be `accountBalance`. A bad name would be `x` or `myCurrentBankAccountBalance`.
@@ -196,13 +196,14 @@ Things like this can be very complex. It can be much harder to understand if you
 1. Print out a small story using `Debug.Log`.
 
 1. Print a shape like :
-```
-   *
-  ***
- *****
-  ***
-   *
-```
+
+	```
+	   *
+	  ***
+	 *****
+	  ***
+	   *
+	```
 
 1. Print a count down using a variable to keep track of the number.
 
