@@ -21,9 +21,14 @@ You will see that Unity has automatically placed this as a child of the canvas o
 This will be the base of our HUDs. Let's start by moving this to the top right corner to be our health display. You will notice there are some extra markers popping up, this is due to our text using a ["Rect Transform"](https://docs.unity3d.com/Packages/com.unity.ugui@1.0/manual/class-RectTransform.html) as opposed to the normal transform.\
 This tool has some special features we want to take advantage of, for instance easily anchoring our text to a corner.
 
-// Finish rect transform
+To do this click on the little box that appears in the Rect Transform component. A drop down will appear. This is the anchoring of our object.\
+There are some fancy things you can do but for our purposes we want to hold <kbd>Shift</kbd> and <kbd>Alt</kbd> the click one of the corners, here it'll be top left.
 
-Place this somewhere that looks like a good spot to display health. Here we've also changed the default text, bumped up the font size, and colored the text to appear better.
+![RectTransformAnchor](Images/RectTransformAnchor.JPG)
+
+This will put the text in the top left corner but it will also anchor it there. Meaning we can change the size of our game window and the text will remain still.\
+You likely will want to offset the text so it isn't stuffed in the corner.\
+Here we've also changed the default text, bumped up the font size, and colored the text to appear better.
 
 // Edit for rect transform
 ![HealthText](Images/HealthText.JPG)
@@ -79,9 +84,73 @@ Displaying it is all the same.
 
 ### Sliders In HUD
 
-// Check if wanted
-
 The canvas is not limited to just text. How about we change up our HUD to use a health bar rather than numbers.
+
+Unity has a built in UI element called a ["Slider"](https://docs.unity3d.com/Packages/com.unity.ugui@1.0/manual/script-Slider.html). We can use this to create a basic health bar.\
+Go to the hierarchy, go to down to UI, and make a new slider.\
+In our game you now have a slider and if you play the game you can control it with the mouse. This isn't what we want so let's do a few changes to make this into more of a health bar.
+
+To start, you will notice that this object was created with a little handle. We don't want this for a health bar. This is just a childed object on the slider, go ahead and delete the "Handle Slide Area" object.\
+If you play the game though you can still change the slider with your mouse. Giving ourselves more health is not something we want to do so we need to go back to the Slider object and under the Slider component you should see a check box labeled "Interactable". Uncheck this. Now we cannot modify the slider with our mouse.\
+One more thing you can do is delete the child object called "Background". Here we will do this as it can make the bar look a little worse.
+
+Just a few more settings. On our slider component we want to tick the box labeled "Whole Numbers" as we are using integers for our players health.\
+You will see just above that a setting for the "Min" and "Max" value. We don't need to set these here because we will use code, that way it is easier to change our health later.
+
+![SliderComponentSetup](Images/SliderComponentSetup.JPG)
+
+Finally, you will see that the color of the color of the slider is an ugly off-white. It's probably better to make this red like the text we made.\
+This is a little odd, we can't just use the sliders that you see in the Slider component. Go to it's children and you will see one named "Fill", click this and set the color there under the "Image" component.\
+Now we should be good to go. Let's head back to the player health script.
+
+Make sure to anchor this slider to a corner, likely beside the health text.
+
+#### Changing Sliders With Code
+
+This is going to be quite similar to before.\
+Start by creating a `public Slider` variable at the top of the script.
+
+We need to first set that "Max Value" we mentioned before. Well the max value our slider can be would be the same as our max health. So in the start function we add :
+
+```csharp
+void Start() {
+
+	healthText.text = "Health : " + currentHealth;
+	slider.maxValue = currentHealth;
+
+}
+```
+
+Now just like with the text, we need to set the value of the slider.\
+To do this edit the `value` variable on the slider.
+
+```csharp
+currentHealth--;
+
+healthText.text = "Health : " + currentHealth;
+slider.value = currentHealth;
+```
+
+Now go back to your game, set that `slider` variable we made, and see this working.\
+Hmm, there's a problem still. When the game starts the slider appears very small and once we take damage it becomes greater. This sounds just like the problem we had where the text was not set for the first frame.\
+Luckily we can fix this in the exact same way. Just set the slider's value in the start function.
+
+```csharp
+void Start() {
+
+	healthText.text = "Health : " + currentHealth;
+	slider.maxValue = currentHealth;
+	slider.value = currentHealth;
+
+}
+```
+
+There we go! This game is starting to take shape.
+
+*Note*\
+If you want to make this slider bigger or smaller you can adjust it's width with the Rect Transform.
+
+Once you are happy with the HUD you should make it into a prefab so you can easily set the same thing up in each scene.
 
 ### Buttons
 
