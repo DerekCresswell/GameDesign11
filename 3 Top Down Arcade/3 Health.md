@@ -177,6 +177,23 @@ void OnCollisionEnter2D(Collision2D collision) {
 It's recomended that you remove the `Debug.Log`s from these two scripts as the player of the game cannot see the console. At least once you export the game. They are just fine now while we are working.\
 Later we will create a heads up display to show things like health.
 
+### Dealing More Than One Damage
+
+With the current script we've written the character is only dealt one damage at a time. This is fine and works but what if we want to have an enemy that deals more damage?\
+We won't get into too much detail here as we want to encourage you to try and figure this out on your own. Though we will describe the idea behind it.
+
+To start, look at how we get a reference to the object we collided with. We can do more than that, in fact we can access a script we've put on that object and then use variables from them. It would look similar to this :
+
+```csharp
+int damageToDeal = otherObject.GetComponent<EnemyHealth>().damage;
+```
+
+Where `EnemyHealth` is the name of the script that contains the damage to deal and `damage` is a `public` variable.\
+If you do this the next step is to replace `currentHealth--;` with `currentHealth -= damageToDeal;`.
+
+If you want to have things like spikes for instance that will deal damage but not be able to be destroyed you will likely want to have this `damage` variable not on the health script.\
+Instead make a new script called "DamageOnCollide" or similar. This doesn't need any code other than a 	`public` variable for how much damage to deal.
+
 ## Basic Enemy AI
 
 This is going to be a basic way of having the enemy chase our player around the game.
