@@ -167,7 +167,7 @@ Open up your LevelSwitch script. Here we want to add a new function called "OnCl
 
 ```csharp
 void onClick() {
-	SceneManager.LoadScene(SceneName);	
+	SceneManager.LoadScene(sceneName);
 }
 ```
 
@@ -177,10 +177,19 @@ Now if you look up at to the Button component you will see the bottom where it s
 
 ![ButtonEmptyOnClick](Images/ButtonEmptyOnClick.JPG)
 
-Then drag
-// Finish, mention public
+Click the plus button in the bottom right. Now you will see a few more options appear.\
+You will see a box right below the little drop down list that says "Runtime Only". Drag the LevelSwitch script from the button object to that box.\
+Once you do that you will want to click on the other dropdown that currently says "No Function". Here you will see a list of objects that we can call functions from.\
+At the bottom you should see the LevelSwitch script. When you hover over this you will see a list of things we can use. You won't see the `onClick` function. Why?\
+Well this is because the function is **not** public. Just like variables, if we want to use a function in Unity's editor it must be public.\
+Add the `public` keyword to our function just before `void` and then go back to Unity. You should now see this function on the drop down list.
 
 ![ButtonFunctionOnClick](Images/ButtonFunctionOnClick.JPG)
+
+If you run the game and click the button you will be loaded into whatever scene you set the `sceneName` variable to in the LevelSwitch script on our button.
+
+You should be able to see how to expand this to a fully fledged menu where you could load into different levels or tutorials.\
+Also remember, buttons are not limited to loading levels, you could just as easily set up an on screen button that, say, makes the player shoot!
 
 ### Images In HUD
 
