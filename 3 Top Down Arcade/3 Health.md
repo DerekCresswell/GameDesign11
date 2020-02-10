@@ -14,10 +14,11 @@ With that we need to make a new script, let's call it "EnemyHealth".
 ![EnemyPrefab](Images/EnemyPrefab.JPG)
 
 Open that up.\
-Since we are going to be dealing with the collisions of our enemy we need to use the `OnTriggerEnter2D` function. Add that in just like we did with the bullet.
+Since we are going to be dealing with the collisions of our enemy we need to use the `OnCollisionEnter2D` function. Add that in just like we did with the bullet.\
+We don't want to use the trigger function here as our enemy is not a trigger and, seeing as they can't shoot currently, we don't need to worry about triggers here.
 
 ```csharp
-void OnTriggerEnter2D(Collider2D collision) {
+void OnCollisionEnter2D(Collision2D collision) {
 
 	// Collision logic here
 
@@ -29,7 +30,7 @@ We only want the enemy to react to the bullets currently. Lucky for us we set up
 But first we are going to set up the other object in the collision as a variable. This is a good bit to make a habit of.
 
 ```csharp
-void OnTriggerEnter2D(Collider2D collision) {
+void OnCollisionEnter2D(Collision2D collision) {
 
 	GameObject otherObject = collision.gameObject;
 
@@ -37,14 +38,17 @@ void OnTriggerEnter2D(Collider2D collision) {
 ```
 
 This will just make our code simpler and look nicer.\
-Now check if that object has the tag "BulletTag". For now print out "Hit!" if the enemy was hit with a bullet.
+Now just like before, we need to check what we collided with and using tags is very simple, so we will do it again.
+
+Currently, our enemies do not shoot bullets so we can't use the same tag from before. We can implement this later but for now our enemies will be more like a zombie and just try to run into the player.\
+We need to detect if the player has collided with an enemy and we will do this the same as with the bullet. Start by making and subsequently place a "EnemyTag" onto the enemy. If you need a reminder just see the section of [Deleting Bullets](./2%20PlayerInput.md#deleting-bullets) from the [last lesson](./2%20PlayerInput.md).
 
 ```csharp
-void OnTriggerEnter2D(Collider2D collision) {
+void OnCollisionEnter2D(Collision2D collision) {
 
 	GameObject otherObject = collision.gameObject;
 
-	if(otherObject.tag == "BulletTag") {
+	if(otherObject.tag == "EnemyTag") {
 		Debug.Log("I've been hit!");
 	}
 
@@ -71,11 +75,11 @@ Instead of printing out "Hit!" let's print out `currentHealth`. Now if we think 
 Each time the enemy is hit we simple print out the value of `currentHealth` without changing it. Once we're hit (by a bullet) we need to take away some health. Let's do that.
 
 ```csharp
-void OnTriggerEnter2D(Collider2D collision) {
+void OnCollisionEnter2D(Collision2D collision) {
 
 	GameObject otherObject = collision.gameObject;
 
-	if(otherObject.tag == "BulletTag") {
+	if(otherObject.tag == "EnemyTag") {
 		currentHealth--;
 		Debug.Log(currentHealth);
 	}
@@ -91,11 +95,11 @@ It works, but there's a problem. Shouldn't the enemy die when it's health hits z
 Why yes! We need to add another `if` statement to check that if we are at or below zero health. If we are, destroy the enemy.
 
 ```csharp
-void OnTriggerEnter2D(Collider2D collision) {
+void OnCollisionEnter2D(Collision2D collision) {
 
 	GameObject otherObject = collision.gameObject;
 
-	if(otherObject.tag == "BulletTag") {
+	if(otherObject.tag == "EnemyTag") {
 
 		currentHealth--;
 
@@ -125,11 +129,11 @@ public class PlayerHealth : MonoBehaviour {
 
 	public int currentHealth = 5;
 
-	void OnTriggerEnter2D(Collider2D collision) {
+	void OnCollisionEnter2D(Collision2D collision) {
 
 		GameObject otherObject = collision.gameObject;
 
-		if(otherObject.tag == "BulletTag") {
+		if(otherObject.tag == "EnemyTag") {
 
 			currentHealth--;
 
@@ -147,36 +151,6 @@ public class PlayerHealth : MonoBehaviour {
 
 }
 ```
-
-Now this would work just fine if our enemies shot bullets. Currently they do not though. We can implement this later but for now our enemies will be more like a zombie and just try to run into the player.\
-We need to detect if the playey has collided with an enemy and we will do this the same as with the bullet. Start by making and subsequently place a "EnemyTag" onto the enemy. If you need a reminder just see the section of [Deleting Bullets](./2%20PlayerInput.md#deleting-bullets) from the [last lesson](./2%20PlayerInput.md).\
-With that we can add this to our tag checking in `PlayerHealth`. Keep the `BulletTag` in there as we can use this later. Duplicate that with the [logical OR operator](../2%20Dice%20Game/4%20Logic.md#or-operator) (`||`).
-
-```csharp
-void OnTriggerEnter2D(Collider2D collision) {
-
-	GameObject otherObject = collision.gameObject;
-
-	if(otherObject.tag == "BulletTag" || otherObject.tag == "EnemyTag") {
-
-		currentHealth--;
-
-		if(currentHealth <= 0) {
-
-			Destroy(gameObject);
-
-		}
-
-		Debug.Log(currentHealth);
-
-	}
-
-}
-```
-
-But wait!\
-Here we run into a problem. The enemy is not a trigger. We need to detect bullets and enemies seperately. In this specific situation we can ignore the bullets and just change the function signature to `void OnTriggerEnter2D(Collider2D collision)` as our enemies cannot shoot yet.\
-Remember this for the future though, you will need to distinguish whether you want to collide with triggers or real collisions.
 
 It's recomended that you remove the `Debug.Log`s from these two scripts as the player of the game cannot see the console. At least once you export the game. They are just fine now while we are working.\
 Later we will create a heads up display to show things like health.
