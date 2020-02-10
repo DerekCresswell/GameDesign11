@@ -13,6 +13,12 @@ You will see a massive list of options in the inspector, we can't cover everythi
 Let's go through top to bottom and setup a cool explosion.\
 Throughout please remember, you do **not** have to follow the settings verbatim. Please go off the beaten path and make it look good to you. You can hover over the names of settings to get a little description.
 
+You can edit / view your particle using the little context menu that shows up when you highlight a particle system in the editor. Usually you can just use the top three buttons to play it.
+
+![ParticleEffectMenu](Images/ParticleEffectMenu.JPG)
+
+## Basic Explosion Effect
+
 ### Particle System
 
 Here's what we will edit to make an explosion :
@@ -55,3 +61,26 @@ This controls how long a particle is "alive" for.
 * Randomize Position, set this to a small-ish number like `0.5`. This will make our particles have a varied spawn position and will be more natural.
 
 ![Shape](Images/Shape.JPG)
+
+### Color Over Lifetime
+
+This time, you will need to enable this. There is a little white circle beside the name of this section, tick it. Do this for all settings that aren't enabled by default.
+
+* Color, with the arrow on the right, set this to "Random Between Two Gradients". This means when a particle spawns it will be one of two random colors and then change colors as it's on screen. Click on the white box and this will open the "Gradient Editor".
+
+![GradientEditor](Images/GradientEditor.JPG)
+
+Here you can click on the little white arrows on the bottom of side of the color box to choose a color for each point in the gradient.\
+Here we'll set a nice orange to red and yellow to brown. Do whatever looks best you you though.
+
+![ColorOverLifetime](Images/ColorOverLifetime.JPG)
+
+### Size Over Lifetime
+
+* Size, here we see a ["Curve"](https://docs.unity3d.com/Manual/animeditor-AnimationCurves.html) which let's use change a value over time. If you click on the box shown here you can edit your curve, or select a preset from just below. We want our particles to decrease in size over time.
+
+![SizeOverLifetime](Images/SizeOverLifetime.JPG)
+
+That should be looking like a pretty good explosion now! All that's left is to have this play when we shoot stuff.
+
+## Using Particle Systems Through Code
