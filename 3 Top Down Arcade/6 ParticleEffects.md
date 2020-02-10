@@ -56,8 +56,6 @@ This controls how long a particle is "alive" for.
 
 * Radius, Decrease this to be closer to the size of the bullet. This controls the size of the circle.
 
-* Rotation, set the X rotation to `90` so that our circle will be facing the right direction.
-
 * Randomize Position, set this to a small-ish number like `0.5`. This will make our particles have a varied spawn position and will be more natural.
 
 ![Shape](Images/Shape.JPG)
@@ -84,3 +82,24 @@ Here we'll set a nice orange to red and yellow to brown. Do whatever looks best 
 That should be looking like a pretty good explosion now! All that's left is to have this play when we shoot stuff.
 
 ## Using Particle Systems Through Code
+
+To start we will make this explosion whenever the bullet hits something.\
+Make the particle into a prefab and call it "ExplosionParticle".\
+Then open up our "BulletDestroy" script. Here add a new `public GameObject` to the top of the script. Name it something about explosions.
+
+Now we want to spawn this at the bullets position when it dies. Just like before we can do this :
+
+```csharp
+if(collision.gameObject.tag != "BulletTag") {
+	Instantiate(explosionFX, transform.position, Quaternion.identity);
+	Destroy(gameObject);
+}
+```
+
+Make sure you set the explosion variable in the bullet prefab.
+
+## On Your Own
+
+Try making a particle to spawn when the enemy dies. In this case you might wanna do a big green splat.\
+
+// Add in a basic fire, fog, other particles
