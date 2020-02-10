@@ -193,5 +193,4 @@ Also remember, buttons are not limited to loading levels, you could just as easi
 
 ### Images In HUD
 
-// Check if wanted  
-// Basic character portrait?
+// Basic character portrait

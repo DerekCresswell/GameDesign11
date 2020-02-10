@@ -6,7 +6,7 @@ This will look into detecting collisions, tracking health, and some basic enemie
 ## Collision Detection
 
 We already touched on this briefly in the [last lesson](./2%20PlayerInput.md#deleting-bullets). Let's get into it a bit more here.\
-Any object in our game with a [collider](https://docs.unity3d.com/Manual/Collider2D.html) can detect collisions using the ["OnCollisionEnter2D"](https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnCollisionEnter2D.html) function. Here we will only be using 2D colliders.\
+Any object in our game with a [collider](https://docs.unity3d.com/Manual/Collider2D.html) can detect collisions using the ["OnTriggerEnter2D"](https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnTriggerEnter2D.html) function. Here we will only be using 2D colliders.\
 
 To start let's create a new sprite in our scene and name it "Enemy". Give it a sprite and a unique color. It also needs a collider. For now our enemy will just be a target and won't retaliate.\
 With that we need to make a new script, let's call it "EnemyHealth". 
@@ -14,10 +14,10 @@ With that we need to make a new script, let's call it "EnemyHealth".
 ![EnemyPrefab](Images/EnemyPrefab.JPG)
 
 Open that up.\
-Since we are going to be dealing with the collisions of our enemy we need to use the `OnCollisionEnter2D` function. Add that in just like we did with the bullet.
+Since we are going to be dealing with the collisions of our enemy we need to use the `OnTriggerEnter2D` function. Add that in just like we did with the bullet.
 
 ```csharp
-void OnCollisionEnter2D(Collision2D collision) {
+void OnTriggerEnter2D(Collider2D collision) {
 
 	// Collision logic here
 
@@ -29,7 +29,7 @@ We only want the enemy to react to the bullets currently. Lucky for us we set up
 But first we are going to set up the other object in the collision as a variable. This is a good bit to make a habit of.
 
 ```csharp
-void OnCollisionEnter2D(Collision2D collision) {
+void OnTriggerEnter2D(Collider2D collision) {
 
 	GameObject otherObject = collision.gameObject;
 
@@ -40,7 +40,7 @@ This will just make our code simpler and look nicer.\
 Now check if that object has the tag "BulletTag". For now print out "Hit!" if the enemy was hit with a bullet.
 
 ```csharp
-void OnCollisionEnter2D(Collision2D collision) {
+void OnTriggerEnter2D(Collider2D collision) {
 
 	GameObject otherObject = collision.gameObject;
 
@@ -71,7 +71,7 @@ Instead of printing out "Hit!" let's print out `currentHealth`. Now if we think 
 Each time the enemy is hit we simple print out the value of `currentHealth` without changing it. Once we're hit (by a bullet) we need to take away some health. Let's do that.
 
 ```csharp
-void OnCollisionEnter2D(Collision2D collision) {
+void OnTriggerEnter2D(Collider2D collision) {
 
 	GameObject otherObject = collision.gameObject;
 
@@ -91,7 +91,7 @@ It works, but there's a problem. Shouldn't the enemy die when it's health hits z
 Why yes! We need to add another `if` statement to check that if we are at or below zero health. If we are, destroy the enemy.
 
 ```csharp
-void OnCollisionEnter2D(Collision2D collision) {
+void OnTriggerEnter2D(Collider2D collision) {
 
 	GameObject otherObject = collision.gameObject;
 
@@ -125,7 +125,7 @@ public class PlayerHealth : MonoBehaviour {
 
 	public int currentHealth = 5;
 
-	void OnCollisionEnter2D(Collision2D collision) {
+	void OnTriggerEnter2D(Collider2D collision) {
 
 		GameObject otherObject = collision.gameObject;
 
@@ -153,7 +153,7 @@ We need to detect if the playey has collided with an enemy and we will do this t
 With that we can add this to our tag checking in `PlayerHealth`. Keep the `BulletTag` in there as we can use this later. Duplicate that with the [logical OR operator](../2%20Dice%20Game/4%20Logic.md#or-operator) (`||`).
 
 ```csharp
-void OnCollisionEnter2D(Collision2D collision) {
+void OnTriggerEnter2D(Collider2D collision) {
 
 	GameObject otherObject = collision.gameObject;
 
@@ -173,6 +173,10 @@ void OnCollisionEnter2D(Collision2D collision) {
 
 }
 ```
+
+But wait!\
+Here we run into a problem. The enemy is not a trigger. We need to detect bullets and enemies seperately. In this specific situation we can ignore the bullets and just change the function signature to `void OnTriggerEnter2D(Collider2D collision)` as our enemies cannot shoot yet.\
+Remember this for the future though, you will need to distinguish whether you want to collide with triggers or real collisions.
 
 It's recomended that you remove the `Debug.Log`s from these two scripts as the player of the game cannot see the console. At least once you export the game. They are just fine now while we are working.\
 Later we will create a heads up display to show things like health.

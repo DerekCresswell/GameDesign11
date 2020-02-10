@@ -25,6 +25,8 @@
  * Change / add tag names to choose what deals
  * damage to this object.
  *
+ * Add in OnTriggerEnter2D to detect any triggers.
+ *
  * To convert this into an EnemyHealth script :
  * 	Create a new C# script and copy the contents
  * 	of this to that.
@@ -56,8 +58,8 @@ public class PlayerHealth : MonoBehaviour {
 		// Set up a reference to the object we collided with
 		GameObject otherObject = collision.gameObject;
 
-		// If we collided with a bullet or enemy
-		if(otherObject.tag == "BulletTag" || otherObject.tag == "EnemyTag") {
+		// If we collided with an enemy
+		if(otherObject.tag == "EnemyTag") {
 
 			// You'll have to switch this up with the method described
 			// in 3 Health to deal damage based on what you collided with

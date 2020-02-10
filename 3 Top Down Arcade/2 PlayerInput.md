@@ -255,8 +255,13 @@ We are going to make a bullet prefab. Then in our `PlayerShoot` script we will s
 * Set the scale of this sprite (under the transform) to around `0.5` or whatever looks best in comparision to our player.
 * Add a Rigidbody 2D to the bullet.
 * Add a Circle Collider 2D to the bullet. Make sure the size is right.
+	* Also make sure you tick the box that says ["Is Trigger"](https://docs.unity3d.com/ScriptReference/Collider2D-isTrigger.html).
 
 ![BulletPrefab](Images/BulletPrefab.JPG)
+
+What is this "Is Trigger"? Well when two Rigidbodies collide they create a collision and just like real life they exert force on each other and get pushed back.\
+You can prove this later by unchecking "Is Trigger", when the bullet hits the enemy they are thrown backwards and just kinda float away.\
+Using the bullet as a trigger means that we can detect a collision but the physics engine doesn't make one. That means our enemy is hit by the bullet but does not get pushed back.
 
 Once you have that, make it into a prefab by dragging it into the "Prefabs" folder we made.\
 You should be able to get rid of the bullet in the scene now and just keep the prefab.
@@ -422,12 +427,12 @@ Just add some sprites and give them a box collider.
 ![WallsSetup](Images/WallsSetup.JPG)
 
 To destroy a bullet when it hits something we need to detect a collision on the bullet. Create a new script and name it "BulletDestroy" or similar.\
-We are going to use the built in function from Unity called ["OnCollisionEnter2D"](https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnCollisionEnter2D.html) for this. This will be called automatically when our bullet collides with something.
+We are going to use the built in function from Unity called ["OnTriggerEnter2D"](https://docs.unity3d.com/ScriptReference/Collider2D.OnTriggerEnter2D.html) for this. This will be called automatically when our bullet collides with something.
 
 ```csharp
 public class BulletDestroy : MonoBehaviour {
 	
-	void OnCollisionEnter2D(Collision2D collision) {
+	void OnTriggerEnter2D(Collider2D collision) {
 
 	}
 
@@ -457,7 +462,7 @@ Click on "Add Tag". This will open a new menu. There should be an empty list of 
 
 Now double click on your bullet prefab to bring it back into the Inspector.\
 Click onto the tags as before but now add the "BulletTag". Save that and open up the BulletDestroy script.\
-Around `Destroy(gameObject);` put an `if` statement. In the `OnCollisionEnter` function you can see that there is a ["Collision2D"](https://docs.unity3d.com/ScriptReference/Collision2D.html) passed in named "collision".\
+Around `Destroy(gameObject);` put an `if` statement. In the `OnTriggerEnter` function you can see that there is a ["Collider2D"](https://docs.unity3d.com/ScriptReference/Collider2D.html) passed in named "collision".\
 That `Collision2D` object has a variable we can access that contains the info of object we collided with called ["gameObject"](https://docs.unity3d.com/ScriptReference/Collision2D-gameObject.html). On that we can access the objects tag.\
 It would look like this :
 
@@ -468,7 +473,7 @@ collision.gameObject.tag
 Now we can compare if the object's tag to a `string` and see if it is **not** "BulletTag".
 
 ```csharp
-void OnCollisionEnter2D(Collision2D collision) {
+void OnTriggerEnter2D(Collider2D collision) {
 
 	if(collision.gameObject.tag != "BulletTag") {
 		Destroy(gameObject);
