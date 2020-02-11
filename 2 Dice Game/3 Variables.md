@@ -207,6 +207,6 @@ Things like this can be very complex. It can be much harder to understand if you
 
 1. Print a count down using a variable to keep track of the number.
 
-1. Use variables and equations to give you give you the volume of a sphere (4/3 * pi * r^3).
+1. Use variables and equations to give you the volume of a sphere (4/3 * pi * r^3).
 
 In the next lesson we will be talking more about booleans and how we can use them to create inteligent code.
