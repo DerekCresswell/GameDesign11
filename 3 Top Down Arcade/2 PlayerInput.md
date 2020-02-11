@@ -47,10 +47,12 @@ Now we can actually use our input to move our player object around the game worl
 First let's think of how we can do this.\
 Our player's position in the game is based on the objects Transform component. However we have a Rigidbody on our player which we use for collisions. This means we need to move the player using the Rigidbody.
 
-In our script let's start by storing the vertical and horizontal axis values in a `Vector3` that's declared above the `Update` function.
+In our script let's start by storing the vertical and horizontal axis values in a ["Vector2"](https://docs.unity3d.com/ScriptReference/Vector2.html) that's declared above the `Update` function.\
+We need to use a `Vector2` so we can store two numbers, an X and Y position. This is not only convient but also necessary because other parts of Unity require data to be in this form.\
+Declare it just like a normal variable, just with `Vector2` as the type, and you can access it's X and Y value simply by using `.x` and `.y`.
 
 ```csharp
-Vector2 Movement;
+Vector2 movement;
 
 void Update() {
 
@@ -65,6 +67,7 @@ As said before, we have to move the Rigidbody of the player. To start add a refe
 
 ```csharp
 Rigidbody2D rb;
+
 void Start() {
 
 	rb = GetComponent<Rigidbody2D>();
