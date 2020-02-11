@@ -1,10 +1,11 @@
 # Grade 11 Video Game Design
 
 Interested in making your own video games?\
-This is an Open Source game design curriculum built to be used in a classroom enviroment. The course is built for absolute beginners to get the core skills of building a game. There are also resources along to way to help more advanced user to test their skills.\
+This is an Open Source game design curriculum built to be used in a classroom enviroment. The course is built for anyone, even complete beginners, to get the core skills of building a game in Unity. There are also resources along to way to help more advanced user to test their skills.\
+Every topic brought up in these lessons is explained here, no prior knowledge is required.\
 Throughout the course there is opportunity for every type of student to show their skills including Programmers, Artists, Designers, and Musicians.
 
-Want to jump write in? Click here to start on the first unit, a [Rube GoldBerg Machine](./1%20Rube%20GoldBerg%20Machine).
+**Want to jump right in?** Click here to start on the first unit, a [Rube GoldBerg Machine](./1%20Rube%20GoldBerg%20Machine).
 
 ## About This Course
 
@@ -39,7 +40,10 @@ In this course you will be going through five units. Each unit contains relevant
 The units should be completed in the order shown here as the skills of each builds off of the previous entries in the course.\
 Within each unit there is another Readme just like this that outlines the targets of each unit.\
 Then there are the numbered lessons. These should also be completed in order.\
-There are also some other folders. The "Images" folder just holds the images used throughout the lessons. You don't need to look at these. There is also the "Assets" folder which has files you may use in your projects. Lastly there is the "Library" folder which contains scripts for you to use in your projects.
+There are also some other folders. 
+* The "Images" folder just holds the images used throughout the lessons. You don't need to look at these.
+* There is also the "Assets" folder which has files you may use in your projects.
+* Lastly there is the "Library" folder which contains scripts for you to use in your projects.
 
 ## Contributing
 
