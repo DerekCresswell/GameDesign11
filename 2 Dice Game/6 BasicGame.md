@@ -142,34 +142,34 @@ Perhaps you can see just from that how we can check for even-ness. All we need t
 With this info we can test if a number is even using `if(num % 2 == 0)` where `num` is the number we are checking. Using this in our code will look like this : (full script omitted for brevity)
 
 ```csharp
-	// Start is called before the first frame update
-	void Start() {
-		
-		if(turnCounter % 2 == 0) {
-			// Player One's Turn
-		} else {
-			// Player Two's Turn
-		}
-
+// Start is called before the first frame update
+void Start() {
+	
+	if(turnCounter % 2 == 0) {
+		// Player One's Turn
+	} else {
+		// Player Two's Turn
 	}
+
+}
 ```
 
 Just put this code into the `Start` function for now.
 Now we do need to update the `turnCounter` value otherwise it will stay zero forever. We want to always increment `turnCounter` regardless of who's turn it is so we should increment the value **After** the `if` and `else` statement.
 
 ```csharp
-	// Start is called before the first frame update
-	void Start() {
-		
-		if(turnCounter % 2 == 0) {
+// Start is called before the first frame update
+void Start() {
+	
+	if(turnCounter % 2 == 0) {
 		// Player One's Turn
-		} else {
-			// Player Two's Turn
-		}
-
-		turnCounter++;
-
+	} else {
+		// Player Two's Turn
 	}
+
+	turnCounter++;
+
+}
 ```
 
 That should be all for determining who's turn it is. Onto the next bit of the turns, generating the random numbers.
@@ -183,20 +183,20 @@ Now this will error because we have not given the function any parameters. If yo
 Let's start typing it out.
 
 ```csharp
-	// Start is called before the first frame update
-	void Start() {
-		
-		int dieOne = Random.Range(1, 7);
+// Start is called before the first frame update
+void Start() {
+	
+	int dieOne = Random.Range(1, 7);
 
-		if(turnCounter % 2 == 0) {
-			// Player One's Turn
-		} else {
-			// Player Two's Turn
-		}
-
-		turnCounter++;
-
+	if(turnCounter % 2 == 0) {
+		// Player One's Turn
+	} else {
+		// Player Two's Turn
 	}
+
+	turnCounter++;
+
+}
 ```
 
 Alright that might seem a little weird so let's pick it apart.\
@@ -231,31 +231,31 @@ The main thing we need to consider with this bit of logic is the order to do it 
 Let's get the structure down.
 
 ```csharp
-	// Start is called before the first frame update
-	void Start() {
+// Start is called before the first frame update
+void Start() {
+	
+	int dieOne = Random.Range(1, 7);
+
+	if(turnCounter % 2 == 0) {
 		
-		int dieOne = Random.Range(1, 7);
+		// Player One's Turn
+		if(dieOne == 6) {
 
-		if(turnCounter % 2 == 0) {
-			
-				// Player One's Turn
-			if(dieOne == 6) {
+		} else if(dieOne == 5) {
 
-			} else if(dieOne == 5) {
-
-			} else if(dieOne >= 3) {
-
-			} else {
-
-			}
+		} else if(dieOne >= 3) {
 
 		} else {
-			// Player Two's Turn
+
 		}
 
-		turnCounter++;
-
+	} else {
+		// Player Two's Turn
 	}
+
+	turnCounter++;
+
+}
 ```
 
 We've made a few arbitrary choices here and a few important ones.
@@ -386,9 +386,42 @@ You can now go and take this logic for damage and printing and copy paste it int
 Of course we can't really have a game if you can't win. We should check after dealing damage if either player's health is zero or below. Again this should be just a simple `if`.
 
 ```csharp
- // Start is called before the first frame update
-	void Start() {
-		
+// Start is called before the first frame update
+void Start() {
+	
+	int dieOne = Random.Range(1, 7);
+
+	if(turnCounter % 2 == 0) {
+		// Code Omitted for brevity
+	} else {
+		// Code Omitted for brevity
+	}
+
+	if(playerOneHealth <= 0 || playerTwoHealth <= 0) {
+		Debug.Log("The game ended.");
+	}
+
+	turnCounter++;
+
+}
+```
+
+Now obviously for this template we're being rather basic. For yours make sure the message is more interesting than "Game Over".\
+We've put this after dealing the damage because checking for a win is not specific to who's turn it is.\
+Hopefully using `<= 0` is fairly obvious. We are seeing if the player's health is zero or less. We do need to check both players as the game ends whenever one of them dies. We can do this in one `if` using an ["or"](./4%20Logic.md/#or-operator) (`||`) to combine the two checks. If you don't remember what the or does check back to [here](./4%20Logic.md/#or-operator).
+
+### Looping Through Turns
+
+If you play your game right now it will likely be very boring. There will only be one turn printed. This is because our code is in the [start function](./2%20CodeStructure.md/#using-the-scripting-api) which is only run once.\
+Since we want to loop through the turns until one player dies we will use a [while loop](./5%20Loops.md/#while-loops).\
+We need to wrap our entire turn in this loop like so :
+
+```csharp
+// Start is called before the first frame update
+void Start() {
+	
+	while(/*Boolean Statement*/) {
+
 		int dieOne = Random.Range(1, 7);
 
 		if(turnCounter % 2 == 0) {
@@ -404,41 +437,8 @@ Of course we can't really have a game if you can't win. We should check after de
 		turnCounter++;
 
 	}
-```
 
-Now obviously for this template we're being rather basic. For yours make sure the message is more interesting than "Game Over".\
-We've put this after dealing the damage because checking for a win is not specific to who's turn it is.\
-Hopefully using `<= 0` is fairly obvious. We are seeing if the player's health is zero or less. We do need to check both players as the game ends whenever one of them dies. We can do this in one `if` using an ["or"](./4%20Logic.md/#or-operator) (`||`) to combine the two checks. If you don't remember what the or does check back to [here](./4%20Logic.md/#or-operator).
-
-### Looping Through Turns
-
-If you play your game right now it will likely be very boring. There will only be one turn printed. This is because our code is in the [start function](./2%20CodeStructure.md/#using-the-scripting-api) which is only run once.\
-Since we want to loop through the turns until one player dies we will use a [while loop](./5%20Loops.md/#while-loops).\
-We need to wrap our entire turn in this loop like so :
-
-```csharp
- // Start is called before the first frame update
-	void Start() {
-		
-		while(/*Boolean Statement*/) {
-
-			int dieOne = Random.Range(1, 7);
-
-			if(turnCounter % 2 == 0) {
-				// Code Omitted for brevity
-			} else {
-				// Code Omitted for brevity
-			}
-
-			if(playerOneHealth <= 0 || playerTwoHealth <= 0) {
-				Debug.Log("The game ended.");
-			}
-
-			turnCounter++;
-
-		}
-
-	}
+}
 ```
 
 We aren't using a `for` loop because we don't know how many turns we will have. Because of this `while` loops will be much nicer.\
@@ -446,53 +446,53 @@ Now we just need to figure out what to put in our `while` loop for a boolean sta
 Using the same boolean statement we used when checking if the game ended we can set up our loop to go until someone wins like this :
 
 ```csharp
- // Start is called before the first frame update
-	void Start() {
-		
-		while(playerOneHealth <= 0 || playerTwoHealth <= 0) {
+// Start is called before the first frame update
+void Start() {
+	
+	while(playerOneHealth > 0 && playerTwoHealth > 0) {
 
-			int dieOne = Random.Range(1, 7);
+		int dieOne = Random.Range(1, 7);
 
-			if(turnCounter % 2 == 0) {
-				// Code Omitted for brevity
-			} else {
-				// Code Omitted for brevity
-			}
-
-			if(playerOneHealth <= 0 || playerTwoHealth <= 0) {
-				Debug.Log("The game ended.");
-			}
-
-			turnCounter++;
-
+		if(turnCounter % 2 == 0) {
+			// Code Omitted for brevity
+		} else {
+			// Code Omitted for brevity
 		}
 
+		if(playerOneHealth <= 0 || playerTwoHealth <= 0) {
+			Debug.Log("The game ended.");
+		}
+
+		turnCounter++;
+
 	}
+
+}
 ```
 
 You might notice that now our check for a win is a little redundant seeing as the loop will stop if someone wins. So we can just move our print to after the loop and it will be printed when someone wins.
 
 ```csharp
- // Start is called before the first frame update
-	void Start() {
-		
-		while(playerOneHealth <= 0 || playerTwoHealth <= 0) {
+// Start is called before the first frame update
+void Start() {
+	
+	while(playerOneHealth > 0 && playerTwoHealth > 0) {
 
-			int dieOne = Random.Range(1, 7);
+		int dieOne = Random.Range(1, 7);
 
-			if(turnCounter % 2 == 0) {
-				// Code Omitted for brevity
-			} else {
-				// Code Omitted for brevity
-			}
-
-			turnCounter++;
-
+		if(turnCounter % 2 == 0) {
+			// Code Omitted for brevity
+		} else {
+			// Code Omitted for brevity
 		}
 
-		Debug.Log("The game ended.");
+		turnCounter++;
 
 	}
+
+	Debug.Log("The game ended.");
+
+}
 ```
 
 Woo hoo! We should have a working dice game now. In the next lesson we'll talk about the criteria for your dice game and you'll set off to make a wonderful game.
@@ -506,14 +506,14 @@ The main thing to go over here are [functions](./1%20UnityScripts.md/functions).
 If you take a look at the code we have here you may notice something.
 
 ```csharp
-	// Start is called before the first frame update
-	void Start() {
-		
-		while(playerOneHealth <= 0 || playerTwoHealth <= 0) {
+// Start is called before the first frame update
+void Start() {
+	
+	while(playerOneHealth > 0 && playerTwoHealth > 0) {
 
-			int dieOne = Random.Range(1, 7);
+		int dieOne = Random.Range(1, 7);
 
-			if(turnCounter % 2 == 0) {
+		if(turnCounter % 2 == 0) {
 
 				// Player One's turn
 			if(dieOne == 6) {
@@ -538,13 +538,13 @@ If you take a look at the code we have here you may notice something.
 
 			}
 
-			} else {
-				
-				// Player Two's turn
-				if(dieOne == 6) {
+		} else {
+			
+			// Player Two's turn
+			if(dieOne == 6) {
 
-				playerOneHealth -= 30;
-				Debug.Log("Player one has taken a big hit of 30 damage!");
+			playerOneHealth -= 30;
+			Debug.Log("Player one has taken a big hit of 30 damage!");
 
 			} else if(dieOne == 5) {
 
@@ -563,15 +563,15 @@ If you take a look at the code we have here you may notice something.
 
 			}
 
-			}
-
-			turnCounter++;
-
 		}
 
-		Debug.Log("The game ended.");
+		turnCounter++;
 
 	}
+
+	Debug.Log("The game ended.");
+
+}
 ```
 
 If you ask me, it looks very repetitive and that signals that we should likely use a function. That's what we will do here.\
@@ -646,6 +646,7 @@ void decideDamage(int dieRoll, int playerNumber) {
 	} else {
 		// Rest of the if statement ommitted for brevity
 	}
+
 }
 ```
 
@@ -748,6 +749,7 @@ void decideDamage(int dieRoll, int playerNumber) {
 	} else {
 		// Rest of the if statement ommitted for brevity
 	}
+
 }
 ```
 
@@ -760,7 +762,7 @@ There is one more thing we need to do in order for this to work. Let's take a lo
 // Start is called before the first frame update
 void Start() {
 	
-	while(playerOneHealth <= 0 || playerTwoHealth <= 0) {
+	while(playerOneHealth > 0 && playerTwoHealth > 0) {
 
 		int dieOne = Random.Range(1, 7);
 
@@ -792,6 +794,7 @@ void decideDamage(int dieRoll, int playerNumber) {
 	} else {
 		// Rest of the if statement ommitted for brevity
 	}
+
 }
 ```
 
