@@ -48,6 +48,7 @@ public class LevelSwitcher : MonoBehaviour {
 
 	}
 
+	// Use this to load on a call, such as from a button
 	public void LoadOnButton() {
 		SceneManager.LoadScene(sceneName);
 	}

@@ -6,7 +6,7 @@ This will look into detecting collisions, tracking health, and some basic enemie
 ## Collision Detection
 
 We already touched on this briefly in the [last lesson](./2%20PlayerInput.md#deleting-bullets). Let's get into it a bit more here.\
-Any object in our game with a [collider](https://docs.unity3d.com/Manual/Collider2D.html) can detect collisions using the ["OnTriggerEnter2D"](https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnTriggerEnter2D.html) function. Here we will only be using 2D colliders.\
+Any object in our game with a [collider](https://docs.unity3d.com/Manual/Collider2D.html) can detect collisions using the ["OnTriggerEnter2D"](https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnTriggerEnter2D.html) function. Here we will only be using 2D colliders.
 
 To start let's create a new sprite in our scene and name it "Enemy". Give it a sprite and a unique color. It also needs a collider. For now our enemy will just be a target and won't retaliate.\
 With that we need to make a new script, let's call it "EnemyHealth". 

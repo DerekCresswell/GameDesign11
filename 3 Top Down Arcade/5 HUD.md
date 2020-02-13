@@ -184,7 +184,6 @@ At the bottom you should see the LevelSwitch script. When you hover over this yo
 Well this is because the function is **not** public. Just like variables, if we want to use a function in Unity's editor it must be public.\
 Add the `public` keyword to our function just before `void` and then go back to Unity. You should now see this function on the drop down list.
 
-// UPDATE
 ![ButtonFunctionOnClick](Images/ButtonFunctionOnClick.JPG)
 
 If you run the game and click the button you will be loaded into whatever scene you set the `sceneName` variable to in the LevelSwitch script on our button.
