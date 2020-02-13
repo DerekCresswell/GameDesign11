@@ -166,24 +166,25 @@ We could jump onto a new script and start writing but that is a little unnecesar
 Open up your LevelSwitch script. Here we want to add a new function called "OnClick". Then we can copy over the same code from the `OnCollisionEnter2D` function we made before. Except, we don't want to check if we hit the player.
 
 ```csharp
-void onClick() {
+void LoadOnButton() {
 	SceneManager.LoadScene(sceneName);
 }
 ```
 
 Nice and simple. We didn't even need a new script.\
 Add this script to the button we just made. Then you can set the "Scene Name" to "Scene1" or whatever scene you want to switch to.\
-Now if you look up at to the Button component you will see the bottom where it says "On Click ()" with an empty box. This is where we can set what happens when clickling the button.
+Now if you look up at to the Button component you will see the bottom where it says "Load On Button ()" with an empty box. This is where we can set what happens when clickling the button.
 
 ![ButtonEmptyOnClick](Images/ButtonEmptyOnClick.JPG)
 
 Click the plus button in the bottom right. Now you will see a few more options appear.\
 You will see a box right below the little drop down list that says "Runtime Only". Drag the LevelSwitch script from the button object to that box.\
 Once you do that you will want to click on the other dropdown that currently says "No Function". Here you will see a list of objects that we can call functions from.\
-At the bottom you should see the LevelSwitch script. When you hover over this you will see a list of things we can use. You won't see the `onClick` function. Why?\
+At the bottom you should see the LevelSwitch script. When you hover over this you will see a list of things we can use. You won't see the `LoadOnButton` function. Why?\
 Well this is because the function is **not** public. Just like variables, if we want to use a function in Unity's editor it must be public.\
 Add the `public` keyword to our function just before `void` and then go back to Unity. You should now see this function on the drop down list.
 
+// UPDATE
 ![ButtonFunctionOnClick](Images/ButtonFunctionOnClick.JPG)
 
 If you run the game and click the button you will be loaded into whatever scene you set the `sceneName` variable to in the LevelSwitch script on our button.
