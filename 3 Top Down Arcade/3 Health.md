@@ -14,23 +14,22 @@ With that we need to make a new script, let's call it "EnemyHealth".
 ![EnemyPrefab](Images/EnemyPrefab.JPG)
 
 Open that up.\
-Since we are going to be dealing with the collisions of our enemy we need to use the `OnCollisionEnter2D` function. Add that in just like we did with the bullet.\
-We don't want to use the trigger function here as our enemy is not a trigger and, seeing as they can't shoot currently, we don't need to worry about triggers here.
+Since we are going to be dealing with the collisions of our enemy with bullets we need to use the `OnTriggerEnter2D`.
 
 ```csharp
-void OnCollisionEnter2D(Collision2D collision) {
+void OnTriggerEnter2D(Collider2D collision) {
 
 	// Collision logic here
 
 }
 ```
 
-Now when our enemy collides with something this code will run. Obviously it does nothing right now but we can fix that.\
+Now when our enemy collides with a trigger colider this code will run. Obviously it does nothing right now but we can fix that.\
 We only want the enemy to react to the bullets currently. Lucky for us we set up a very easy way to detect if we were hit with a bullet in the [last lesson](./2%20PlayerInput.md#deleting-bullets).\
 But first we are going to set up the other object in the collision as a variable. This is a good bit to make a habit of.
 
 ```csharp
-void OnCollisionEnter2D(Collision2D collision) {
+void OnTriggerEnter2D(Collider2D collision) {
 
 	GameObject otherObject = collision.gameObject;
 
@@ -41,14 +40,14 @@ This will just make our code simpler and look nicer.\
 Now just like before, we need to check what we collided with and using tags is very simple, so we will do it again.
 
 Currently, our enemies do not shoot bullets so we can't use the same tag from before. We can implement this later but for now our enemies will be more like a zombie and just try to run into the player.\
-We need to detect if the player has collided with an enemy and we will do this the same as with the bullet. Start by making and subsequently place a "EnemyTag" onto the enemy. If you need a reminder just see the section of [Deleting Bullets](./2%20PlayerInput.md#deleting-bullets) from the [last lesson](./2%20PlayerInput.md).
+We need to detect if the player has collided with an enemy and we will do this the same as with the bullet. If you need a reminder just see the section of [Deleting Bullets](./2%20PlayerInput.md#deleting-bullets) from the [last lesson](./2%20PlayerInput.md).
 
 ```csharp
-void OnCollisionEnter2D(Collision2D collision) {
+void OnTriggerEnter2D(Collider2D collision) {
 
 	GameObject otherObject = collision.gameObject;
 
-	if(otherObject.tag == "EnemyTag") {
+	if(otherObject.tag == "BulletTag") {
 		Debug.Log("I've been hit!");
 	}
 
@@ -75,11 +74,11 @@ Instead of printing out "Hit!" let's print out `currentHealth`. Now if we think 
 Each time the enemy is hit we simple print out the value of `currentHealth` without changing it. Once we're hit (by a bullet) we need to take away some health. Let's do that.
 
 ```csharp
-void OnCollisionEnter2D(Collision2D collision) {
+void OnTriggerEnter2D(Collider2D collision) {
 
 	GameObject otherObject = collision.gameObject;
 
-	if(otherObject.tag == "EnemyTag") {
+	if(otherObject.tag == "BulletTag") {
 		currentHealth--;
 		Debug.Log(currentHealth);
 	}
@@ -95,11 +94,11 @@ It works, but there's a problem. Shouldn't the enemy die when it's health hits z
 Why yes! We need to add another `if` statement to check that if we are at or below zero health. If we are, destroy the enemy.
 
 ```csharp
-void OnCollisionEnter2D(Collision2D collision) {
+void OnTriggerEnter2D(Collider2D collision) {
 
 	GameObject otherObject = collision.gameObject;
 
-	if(otherObject.tag == "EnemyTag") {
+	if(otherObject.tag == "BulletTag") {
 
 		currentHealth--;
 
@@ -152,6 +151,9 @@ public class PlayerHealth : MonoBehaviour {
 }
 ```
 
+For now we won't have our enemy shoot, they will just try to ram you. Because of this we want to use `OnCollisionEnter2D` on the player (as the enemy is **not** a trigger).\
+We also will want to make and place a new "EnemyTag" onto the enemy prefab.
+
 It's recomended that you remove the `Debug.Log`s from these two scripts as the player of the game cannot see the console. At least once you export the game. They are just fine now while we are working.\
 Later we will create a heads up display to show things like health.
 
@@ -203,18 +205,7 @@ Since we've made some important changes to our player we should update the prefa
 
 When we start the game our enemy will find the player using it's tag and store it as a variable we can use later.
 
-```csharp
-public GameObject player;
-
-// Start is called before the first frame update
-void Start() {
-
-	player = GameObject.FindGameObjectWithTag("Player");
-
-}
-```
-
-Youshould also put in a reference to the Rigidbody here as well, just like with the player. Add in a variable for the Rigidbody and use `GetComponent<Rigidbody2D>()` in the `Start` function to set the variable.
+You should also put in a reference to the Rigidbody here as well, just like with the player. Add in a variable for the Rigidbody and use `GetComponent<Rigidbody2D>()` in the `Start` function to set the variable.
 
 This will be fairly similar to our player's movement but with some changes. We will use the `MovePosition` function to move our enemy but this time we can use ["Vector3.MoveTowards"](https://docs.unity3d.com/ScriptReference/Vector3.MoveTowards.html) to figure out where we should move to.\
 We won't need the `Update` function because we don't need to handle inputs so set up our code the same way as the player did.
