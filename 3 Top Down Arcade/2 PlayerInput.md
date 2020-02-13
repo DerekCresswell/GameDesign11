@@ -90,7 +90,12 @@ void FixedUpdate() {
 Of course this doesn't work as is. We need to figure out where we want to move to ourselves because `MovePosition` will move us straight to the spot and not smoothly transition. We need our current position (this time it's actually the Rigidbody's position) plus where we want to go (the movement vector we made)
 
 ```csharp
-Vector2 moveTo = rb.position + movement * Time.fixedDeltaTime;
+void FixedUpdate() {
+
+	Vector2 moveTo = rb.position + movement * Time.fixedDeltaTime;; 
+	rb.MovePosition(moveTo);
+
+}
 ```
 
 What's this `Time.fixedDeltaTime` thing? This is simply a `float` that tells us how long it's been since we last ran `FixedUpdate`. It's not needed but makes your code run a bit smoother.\
@@ -101,13 +106,18 @@ To start we know that we are adding a number between -1 and 1 to our movement ve
 Start by adding in a new `float` and call it `maxSpeed` or similar. We then want to mulitply our `moveTo` vector by that number.
 
 ```csharp
-float maxSpeed = 1f;
-Vector2 moveTo = rb.position + movement * maxSpeed * Time.fixedDeltaTime;
+void FixedUpdate() {
+
+	float maxSpeed = 1f;
+	Vector2 moveTo = rb.position + movement * Time.fixedDeltaTime * maxSpeed; 
+	rb.MovePosition(moveTo);
+
+}
 ```
 
 Obviously setting `maxSpeed` to `1` does nothing to our speed. You could open your script and change this to a different value but there is a better way.\
 So far we've only worked inside the `Update`, `FixedUpdate`, and `Start` function but if you look up you'll see that these are inside a class named after the file. One very useful part of this class is that we can declare a variable outside of functions and set the value of that variable in Unity.\
-To start move the declaration of `maxSpeed` out of the update function but still within the class, in this case called `PlayerMovement`. It doesn't matter where about you place this but to make your file look nice and remain readable variable are typically the first thing in a class. Like so :
+To start move the declaration of `maxSpeed` out of the update function but still within the class, in this case called `PlayerMovement`. It doesn't matter where abouts you place this but to make your file look nice, and remain readable, variables are typically the first thing in a class. Like so :
 
 ```csharp
 public class PlayerMovement : MonoBehaviour {
@@ -225,7 +235,7 @@ void Update() {
 }
 ```
 
-We want to use the `else` here because you cannot should left and right at the same time. This makes it so only one can run each frame. Go ahead and try this out.\
+We want to use the `else` statement here because you cannot move left and right at the same time. This makes it so only one can run each frame. Go ahead and try this out.\
 Next we add the <kbd>&#8593;</kbd> and <kbd>&#8595;</kbd> keys to this. We want to duplicate what we currently have so that left and right are an `if else` and up and down are a seperate `if else`.
 
 ```csharp
