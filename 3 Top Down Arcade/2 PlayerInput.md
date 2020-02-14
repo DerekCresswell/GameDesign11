@@ -145,7 +145,7 @@ If the camera's Z is also 0 it will be at the same level as the player and canno
 
 ![ChildedCamera](Images/ChildedCamera.JPG)
 
-If you do want your player to rotate (like if you are going to use the [MouseAim script]()) you will need to add this [simple code](Library/CameraFollow.cs) to a script and place it on the camera.
+If you do want your player to rotate (like if you are going to use the [MouseAim script](./Library/MouseShooting.cs)) you will need to add this [simple code](Library/CameraFollow.cs) to a script and place it on the camera.
 
 ```csharp
 public class CameraFollow : MonoBehaviour {
@@ -183,7 +183,7 @@ This will be what is used for the rest of these lessons, though it does not affe
 ## Shooting
 
 We've got a moving player, now let's try to add a basic shooting mechanic to our game. What we are going to build here is a basic four point shooting system. What that means is we can shoot up, down, left, and right.\
-This will be expandable to an eight point system (four point plus diagonals) and including in the script library will be a mouse shooting script (aim with the mouse 360 degrees around your player).\
+This will be expandable to an eight point system (four point plus diagonals) and included in the script library will be a [mouse shooting script](./Library/MouseShooting.cs) (aim with the mouse 360 degrees around your player).\
 Don't worry about that yet though, onto the basic four point system.
 
 ### Setting Up Button Inputs
