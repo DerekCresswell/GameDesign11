@@ -703,6 +703,7 @@ void Start() {
 
 	int x = 2;
 	testFunction(x);
+	Debug.Log(x);
 
 }
 
@@ -720,10 +721,11 @@ Now the output should be this :
 ```
 2
 5
+2
 ```
 
 As demonstrated in these two examples we can use and change a variable **within** a function but as soon as we exit the [scope ](./4%20Logic.md/#scope) of our function these changes are discarded.\
-The variable passed into a function is **not** the same as thevariable used in the function.
+The variable passed into a function is **not** the same as the variable used in the function.
 
 We will need a different way to find a different way to damage our player. Luckily there is a great method.
 
@@ -741,7 +743,7 @@ Nice and easy. Now we just need to add a `return` statement or else our function
 How do return a value? Easy just say `return` followed by a value. We want to return the amount of damage to deal so let's change our code to this :
 
 ```csharp
-void decideDamage(int dieRoll, int playerNumber) {
+int decideDamage(int dieRoll, int playerNumber) {
 
 	if(dieRoll == 6) {
 		Debug.Log("Player " + playerNumber + " has taken a big hit of 30 damage!");
@@ -786,7 +788,7 @@ void Start() {
 
 }
 
-void decideDamage(int dieRoll, int playerNumber) {
+int decideDamage(int dieRoll, int playerNumber) {
 
 	if(dieRoll == 6) {
 		Debug.Log("Player " + playerNumber + " has taken a big hit of 30 damage!");
