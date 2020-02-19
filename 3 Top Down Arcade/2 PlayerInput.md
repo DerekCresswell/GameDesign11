@@ -384,6 +384,14 @@ rb.AddForce(direction * bulletSpeed);
 
 *bulletSpeed will likely need to be a rather large number.*
 
+Another way we could do this is by using ["ForceMode2D.Impulse"](https://docs.unity3d.com/ScriptReference/ForceMode2D.Impulse.html) like so.
+
+```csharp
+direction *= bulletSpeed;
+rb.AddForce(direction, ForceMode2D.Impulse);
+```
+["ForceMode2D.Force"](https://docs.unity3d.com/ScriptReference/Rigidbody2D.AddForce.html) (The default ForceMode) adds force over time to an object whereas `ForceMode2D.Impulse` adds force instantly more akin to an explosion. This allows us to be able to set a lower `bulletSpeed`.
+
 Time to add a call to the `ShootBullet` function in the `Update` function instead of just instantiating a bullet.\
 You will need to give the function call a direction. What we want to use is `1` to mean up / right and `-1` to mean down / left depending on if it's in the x or y spot.\
 Try and draw out the grid and figure out which directions to give to which key presses (You'll have to pass it like `new Vector2(X, Y)`).\
