@@ -49,7 +49,6 @@ public class PlayerController : MonoBehaviour {
 	[Header("Collisions")]
 
 	// A spot at your players feet to check for the ground
-	//public Collider2D groundCollider;
 	public Transform groundCheckPoint;
 	// Which layer contains the ground
 	public LayerMask whatIsGround;
@@ -72,6 +71,8 @@ public class PlayerController : MonoBehaviour {
 	private Vector2 m_Velocity;
 	private Vector2 direction = Vector2.zero;
 	private ContactFilter2D contactFilter;
+	private PhysicsMaterial2D noFricMat;
+	private PhysicsMaterial2D defaultMat;
 
 	private bool queuedJump = false;
 	private bool queuedUnCrouch = false;
@@ -83,6 +84,10 @@ public class PlayerController : MonoBehaviour {
 
 		contactFilter = new ContactFilter2D();
 		contactFilter.SetLayerMask(whatIsGround);
+
+		noFricMat = new PhysicsMaterial2D("FrictionlessMat");
+		noFricMat.friction = 0f;
+		defaultMat = rb.sharedMaterial;
 
 	}
 
@@ -159,22 +164,8 @@ public class PlayerController : MonoBehaviour {
 
 	void FixedUpdate() {
 	
-		/*
+		isGrounded = false;
 		// Detect collisions with anything considered ground
-		List<Collider2D> colliders = new List<Collider2D>();
-		groundCollider.OverlapCollider(contactFilter, colliders);
-		foreach(Collider2D col in colliders) {
-			
-			if(col.gameObject != gameObject) {
-			
-				isGrounded = true;
-				isJumping = false;
-
-			}
-
-		}
-		*/
-		
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheckPoint.position, 0.1f, whatIsGround);
 		foreach(Collider2D col in colliders) {
 			
@@ -182,9 +173,16 @@ public class PlayerController : MonoBehaviour {
 			
 				isGrounded = true;
 				isJumping = false;
+				rb.sharedMaterial = defaultMat;
+				break;
 
 			}
 
+		}
+
+		// Prevent sticking to walls
+		if(!isGrounded) {
+			rb.sharedMaterial = noFricMat;
 		}
 		
 		// Jump if we asked to jump
@@ -203,7 +201,6 @@ public class PlayerController : MonoBehaviour {
 			// Enable the collider as to allow detection of collisions
 			crouchDisableCollider.enabled = true;
 			List<Collider2D> crouchColliders = new List<Collider2D>();
-			//colliders = new List<Collider2D>();
 			crouchDisableCollider.OverlapCollider(contactFilter, crouchColliders);
 
 			// See if there is something blocking the uncrouch collider
@@ -229,6 +226,7 @@ public class PlayerController : MonoBehaviour {
 
 		}
 
+		// Set up the velocity
 		Vector2 curVelocity = new Vector2(direction.x * maxMoveSpeed, rb.velocity.y);
 
 		if(isCrouching)
@@ -236,6 +234,7 @@ public class PlayerController : MonoBehaviour {
 
 		rb.velocity = Vector2.SmoothDamp(rb.velocity, curVelocity, ref m_Velocity, Time.fixedDeltaTime);
 
+		// Decide if the player should flip
 		bool flipSides = (isFacingLeft && Mathf.Sign(rb.velocity.x) == 1) || (isFacingRight && Mathf.Sign(rb.velocity.x) == -1);
 		if(flipSides && Mathf.Abs(direction.x) > Mathf.Epsilon) {
 			Flip();
