@@ -17,10 +17,83 @@
  *
  * --- What You Need To Do ---
  *  
- * Create aa "input" script to control this that :
- *	Calls 'Move()' once per update
+ * Create an "input" script to control this that :
+ *	- Calls 'Move()' once per update
+ *
+ * Ensure you attach this to an object with a 
+ * Rigidbody2D, a "head" Collider2D, a "foot"
+ * Collider2D, and a childed empty object at the
+ * bottom of the main objects feet.
  *
  */
+
+ /*
+  *
+  * --- API ---
+  *
+  * This is the info for all the functions and
+  * variables that you can use from this script.
+  *
+  * -- Functions --
+  *
+  * Move (float movement)
+  *  Call this at the end of the 'Update' function
+  *  to move your object.
+  *  - 'float movement', the amount you want to move
+  *    the object left or right.
+  *
+  * Jump ()
+  *  Call this to make your object jump if you are on
+  *  the ground. Jumps straight up.
+  *
+  * JumpUnconditionally ()
+  *  Makes the object jump instantly, even if not on
+  *  the ground.
+  *
+  * CancelJump ()
+  *  Cancels the current jump bringing the player to
+  *  the ground faster.
+  * 
+  * Crouch ()
+  *  Makes the object crouch by disabling the
+  *  collider set to the 'crouchDisableCollider'
+  *  variable.
+  *
+  * UnCrouch ()
+  *  Makes the object uncrouch by enabling the
+  *  collider set to the 'crouchDisableCollider'
+  *  variable. If this collider is blocked it will
+  *  be enabled again as soon as it can be.
+  *
+  * -- Variables --
+  * 
+  * bool isGrounded
+  *  Tells you if the object is currently standing on
+  *  the ground.
+  *
+  * bool isJumping
+  *  Tells you if the object is currently jumping.
+  *
+  * bool isFacingLeft
+  *  Tells you if the object is facing left. This is
+  *  defaulted to true, if your object is not facing
+  *  left to start, set the 'Y' rotation to '180'
+  *
+  * bool isFacingRight
+  *  Tells you if the object is facing right. This is
+  *  defaulted to false. If this is the starting
+  *  orientation of your object set the 'Y' rotation
+  *  to '180'.
+  *
+  * bool isCrouching
+  *  Tells you if the object is currently crouching.
+  *
+  * @TODO setup a velocity for the user to access.
+  * @TODO pretty up the inline comments.
+  * @TODO add tool tips for public variables.
+  * @TODO add raycast wall jumping / jump direction
+  *
+  */
 
 using System.Collections;
 using System.Collections.Generic;
@@ -134,7 +207,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	// Flips the player and sprite
-	public void Flip() {
+	private void Flip() {
 		
 		if(!allowFlipping)
 			return;
@@ -151,6 +224,7 @@ public class PlayerController : MonoBehaviour {
 		
 		crouchDisableCollider.enabled = false;
 		isCrouching = true;
+		queuedUnCrouch = false;
 
 	}
 
@@ -164,8 +238,8 @@ public class PlayerController : MonoBehaviour {
 
 	void FixedUpdate() {
 	
-		isGrounded = false;
 		// Detect collisions with anything considered ground
+		isGrounded = false;
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheckPoint.position, 0.1f, whatIsGround);
 		foreach(Collider2D col in colliders) {
 			
