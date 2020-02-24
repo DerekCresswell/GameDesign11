@@ -27,7 +27,7 @@ Go ahead and add some more scenes if you want.
 
 Flipping between scenes isn't great for gameplay though. Luckily we can use code to switch levels.
 
-## Switching Scenes
+### Switching Scenes
 
 Start by making a new script and call it "LevelSwitch".\
 What we want to do here is set this up so when our player hits the box we load into a different scene. What does our script need to do?
@@ -101,6 +101,60 @@ Now when you run your game you should be able to switch to which ever scene name
 
 That's the basics of switching scenes. Remember, you can call `LoadScene` from anywhere in your code, not just with collisions.\
 Perhaps in the future you want to switch when your player dies. Well then you can put the code into your health script's death function. Possibilities are endless!
+
+### Carrying Values Between Scenes
+
+One thing you will likely want to do is carry data between scenes, perhaps a players health. There are a few ways to do this but we will try doing this in a very simple way.\
+We will create a new script that acts as a manager for our data. Before we load into a scene we give data to it and when the next scene starts we pull that data from it.
+
+To start create a new script called "DataManager" and open it.\
+We need to make this class ["static"](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/static) which can be very complex but in the simplest terms it always exists and there's only one version of it.\
+It should look like this :
+
+```csharp
+public static class DataManager {
+
+}
+```
+
+Now we can define some variables as `public static type name` and use them. Let's start by adding a player health.
+
+```csharp
+public static int playerHealth;
+```
+
+Now this variable will exist "always".\
+Before we load a scene we can now set this variable to the player's current health.\
+Open up the level switch script and we can modify the `OnCollisionEnter2D` function to grab that health like so :
+
+```csharp
+void OnCollisionEnter2D(Collision2D collision) {
+	
+	if(collision.gameObject.tag == "Player") {
+		DataManager.playerHealth = collision.gameObject.GetComponent<PlayerHealth>().currentHealth;
+		SceneManager.LoadScene(SceneName);
+	}
+
+}
+```
+
+Now this `DataManager.playerHealth` is set to the same value as the player's current health. Remember that the object we collided with will be the player because of `if(collision.gameObject.tag == "Player")`.\
+There is still more to do. This merely sets that variable, now we have to go into the `PlayerHealth` script and pull this variable down in the `Start` function.
+
+```csharp
+void Start() {
+
+	currentHealth = DataManager.playerHealth;
+
+}
+```
+
+When you run the game though you will see a problem. Our health starts at zero now. This is because the variable in `DataManager` was not set to anything at the start.\
+You could simply set `DataManager.playerHealth` to a default value but this will make it more difficult to change these values as they can't be used like a normal public variable.\
+If you want to use this method of passing variable you will likely have to stomach this inconvience. A slight "hacky" alternative would be to have a boolean declared that doesn't use the `DataManager`  the first time it's set.\
+If you wish to try that you will have to figure out a way to set that up. For our uses, setting the value through the `DataManager` directly should work fine.
+
+It should be quite trivial to add new variables to this script and hook them into other scripts start functions.
 
 ## Building Scenes
 

@@ -48,7 +48,7 @@ This controls how long a particle is "alive" for.
 
 * Bursts, add in a burst with the plus sign. The defaults should be good here except the "Count". We've lowered it here because our bullets are small and wouldn't produce too much debris.
 
-![Emission](Images/Emision.JPG)
+![Emission](Images/Emission.JPG)
 
 ### Shape
 
