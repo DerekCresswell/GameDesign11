@@ -98,8 +98,34 @@ if(collision.gameObject.tag != "BulletTag") {
 
 Make sure you set the explosion variable in the bullet prefab.
 
+When our bullet hits something our explosion should spawn giving it a little more impact.
+
+## Basic Fog Effect
+
+Let's go through a few more examples. These will be much briefer than the explosion. This is mainly to pick up on the range of possibilities the particle system has.
+
+Start by making a new particle system named "Fog". Then apply these settings :
+
+* Particle System :
+	* Duration, this should be fairly long, let's go with `20`. 
+	* Start Lifetime, set this to the same as Duration.
+* Emission :
+	* Rate Over Time, set this very low, around `2`.
+* Shape :
+	* Shape, set to `Circle`.
+* Color Over Lifetime :
+	* Color, this gradient should go from white to invisible. The way you can do this is by clicking on the little arrow on the top of the gradient in the gradient editor and changing the `Alpha` value. It may look better if it doesn't start fully opaque also.
+* Size Over Lifetime :
+	* Size, you will need to create your own curve here. It should start at or near zero, go up close to max, and then back to zero. You will need to add a third "Key" to the curve by right clicking on it.
+
+![BasicFog](Images/BasicFog.JPG)
+
+You can always play around with these settings to make it look better but this should achieve a basic looking fog.\
+Try out making the cloud bigger or smaller, perhaps there should be some different colors or sizes. What about a thick fog or a light mist. Go wild and have some fun.\
+If you notice that the fog goes behind objects like the player try setting the `z` position a little bit into the negatives, that way it should be above the player but below the camera.
+
 ## On Your Own
 
 Try making a particle to spawn when the enemy dies. In this case you might wanna do a big green splat.\
 
-// Add in a basic fire, fog, other particles
+// Add in a basic fire, other particles
