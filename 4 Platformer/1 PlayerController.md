@@ -44,4 +44,19 @@ Something like this :
 
 // IMG
 
-Awesome, with that all on the player we can hook it up to the `PlayerController` now.
+Awesome, with that all on the player we can hook it up to the `PlayerController` now.\
+Now we can hook this into our controller.
+
+* Put the Rigidbody into it's slot.
+* Put the childed empty object into the spot labeled `groundCheckPoint`.
+* Finally put the "head" collider into the spot labeled `crouchDisableCollider`.
+
+There is one more setting we need to set, `whatIsGround`. This is a layer that tells us what is considered the ground in the game. For this we will create a new layer called "GroundLayer" and assign it to anything you want the player to stand on.\
+We can do this by creating a new sprite called "Ground" and give it a temporary sprite and ["BoxCollider2D"](https://docs.unity3d.com/Manual/class-BoxCollider2D.html). Then go to the top of the inspector window where it says "Layer" and click it.
+
+// IMG
+
+Here we will simply click "Add Layer" and then call it "GroundLayer". Make sure you set every ground object to be on this layer. You do that by clicking the layer dropdown and clicking on "GroundLayer".\
+Now we can go back to the `PlayerController` script and on the `whatIsGround` variable we can select the new "GroundLayer".
+
+With that all set up we can begin to create a script that captures input to move this controller.
