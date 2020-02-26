@@ -88,7 +88,10 @@
   * bool isCrouching
   *  Tells you if the object is currently crouching.
   *
-  * @TODO setup a velocity for the user to access.
+  * Vector2 currentVelocity
+  *  Gives you the current X and Y velocities of the
+  *  object. 
+  *
   * @TODO pretty up the inline comments.
   * @TODO add tool tips for public variables.
   * @TODO add raycast wall jumping / jump direction
@@ -139,6 +142,7 @@ public class PlayerController : MonoBehaviour {
 	public bool isFacingLeft { get; private set; } = true;
 	public bool isFacingRight { get; private set; } = false;
 	public bool isCrouching { get; private set; } = false;
+	public Vector2 currentVelocity { get; private set; } = Vector2.zero;
 
 	// Internal use variables
 	private Vector2 m_Velocity;
@@ -189,7 +193,7 @@ public class PlayerController : MonoBehaviour {
 	public void JumpUnconditionally() {
 
 		rb.velocity = new Vector2(rb.velocity.x, 0f);
-		rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+		rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
 		isGrounded = false;
 		isJumping = true;
 		
@@ -207,7 +211,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	// Flips the player and sprite
-	private void Flip() {
+	public void Flip() {
 		
 		if(!allowFlipping)
 			return;
@@ -224,7 +228,6 @@ public class PlayerController : MonoBehaviour {
 		
 		crouchDisableCollider.enabled = false;
 		isCrouching = true;
-		queuedUnCrouch = false;
 
 	}
 
@@ -261,7 +264,7 @@ public class PlayerController : MonoBehaviour {
 		
 		// Jump if we asked to jump
 		if(queuedJump) {
-			rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+			rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
 			isGrounded = false;
 			isJumping = true;
 			queuedJump = false;
@@ -301,18 +304,25 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		// Set up the velocity
-		Vector2 curVelocity = new Vector2(direction.x * maxMoveSpeed, rb.velocity.y);
+		Vector2 targetVelocity = new Vector2(direction.x * maxMoveSpeed, rb.velocity.y);
 
 		if(isCrouching)
-			curVelocity.x *= crouchSpeed;
+			targetVelocity.x *= crouchSpeed;
 
-		rb.velocity = Vector2.SmoothDamp(rb.velocity, curVelocity, ref m_Velocity, Time.fixedDeltaTime);
+		rb.velocity = Vector2.SmoothDamp(rb.velocity, targetVelocity, ref m_Velocity, Time.fixedDeltaTime);
 
 		// Decide if the player should flip
 		bool flipSides = (isFacingLeft && Mathf.Sign(rb.velocity.x) == 1) || (isFacingRight && Mathf.Sign(rb.velocity.x) == -1);
 		if(flipSides && Mathf.Abs(direction.x) > Mathf.Epsilon) {
 			Flip();
 		}
+
+	}
+
+	void Update() {
+	
+		// Update user facing velocity
+		currentVelocity = rb.velocity;
 
 	}
 
