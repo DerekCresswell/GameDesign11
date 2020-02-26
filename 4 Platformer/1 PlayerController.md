@@ -79,7 +79,10 @@ With that all set up we can begin to create a script that captures input to move
 
 ### Input Controller
 
-Time to create a script to capture our input and forward it to the `PlayerController`.\
+Time to create a script to capture our input and forward it to the `PlayerController`.
+
+#### Movement
+
 If you look at the top of the `PlayerController` you will see some notes. We've dealt with setting up the player object so now we are looking at :
 
 ```csharp
@@ -128,4 +131,87 @@ pCont.Move(Input.GetAxis("Horizontal"));
 ```
 
 That should be all it takes to move our player left and right.\
-If this isn't working make sure you have setup the player object fully and your ground objects.
+If this isn't working make sure you have setup the player object completely and correctly as well as your ground objects.
+
+#### Jumping
+
+Another built in functionality of the controller is jumping.\
+At the simplest level we just have to detect when to jump (I.E. a key press) and then call the `jump` function.
+
+```chsarp
+ * Jump ()
+ *  Call this to make your object jump if you are on
+ *  the ground. Jumps straight up.
+```
+
+This one is super easy as we don't even need to pass any variables. Depending on the button you use for jumping the script might look something like this :
+
+```csharp
+void Update() {
+	
+	if(Input.GetButtonDown("Jump")) {
+		pCont.Jump();
+	}
+
+	pCont.Move(Input.GetAxis("Horizontal"));
+
+}
+```
+*Note*\
+`GetButtonDown()` is similar to get axis but it only return `true` or `false` when a given button is pressed. The `"Jump"` button is a default in Unity and is the space bar (<kbd>Space</kbd>).
+
+This will allow our object to jump. It will only jump if the object is on the ground. If this doesn't work you may not have set the ground layer correctly or the ground check point.
+
+Jumping once is really simple, but what if we wanted to do a double jump?\
+Don't worry there is a function for that.
+
+```csharp
+ * JumpUnconditionally ()
+ *  Makes the object jump instantly, even if not on
+ *  the ground.
+```
+
+This does the same thing as the `Jump` function but doesn't care about the ground.\
+Replace `pCont.Jump();` with `pCont.JumpUnconditionally();` in your script. Now you can double jump... and triple jump... and quadruaple jump and on. Not the most desirable results.\
+If we only want to jump a certain amount of times we need to set that up. We will need to keep track of how many jumps we have done in the current jump.
+
+Let's add two variables to the top of our script :
+
+* `public int maxJumps;`
+* `int currentJumps = 0;`
+
+We will use the max variable to say how many times we can jump in the air and the current variable to keep a count of how many times we've jumped.\
+Let's change our code to only allow a jump if we are under the max jump limit and than increment the current variable.
+
+```csharp
+if(Input.GetButtonDown("Jump") && currentJumps < maxJumps) {
+	pCont.JumpUnconditionally();
+	currentJumps++;
+}
+```
+
+Now we can jump however many times we set `maxJumps` to, but we can only jump that amount, not everytime we enter the air.\
+How can we fix this?\
+Quite simply we just need to set `currentJumps` back to `0` when we land. How do we tell when we've landed? Again lucky us there is a variable we can use.
+
+```chsarp
+ * bool landed
+ *	 Is true if the object landed became grounded
+ *	 this frame.
+```
+
+When we land simply reset the `currentJumps` variable like so :
+
+```csharp
+if(pCont.landed) {
+	currentJumps = 0;
+}
+```
+
+Great! Now we can jump in the air.
+
+// Jump cancel
+
+// Add dir jump and wall with raycasting
+
+#### Crouching

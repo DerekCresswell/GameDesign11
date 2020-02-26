@@ -87,6 +87,10 @@
   *
   * bool isCrouching
   *  Tells you if the object is currently crouching.
+  * 
+  * bool landed
+  *	 Is true if the object landed became grounded
+  *	 this frame.
   *
   * Vector2 currentVelocity
   *  Gives you the current X and Y velocities of the
@@ -142,6 +146,7 @@ public class PlayerController : MonoBehaviour {
 	public bool isFacingLeft { get; private set; } = true;
 	public bool isFacingRight { get; private set; } = false;
 	public bool isCrouching { get; private set; } = false;
+	public bool landed { get; private set;} = false;
 	public Vector2 currentVelocity { get; private set; } = Vector2.zero;
 
 	// Internal use variables
@@ -153,6 +158,7 @@ public class PlayerController : MonoBehaviour {
 
 	private bool queuedJump = false;
 	private bool queuedUnCrouch = false;
+	private bool lastFrameGrounded = false;
 
 	void Awake() {
 	
@@ -173,7 +179,7 @@ public class PlayerController : MonoBehaviour {
 	public void Move(float movement) {
 		
 		if(isGrounded || canControlInAir) {
-			direction.x = movement;
+			direction.x = Mathf.Clamp(movement, -1f, 1f);
 		}
 
 	}
@@ -204,6 +210,9 @@ public class PlayerController : MonoBehaviour {
 	
 		if(isJumping && rb.velocity.y > 0f) {
 		
+			// @TODO can this be done with forces?
+			// @TODO or should this have a Queued bool
+			// to avoid GetButton and work with only getButtonDown
 			rb.velocity -= new Vector2(0f, rb.velocity.y) * jumpCancel;
 			
 		}
@@ -256,6 +265,14 @@ public class PlayerController : MonoBehaviour {
 			}
 
 		}
+
+		// Set landed bool
+		if(!lastFrameGrounded && isGrounded)
+			landed = true;
+		else
+			landed = false;
+
+		lastFrameGrounded = isGrounded;
 
 		// Prevent sticking to walls
 		if(!isGrounded) {
