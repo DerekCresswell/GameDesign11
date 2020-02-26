@@ -64,10 +64,68 @@ We can do this by creating a new sprite called "Ground" and give it a temporary 
 
 Here we will simply click "Add Layer" and then call it "GroundLayer". Make sure you set every ground object to be on this layer. You do that by clicking the layer dropdown and clicking on "GroundLayer".
 
-Now we can go back to the `PlayerController` script and on the `whatIsGround` variable we can select the new "GroundLayer".
+Now we can go back to the `PlayerController` script and on the `whatIsGround` variable we can select the new "GroundLayer".\
+That should be it for the object setup. Changing the other values is just up to your personal preference but you'll need to wait until the player is moving to tell what's going on.
+
+### World Setup
+
+To move around a world we obviously need a world. Let's create a few platforms to start. Remember that anything the player walks on needs to have a 2D collider and be on the ground layer.
+
+![BasicWorld](Images/BasicWorld.JPG)
+
+As you can see we've set up a couple platforms to test our movement in. On the right you see a basic ground block. It would be easiest to make that a prefab and place those into the scene.
 
 With that all set up we can begin to create a script that captures input to move this controller.
 
 ### Input Controller
 
-Time to create a script to capture our input and forward it to the `PlayerController`.
+Time to create a script to capture our input and forward it to the `PlayerController`.\
+If you look at the top of the `PlayerController` you will see some notes. We've dealt with setting up the player object so now we are looking at :
+
+```csharp
+ * Create an "input" script to control this that :
+ *	- Calls 'Move()' once per update
+```
+
+This is the only required part of the controller. Let's get that setup.\
+Create, add to the player, and then go into a script called "PlayerInput". This is where we will call the functions from `PlayerController`.
+
+To start we need a reference of the current `PlayerController` which we can do by adding this line to our code :
+
+```csharp
+public PlayerController pCont;
+```
+
+Just like other `public` variables we will set this in the editor by dragging in the `PlayerController` of the player object into it.\
+Now as the note in the controller says we need to call `Move()` once per update in our input script. Let's do that.
+
+```csharp
+void Update() {
+
+	pCont.Move();
+
+}
+```
+
+Well that creates an error, why?\
+Lucky for us in the top of the controller there is a little section labeled `API` (which stands for "Application Programming Interface"). This just means it's a list of all the variables and functions you can use to make this code do work for you.\
+If we find the notes for `Move` we see this :
+
+```csharp
+ * Move (float movement)
+ *  Call this at the end of the 'Update' function
+ *  to move your object.
+ *  - 'float movement', the amount you want to move
+ *    the object left or right.
+```
+
+It tells us that this moves our object when called. That was pretty obvious by the name.\
+The other thing it shows us is that we need to give it a `float` to represent the movement we want to do. It tells us that we can use this to move to the left or right.\
+Back in our input script we should give it the value of the [horizontal axis](../3%20Top%20Down%20Arcade/2%20PlayerInput.md/#capturing-inputs) to represent our movement left and right like so :
+
+```csharp
+pCont.Move(Input.GetAxis("Horizontal"));
+```
+
+That should be all it takes to move our player left and right.\
+If this isn't working make sure you have setup the player object fully and your ground objects.
