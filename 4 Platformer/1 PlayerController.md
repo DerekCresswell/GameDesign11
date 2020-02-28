@@ -158,7 +158,7 @@ void Update() {
 }
 ```
 *Note*\
-`GetButtonDown()` is similar to get axis but it only return `true` or `false` when a given button is pressed. The `"Jump"` button is a default in Unity and is the space bar (<kbd>Space</kbd>).
+["GetButtonDown()"](https://docs.unity3d.com/ScriptReference/Input.GetButtonDown.html) is similar to get axis but it only return `true` or `false` when a given button is pressed. The `"Jump"` button is a default in Unity and is the space bar (<kbd>Space</kbd>).
 
 This will allow our object to jump. It will only jump if the object is on the ground. If this doesn't work you may not have set the ground layer correctly or the ground check point.
 
@@ -259,10 +259,24 @@ This is all well and good but at some point we need to stop crouching. We do thi
  *  again as soon as it can be.
 ```
 
-This is also very simple. We can simply check when the "Crouch" button is released. That uses "GetButtonUp" rather than "GetButtonDown".
+This is also very simple. We can simply check when the "Crouch" button is released. That uses ["GetButtonUp"](https://docs.unity3d.com/ScriptReference/Input.GetButtonUp.html) rather than `GetButtonDown`. This returns true as soon as we lift up a key rather than press it down.
 
 ```csharp
 if(Input.GetButtonUp("Crouch")) {
 	pCont.UnCrouch();
 }
 ```
+
+Now when we let go of the crouch button our object will un-crouch.\
+Through the methods mentioned earlier you can see when you un-crouch. You will notice if you try to un-crouch while in a place to short to un-crouch the command will be queued up and executed when your object has enough height to stand at full hieght.\
+If you would rather the crouch be a toggle you can use the `isCrouching` boolean to see if pressing the crouch button should make you crouch or un-crouch.
+
+### Extending Uses Of The Controller
+
+As mentioned [earlier](#movement) the [PlayerController](./Library/PlayerController.cs) has an API listing all of the functions and variables you can access.\
+They are all listed with a description of how to use them and what they do. We went through most but not all in this lesson. It would be very useful to look through all of the functionality in here as it can be useful when trying to create new features for your game.
+
+*Note*\
+The public functions, such as `maxMoveSpeed` are not listed in the API but can still be accessed.\
+They are not listed as they do not usually have the same uses as, say, `isCrouching`. The former being a setting and the latter being a status.\
+Seeing as the "settings" are still public variables we can use them the same as the "statuses" plus we can modify the "settings" directly. This could be useful for applying a slow to the character or giving them a jump power-up perhaps.
