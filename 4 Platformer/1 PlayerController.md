@@ -162,6 +162,8 @@ void Update() {
 
 This will allow our object to jump. It will only jump if the object is on the ground. If this doesn't work you may not have set the ground layer correctly or the ground check point.
 
+##### Multi Jumping
+
 Jumping once is really simple, but what if we wanted to do a double jump?\
 Don't worry there is a function for that.
 
@@ -208,10 +210,44 @@ if(pCont.landed) {
 }
 ```
 
-Great! Now we can jump in the air.
+Great! Now we can jump in the air.\
+You may notice that you can walk off a ledge and still jump twice. If you'd rather your code work more like this :
 
-// Jump cancel
-// See about using forces first for the cancel
+```
+If on the ground
+	jump once
+else if in air
+	jump once
+```
+
+You can either combine the use of `Jump` and `JumpUnconditionally` (using the former while on the ground and the latter in the air) or simply add one to the jump counter whenever you are leave the ground.\
+This will be left to you to implement if you would like to do it this way.
+
+##### Jump Cancelling
+
+This next feature may not be something you want but it is aviable if you do.\
+Jump cancelling allows us to create variable height jumps. When the player releases the jump key before the apex of their jump they will start falling much faster.\
+The function here is `JumpCancel` :
+
+```csharp
+ * CancelJump ()
+ *  Cancels the current jump bringing the player to
+ *  the ground faster.
+ *  This should be called whenever the object is not
+ *  jumping, as in more than once. This deals with 
+ *  the current jump state so it can be called even
+ *  when on the ground with no side effects.
+```
+
+To use this we want to call it if the jump key is not being pressed like :
+
+```csharp
+if(!Input.GetButton("Jump")) {
+	pCont.CancelJump();
+}
+```
+
+// finish
 
 // Add dir jump and wall with raycasting
 

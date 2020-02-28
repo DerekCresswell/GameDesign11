@@ -53,6 +53,10 @@
   * CancelJump ()
   *  Cancels the current jump bringing the player to
   *  the ground faster.
+  *  This should be called whenever the object is not
+  *  jumping, as in more than once. This deals with 
+  *  the current jump state so it can be called even
+  *  when on the ground with no side effects.
   * 
   * Crouch ()
   *  Makes the object crouch by disabling the
@@ -160,6 +164,7 @@ public class PlayerController : MonoBehaviour {
 	private PhysicsMaterial2D defaultMat;
 
 	private bool queuedJump = false;
+	private bool queuedJumpUnconditonally = false;
 	private bool queuedUnCrouch = false;
 	private bool lastFrameGrounded = false;
 
@@ -200,19 +205,17 @@ public class PlayerController : MonoBehaviour {
 
 	// Makes the player jump upwards no matter what
 	public void JumpUnconditionally() {
-
-		rb.velocity = new Vector2(rb.velocity.x, 0f);
-		rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
-		isGrounded = false;
-		isJumping = true;
 		
+		queuedJump = true;
+		queuedJumpUnconditonally = true;
+
 	}
 
 	// Cancels out a player's jump
 	public void CancelJump() {
 	
 		if(isJumping && rb.velocity.y > 0f) {
-		
+
 			// @TODO can this be done with forces?
 			// @TODO or should this have a Queued bool
 			// to avoid GetButton and work with only getButtonDown
@@ -284,10 +287,17 @@ public class PlayerController : MonoBehaviour {
 		
 		// Jump if we asked to jump
 		if(queuedJump) {
+
+			if(queuedJumpUnconditonally) {
+				rb.velocity = new Vector2(rb.velocity.x, 0f);
+				queuedJumpUnconditonally = false;
+			}
+
 			rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
 			isGrounded = false;
 			isJumping = true;
 			queuedJump = false;
+
 		}
 		
 		// Try to uncrouch if requested
