@@ -192,12 +192,12 @@ if(Input.GetButtonDown("Jump") && currentJumps < maxJumps) {
 
 Now we can jump however many times we set `maxJumps` to, but we can only jump that amount, not everytime we enter the air.\
 How can we fix this?\
-Quite simply we just need to set `currentJumps` back to `0` when we land. How do we tell when we've landed? Again lucky us there is a variable we can use.
+Quite simply we just need to set `currentJumps` back to `0` when we land. How do we tell when we've landed? Again, lucky us, there is a variable we can use.
 
 ```chsarp
  * bool landed
- *	 Is true if the object landed became grounded
- *	 this frame.
+ *	Is true if the object landed, meaning it became
+ *	grounded this frame.
 ```
 
 When we land simply reset the `currentJumps` variable like so :
@@ -211,7 +211,58 @@ if(pCont.landed) {
 Great! Now we can jump in the air.
 
 // Jump cancel
+// See about using forces first for the cancel
 
 // Add dir jump and wall with raycasting
 
 #### Crouching
+
+The controller also allows us to crouch. To crouch our object we just need to use the `Crouch` function :
+
+```csharp
+ * Crouch ()
+ *  Makes the object crouch by disabling the
+ *  collider set to the 'crouchDisableCollider'
+ *  variable.
+ *  The object will stay crouched until 'UnCrouch' is
+ *  called.
+```
+
+As the API says, this will disable the collider you have placed into the variable `crouchDisableCollider`. That will effectively make the object as "tall" as the bottom collider.\
+Since this also says the object stays crouched until we explicitly tell it to uncrouch we can crouch similar to the way we jump.\
+To start let's setup a button for crouching.
+
+// TODO finish button
+
+Now that we have our button ready we can crouch. This is same as with `Jump`. It goes in the `Update` function and you use an `if` statement to check if our button was pushed.
+
+```csharp
+if(Input.GetButtonDown("Crouch")) {
+	pCont.Crouch();
+}
+```
+
+Currently we don't have any animations so it won't look like the object has crouched but it has. You can see this currently in two ways :
+
+* If you have a gap taller than your bottom collider but shorter than your top and bottom collider together you should only be able to go under once you've crouched.
+* If you have the inspector focused on the player while playing the game you can see that the top collider being disabled when you press the crouch button.
+
+Of course you will notice that the player slows down when crouching based on the `crouchSpeed` variable as well.\
+This is all well and good but at some point we need to stop crouching. We do this by simply calling the `UnCrouch` function.
+
+```csharp
+ * UnCrouch ()
+ *  Makes the object uncrouch by enabling the
+ *  collider set to the 'crouchDisableCollider'
+ *  variable.
+ *  If this collider is blocked it will be enabled
+ *  again as soon as it can be.
+```
+
+This is also very simple. We can simply check when the "Crouch" button is released. That uses "GetButtonUp" rather than "GetButtonDown".
+
+```csharp
+if(Input.GetButtonUp("Crouch")) {
+	pCont.UnCrouch();
+}
+```

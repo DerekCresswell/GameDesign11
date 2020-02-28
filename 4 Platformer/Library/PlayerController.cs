@@ -58,12 +58,15 @@
   *  Makes the object crouch by disabling the
   *  collider set to the 'crouchDisableCollider'
   *  variable.
+  *  The object will stay crouched until 'UnCrouch' is
+  *  called.
   *
   * UnCrouch ()
   *  Makes the object uncrouch by enabling the
   *  collider set to the 'crouchDisableCollider'
-  *  variable. If this collider is blocked it will
-  *  be enabled again as soon as it can be.
+  *  variable.
+  *  If this collider is blocked it will be enabled
+  *  again as soon as it can be.
   *
   * -- Variables --
   * 
@@ -89,8 +92,8 @@
   *  Tells you if the object is currently crouching.
   * 
   * bool landed
-  *	 Is true if the object landed became grounded
-  *	 this frame.
+  *	 Is true if the object landed, meaning it became
+  *	 grounded this frame.
   *
   * Vector2 currentVelocity
   *  Gives you the current X and Y velocities of the
