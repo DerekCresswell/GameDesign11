@@ -232,7 +232,10 @@ As the API says, this will disable the collider you have placed into the variabl
 Since this also says the object stays crouched until we explicitly tell it to uncrouch we can crouch similar to the way we jump.\
 To start let's setup a button for crouching.
 
-// TODO finish button
+Go to the top left of Unity and click "Edit" and then "Project Settings". Then find "Input". Here we need to add a new button and to do this you have to increase the "Size" at the top by one.\
+Now at the bottom of the list we have an extra button. Click into that, rename it "Crouch", and set the "Positive Button" to the button you want to be the crouch button.
+
+![CreatingNewButton](Images/CreatingNewButton.JPG)
 
 Now that we have our button ready we can crouch. This is same as with `Jump`. It goes in the `Update` function and you use an `if` statement to check if our button was pushed.
 
