@@ -109,10 +109,14 @@ Start by making a new particle system named "Fog". Then apply these settings :
 * Particle System :
 	* Duration, this should be fairly long, let's go with `20`. 
 	* Start Lifetime, set this to the same as Duration.
+	* Start Speed, set this very low, how bout `0.1`.
+	* Start Size, set this higher, do `5`.
 * Emission :
 	* Rate Over Time, set this very low, around `2`.
 * Shape :
 	* Shape, set to `Circle`.
+	* Randomize Direction, just set this to `1` so that our fog goes in random directions.
+	* Randomize Position, you can do the same as above here if you want.
 * Color Over Lifetime :
 	* Color, this gradient should go from white to invisible. The way you can do this is by clicking on the little arrow on the top of the gradient in the gradient editor and changing the `Alpha` value. It may look better if it doesn't start fully opaque also.
 * Size Over Lifetime :
