@@ -247,7 +247,9 @@ if(!Input.GetButton("Jump")) {
 }
 ```
 
-// finish
+*Note*\
+We are not using `GetButtonDown` here. The way `CancelJump` works is that if should be called every frame you aren't jumping. `GetButton` will fire every frame. Prefixing it with `!` will mean we call it whenever we aren't pressing the jump button.\
+That should do it. Now if you let go of the jump button before the apex of your jump you will see your object slowing down much sooner.
 
 // Add dir jump and wall with raycasting
 
