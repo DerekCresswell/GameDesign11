@@ -104,9 +104,60 @@ Start by making a new animation by clicking on the name right below the animatio
 Make sure you place this in the animation folder. Now all we should need to do is select and drag the next eight sprites from the sheet into the animation. Set the sample rate to something appropriate.\
 That should be good, the player should now be running in place.
 
-Do the exact same thing with the next eight sprites and make the "PlayerAttack" animation. **Careful**, the very last sprite is not part of that animation.\
+Do the exact same thing with the next eight sprites and make the "PlayerAttack" animation. **Careful**, the very last sprite on the sheet is not part of that animation.\
 You should now have three animations in your animation folder, "PlayerIdle", "PlayerRun", and "PlayerAttack". Go through and look at all of these in the animation window and make sure they are correct.
 
+There is certainly some fine tuning we could do, particularly slicing sprites, but for the example it looks great.\
 With that we can now get these hooked up to our game.
 
 ### Animation Controllers
+
+Animation clips hold the information of what to change about our object, namely the sprite in our case. On their own they really don't do much, we need to be able to tell Unity when to play certain animations.\
+This is where the other half of Unity's animation system comes in, the [Animator](https://docs.unity3d.com/Manual/AnimatorControllers.html) (or animation controller).
+
+If you look in the animations folder you should see the icon with a play button and squares, earlier we named this "PlayerAC" which stands for "Player Animation Controller".
+
+<p align="center">
+	<img src="Images/AnimationControllerIcon.JPG">
+</p>
+
+Unity made this automatically as our animations will not work without one. Now we can use it to hook our animations together. Click on it and this screen should pop up :
+
+![AnimatorWindow](Images/AnimatorWindow.JPG)
+
+What is this? This is, as the name implies, a controller for our animations on the player. In the right side of the window you will see a visual representation of our ["States"](https://docs.unity3d.com/Manual/StateMachineBasics.html). For our purposes each state is just an animation.\
+We use this to transition between the different states, or, move between animations.\
+You can also see an arrow going from the "Entry" state to the "Idle" state. This is exactly what is mentioned above. Currently, when we play the game the idle animation is played. Because idle is hooked up to one of the special states. These are :
+
+* Entry, this is where the controller starts. Think of the `Start` function.
+* Any State, this actually represents any of the other states. If you have a transition coming off of this it can be called from any other state.
+* Exit, tells the state machine to exit, meaning it no longer will do anything. We likely won't need this.
+
+We have our states, animations, and transitions that move us between them. But we need to tell these transitions when they should transistion. We do this with parameters.\
+There is a tab on the left side of this window that says ["Paremeters"](https://docs.unity3d.com/Manual/AnimationParameters.html). Click on that and you'll see that there is nothing there. Let's start by adding one for the idle state.\
+We start by thinking of how the idle state works. Is idle a one time thing or can you be in it for a long time? Which states can you go to idle from?\
+Well we could at anytime stop moving and become idle and we can be there for as long as we want.\
+With that in mind click the plus sign off to the right of where it says "Parameters". A drop down list will come out with four options. To quote Unity themselves :
+
+>*Integer* - a whole number
+*Float* - a number with a fractional part
+*Bool* - true or false value (represented by a checkbox)
+*Trigger* - a boolean parameter that is reset by the controller when consumed by a transition (represented by a circle button)
+
+`bool` fits our idle state the best. We can have it stay true as long as we want. Let's make a bool and name it "pIdle", for "Player Idle".
+
+![NewAnimationParameter](Images/NewAnimationParameter.JPG)
+
+Now we can set a transition to that. Which states should we be able to go to idle from? Likely any state so let's use the "Any State".\
+To set this up we can right-click on the "Any State" state and hit "Make Transition". Then click on the "Idle" state to attach it. Now we have a transition from "Any State" to "Idle" and you can tell the direction because of the little arrow.\
+Now this doesn't do anything as is, we still need to tell it when to do this transition.\
+
+Click on the transition (not the state). In the Inspector there will will be quite a few options avaliable. The main one we need is at the bottom, "Conditions".\
+Here we want to press the plus button. Unity may automatically fill this in because there is only one parameter. If not just add the `pIdle` to the conditions.
+
+![AddingTransitionsToAnimator](Images/AddingTransitionsToAnimator.JPG)
+
+Now when the condition is fufilled (`pIdle` being `true`) our object with transition from any state to the Idle state.\
+That is all we really need to do here but for best practice we need to change two other things about this transition in the inspector. We need to ensure "Has Exit Time" is **not** checked. In the little timeline below there are a few things on the scrub bar at the top. Find the blue arrow that is farthest to the right and drag it to the left. This makes it so there is no blending between our two animations here. This doesn't really happen with sprites but still, best practice.
+
+There we go. We have a transition from any state to our Idle state whenever the `pIdle` variable is `true`. Still doesn't do anything exciting. For that we need to add the ability to transition to some other states.
