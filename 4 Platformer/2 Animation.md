@@ -126,14 +126,20 @@ Unity made this automatically as our animations will not work without one. Now w
 ![AnimatorWindow](Images/AnimatorWindow.JPG)
 
 What is this? This is, as the name implies, a controller for our animations on the player. In the right side of the window you will see a visual representation of our ["States"](https://docs.unity3d.com/Manual/StateMachineBasics.html). For our purposes each state is just an animation.\
-We use this to transition between the different states, or, move between animations.\
+We use this to transition between the different states, or, move between animations.
+
+#### States
+
 You can also see an arrow going from the "Entry" state to the "Idle" state. This is exactly what is mentioned above. Currently, when we play the game the idle animation is played. Because idle is hooked up to one of the special states. These are :
 
 * Entry, this is where the controller starts. Think of the `Start` function.
 * Any State, this actually represents any of the other states. If you have a transition coming off of this it can be called from any other state.
 * Exit, tells the state machine to exit, meaning it no longer will do anything. We likely won't need this.
 
-We have our states, animations, and transitions that move us between them. But we need to tell these transitions when they should transistion. We do this with parameters.\
+We have our states, animations, and transitions that move us between them. But we need to tell these transitions when they should transistion. We do this with parameters.
+
+#### Parameters
+
 There is a tab on the left side of this window that says ["Paremeters"](https://docs.unity3d.com/Manual/AnimationParameters.html). Click on that and you'll see that there is nothing there. Let's start by adding one for the idle state.\
 We start by thinking of how the idle state works. Is idle a one time thing or can you be in it for a long time? Which states can you go to idle from?\
 Well we could at anytime stop moving and become idle and we can be there for as long as we want.\
@@ -148,16 +154,40 @@ With that in mind click the plus sign off to the right of where it says "Paramet
 
 ![NewAnimationParameter](Images/NewAnimationParameter.JPG)
 
+#### Transitions
+
 Now we can set a transition to that. Which states should we be able to go to idle from? Likely any state so let's use the "Any State".\
 To set this up we can right-click on the "Any State" state and hit "Make Transition". Then click on the "Idle" state to attach it. Now we have a transition from "Any State" to "Idle" and you can tell the direction because of the little arrow.\
 Now this doesn't do anything as is, we still need to tell it when to do this transition.\
 
 Click on the transition (not the state). In the Inspector there will will be quite a few options avaliable. The main one we need is at the bottom, "Conditions".\
-Here we want to press the plus button. Unity may automatically fill this in because there is only one parameter. If not just add the `pIdle` to the conditions.
+Here we want to press the plus button. Unity will automatically fill this in and because there is only one parameter we should be good. It should have "pIdle" in the first box and "true" in the second.
 
 ![AddingTransitionsToAnimator](Images/AddingTransitionsToAnimator.JPG)
 
 Now when the condition is fufilled (`pIdle` being `true`) our object with transition from any state to the Idle state.\
+Above the transition there is a drop down labeled "Settings". In here the last option is called "Can Transition To Self". Make sure this un checked. This prevents our state from being able to enter the same state.\
 That is all we really need to do here but for best practice we need to change two other things about this transition in the inspector. We need to ensure "Has Exit Time" is **not** checked. In the little timeline below there are a few things on the scrub bar at the top. Find the blue arrow that is farthest to the right and drag it to the left. This makes it so there is no blending between our two animations here. This doesn't really happen with sprites but still, best practice.
 
 There we go. We have a transition from any state to our Idle state whenever the `pIdle` variable is `true`. Still doesn't do anything exciting. For that we need to add the ability to transition to some other states.
+
+We should make a transition to "PlayerRun" and to "PlayerAttack". Running should have a boolean because we want this animation playing whenever we are running. Create a new boolean and call it "pRun".\
+We also can transition from any state to running so let's make a transition from "Any State" to "PlayerRun". Click on that state and add the condition for "pRun" being true. Make sure to un-tick "Can Transition To Self".\
+You can do the same as before to the rest of the settings of this animation if you want.\
+
+Last we have our "PlayerAttack" state. This one is a bit different.\
+Firstly, our attack is a fixed duration so a bool won't be the best choice. We should create a "Trigger" for this animation as we want it to fire once when we attack. Do just that and name it "pAttack".\
+Create a transition from "Any State" to "PlayerAttack" and give it the "pAttack" trigger as a condition. Give this transition all the same settings.\
+There is an extra bit here though. After our attack we don't want to just continually attack, we need to transition back to another state. We could setup some nice logic to figure out which one to go back to but for these purposes let's just make a transition from "PlayerAttack" to "PlayerIdle".\
+Click on the transition and this time we don't want any conditions and do want "Has Exit Time" checked. This means that the animation will transition using this transition after a certain amount of time. We will also have to set up the little timeline like this :
+
+![TransitionWithExitTime](Images/TransitionWithExitTime.JPG)
+
+After all that our states should look something like this :
+
+![FilledOutStateMachine](Images/FilledOutStateMachine.JPG)
+
+With that set up we can begin to hook up code to this in order to switch states during gameplay.
+
+### Changing States With Code
+
