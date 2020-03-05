@@ -191,3 +191,76 @@ With that set up we can begin to hook up code to this in order to switch states 
 
 ### Changing States With Code
 
+Open up your player input script.\
+First thing we need to do is get a reference to the animator on our player. Add this to the top of our script :
+
+```csharp
+public class PlayerInput : MonoBehaviour {
+
+	public PlayerController pCont;
+	public Animator animator;
+```
+
+Now all we have to do is call ["SetBool"](https://docs.unity3d.com/ScriptReference/Animator.SetBool.html) on that animator to set our parameters. This takes in a string for the name or the parameter and then a value for that parameter.
+
+When is our player moving? They are moving when our "GetAxis" for the horizontal is zero. Let's setup a little logic statement in our `Update` function.
+
+```csharp
+float xDir = Input.GetAxis("Horizontal");
+
+	if(xDir == 0) {
+		// Not Moving
+	} else {
+		// Moving
+	}
+
+pCont.Move(xDir);
+```
+
+Now we can replace the comments with setting the proper parameters.
+
+```csharp
+if(xDir == 0) {
+	animator.SetBool("pIdle", true);
+} else {
+	animator.SetBool("pRun", true);
+}
+```
+
+Now if you try to play that you will see the character freak out. This is because when we move both our parameters are true and the animator can't figure out which state to be in.\
+An easy solution is to set the other boolean to false within this if.
+
+```csharp
+if(xDir == 0) {
+	animator.SetBool("pIdle", true);
+	animator.SetBool("pRun", false);
+} else {
+	animator.SetBool("pRun", true);
+	animator.SetBool("pIdle", false);
+}
+```
+
+That should be good. Now when you run your player will move between being idle and running.\
+Next we can setup the attack. We won't go over creating a physical attack here, just the animation.\
+Lucky for us this shouldn't be too hard. Just detect when the key we want is pressed and then play the attack. It really doesn't matter which button you use, in this case the space bar is used for jumping so we've just stuck "j" in there.
+
+```csharp
+if(Input.GetKeyDown("j")) {
+	animator.SetTrigger("pAttack");	
+}
+```
+
+This uses ["SetTrigger"](https://docs.unity3d.com/ScriptReference/Animator.SetTrigger.html) because this parameter is a trigger.\
+Now once again you may rush to start swinging your sword and find that your player does not play the animation. This is again because since the other parameters can still be true Unity does not know which to go to.\
+This isn't quite working and we'll have to change the transitions around to fix it. The problem is that the frame after we trigger the attack either the idle or run will just take over again.\
+The solution is to move our transitions to only use any state for the attack. You can figure out what parameters are needed to switch between the different states and set up your transitions to look like this (leave attack as it was) :
+
+![RevisedTransitions](Images/RevisedTransitions.JPG)
+
+Now we can switch between idle and running. Whenever we hit the attack button we go into an attack before going back to idle.
+
+Now we should be able to run around and swing our sword. It won't look perfect and that's mainly due to doing the quick and easy way to slice our sprite sheet, but for this lesson it's fine.
+
+### Adding A Jump
+
+The last thing we will add is a jumping animation.
