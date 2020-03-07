@@ -10,7 +10,7 @@ Let's go through the basics of setting up an input controller for our script.
 
 ### Object Setup
 
-First things first, drag the ["PlayerController"](./Library/PlayerController.cs) script into your s cripts folder (or just copy the contents and make sure to name the file exactly the same).\
+First things first, drag the ["PlayerController"](./Library/PlayerController.cs) script into your s cripts folder (or just copy the contents and make sure to name the file exactly the same).
 
 Now create a new object for your player.\
 To start let's give this a sprite. You could just use the [box](../1%20Rube%20GoldBerg%20Machine/Assets/WhiteBox.png) and [circle](../1%20Rube%20GoldBerg%20Machine/Assets/WhiteCircle.png) sprites we have been using.\
@@ -40,8 +40,12 @@ Your colliders may look something like this :
 
 ![FootCollider](Images/FootCollider.JPG)
 
-*Note*\
+#### Notes About Multiple Colliders
+
+//intro
 If your head collider is wider than the foot collider you might find your character getting caught on edges. Notice in the picture above that the bottom edge of the head collider does not poke out of the foot collider.
+
+// detecting collisions and ignoring self
 
 That takes care of the colliders but there is one more bit to set up. The last part from the instructions of this controller say `a childed empty object at the bottom of the main objects feet.` so let's add that.\
 The code here needs to know where the players feet are. Create a new empty game object and child it to the player. Then take this and position it right in the middle of feet.\
@@ -56,7 +60,7 @@ Now we can hook this into our controller.
 * Put the childed empty object into the spot labeled `groundCheckPoint`.
 * Finally put the "head" collider into the spot labeled `crouchDisableCollider`.
 
-There is one more setting we need to set, `whatIsGround`. This is a layer that tells us what is considered the ground in the game. For this we will create a new layer called "GroundLayer" and assign it to anything you want the player to stand on.\
+There is one more setting we need to set, `whatIsGround`. This is a layer that tells us what is considered the ground in the game. For this we will create a new ["Layer"](https://docs.unity3d.com/Manual/Layers.html) called "GroundLayer" and assign it to anything you want the player to stand on.\
 We can do this by creating a new sprite called "Ground" and give it a temporary sprite and ["BoxCollider2D"](https://docs.unity3d.com/Manual/class-BoxCollider2D.html). Then go to the top of the inspector window where it says "Layer" and click it.
 
 ![LayersSelect](Images/LayersSelect.JPG)
@@ -86,7 +90,7 @@ Time to create a script to capture our input and forward it to the `PlayerContro
 If you look at the top of the `PlayerController` you will see some notes. We've dealt with setting up the player object so now we are looking at :
 
 ```csharp
- * Create an "input" script to control this that :
+ * Create an "input" script to control this script that :
  *	- Calls 'Move()' once per update
 ```
 
@@ -111,6 +115,7 @@ void Update() {
 ```
 
 Well that creates an error, why?\
+Because we have not given this function the proper parameters.
 Lucky for us in the top of the controller there is a little section labeled `API` (which stands for "Application Programming Interface"). This just means it's a list of all the variables and functions you can use to make this code do work for you.\
 If we find the notes for `Move` we see this :
 
@@ -136,9 +141,9 @@ If this isn't working make sure you have setup the player object completely and 
 #### Jumping
 
 Another built in functionality of the controller is jumping.\
-At the simplest level we just have to detect when to jump (I.E. a key press) and then call the `jump` function.
+At the simplest level we just have to detect when to jump (I.E. a key press) and then call the `Jump` function.
 
-```chsarp
+```csharp
  * Jump ()
  *  Call this to make your object jump if you are on
  *  the ground. Jumps straight up.
@@ -267,7 +272,7 @@ The controller also allows us to crouch. To crouch our object we just need to us
 ```
 
 As the API says, this will disable the collider you have placed into the variable `crouchDisableCollider`. That will effectively make the object as "tall" as the bottom collider.\
-Since this also says the object stays crouched until we explicitly tell it to uncrouch we can crouch similar to the way we jump.\
+Since this also says the object stays crouched until we explicitly tell it to un-crouch we can crouch similar to the way we jump.\
 To start let's setup a button for crouching.
 
 Go to the top left of Unity and click "Edit" and then "Project Settings". Then find "Input". Here we need to add a new button and to do this you have to increase the "Size" at the top by one.\
@@ -293,7 +298,7 @@ This is all well and good but at some point we need to stop crouching. We do thi
 
 ```csharp
  * UnCrouch ()
- *  Makes the object uncrouch by enabling the
+ *  Makes the object un-crouch by enabling the
  *  collider set to the 'crouchDisableCollider'
  *  variable.
  *  If this collider is blocked it will be enabled

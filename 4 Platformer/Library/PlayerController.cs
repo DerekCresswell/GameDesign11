@@ -17,7 +17,7 @@
  *
  * --- What You Need To Do ---
  *  
- * Create an "input" script to control this that :
+ * Create an "input" script to control this script that :
  *	- Calls 'Move()' once per update
  *
  * Ensure you attach this to an object with a 
@@ -66,7 +66,7 @@
   *  called.
   *
   * UnCrouch ()
-  *  Makes the object uncrouch by enabling the
+  *  Makes the object un-crouch by enabling the
   *  collider set to the 'crouchDisableCollider'
   *  variable.
   *  If this collider is blocked it will be enabled
