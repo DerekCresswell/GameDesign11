@@ -42,10 +42,14 @@ Your colliders may look something like this :
 
 #### Notes About Multiple Colliders
 
-//intro
+Before now you may not have realized that it is possible to have multiple colliders on a single object.\
+It is important to note that there are two very common caveats to this method.
+
+The first is that colliders can "catch" on other objects if they are not laid out properly.\
 If your head collider is wider than the foot collider you might find your character getting caught on edges. Notice in the picture above that the bottom edge of the head collider does not poke out of the foot collider.
 
-// detecting collisions and ignoring self
+Likely the bigger thing to remember is when you are trying to detect collisions.\
+If you were to put a `OnCollisionEnter2D` on the player right now it would fire right away as the colliders are touching. You will need to add a check, such as with tags, to ignore collisions with the object that has both the colliders.
 
 That takes care of the colliders but there is one more bit to set up. The last part from the instructions of this controller say `a childed empty object at the bottom of the main objects feet.` so let's add that.\
 The code here needs to know where the players feet are. Create a new empty game object and child it to the player. Then take this and position it right in the middle of feet.\
