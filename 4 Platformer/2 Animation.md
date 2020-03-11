@@ -268,7 +268,7 @@ Now we should be able to run around and swing our sword. It won't look perfect a
 The last thing we will add is a jumping animation. This is just one frame that we will play whenever we are jumping but we still need to make it into an animation.\
 Just as before go and create a new animation on the player. Just pass in the final sprite on our sprite sheet which we are using as the jump.\
 Then go back to the animator and the "PlayerJump" state should be there. If not just drag the animation into the animator window.\
-Make two new triggers, "pJump" and "pLand". Create a transition from "Any State" to "PlayerJump" with the "pJump" tigger as it's condition. Then create a transition from "PlayerJump" to "PlayerIdle" with "pLand" as the condition.
+Make two new triggers, "pJump" and "pLand". Create a transition from "Any State" to "PlayerJump" with the "pJump" trigger as it's condition. Then create a transition from "PlayerJump" to "PlayerIdle" with "pLand" as the condition.
 
 Head back to our scripts.\
 We already have jumping and landing taken care of in our input script so all we need to do is call the appropriate trigger alongside the calls to `Jump` and such.
@@ -287,5 +287,24 @@ if(pCont.landed) {
 	animator.SetTrigger("pLand");
 }
 ```
+
+This won't work right away. You'll notice the jump animation might not play.\
+This is due to the fact that we can land without jumping causing the `pLand` trigger to be set. Then when we jump it uses that trigger and immediately goes back to idle.\
+There are two ways to fix this :
+
+1. Move the transition from "PlayerJump" to "PlayerIdle" to instead be from "Any State" to "Player Idle". This means anytime we land we will use the `pLand` trigger and go to idle. This may cause a slight jitter.
+1. The other way would be to reset the trigger after we've landed. This just means if we land and the animator does not use the `pLand` trigger we should turn it off. That looks something like this :
+
+```csharp
+if(pCont.landed) {
+	currentJumps = 0;
+	animator.SetTrigger("pLand");
+} else {
+	animator.ResetTrigger("pLand");
+}
+```
+
+While both methods work the latter is best if you are a stickler for perfection.\
+That is due to it not transitioning into a state. This can perserve if you were, say, running of a ledge. It doesn't momentarialy transition back to idle stopping a tiny bit of studder.
 
 That should do it. Now you can find or make your own sprite sheets and hook up awesome animators. It's encouraged that you look into the power of the animator because there are so many more things that can be done with it.
