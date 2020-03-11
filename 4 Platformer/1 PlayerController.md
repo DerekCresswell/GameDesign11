@@ -51,17 +51,11 @@ If your head collider is wider than the foot collider you might find your charac
 Likely the bigger thing to remember is when you are trying to detect collisions.\
 If you were to put a `OnCollisionEnter2D` on the player right now it would fire right away as the colliders are touching. You will need to add a check, such as with tags, to ignore collisions with the object that has both the colliders.
 
-That takes care of the colliders but there is one more bit to set up. The last part from the instructions of this controller say `a childed empty object at the bottom of the main objects feet.` so let's add that.\
-The code here needs to know where the players feet are. Create a new empty game object and child it to the player. Then take this and position it right in the middle of feet.\
-Something like this :
-
-![GroundCheckPoint](Images/GroundCheckPoint.JPG)
-
 Awesome, with that all on the player we can hook it up to the `PlayerController` now.\
 Now we can hook this into our controller.
 
 * Put the Rigidbody into it's slot.
-* Put the childed empty object into the spot labeled `groundCheckPoint`.
+* Put the bottom collider into the `footCollider` variable.
 * Finally put the "head" collider into the spot labeled `crouchDisableCollider`.
 
 There is one more setting we need to set, `whatIsGround`. This is a layer that tells us what is considered the ground in the game. For this we will create a new ["Layer"](https://docs.unity3d.com/Manual/Layers.html) called "GroundLayer" and assign it to anything you want the player to stand on.\

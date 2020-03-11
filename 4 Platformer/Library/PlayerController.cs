@@ -17,7 +17,7 @@
  *
  * --- What You Need To Do ---
  *  
- * Create an "input" script to control this script that :
+ * Create an "input" script to control this that :
  *	- Calls 'Move()' once per update
  *
  * Ensure you attach this to an object with a 
@@ -109,10 +109,11 @@
   *
   */
 
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Collider2D))]
 public class PlayerController : MonoBehaviour {
 
 	[Header("Settings")]
@@ -135,13 +136,14 @@ public class PlayerController : MonoBehaviour {
 	[Space]
 	[Header("Collisions")]
 
-	// A spot at your players feet to check for the ground
-	public Transform groundCheckPoint;
 	// Which layer contains the ground
 	public LayerMask whatIsGround;
 
 	// Which collider to disable when crouching
 	public Collider2D crouchDisableCollider;
+
+	// Which collider is the feet
+	public Collider2D footCollider;
 
 	[Space]
 
@@ -182,8 +184,8 @@ public class PlayerController : MonoBehaviour {
 
 	}
 
-	// Called once per update in order to move the character
-	// movement represents the horizontal movement of the character
+	// Called once per 'Update' in order to move the character
+	// 'movement' represents the horizontal movement of the character
 	public void Move(float movement) {
 		
 		if(isGrounded || canControlInAir) {
@@ -256,7 +258,10 @@ public class PlayerController : MonoBehaviour {
 
 	void FixedUpdate() {
 	
-		// Detect collisions with anything considered ground
+		/*
+		
+		// Keeping this here incase we need to switch back to the old method.
+
 		isGrounded = false;
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheckPoint.position, 0.1f, whatIsGround);
 		foreach(Collider2D col in colliders) {
@@ -272,11 +277,24 @@ public class PlayerController : MonoBehaviour {
 
 		}
 
+		*/
+
+		// Detect collisions with anything considered ground
+		isGrounded = Physics2D.Raycast(
+			footCollider.bounds.center - new Vector3(0, footCollider.bounds.extents.y + 0.01f, 0),
+			Vector3.down,
+			0.05f,
+			whatIsGround
+		);
+
 		// Set landed bool
-		if(!lastFrameGrounded && isGrounded)
+		if(!lastFrameGrounded && isGrounded) {
 			landed = true;
-		else
+			isJumping = false;
+			rb.sharedMaterial = defaultMat;
+		} else {
 			landed = false;
+		}
 
 		lastFrameGrounded = isGrounded;
 
@@ -350,7 +368,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Update() {
-	
+
 		// Update user facing velocity
 		currentVelocity = rb.velocity;
 
