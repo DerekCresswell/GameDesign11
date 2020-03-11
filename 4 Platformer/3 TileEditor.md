@@ -5,7 +5,7 @@ Here we discuss the tile editor in Unity.
 ## Tile Editor
 
 Building our levels with stretched out boxes is great to start off with but gets boring pretty quick. It can also be very tedious to place each wall or bit of ground individually.\
-This is where [Tile Maps](https://docs.unity3d.com/Manual/class-Tilemap.html) come in.\
+This is where ["Tile Maps"](https://docs.unity3d.com/Manual/class-Tilemap.html) come in.\
 Tile maps allow us to use a sheet, similar to a sprite sheet, to build levels with tiles. This is great for games like platformers as we can easily create navigable terrain.
 
 ### Tile Sets
@@ -71,7 +71,7 @@ All the default settings for this should be fine.
 
 ![TilemapCollider](Images/TilemapCollider.JPG)
 
-Make sure you set the tile map layer to "GroundLayer" so the player can jump on it.
+Make sure you set the tile map layer to "GroundLayer" (or whichever layer you defined as the ground in your player controller) so the player can jump on it.
 
 ## On Your Own
 

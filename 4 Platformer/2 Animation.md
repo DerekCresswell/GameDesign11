@@ -24,7 +24,7 @@ Click on the image in your project and in the inspector change "Sprite Mode" fro
 Here we need to split up our sprite. At the top you will see a button that says split. When you click on it there will be a drop down. It should start with "Type" being set to "Automatic". Automatic is not always perfect but it will do for this right now.\
 Hit slice and you should see your sprite split up by boxes around each frame of the animation.
 
-![SlicingSprites](SlicingSprites.JPG)
+![SlicingSprites](Images/SlicingSprites.JPG)
 
 When you head back to Unity you can click on the little arrow on the right of the sprite sheet and it will expand to show the newly split sprites.\
 Awesome, we are now ready to put these together into animations.
@@ -50,7 +50,9 @@ You will see that it is telling us we need to create an "Animation Clip". Go ahe
 
 Now when you go into the animation folder you will see two items have been created.
 
-![GeneratedAnimationItems](Images/GeneratedAnimationItems.JPG)
+<p align="center">
+	<img src="Images/GeneratedAnimationItems.JPG">
+</p>
 
 The one on the left, with the squares and lines, is not important right now. Do not delete it as we will be coming back to it later, for now just name it "PlayerAC".
 
@@ -96,7 +98,7 @@ When you play the game you should see that your player moves around while playin
 If it's not, add an "Animator" component to the player and set the "Controller" to "PlayerAC" (which should be the only avaliable option). This should fix the problem for now.
 
 Next we are going to setup the next two animations on our sheet in the same way.\
-Start by making a new animation by clicking on the name right below the animation windows controls. This should have the name of the currently selected animation. Here click "Create New Clip" and name it "PlayerRun".\
+Start by making a new animation by clicking on the name right below the animation windows controls. This should have the name of the currently selected animation. Here click "Create New Clip" and name it "PlayerRun".
 
 ![CreateNewClip](Images/CreateNewClip.JPG)
 
@@ -158,7 +160,7 @@ With that in mind click the plus sign off to the right of where it says "Paramet
 
 Now we can set a transition to that. Which states should we be able to go to idle from? Likely any state so let's use the "Any State".\
 To set this up we can right-click on the "Any State" state and hit "Make Transition". Then click on the "Idle" state to attach it. Now we have a transition from "Any State" to "Idle" and you can tell the direction because of the little arrow.\
-Now this doesn't do anything as is, we still need to tell it when to do this transition.\
+Now this doesn't do anything as is, we still need to tell it when to do this transition.
 
 Click on the transition (not the state). In the Inspector there will will be quite a few options avaliable. The main one we need is at the bottom, "Conditions".\
 Here we want to press the plus button. Unity will automatically fill this in and because there is only one parameter we should be good. It should have "pIdle" in the first box and "true" in the second.
@@ -173,7 +175,7 @@ There we go. We have a transition from any state to our Idle state whenever the 
 
 We should make a transition to "PlayerRun" and to "PlayerAttack". Running should have a boolean because we want this animation playing whenever we are running. Create a new boolean and call it "pRun".\
 We also can transition from any state to running so let's make a transition from "Any State" to "PlayerRun". Click on that state and add the condition for "pRun" being true. Make sure to un-tick "Can Transition To Self".\
-You can do the same as before to the rest of the settings of this animation if you want.\
+You can do the same as before to the rest of the settings of this animation if you want.
 
 Last we have our "PlayerAttack" state. This one is a bit different.\
 Firstly, our attack is a fixed duration so a bool won't be the best choice. We should create a "Trigger" for this animation as we want it to fire once when we attack. Do just that and name it "pAttack".\
@@ -208,11 +210,11 @@ When is our player moving? They are moving when our "GetAxis" for the horizontal
 ```csharp
 float xDir = Input.GetAxis("Horizontal");
 
-	if(xDir == 0) {
-		// Not Moving
-	} else {
-		// Moving
-	}
+if(xDir == 0) {
+	// Not Moving
+} else {
+	// Moving
+}
 
 pCont.Move(xDir);
 ```
@@ -228,7 +230,7 @@ if(xDir == 0) {
 ```
 
 Now if you try to play that you will see the character freak out. This is because when we move both our parameters are true and the animator can't figure out which state to be in.\
-An easy solution is to set the other boolean to false within this if.
+An easy solution is to set the other boolean to false within this `if` statement.
 
 ```csharp
 if(xDir == 0) {
