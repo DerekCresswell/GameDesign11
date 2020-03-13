@@ -21,93 +21,91 @@
  *	- Calls 'Move()' once per update
  *
  * Ensure you attach this to an object with a 
- * Rigidbody2D, a "head" Collider2D, a "foot"
- * Collider2D, and a childed empty object at the
- * bottom of the main objects feet.
+ * Rigidbody2D, a "head" Collider2D, and a "foot"
+ * Collider2D.
  *
  */
 
- /*
-  *
-  * --- API ---
-  *
-  * This is the info for all the functions and
-  * variables that you can use from this script.
-  *
-  * -- Functions --
-  *
-  * Move (float movement)
-  *  Call this at the end of the 'Update' function
-  *  to move your object.
-  *  - 'float movement', the amount you want to move
-  *    the object left or right.
-  *
-  * Jump ()
-  *  Call this to make your object jump if you are on
-  *  the ground. Jumps straight up.
-  *
-  * JumpUnconditionally ()
-  *  Makes the object jump instantly, even if not on
-  *  the ground.
-  *
-  * CancelJump ()
-  *  Cancels the current jump bringing the player to
-  *  the ground faster.
-  *  This should be called whenever the object is not
-  *  jumping, as in more than once. This deals with 
-  *  the current jump state so it can be called even
-  *  when on the ground with no side effects.
-  * 
-  * Crouch ()
-  *  Makes the object crouch by disabling the
-  *  collider set to the 'crouchDisableCollider'
-  *  variable.
-  *  The object will stay crouched until 'UnCrouch' is
-  *  called.
-  *
-  * UnCrouch ()
-  *  Makes the object un-crouch by enabling the
-  *  collider set to the 'crouchDisableCollider'
-  *  variable.
-  *  If this collider is blocked it will be enabled
-  *  again as soon as it can be.
-  *
-  * -- Variables --
-  * 
-  * bool isGrounded
-  *  Tells you if the object is currently standing on
-  *  the ground.
-  *
-  * bool isJumping
-  *  Tells you if the object is currently jumping.
-  *
-  * bool isFacingLeft
-  *  Tells you if the object is facing left. This is
-  *  defaulted to true, if your object is not facing
-  *  left to start, set the 'Y' rotation to '180'
-  *
-  * bool isFacingRight
-  *  Tells you if the object is facing right. This is
-  *  defaulted to false. If this is the starting
-  *  orientation of your object set the 'Y' rotation
-  *  to '180'.
-  *
-  * bool isCrouching
-  *  Tells you if the object is currently crouching.
-  * 
-  * bool landed
-  *	 Is true if the object landed, meaning it became
-  *	 grounded this frame.
-  *
-  * Vector2 currentVelocity
-  *  Gives you the current X and Y velocities of the
-  *  object. 
-  *
-  * @TODO pretty up the inline comments.
-  * @TODO add tool tips for public variables.
-  * @TODO add raycast wall jumping / jump direction
-  *
-  */
+/*
+ *
+ * --- API ---
+ *
+ * This is the info for all the functions and
+ * variables that you can use from this script.
+ *
+ * -- Functions --
+ *
+ * Move (float movement)
+ *  Call this at the end of the 'Update' function
+ *  to move your object.
+ *  - 'float movement', the amount you want to move
+ *    the object left or right.
+ *
+ * Jump ()
+ *  Call this to make your object jump if you are on
+ *  the ground. Jumps straight up.
+ *
+ * JumpUnconditionally ()
+ *  Makes the object jump instantly, even if not on
+ *  the ground.
+ *
+ * CancelJump ()
+ *  Cancels the current jump bringing the player to
+ *  the ground faster.
+ *  This should be called whenever the object is not
+ *  jumping, as in more than once. This deals with 
+ *  the current jump state so it can be called even
+ *  when on the ground with no side effects.
+ * 
+ * Crouch ()
+ *  Makes the object crouch by disabling the
+ *  collider set to the 'crouchDisableCollider'
+ *  variable.
+ *  The object will stay crouched until 'UnCrouch' is
+ *  called.
+ *
+ * UnCrouch ()
+ *  Makes the object un-crouch by enabling the
+ *  collider set to the 'crouchDisableCollider'
+ *  variable.
+ *  If this collider is blocked it will be enabled
+ *  again as soon as it can be.
+ *
+ * -- Variables --
+ * 
+ * bool isGrounded
+ *  Tells you if the object is currently standing on
+ *  the ground.
+ *
+ * bool isJumping
+ *  Tells you if the object is currently jumping.
+ *
+ * bool isFacingLeft
+ *  Tells you if the object is facing left. This is
+ *  defaulted to true, if your object is not facing
+ *  left to start, set the 'Y' rotation to '180'
+ *
+ * bool isFacingRight
+ *  Tells you if the object is facing right. This is
+ *  defaulted to false. If this is the starting
+ *  orientation of your object set the 'Y' rotation
+ *  to '180'.
+ *
+ * bool isCrouching
+ *  Tells you if the object is currently crouching.
+ * 
+ * bool landed
+ *	 Is true if the object landed, meaning it became
+ *	 grounded this frame.
+ *
+ * Vector2 currentVelocity
+ *  Gives you the current X and Y velocities of the
+ *  object. 
+ *
+ * @TODO add tool tips for public variables.
+ * @TODO add raycast wall jumping / jump direction
+ *
+ */
 
 using System.Collections.Generic;
 using UnityEngine;
@@ -118,11 +116,11 @@ public class PlayerController : MonoBehaviour {
 
 	[Header("Settings")]
 
-	// Maximum moved speed
+	// Maximum movement speed
 	public float maxMoveSpeed = 1f;
 	// Can you control the player while jumping / falling
 	public bool canControlInAir;
-	// How big of a jump do you have
+	// How big of a jump the player has
 	public float jumpForce = 1f;
 	// How fast does a jump cancel out
 	[Range(0f, 1f)]
@@ -147,6 +145,7 @@ public class PlayerController : MonoBehaviour {
 
 	[Space]
 
+	// The Rigidbody on the player
 	public Rigidbody2D rb;
 
 	// Readonly variables
@@ -194,7 +193,7 @@ public class PlayerController : MonoBehaviour {
 
 	}
 
-	// Makes the player jump upwards when you can jump
+	// Makes the player jump upwards when it can jump
 	public void Jump() {
 	
 		if(isGrounded) {
