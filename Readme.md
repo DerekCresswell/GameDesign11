@@ -1,7 +1,7 @@
 # Grade 11 Video Game Design
 
 Interested in making your own video games?\
-This is an Open Source game design curriculum built to be used in a classroom enviroment. The course is built for anyone, even complete beginners, to get the core skills of building a game in Unity. There are also resources along to way to help more advanced user to test their skills.\
+This is an Open Source game design curriculum built to be used in a classroom enviroment. The course is built for anyone, even complete beginners, to get the core skills of building a game in Unity. There are also resources along to way to help more advanced users to test their skills.\
 Every topic brought up in these lessons is explained here, no prior knowledge is required.\
 Throughout the course there is opportunity for every type of student to show their skills including Programmers, Artists, Designers, and Musicians.
 
