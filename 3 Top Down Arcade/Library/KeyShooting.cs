@@ -89,8 +89,8 @@ public class KeyShooting : MonoBehaviour {
 		// Make sure the bullet does not hit the player
 		// You may have to change the two collider types depending
 		// on what you are using
-		Physics2D.IgnoreCollision(bullet.GetComponent<CircleCollider2D>(), 
-						GetComponent<BoxCollider2D>());
+		Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), 
+						GetComponent<Collider2D>());
 
 		// Add force to the bullet so it flies off
 		Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
