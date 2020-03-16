@@ -147,10 +147,10 @@ We start by thinking of how the idle state works. Is idle a one time thing or ca
 Well we could at anytime stop moving and become idle and we can be there for as long as we want.\
 With that in mind click the plus sign off to the right of where it says "Parameters". A drop down list will come out with four options. To quote Unity themselves :
 
->*Integer* - a whole number
-*Float* - a number with a fractional part
-*Bool* - true or false value (represented by a checkbox)
-*Trigger* - a boolean parameter that is reset by the controller when consumed by a transition (represented by a circle button)
+>*Integer* - a whole number\
+>*Float* - a number with a fractional part\
+>*Bool* - true or false value (represented by a checkbox)\
+>*Trigger* - a boolean parameter that is reset by the controller when consumed by a transition (represented by a circle button)
 
 `bool` fits our idle state the best. We can have it stay true as long as we want. Let's make a bool and name it "pIdle", for "Player Idle".
 
