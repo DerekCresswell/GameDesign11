@@ -159,7 +159,80 @@ Now we should be able to run into the checkpoint, die, and spawn back at the che
 We will likely need more than one checkpoint so you should turn this one into a prefab. Just drag it from the hierarchy into a new folder called "Prefabs".\
 You can now add as many of these checkpoints as you want to the game. Try it out!
 
-### Checkpoint Manager
+### Managing Multiple Checkpoints
 
 As of now a checkpoint can only be activated once. This is fine if your game was linear and you'd just hit these checkpoints one after another.\
 Now if you wanted a more free form approach we would have to make some changes. Let's do that now.
+
+Here we only want one active checkpoint at a time. We also want to be able to access checkpoints multiple times.\
+We are going to fix this by keeping a link to the last checkpoint and turning it off after we reach a new one. We are going to use a technique that we used when making our data manager script.
+
+Open up the check point script.\
+At the top let's add a new ["static"](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/static) variable for the active checkpoint. Remember for our purposes, static means that the variable is "always there".
+
+```csharp
+public class Checkpoint : MonoBehaviour {
+
+	public Transform spawnAt;
+	public Sprite inactiveSprite;
+	public Sprite activeSprite;
+
+	bool active = false;
+
+	public static GameObject activeCheckpoint;
+```
+
+Here we can now store the last avaliable checkpoint.\
+When we hit a checkpoint we now need to disable the last checkpoint and set the new checkpoint.\
+Head over to your `OnTriggerEnter2D` function. Let's start by disabling our last checkpoint. This means we need to change the sprite to the inactive sprite and the set the `active` bool back to false.
+
+```csharp
+void OnTriggerEnter2D(Collider2D col) {
+
+	if(col.tag == "Player" && !active) {
+
+		// Set this checkpoint as active
+		active = true;
+		GetComponent<SpriteRenderer>().sprite = activeSprite;
+
+		// Set the player's checkpoint
+		PlayerHealth pHealth = col.gameObject.GetComponent<PlayerHealth>();
+		pHealth.spawnPosition = spawnAt.position;
+
+		// Deactivate the last checkpoint
+		activeCheckPoint.GetComponent<Checkpoint>().active = false;
+		activeCheckPoint.GetComponent<Renderer>().sprite = inactiveSprite;
+
+		// Change the active checkpoint variable
+		activeCheckpoint = gameObject;
+
+	}
+
+}
+```
+
+We've only really added those three last lines.\
+Those lines take the last checkpoint and set the sprite and `active` bool. Then lastly we make the checkpoint that was hit the new active checkpoint.
+
+If we play our game now the checkpoints should all update appropriately. That's all great!\
+There is a problem introduced here. Since our `activeCheckpoint` variable does not start with a value we can create an error by starting the game and walk off the ledge before activating any checkpoints.\
+We can solve this fairly easily. We just need to check if `activeCheckpoint` is null before we try to access it.
+
+```csharp
+if(activeCheckPoint != null) {
+	// Deactivate the last checkpoint
+	activeCheckPoint.GetComponent<Checkpoint>().active = false;
+	activeCheckPoint.GetComponent<Renderer>().sprite = inactiveSprite;
+}
+```
+
+That will supress the error.\
+It's important to note that we only want to encapsulate these two lines with the `if` statement.\
+Whether or not if there is currently an active checkpoint we want to set the checkpoint we just hit to the active one. Otherwise we would never be able to set the next checkpoint.
+
+This should be all you need to have a working checkpoint system. If your checkpoint prefab is all update you should be able to drag in checkpoints and they will work right out of the box.
+
+### Optimizing Checkpoints
+
+If you feel extra code happy today we will go over some tips to improve our code and make it faster.\
+One method we have made rather liberal use of here is the `GetComponent` method.
