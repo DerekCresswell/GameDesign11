@@ -49,7 +49,7 @@ The inactive and active sprite should be fairly self explanatory.\
 Lastly, the boolean `active` is just going to give us an easy way to tell if the checkpoint has been activated.
 
 Next we need to handle collisions. Add in the function `OnTriggerEnter2D`.\
-We will inside here we want to check if we collided with the player. We can use tags just like we have before.
+We will inside here we want to check if we collided with the player. We can use tags just like we have before (Here "col" is short for "collider").
 
 ```csharp
 void OnTriggerEnter2D(Collider2D col) {
@@ -201,7 +201,7 @@ void OnTriggerEnter2D(Collider2D col) {
 
 		// Deactivate the last checkpoint
 		activeCheckPoint.GetComponent<Checkpoint>().active = false;
-		activeCheckPoint.GetComponent<Renderer>().sprite = inactiveSprite;
+		activeCheckPoint.GetComponent<SpriteRenderer>().sprite = inactiveSprite;
 
 		// Change the active checkpoint variable
 		activeCheckpoint = gameObject;
@@ -222,7 +222,7 @@ We can solve this fairly easily. We just need to check if `activeCheckpoint` is 
 if(activeCheckPoint != null) {
 	// Deactivate the last checkpoint
 	activeCheckPoint.GetComponent<Checkpoint>().active = false;
-	activeCheckPoint.GetComponent<Renderer>().sprite = inactiveSprite;
+	activeCheckPoint.GetComponent<SpriteRenderer>().sprite = inactiveSprite;
 }
 ```
 
@@ -235,4 +235,137 @@ This should be all you need to have a working checkpoint system. If your checkpo
 ### Optimizing Checkpoints
 
 If you feel extra code happy today we will go over some tips to improve our code and make it faster.\
-One method we have made rather liberal use of here is the `GetComponent` method.
+One method we have made rather liberal use of here is the `GetComponent` method. For what we are doing this will be just fine, but is good for us to know that this method is heavy.\
+What we mean by that is simply that it takes a lot of processing power compared to something like adding.
+
+At this point you are unlikely to be noticing any preformance issues but as a game grows, using `GetComponent` can start to wear down on it.\
+Let's improve our script to be more stream lined.
+
+To start we will look at our code.
+
+```csharp
+void OnTriggerEnter2D(Collider2D col) {
+
+	if(col.tag == "Player" && !active) {
+
+		// Set this checkpoint as active
+		active = true;
+		GetComponent<SpriteRenderer>().sprite = activeSprite;
+
+		// Set the player's checkpoint
+		PlayerHealth pHealth = col.gameObject.GetComponent<PlayerHealth>();
+		pHealth.spawnPosition = spawnAt.position;
+
+		// Deactivate the last checkpoint
+		activeCheckPoint.GetComponent<Checkpoint>().active = false;
+		activeCheckPoint.GetComponent<SpriteRenderer>().sprite = inactiveSprite;
+
+		// Change the active checkpoint variable
+		activeCheckpoint = gameObject;
+
+	}
+
+}
+```
+
+As you can see we make four calls with `GetComponent`. One to the `SpriteRenderer` on the checkpoint on this script. One to `PlayerHealth` on the player. Then two more to the `SpriteRenderer` of the last checkpoint and the actual `Checkpoint` script of it.\
+We can get this down to just one call.\
+This script is on a checkpoint. That checkpoint will always have our renderer so we can make it a reference.\
+We do this just by adding a `public SpriteRenderer` to the script.
+
+```csharp
+public class Checkpoint : MonoBehaviour {
+
+	public Transform spawnAt;
+	public Sprite inactiveSprite;
+	public Sprite activeSprite;
+
+	public SpriteRenderer renderer;
+
+	bool active = false;
+
+	public static GameObject activeCheckpoint;
+```
+
+Now we can use that in place of the `GetComponent` call. Of course before you play the scene you need to drag the SpriteRenderer from the inspector into the variable's spot.
+
+```csharp
+void OnTriggerEnter2D(Collider2D col) {
+
+	if(col.tag == "Player" && !active) {
+
+		// Set this checkpoint as active
+		active = true;
+		renderer.sprite = activeSprite;
+
+		// Omitted for brevity
+
+	}
+
+}
+```
+
+One down.\
+The sharp eye may already notice where the next comes from.\
+If `renderer` is now a variable on `Checkpoint` that means we can use it on every `Checkpoint` script.\
+That means when we get the `Checkpoint` of the last checkpoint we should store it to a variable before we use it to set the `active` variable. Then we can access it twice.
+
+```csharp
+void OnTriggerEnter2D(Collider2D col) {
+
+	if(col.tag == "Player" && !active) {
+
+		// Omitted for brevity
+
+		// Deactivate the last checkpoint
+		Checkpoint lastCheckpoint = activeCheckPoint.GetComponent<Checkpoint>();
+		lastCheckpoint.active = false;
+		lastCheckpoint.renderer.sprite = inactiveSprite;
+
+		// Change the active checkpoint variable
+		activeCheckpoint = gameObject;
+
+	}
+
+}
+```
+
+There we go, that should be down to just two.\
+We cannot get rid of the `GetComponent` for the player's health (without making our code messy) so we'll have to get rid of this last call for `Checkpoint`.
+
+The secret here is in the `lastCheckpoint` variable. Currently this a `GameObject`. We had this because we needed to get both the `Checkpoint` and `SpriteRenderer`. Now that the renderer is actually on the `Checkpoint` script we can replace this `GameObject` variable with a `Checkpoint`.
+
+```csharp
+public static Checkpoint activeCheckPoint;
+```
+
+Now we no longer need to use `GetComponent` for that variable. So this :
+
+```csharp
+Checkpoint lastCheckpoint = activeCheckPoint.GetComponent<Checkpoint>();
+lastCheckpoint.active = false;
+lastCheckpoint.renderer.sprite = inactiveSprite;
+```
+
+Becomes :
+
+```csharp
+activeCheckPoint.active = false;
+activeCheckPoint.renderer.sprite = inactiveSprite;
+```
+
+We can't forget though that we have to set the `activeCheckpoint` to the checkpoint that was just hit.\
+At the end of the `OnTriggerEnter2D` do this :
+
+```csharp
+// Change the active checkpoint variable
+activeCheckpoint = this;
+```
+
+You might not have seen this before (that was an intential pun).\
+`this` refers to the current class your code is in. In our case this is the `Checkpoint` script.\
+Since `this` refers to the instance of the class, it doesn't matter which checkpoint we hit, the `activeCheckpoint` will be set to the checkpoint we just hit.
+
+That should be it. Now our code is optimized!\
+Again, this likely wasn't necessary as the game was not lagging but the skill of identifying and improving our code is essential to progress.\
+It also simply helps build good habits.
