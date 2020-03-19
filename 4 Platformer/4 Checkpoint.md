@@ -256,9 +256,11 @@ void OnTriggerEnter2D(Collider2D col) {
 		PlayerHealth pHealth = col.gameObject.GetComponent<PlayerHealth>();
 		pHealth.spawnPosition = spawnAt.position;
 
-		// Deactivate the last checkpoint
-		activeCheckPoint.GetComponent<Checkpoint>().active = false;
-		activeCheckPoint.GetComponent<SpriteRenderer>().sprite = inactiveSprite;
+		if(activeCheckPoint != null) {
+			// Deactivate the last checkpoint
+			activeCheckPoint.GetComponent<Checkpoint>().active = false;
+			activeCheckPoint.GetComponent<SpriteRenderer>().sprite = inactiveSprite;
+		}
 
 		// Change the active checkpoint variable
 		activeCheckpoint = gameObject;
@@ -318,9 +320,11 @@ void OnTriggerEnter2D(Collider2D col) {
 		// Omitted for brevity
 
 		// Deactivate the last checkpoint
-		Checkpoint lastCheckpoint = activeCheckPoint.GetComponent<Checkpoint>();
-		lastCheckpoint.active = false;
-		lastCheckpoint.renderer.sprite = inactiveSprite;
+		if(activeCheckPoint != null) {
+			Checkpoint lastCheckpoint = activeCheckPoint.GetComponent<Checkpoint>();
+			lastCheckpoint.active = false;
+			lastCheckpoint.renderer.sprite = inactiveSprite;
+		}
 
 		// Change the active checkpoint variable
 		activeCheckpoint = gameObject;
