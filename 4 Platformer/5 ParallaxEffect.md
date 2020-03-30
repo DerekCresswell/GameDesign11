@@ -24,30 +24,49 @@ One of the main parts of parallax is that it has to do with moving objects. This
 Of course we must start with creating a script for this. We should call it "Parallax". Open that up.\
 First we need that object to track. You may jump straight to the player but this isn't what we want to do.\
 Sinze parallax is purely a visual effect we actually want to track the camera. It's possible that your camera does not match your player's movement exactly (like if you are using the camera script from the [last unit](../3%20Top%20Down%20Arcade/Library/CameraFollow.cs)).\
-The method is still the same, add a public `GameObject` to the top of our script. Let's also add a comment reminding us to use the camera also.
+The method is still the same, add a public `Transform` to the top of our script. Let's also add a comment reminding us to use the camera also.
 
 ```csharp
 public class Parallax : Monobehaviour {
 
 	// Make sure to track the camera
-	public GameObject objectToFollow;
+	public Transform objectToFollow;
 
 }
 ```
 
 Now our object should move based on the player. But it should actually be oppisite of the player. That makes it a little bit different.\
-We are actually going to have to move based on the difference in the objects movement. To do this we need to know where the object was last frame. We should store that data now.
+First we will store our current position to a variable so we can edit it. Then we change the `x` direction to the *negative* of the object we are following's `x` position.\
+Then we set our position back to our position variable. That should look like this :
 
 ```csharp
-public Vector3 lastObjectPosition;
-
 void Update() {
 
-	lastObjectPosition = objectToFollow.position;
+	Vector3 nextPosition = transform.position;
+	nextPosition.x = -objectToFollow.x;
+
+	transform.position = nextPosition;
 
 }
 ```
 
-As we move forward, this must be kept as the last thing in the `Update` function.
+Now if you go back to your game and attach this to the backgroud object. You will see this now move oppisite to the player. This is most of the way to what we want.\
+Next thing is to make this move at a slower speed.\
+This can be acheived with a simple multiplication. Add a public `float` called "relativeSpeed" and then multiply our x position by that.
 
-// Mention tracking a holder rather then individual objects
+```csharp
+public float relativeSpeed;
+
+void Update() {
+
+	Vector3 nextPosition = transform.position;
+	nextPosition.x = -objectToFollow.x * relativeSpeed;
+
+	transform.position = nextPosition;
+
+}
+```
+
+Now in the editor set that variable to something between `0` and `1`. The object will now appear to move as if it is very far in the background.
+
+// Mention tracking a holder rather then individual objects, repeat background
