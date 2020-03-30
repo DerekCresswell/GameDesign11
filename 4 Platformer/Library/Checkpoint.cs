@@ -1,21 +1,21 @@
 /*
  * ___________________________________________________
- * 
- *                     GameDesign11 
+ *
+ *                     GameDesign11
  * ___________________________________________________
  *  An intro to 2D Game Design using the Unity Engine
- * 
+ *
  * Author: DerekCresswell
  * https://github.com/DerekCresswell/GameDesign11
- * 
+ *
  * A basic way to setup a dynamic checkpoint system.
  *
  */
 
-/* 
+/*
  *
  * --- What You Need To Do ---
- *  
+ *
  * Ensure this object has a 2D collider that is a
  * trigger.
  *
@@ -53,21 +53,21 @@ public class Checkpoint : MonoBehaviour {
 
 			// Set this checkpoint to be active
 			active = true;
-			SpriteRenderer.sprite = activeSprite;
+			renderer.sprite = activeSprite;
 
 			// Set the player's spawn point
 			// You may need to change this based on how your
 			// player's health script works or how the variables
 			// are named
-			PlayerHealth pHealth = col.gameObject.GetComponent<PlayerHealth>();
+			PlayerHealth pHealth = collider.gameObject.GetComponent<PlayerHealth>();
 			pHealth.spawnPosition = spawnAt.position;
 
 			if(lastCheckpoint != null) {
-				
+
 				// Deactivate the last checkpoint
 				lastCheckpoint.active = false;
 				lastCheckpoint.renderer.sprite = lastCheckpoint.inactiveSprite;
-			
+
 			}
 
 			// Set the new active checkpoint
