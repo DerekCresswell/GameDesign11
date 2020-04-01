@@ -69,4 +69,12 @@ void Update() {
 
 Now in the editor set that variable to something between `0` and `1`. The object will now appear to move as if it is very far in the background.
 
-// Mention tracking a holder rather then individual objects, repeat background
+// Repeat background
+
+## On Your Own
+
+Here we have parallax working in the X dimension. The thing is, parallax also applies to the Y dimension. We won't go over that here though. But if your platformer will have a lot of verticality you may want to implement this.\
+The method for this will be almost the exact same so go ahead and try it out!
+
+Another great thing to note is that by setting the relative speed of an object above `1` the object will appear to zoom by faster than the player is moving.\
+We can use this to make things appear closer to the camera than the player. For instance, if your player was supposed to be really fast you might want to have some trees that zoom past in front of the player. This can really enhance the look of the game, just make sure they don't block the camera.
