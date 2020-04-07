@@ -7,7 +7,7 @@ Here we will create a script that simulates the parallax effect.
 First off, what is parallax?\
 Well according to [Wikipedia](https://en.wikipedia.org/wiki/Parallax_scrolling) the parallax effect (in the article it's called parallax scrolling) is :
 
-> a technique in computer graphics where background images move past the camera more slowly than foreground images, creating an illusion of depth in a 2D scene and adding to the sense of immersion in the virtual experience.
+> A technique in computer graphics where background images move past the camera more slowly than foreground images, creating an illusion of depth in a 2D scene and adding to the sense of immersion in the virtual experience.
 
 To put it another way. We want to make our background look like it's actually far away.\
 The main way to achieve this is to make that background move slowly.\
@@ -15,7 +15,22 @@ This creates the same effect as looking into the distance on a car trip. The tre
 
 This is purely asethetic for our game but if you use it correctly it is a really going to make your game look better. Let's set off to create this.
 
-// Create world mountatins first
+### Creating A Background
+
+Of course we need to have a background before we can move it. We can quickly do this with our [Tile Editor](./3%20TileEditor.md) which we used a few lessons ago.\
+To start create a new "Tilemap" object where we will put our background. This must be on a seperate object from our previous maps. Then we just need to make something pretty to be in our background. In this case we'll do some mountains but feel free to do you own thing.\
+
+// Img needed
+
+To demonstrate our effect better we should add a few more layers to this. Create another "Tilemap" object and create a slightly closer and smaller background. In the case of mountains, we'd now be making hills.\
+Repeat this process one more time so that we have three layers of our background. This will make the parallax effect look much better than with a single layer.
+
+// Img Needed
+
+*Note*\
+Make sure you position the `z` of these objects so that the smallest is in the front.
+
+With those ready we can begin to write some code to simulate the parallax effect.
 
 ### Tracking An Object
 
@@ -50,7 +65,7 @@ void Update() {
 }
 ```
 
-Now if you go back to your game and attach this to the backgroud object. You will see this now move oppisite to the player. This is most of the way to what we want.\
+Now if you go back to your game and attach this to the furthest back backgroud object. You will see this now move oppisite to the player. This is most of the way to what we want.\
 Next thing is to make this move at a slower speed.\
 This can be acheived with a simple multiplication. Add a public `float` called "relativeSpeed" and then multiply our x position by that.
 
@@ -68,6 +83,13 @@ void Update() {
 ```
 
 Now in the editor set that variable to something between `0` and `1`. The object will now appear to move as if it is very far in the background.
+
+#### Multiple Layers
+
+After we've got that working on one of the layers in our background it is time to get it working with all three layers we created.\
+To start, each layer will be moving at a different speed. This is just like looking out a car window. The trees seem to move very fast where as the mountains, further away, appear to be very slow.\
+Add the script to each layer of the background and set the relative speed so the the backgrounds have three unique values with the closest background object's value being the closest to `1`.\
+After setting each of these to track the camera you should be able to play the game and see our backgrounds nicely moving at a relative speeds to their distance from the player.
 
 // Repeat background
 
