@@ -16,7 +16,8 @@ That is quite the array of skills. Of course, go back a re-read the lessons for 
 Onto our second to last game in this whole curriculum, that's exciting.\
 Here we want to create a platformer. Examples include games like Mario or Mega Man.
 
-Just like with [the Top Down Game](../3%20Top%20Down%20Arcade) there is no single template for the game. Of course, you can use any of the scripts from the [library folder](./Library) to help you along the way. Don't forget that many scripts from the [last unit](../3%20Top%20Down%20Arcade/Library) will work with little to no tweaking.
+Just like with [the Top Down Game](../3%20Top%20Down%20Arcade) there is no single template for the game. Of course, you can use any of the scripts from the [library folder](./Library) to help you along the way. Don't forget that many scripts from the [last unit](../3%20Top%20Down%20Arcade/Library) will work with little to no tweaking.\
+Also, you still do not need to make your own art for this game. You may if you want, but only if you still have a game beneath that art. When searching for assets you may find it easier to use a full "sprite sheet" rather than finding a single sprite you like the look of and trying to find more animations of it.
 
 Now it's time for the creative part. You can plan and create your game in any way you want to. As always, don't be stuck with just what we've gone over here, take a chance and try to build something unique.
 
