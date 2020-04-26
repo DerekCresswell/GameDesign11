@@ -20,12 +20,13 @@ This is purely asethetic for our game but if you use it correctly it is a really
 Of course we need to have a background before we can move it. We can quickly do this with our [Tile Editor](./3%20TileEditor.md) which we used a few lessons ago.\
 To start create a new "Tilemap" object where we will put our background. This must be on a seperate object from our previous maps. Then we just need to make something pretty to be in our background. In this case we'll do some mountains but feel free to do you own thing.\
 
-// Img needed
+![BasicBackground](Images/BasicBackground.JPG)
 
+Of course we don't need to use a Tilemap to do this, in the future it could just be a sprite. Since we've just learned about this great tool that is the Tile Editor we will be using it here.\
 To demonstrate our effect better we should add a few more layers to this. Create another "Tilemap" object and create a slightly closer and smaller background. In the case of mountains, we'd now be making hills.\
 Repeat this process one more time so that we have three layers of our background. This will make the parallax effect look much better than with a single layer.
 
-// Img Needed
+![LayeredBackground](Images/LayeredBackground.JPG)
 
 *Note*\
 Make sure you position the `z` of these objects so that the smallest is in the front.
