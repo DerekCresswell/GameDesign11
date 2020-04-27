@@ -51,7 +51,7 @@ public class Parallax : Monobehaviour {
 }
 ```
 
-Now our object should move based on the player. But it should actually be oppisite of the player. That makes it a little bit different.\
+Now our object should move based on the player. But it should actually be opposite of the player. That makes it a little bit different.\
 First we will store our current position to a variable so we can edit it. Then we change the `x` direction to the *negative* of the object we are following's `x` position.\
 Then we set our position back to our position variable. That should look like this :
 
@@ -59,14 +59,14 @@ Then we set our position back to our position variable. That should look like th
 void Update() {
 
 	Vector3 nextPosition = transform.position;
-	nextPosition.x = -objectToFollow.x;
+	nextPosition.x = -objectToFollow.position.x;
 
 	transform.position = nextPosition;
 
 }
 ```
 
-Now if you go back to your game and attach this to the furthest back backgroud object. You will see this now move oppisite to the player. This is most of the way to what we want.\
+Now if you go back to your game and attach this to the furthest back backgroud object. You will see this now move opposite to the player. This is most of the way to what we want.\
 Next thing is to make this move at a slower speed.\
 This can be acheived with a simple multiplication. Add a public `float` called "relativeSpeed" and then multiply our x position by that.
 
@@ -76,7 +76,7 @@ public float relativeSpeed;
 void Update() {
 
 	Vector3 nextPosition = transform.position;
-	nextPosition.x = -objectToFollow.x * relativeSpeed;
+	nextPosition.x = -objectToFollow.position.x * relativeSpeed;
 
 	transform.position = nextPosition;
 
