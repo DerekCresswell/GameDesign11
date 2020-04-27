@@ -44,7 +44,7 @@ public class Checkpoint : MonoBehaviour {
 }
 ```
 
-The first one, `spawnAt`, is going to be where we want to spawn the player. This might not be right on the flag so having this allows us to just place them nearby.\
+The first one, `spawnAt`, is going to be where we want to spawn the player. This might not be right on the flag so having this be a `Transform` allows us to just place them nearby.\
 The inactive and active sprite should be fairly self explanatory.\
 Lastly, the boolean `active` is just going to give us an easy way to tell if the checkpoint has been activated.
 
@@ -124,7 +124,7 @@ Last thing is to add in the `spawnPosition` variable. This will be a `Vector3`. 
 That'll look like this :
 
 ```csharp
-public Transform spawnPosition;
+public Vector3 spawnPosition;
 
 void Start() {
 	spawnPosition = transform.position;
