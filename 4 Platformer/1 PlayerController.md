@@ -10,7 +10,7 @@ Let's go through the basics of setting up an input controller for our script.
 
 ### Object Setup
 
-First things first, drag the ["PlayerController"](./Library/PlayerController.cs) script into your s cripts folder (or just copy the contents and make sure to name the file exactly the same).
+First things first, drag the ["PlayerController"](./Library/PlayerController.cs) script into your scripts folder (or just copy the contents and make sure to name the file exactly the same).
 
 Now create a new object for your player.\
 To start let's give this a sprite. You could just use the [box](../1%20Rube%20GoldBerg%20Machine/Assets/WhiteBox.png) and [circle](../1%20Rube%20GoldBerg%20Machine/Assets/WhiteCircle.png) sprites we have been using.\
