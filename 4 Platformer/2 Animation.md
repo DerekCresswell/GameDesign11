@@ -38,7 +38,7 @@ This is the first part of Unity's animation system. The actual animation clip, o
 
 To start we need to replace the sprite from the [last lesson](./1%20PlayerController.md) with our new one.\
 Do this by expanding the arrow on the side of the sprite in the folders and drag the very first one into the player's sprite in the inspector.\
-Now this will mess up the colliders. You will need to adjust these **and** the ground check point. Once that's done you may have a object like this :
+Now this will mess up the colliders so you will have to readjust them. Once that's done you may have a object like this :
 
 ![ReadjustedColliders](Images/ReadjustedColliders.JPG)
 
