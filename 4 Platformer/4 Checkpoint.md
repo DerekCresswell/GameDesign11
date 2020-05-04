@@ -219,10 +219,10 @@ There is a problem introduced here. Since our `activeCheckpoint` variable does n
 We can solve this fairly easily. We just need to check if `activeCheckpoint` is null before we try to access it.
 
 ```csharp
-if(activeCheckPoint != null) {
+if(activeCheckpoint != null) {
 	// Deactivate the last checkpoint
-	activeCheckPoint.GetComponent<Checkpoint>().active = false;
-	activeCheckPoint.GetComponent<SpriteRenderer>().sprite = inactiveSprite;
+	activeCheckpoint.GetComponent<Checkpoint>().active = false;
+	activeCheckpoint.GetComponent<SpriteRenderer>().sprite = inactiveSprite;
 }
 ```
 
@@ -258,8 +258,8 @@ void OnTriggerEnter2D(Collider2D col) {
 
 		if(activeCheckPoint != null) {
 			// Deactivate the last checkpoint
-			activeCheckPoint.GetComponent<Checkpoint>().active = false;
-			activeCheckPoint.GetComponent<SpriteRenderer>().sprite = inactiveSprite;
+			activeCheckpoint.GetComponent<Checkpoint>().active = false;
+			activeCheckpoint.GetComponent<SpriteRenderer>().sprite = inactiveSprite;
 		}
 
 		// Change the active checkpoint variable
@@ -320,8 +320,8 @@ void OnTriggerEnter2D(Collider2D col) {
 		// Omitted for brevity
 
 		// Deactivate the last checkpoint
-		if(activeCheckPoint != null) {
-			Checkpoint lastCheckpoint = activeCheckPoint.GetComponent<Checkpoint>();
+		if(activeCheckpoint != null) {
+			Checkpoint lastCheckpoint = activeCheckpoint.GetComponent<Checkpoint>();
 			lastCheckpoint.active = false;
 			lastCheckpoint.renderer.sprite = inactiveSprite;
 		}
@@ -340,13 +340,13 @@ We cannot get rid of the `GetComponent` for the player's health (without making 
 The secret here is in the `lastCheckpoint` variable. Currently this a `GameObject`. We had this because we needed to get both the `Checkpoint` and `SpriteRenderer`. Now that the renderer is actually on the `Checkpoint` script we can replace this `GameObject` variable with a `Checkpoint`.
 
 ```csharp
-public static Checkpoint activeCheckPoint;
+public static Checkpoint activeCheckpoint;
 ```
 
 Now we no longer need to use `GetComponent` for that variable. So this :
 
 ```csharp
-Checkpoint lastCheckpoint = activeCheckPoint.GetComponent<Checkpoint>();
+Checkpoint lastCheckpoint = activeCheckpoint.GetComponent<Checkpoint>();
 lastCheckpoint.active = false;
 lastCheckpoint.renderer.sprite = inactiveSprite;
 ```
