@@ -71,17 +71,19 @@ That should be it for the object setup. Changing the other values is just up to 
 
 ### World Setup
 
-To move around a world we obviously need a world. Let's create a few platforms to start. Remember that anything the player walks on needs to have a 2D collider and be on the ground layer.
+To move around a world we obviously need a world. Let's create a few platforms to start. Remember that anything the player walks on needs to have a 2D collider **and** be part of the ground layer.
 
 ![BasicWorld](Images/BasicWorld.JPG)
 
-As you can see we've set up a couple platforms to test our movement in. On the right you see a basic ground block. It would be easiest to make that a prefab and place those into the scene.
+As you can see we've set up a couple platforms to test our movement in. On the right you see a basic ground block. It would be easiest to make that a prefab and place those into the scene rather than making a new block every time.\
+If you want to then change the shape of the block just modify the "Scale" of the Transform.
 
 With that all set up we can begin to create a script that captures input to move this controller.
 
 ### Input Controller
 
-Time to create a script to capture our input and forward it to the `PlayerController`.
+As stated [before](#using-the-playercontroller), the controller deals with all of the physics of how the character will move. You are still responsible to tell it what to do.\
+Here we will begin to create an "input controller" which we use to forward player input to our PlayerController.
 
 #### Movement
 
@@ -100,6 +102,8 @@ To start we need a reference of the current `PlayerController` which we can do b
 ```csharp
 public PlayerController pCont;
 ```
+
+We will use this to access the controller on our player.
 
 Just like other `public` variables we will set this in the editor by dragging in the `PlayerController` of the player object into it.\
 Now as the note in the controller says we need to call `Move()` once per update in our input script. Let's do that.
@@ -176,7 +180,7 @@ Don't worry there is a function for that.
  *  the ground.
 ```
 
-This does the same thing as the `Jump` function but doesn't care about the ground.\
+This does the same thing as the `Jump` function but doesn't care about whether the player is on the ground.\
 Replace `pCont.Jump();` with `pCont.JumpUnconditionally();` in your script. Now you can double jump... and triple jump... and quadruaple jump and on. Not the most desirable results.\
 If we only want to jump a certain amount of times we need to set that up. We will need to keep track of how many jumps we have done in the current jump.
 
@@ -321,6 +325,6 @@ As mentioned [earlier](#movement) the [PlayerController](./Library/PlayerControl
 They are all listed with a description of how to use them and what they do. We went through most but not all in this lesson. It would be very useful to look through all of the functionality in here as it can be useful when trying to create new features for your game.
 
 *Note*\
-The public functions, such as `maxMoveSpeed` are not listed in the API but can still be accessed.\
+The public variables, such as `maxMoveSpeed` are not listed in the API but can still be accessed for information.\
 They are not listed as they do not usually have the same uses as, say, `isCrouching`. The former being a setting and the latter being a status.\
-Seeing as the "settings" are still public variables we can use them the same as the "statuses" plus we can modify the "settings" directly. This could be useful for applying a slow to the character or giving them a jump power-up perhaps.
+Seeing as the "settings" are still public variables we can use them the same as the "statuses" plus we can modify the "settings" directly. This could be useful for applying a slow to the character or perhaps giving them a jump power-up.
