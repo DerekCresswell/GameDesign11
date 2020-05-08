@@ -92,7 +92,28 @@ To start, each layer will be moving at a different speed. This is just like look
 Add the script to each layer of the background and set the relative speed so the the backgrounds have three unique values with the closest background object's value being the closest to `1`.\
 After setting each of these to track the camera you should be able to play the game and see our backgrounds nicely moving at a relative speeds to their distance from the player.
 
-// Repeat background
+### Repeating Backgrounds
+
+**Caution**\
+This section is going to be more complex than what we have already done. We encourage you too try going through this but if it feels too complex do not worry, you are free to move on to the [next section](#on-your-own).
+
+What you may notice if your levels are very long or background is very small is that the parallax will reveal the edge of the sprite.\
+This obviously looks really bad and we need to fix it. The easiest solution is to get a bigger background or simply increase the scale of this image.\
+While this could work it probably is not the best looking thing now and technically you could reach the end of the background.\
+To fix this issue we need to tile our background.
+
+The goal here is that when our player reaches the edge of the background we create a new background tile so that it appears to be unending.\
+There are quite a few moving parts to this operation so let's just get started.
+
+#### Setting Up Tiles
+
+#### Detecting Player Position
+
+#### Sorting Positions
+
+#### Moving The Tiles
+
+// In Progress
 
 ## On Your Own
 
