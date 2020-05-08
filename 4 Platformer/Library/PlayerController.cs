@@ -5,7 +5,7 @@
  * ___________________________________________________
  *  An intro to 2D Game Design using the Unity Engine
  * 
- * Author: DerekCresswell
+ * Author: Derek Cresswell
  * https://github.com/DerekCresswell/GameDesign11
  * 
  * A simple 2D controller to move an object in a 

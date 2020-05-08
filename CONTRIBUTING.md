@@ -35,7 +35,7 @@ The script must also contain the following at the top :
  * ___________________________________________________
  *  An intro to 2D Game Design using the Unity Engine
  * 
- * Author: DerekCresswell & Contributors
+ * Author: Derek Cresswell & Contributors
  * https://github.com/DerekCresswell/GameDesign11
  * 
  * Add a description about what this script will do.
