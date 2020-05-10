@@ -107,6 +107,28 @@ There are quite a few moving parts to this operation so let's just get started.
 
 #### Setting Up Tiles
 
+Now for this technique to work we need to make sure that one "section" of our background can fill the entire screen, as in you can't see either edge. We also need the edges to link up to each other so they can be repeated.\
+If you are using the tile editor this should be fairly simple we just need to make both edges of the background line up at the same height.\
+If you are using a sprite as the background that might be a little harder. Unless the background is made to be tiled it will have an obvious break in it.
+
+For the method outlined here we will always have three copys of the background. There is one that the player is in line with and then one in front and behind it that.\
+When making these three objects we need to first put them in an empty object. This is great for organization and will help with our script.
+
+// Img needed
+
+It should look something like this :
+
+// Img needed
+
+*Note*\
+To make our scene more simple we've disabled the other backgrounds.
+
+Now that we have that set up let's talk about how we are going to create the illusion of an infinite background.\
+The idea is that we always want the player to be in the middle of these three tiles. We can't simply move them along with the player as that would ruin the parallax effect we've just made.\
+When the player gets to the edge of the "middle" tile we want to move the tile on the end to be in front of the player. That looks something like this :
+
+// Drawing needed
+
 #### Detecting Player Position
 
 #### Sorting Positions
