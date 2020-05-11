@@ -170,6 +170,65 @@ If you'd like a little more detail, try looking this up in the [documentation](h
 
 With this we can begin to find out where the player is in relation to tiles. This will require a little bit of math. We all love math right?
 
+To start we are going to add the following to our `Update` function for convenience.
+
+```csharp
+void Update() {
+
+	float playerX = player.position.x;
+	float middleTileX = middleTile.transform.position.x;
+
+}
+```
+
+These are both here just to make it easier to write the rest of the code.\
+Next thing we need to do is find out the left and right bound of the middle tile. What that means is we need to know the left most and right most point on the tile. Like so :
+
+// drawing needed
+
+With a little bit of math we can see that to get the left most position of the tile we need to go from the middle (the X position) to the left by half of the size. The right is the same.\
+Let's add these as variables :
+
+```csharp
+void Update() {
+
+	float playerX = player.position.x;
+	float middleTileX = middleTile.transform.position.x;
+
+	float leftBound = middleTileX - size / 2;
+	float rightBound = middleTileX + size / 2;
+
+}
+```
+
+Now we have everything we need to figure out where the player is.\
+Let's add some logging to see if this is working correctly. In the `Update` function add this :
+
+```csharp
+if(playerX < leftBound) {
+
+	// The player is over the left tile
+	Debug.Log("Left");
+
+} else if(playerX > rightBound) {
+
+	// The player is over the right tile
+	Debug.Log("Right");
+
+} else {
+
+	// The player is in the middle
+	Debug.Log("Middle");
+
+}
+```
+
+Now when we play our game we should be able to see in the console which tile we are over top.\
+If your tiles are very large you may want to try out moving your player in the scene view while the game is running. That way you can verify if this is working without running to the ends of the world.\
+Another tip, to easily identify your tiles, color the left and right tiles two different colors using the `SpriteRenderer` component on them.
+
+Once our player position is detected properly we can move onto sorting the positions of our tiles.
+
 #### Sorting Positions
 
 #### Moving The Tiles
