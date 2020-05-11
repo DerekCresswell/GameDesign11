@@ -116,6 +116,7 @@ When making these three objects we need to first put them in an empty object. Th
 
 // Img needed
 
+This holder object is the one you should now put the parallax script on.\
 It should look something like this :
 
 // Img needed
@@ -129,7 +130,45 @@ When the player gets to the edge of the "middle" tile we want to move the tile o
 
 // Drawing needed
 
+There is a lot to this so we are going to break this down into a few parts.
+
 #### Detecting Player Position
+
+The first thing we need to do to accomplish the goal here is to figure out which tile our player is over.\
+Make a new script and put it onto the holder for our background tiles. Let's call it "TileManager". For the rest of this section we will be referring to this pieces of background as tiles.
+
+In our script we need to have a reference to each one of these objects. Add these as `public GameObject` variables.
+
+```csharp
+public class TileManager : Monobehaviour {
+
+	public GameObject leftTile;
+	public GameObject middleTile;
+	public GameObject rightTile;
+
+}
+```
+
+These will be set according to their names.\
+Of course, we also need to track the player's position. add a `public Transform player` to the script. We want this to be a Transform as all we will need is the player's position and not other components.
+
+What we want to do here is decide if the player is over the left, middle, or right tile so we need to know how big a tile is.\
+In order to do this we must know how big the tile is. We of course could guess at this or if we used the tile editor to make your background piece we could count the tiles.\
+While either of these work they really are not ideal. We can fix this with two lines of code.
+
+```csharp
+private float size;
+
+void Start() {
+	size = middleTile.GetComponent<Renderer>().bounds.size.x;
+}
+```
+
+What is going on here? We are storing a float the length of one tile. We get this value from the size of the renderer that is showing us the tile.\
+Because this value will not change we only need to put this code into the `Start` function.\
+If you'd like a little more detail, try looking this up in the [documentation](https://docs.unity3d.com/ScriptReference/Renderer.html).
+
+With this we can begin to find out where the player is in relation to tiles. This will require a little bit of math. We all love math right?
 
 #### Sorting Positions
 
