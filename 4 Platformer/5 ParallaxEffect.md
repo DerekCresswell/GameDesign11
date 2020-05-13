@@ -231,6 +231,68 @@ Once our player position is detected properly we can move onto sorting the posit
 
 #### Sorting Positions
 
+Knowing the position of our player allows the next step of this process to be completed.\
+We wanted to make sure the tile our player is over is always the middle tile, this means we need to switch around which tile is set as the middle tile.
+
+Let's start with the left side.\
+When the player moves onto the left tile we need to "shift" our tiles around like so :
+
+// Drawing needed
+
+As you can see, the left becomes the middle, the middle becomes the right, and the right becomes the left. To do this we simply need to swap around the values of our three tiles.
+
+```csharp
+if(playerX < leftBound) {
+
+	// The player is over the left tile
+	middleTile = leftTile;
+	rightTile = middleTile;
+	leftTile = rightTile;
+
+}
+```
+
+Wait a minute, do you see the problem here?\
+If we set the value of the middle tile, we've entirely lost the original value of the middle tile. This means setting the right tile will not work.\
+Let's use a temporary variable and change the order to solve this problem.
+
+```csharp
+if(playerX < leftBound) {
+
+	// The player is over the left tile
+	GameObject tempTile = leftTile;
+	leftTile = rightTile;
+	rightTile = middleTile;
+	middleTile = tempTile;
+
+}
+```
+
+By changing the order and using one temporary variable we are able to succesfully swap these tiles around.
+
+Now the right side is very similar just in a different order.
+
+// Drawing needed
+
+In this case, the right becomes the middle, the middle becomes the left, and the left becomes the right.
+
+```csharp
+if(playerX > rightBound) {
+
+	// The player is over the right tile
+	GameObject tempTile = leftTile;
+	leftTile = middleTile;
+	middleTile = rightTile;
+	rightTile = tempTile;
+
+}
+```
+
+That should do it!\
+You'll see that we actually don't need anything to happen if we are over the middle tile. This makes sense because if we are over the middle tile then the tiles are in the position we want them in.
+
+Next we just need to start moving the tiles into the correct positions.
+
 #### Moving The Tiles
 
 // In Progress
