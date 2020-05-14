@@ -295,7 +295,44 @@ Next we just need to start moving the tiles into the correct positions.
 
 #### Moving The Tiles
 
-// In Progress
+All the tiles should now switch to the appropriate spots within our script so it's time to actually move them in game.\
+This is going to require a bit more math. Let's look at a drawing of what we want to happen.
+
+// Drawing needed
+
+When our player moves onto a new section of tile we need to move the another tile. If we've moved to the left the right tile must move. If we move to the right the left tile must move.\
+The amount they should move should be appearent from the drawing. The tile needs to move one "size" from the middle tile. The direction depends on the direction we moved.
+
+We want to move the blocks right after where we switch around the tiles. Let's start with the left.\
+Remember, since we've already switched tiles around we need to edit the "new" left one.
+
+```csharp
+if(playerX < leftBound) {
+
+	// The player is over the left tile
+	GameObject tempTile = leftTile;
+	leftTile = rightTile;
+	rightTile = middleTile;
+	middleTile = tempTile;
+
+	// Move the left tile to it's new position
+	Vector3 newPosition = leftTile.transform.position;
+	newPosition.x = middleTile.position.x - size;
+	leftTile.transform.position = newPosition;
+
+}
+```
+
+What we've added here is going to move our tiles to the right positions.\
+We need to move the left tile because that was the one that used to be all the way on the right.\
+Then we are moving that tile by first storing it's current position in a variable. Then we edit the x of that position to the new position, which is the middle's position minus one "size".\
+Finally we set the position of the tile to the new position.
+
+To make this for the right side it's the same except you are going to be changing the right tile's position and you'll be adding the size to the middle's position.
+
+That should be that. You should now be able to have your background "tile" or repeat as your players run off into the sunset.
+
+There is also a copy of this script in [the library](Library/RepeatingBackground.cs).
 
 ## On Your Own
 
