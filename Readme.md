@@ -13,6 +13,9 @@ This is an intro level course to help you get familiar with the [Unity Engine](h
 The Unity Engine is a free Game Engine that anyone can learn to use and make awesome games with.\
 This course features five total units with in depth tutorials for each. They aim to give you an understanding of Unity so that you can take concepts and apply them else where rather than just telling you what to do.\
 Along the way there are always external resources and extra challenges given to help you get that extra boost in skills needed to pursue Game Development!
+
+This course is licensed under the [MIT License](License.md) so it is entirely free to use.\
+This is to encourage usage in a classroom enviroment (as that was the original intention).
  
 ### Course Outcomes
 
