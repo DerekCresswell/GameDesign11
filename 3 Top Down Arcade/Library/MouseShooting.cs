@@ -37,6 +37,7 @@ public class MouseShooting : MonoBehaviour {
 	// Delay between shots
 	public float shootDelay;
 
+	// Stores the time since the last shot
 	private float timer = 0;
 
 	void Update() {
@@ -61,16 +62,20 @@ public class MouseShooting : MonoBehaviour {
 
 				// Shoot the bullet
 				ShootBullet(aimPosition);
+
+				// Reset the timer
 				timer = 0;
 
 			}
 
 		}
 
+		// Increment the timer every update
 		timer += Time.deltaTime;
 
 	}
 
+	// Shoots a bullet in the given direction
 	void ShootBullet(Vector2 direction) {
 
 		// Create a bullet at the players current position

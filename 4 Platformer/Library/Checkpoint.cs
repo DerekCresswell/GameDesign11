@@ -22,6 +22,10 @@
  * You will likely have to set or customize your
  * player health script to work with this.
  *
+ * The player needs to have the tag 'Player' or
+ * change the collision check to use a different
+ * tag.
+ *
  */
 
 using System.Collections;
@@ -49,6 +53,8 @@ public class Checkpoint : MonoBehaviour {
 
 	public void OnTriggerEnter2D(Collider2D collider) {
 
+		// Only set a checkpoint when colliding with the player
+		// and if this is not the currently active checkpoint
 		if(collider.tag == "Player" && !active) {
 
 			// Set this checkpoint to be active
@@ -62,6 +68,8 @@ public class Checkpoint : MonoBehaviour {
 			PlayerHealth pHealth = collider.gameObject.GetComponent<PlayerHealth>();
 			pHealth.spawnPosition = spawnAt.position;
 
+			// We only need to deactivate the last checkpoint if
+			// there is one
 			if(lastCheckpoint != null) {
 
 				// Deactivate the last checkpoint

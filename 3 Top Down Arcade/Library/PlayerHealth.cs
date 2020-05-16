@@ -41,8 +41,10 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour {
 
+	// The maximum health the player can have
 	public int maxHealth;
 
+	// The current health of the player
 	int currentHealth;
 
 	void Start() {

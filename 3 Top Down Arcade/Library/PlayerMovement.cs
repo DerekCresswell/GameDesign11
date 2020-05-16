@@ -34,7 +34,10 @@ public class PlayerMovement : MonoBehaviour {
 	// The speed the player should move at
 	public float moveSpeed = 1f;
 
+	// A reference to the player's Rigidbody
 	Rigidbody2D rb;
+
+	// The current movement direction of the player
 	Vector2 movement;
 
 	void Start() {
@@ -47,6 +50,7 @@ public class PlayerMovement : MonoBehaviour {
 	// Update is used for general things like capturing input
 	void Update() {
 
+		// Set the movement to the input values
 		movement.x = Input.GetAxis("Horizontal");
 		movement.y = Input.GetAxis("Vertical");
 

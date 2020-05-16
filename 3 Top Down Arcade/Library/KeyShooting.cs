@@ -42,6 +42,7 @@ public class KeyShooting : MonoBehaviour {
 	// Delay between shots
 	public float shootDelay;
 
+	// Holds the time since you last shot
 	private float timer = 0;
 
 	void Update() {
@@ -69,16 +70,20 @@ public class KeyShooting : MonoBehaviour {
 			if(shootDirection != Vector2.zero) {
 
 				ShootBullet(shootDirection);
+
+				// Reset the timer
 				timer = 0;
 
 			}
 
 		}
 
+		// Increment the timer every update
 		timer += Time.deltaTime;
 
 	} // End of Update function
 
+	// Shoots a bullet in the given direction
 	void ShootBullet(Vector2 direction) {
 
 		// Create a bullet at the players current position
