@@ -4,13 +4,14 @@ Here we are going to figure out what a Script is and how Unity uses them.
 
 ## Scripts
 
-Scripts are what we call our code. Our scripts are simply written files that follow specific rules and can be interpreted by our computer.\
+["Scripts"](https://docs.unity3d.com/Manual/ScriptingSection.html) are what we call our code. Our scripts are simply written files that follow specific rules and can be interpreted by our computer.\
 Scripts in Unity are treated as other Components like a Rigidbody. You can attach them to any Object and they are written using the Language of C#.
 
 [C#](https://docs.microsoft.com/en-us/dotnet/csharp/) is a programming language made by Microsoft and is an Object Oriented language.\
 We will get more into what this means later.
 
-There is a lot to code. But I think a good way to start is to simply jump into it. Don't worry if not everything makes sense the first time around. Just make sure to try everything and the best advice I can give is to play around with it. Try and do something unique.
+There is a lot to code, but a good way to start is to simply jump into it. Don't worry if not everything makes sense the first time around.\
+Just make sure to try everything and the best advice we can give is to play around with it. **Try** and do something unique. Worst that will happen is you can try again.
 
 ### Adding Scripts In Unity
 
@@ -21,7 +22,7 @@ Go into that folder and right click, create, and click ["C# Script"](https://doc
 
 ![ScriptInFolder](Images/ScriptInFolder.JPG)
 
-Open that up. I'm making this project with Windows and the default Code Editor with Unity, [Visual Studio](https://visualstudio.microsoft.com/).\
+Open that up. Throughout these tutorials, we are making this project with Windows and the default Code Editor with Unity, [Visual Studio](https://visualstudio.microsoft.com/).\
 If you are on a different system this may be different. No worries it's all the same you just might need to search for a button a little more.\
 The script should look like this :
 
@@ -65,15 +66,16 @@ They can also be written :
 
 #### Using
 
-Right at the top we see `using UnityEngine;` and `using System.Collections;`. These ["Import"](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-directive) code to our script so that we can attach our script to the game or use code written by others. There's a little more to it than that but we can get to that later. Typically don't remove these two unless you know you don't need them but later we will add more of them.
+Right at the top we see `using UnityEngine;` and `using System.Collections;`. These ["Import"](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-directive) code to our script so that we can attach our script to the game or use code written by others. There's a little more to it than that but we can get to that later.\
+Typically don't remove these two unless you know you don't need them. Later we will be adding more of them. Either way, don't worry about these right now.
 
 #### Classes
 
 Just below that we have `public class TestScript : MonoBehaviour` which creates a [class](https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/classes-and-objects).\
 Classes allow us to create multiple objects with all the same features. Quite similar to the Game Objects we've been using.\
-An example I like to think of is a car. A car has wheels, an engine, and a steering wheel but each car can have different wheels, engines, and steering wheels.\
+An example to think of is a car. A car has wheels, an engine, and a steering wheel but each car can have different wheels, engines, and steering wheels.\
 Instead of saying what a car is a bunch of times I can simply make `class Car` that contains things like the type of engine, the color, the ability to speed up.\
-Then whenever I want to make a new car I can use this predefined `class` to speed up thaat process.\
+Then whenever you want to make a new car you can use this predefined `class` to speed up thaat process.\
 Classes are blueprints that can build off of each other. In this case `TestScript` inherits from ["MonoBehaviour"](https://docs.unity3d.com/ScriptReference/MonoBehaviour.html), denoted by the `:`, which is a class created by Unity.\
 Here we can use all of the functionality that was made in `MonoBehaviour` in a new way.\
 Topics like Classes can be extremely confusing at first. Don't worry if this sounds real funky, it'll become second nature soon.

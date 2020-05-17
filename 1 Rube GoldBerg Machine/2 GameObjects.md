@@ -59,7 +59,7 @@ We are now going to ["Parent"](https://docs.unity3d.com/Manual/Hierarchy.html) o
 ![ParentedObject](Images/ParentedObject.JPG)
 
 You will now notice that the second circle Object is indented below the first. You will also see an arrow beside the first ones' name that can be used to toggle the view of its Children.\
-Now I'd like you to try moving the first Circle around the Scene. Notice how the second one moves. Its position is based on the the first ones position.\
+Now you should try moving the first Circle around the Scene. Notice how the second one moves. Its position is based on the the first ones position.\
 Let's go over what we have here : 
 * A "Parent" is any Object with Children. The Parent acts as the base for it's Children.
 * A "Child" is any Object with a Parent. The Child will inherit properties from it's Parents. In our case, it's position.
@@ -77,7 +77,7 @@ Select your Circle and click "Add Component" in the Inspector. Start typing "Rig
 
 ![AddComponent](Images/AddComponent.JPG)
 
-For simplicity sake I will "Detach" the second Circle from our First. To do this click and drag the "Circle2" in the Hierarchy and move it off of "Circle". You can tell it is not a parent because the name will no longer be indented below "Circle".\
+For simplicity sake we should "Detach" the second Circle from our First. To do this click and drag the "Circle2" in the Hierarchy and move it off of "Circle". You can tell it is not a parent because the name will no longer be indented below "Circle".\
 Go ahead and press Play now. This will show us the ["Game View"](https://docs.unity3d.com/Manual/GameView.html) or what is actually happening when someone were to play our game.\
 The Rigidbody we added to the circle makes it affected by gravity and falls off the screen. We will talk more about the Rigidbody in the next lesson.
 

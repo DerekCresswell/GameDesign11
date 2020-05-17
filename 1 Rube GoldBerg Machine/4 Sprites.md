@@ -11,7 +11,7 @@ Just an interesting fact for you.
 
 ### Importing Sprites
 
-Before we can use a sprite we need to actually put it into our game. We're going to do the same thing we did with the "WhiteBox" and "WhiteCircle" but this time I'm going to let you choose the Sprite.
+Before we can use a sprite we need to actually put it into our game. We're going to do the same thing we did with the "WhiteBox" and "WhiteCircle" but this time we're going to let you choose the Sprite.
 
 For this let's get three different Sprites.\
 We are going to need :
@@ -22,7 +22,7 @@ We are going to need :
 To find these you can simply google "Video game sprites ______" and insert what you want. Sometimes you might need to play with the wording lots to find the right one or a few that work well together.\
 You will likely need these to be PNG files otherwise they might look very odd or cut off parts of the game.\
 If you are an artist, don't worry. There will be better opportunities later to make your own Sprites.\
-Here are the ones I found :
+Here are the ones we found :
 
 <p float="left" align="center">
   <img src="Images/Mountains.png" width="100" />
@@ -63,12 +63,12 @@ Find the "Draw Mode" property and set it to "Tiled".
 ![TiledMode](Images/TiledMode.JPG)
 
 This will bring up an expanded menu below.\
-Right now I'd like you to stop for a minute and simply play with the new "Width" and "Height" values. You can also use the ["Rect Tool"](https://docs.unity3d.com/Manual/Toolbar.html) in the top left of the screen and drag the blue balls that appear around the Object.\
+Right now we'd like you to stop for a minute and simply play with the new "Width" and "Height" values. You can also use the ["Rect Tool"](https://docs.unity3d.com/Manual/Toolbar.html) in the top left of the screen and drag the blue balls that appear around the Object.\
 As you may notice the values of this "Width" and "Height" denote how big a sprite should be before it tiles.\
 It is important to note that these values are based on the Scale values in the Transform of an object.\
 Typically in Unity it is a good idea to leave the scale at "1, 1, 1" when possible simply because this makes them easier to work with in the future.
 
-For now I will do this with a scale of "1, 1, 1". This means we'll need to manually adjust the size of the box collider and sprite.
+For now we will do this with a scale of "1, 1, 1". This means we'll need to manually adjust the size of the box collider and sprite.
 
 * Start by setting our scale back to "1, 1, 1".
 * Then on the "Sprite Renderer" set the "Width" to "10" and the "Height" to "0.5". 
@@ -84,7 +84,7 @@ For now I will do this with a scale of "1, 1, 1". This means we'll need to manua
 Now go to the "Box Collider 2D".
 
 * Click the "Edit Collider" button. This is just to see the size of the collider easier.
-* You can drag the green squares that apear in the scene view if you'd like but I will use the "Size" settings to be percise.
+* You can drag the green squares that apear in the scene view if you'd like but you can use the "Size" settings to be percise.
 * On the "Size" Property set the values of "X", and "Y" to "10", and "0.5" respectively.
 
 <p align="center">
@@ -131,7 +131,7 @@ For me it looks like this :
 
 Close that window and hit "Apply" when you are happy.
 
-* Now click on one of your ramps. Same as above I'm going to set the scale back to "1" in all directions.
+* Now click on one of your ramps. Same as above we're going to set the scale back to "1" in all directions.
 * Set the "Draw Mode" of the "Sprite Renderer" to "Sliced".
 * Then on the "Sprite Renderer" set the "Width" to "10" and the "Height" to "0.5".
 
@@ -160,8 +160,8 @@ Now let's get the background in here. We are just going to do a simple but effec
 Start by making a new Sprite, like we've done before, and name it "Background." Then set the Sprite to the sprite you've chosen for your background.\
 Don't worry about the size of the background for now, we will fix that later. For now just move the background so it's in the center of the rest of your objects.
 
-To ensure that our other sprites are never hidden behind the background set the "Z" value of your backgrounds ["Positon"](https://docs.unity3d.com/Manual/class-Transform.html) to any number greater than "0". I'll do "5".\
-You likely won't think much has changed. This is because I haven't told you the full truth yet.\
+To ensure that our other sprites are never hidden behind the background set the "Z" value of your backgrounds ["Positon"](https://docs.unity3d.com/Manual/class-Transform.html) to any number greater than "0". we'll do "5".\
+You likely won't think much has changed. This is because we haven't told you the full truth yet.\
 Are you ready? Ok...
 
 **Our game is actually still 3D!**

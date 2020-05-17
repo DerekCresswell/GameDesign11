@@ -22,7 +22,7 @@ Click on our first Circle Object and click add component and begin typing "Colli
 	<img src="Images/CircleCollider.JPG">
 </p>
 
-*Note, keen eyes might've noticed my Inspector looks different. I've simply collapsed the components to reduce visual clutter. Click the grey arrow in the top left corner of the component.*	
+*Note, keen eyes might've noticed my Inspector looks different. We've simply collapsed the components to reduce visual clutter. Click the grey arrow in the top left corner of the component.*	
 
 You will now see there is a green circle within your circle. This is what the Collider considers its edge.\
 Since this green circle is too small we need to change the size of the it. You can click on the "Edit Collider" button and drag the green squares to change it or in this case set the Radius to "0.5".\
@@ -93,7 +93,7 @@ We're now going to talk about how you can change the way physics behave by using
 
 In Unity we can give our Rigidbody a [Physics Material](https://docs.unity3d.com/Manual/class-PhysicsMaterial2D.html). These affect the way physics are calculated on our Objects. We can change the bounciness and friction of our elements.\
 There are other things we can do but these are the most basic and useful to use.\
-*Just a note, Physics Materials and Materials are different things but I will be refering to Physics Material here.*
+*Just a note, Physics Materials and Materials are different things but we will be refering to Physics Material here.*
 
 We need to make a Material first. We are going to up hold our current organization and start by making a new folder in our Project call it "Physics Materials". Just like we did before with the Sprites.
 
@@ -108,7 +108,7 @@ Now name that Material "Bouncy".
 	<img src="Images/PhysicsMaterial.JPG">
 </p>
 
-Go and click on the new Material. If you look over at the Inspector I bet you can guess what we are going to change.\
+Go and click on the new Material. If you look over at the Inspector it's likely you can guess what we are going to change.\
 That's right! Set the "Bounciness" property to 1. It can be whatever you'd like but it's best not to go too high.\
 When we change the "Bounciness" of a material we increase or decrease the amount of energy retained after each collision.
 
@@ -126,7 +126,7 @@ The other property on the the Physics Material 2D is Friction.\
 The idea behind Friction is the same as the real world but the execution in Unity is a bit different.\
 Unity's friction is calculated based on the number of points of contact between two objects. Meaning that a circle isn't really affected by friction as technically there's only ever one point of contact.
 
-Below is is the effect in action. I've colored the high friction slope to be red for you.
+Below is is the effect in action. We've colored the high friction slope to be red for you easily identify.
 
 ![FrictionDemo](https://media.giphy.com/media/L39MSN192NeEOdvlwZ/giphy.gif)
 
