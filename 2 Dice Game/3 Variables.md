@@ -95,8 +95,8 @@ If you had a variable to store your bank account balance a good name could be `a
 * Last we *can* set the value of our variable.\
 It would be perfectly valid to say `int myInt;` (remembering lines need to end with a semi-colon `;`). This simply would create a variable of type `int` with the name `myInt` with no value. We will use this functionality in the future.\
 More often you'll want to set the data in the variable right away. We do this with an equal sign `=`.\
-The `=` comes right after our variable name and does not need a space, though I use one to make it more readable. After the `=` we need a value of the same type as the variable.\
-What you will have noticed above is that `myFloat` is a little different than the other variables. I've done this to show that you can use equations when setting variables.\
+The `=` comes right after our variable name and does not need a space, though we use one to make it more readable. After the `=` we need a value of the same type as the variable.\
+What you will have noticed above is that `myFloat` is a little different than the other variables. We've done this to show that you can use equations when setting variables.\
 Below is exactly the same as above.
 
 ```csharp
@@ -124,7 +124,7 @@ Let's start with how we use variables. We're going to pretend we've declared all
 If we wanted access to our variable we could simply write `myInt;` or any of the other names. This will do absolutely nothing though, we need to use this variable for something.\
 Currently myInt stores the value `4`. What if we wanted to change that?\
 Pretty simply you can just type `myInt = 5` or whatever or number / equation you wanted.\
-We can even set a variable equal to another variable. I'd say the easiest way to think of it is just if you type the name of the variable imagine it being replaced verbatiam with the value.
+We can even set a variable equal to another variable. The easiest way to think of it is just when you type the name of the variable imagine it being replaced verbatiam with the value.
 
 ```csharp
 float myNewFloat = 4.56;

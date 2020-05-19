@@ -67,7 +67,7 @@ public class DiceGameTemplate : MonoBehaviour {
 ```
 
 For the template we are going to use very generic names and story. Make sure to be more creative for your own.\
-The first thing we said we would need is to keep track of values for two players. Pretty simply I will make a variable for each player.\
+The first thing we said we would need is to keep track of values for two players. Pretty simply, we will make a variable for each player.\
 Now it is important where we put those variables. We want to keep these vars throughout this script and not "re-instantiate" (think of that as resetting). Remembering what we talked about during the [scope](./4%20Logic.md#scope) section of the last [lesson](./4%20Logic.md) we said that if a scope ends, such as the end of a function or `if` statement, any variables within it are deleted.\
 To prevent this let's declare these variables at the top of the class like so :
 
@@ -94,7 +94,7 @@ public class DiceGameTemplate : MonoBehaviour {
 }
 ```
 
-Declaring your variables here in what I will call the "class scope" means that the var can be accessed anywhere within this script. It also means that it will only be declared once when our game object with this script is loaded into the game. Remembering that we need to [attach this script to an object in our game](./2%20CodeStructure.md#adding-scripts-to-objects), the class `DiceGameTemplate` will only be created this once. In turn those two variables are only declared once.\
+Declaring your variables here in what we will call the "class scope" means that the var can be accessed anywhere within this script. It also means that it will only be declared once when our game object with this script is loaded into the game. Remembering that we need to [attach this script to an object in our game](./2%20CodeStructure.md#adding-scripts-to-objects), the class `DiceGameTemplate` will only be created this once. In turn those two variables are only declared once.\
 Here we've used `int` as the type because it makes sense for a "health" value and 50 is just an arbitrary starting point.\
 That's a fine starting point and does what we needed to do in the first part of the breakdown of our problem.
 
@@ -602,7 +602,7 @@ if(dieOne == 6) {
 ```
 
 We want to use a function to try and reuse this multiple times. This means we want to use this for both players.\
-You might have noticed I got rid of the `One` and `Two`'s in that code because of that. We will need to change this up to use variables and dynamically print out those messages. Let's go back and talk about functions quick.
+You might have noticed we got rid of the `One` and `Two`'s in that code because of that. We will need to change this up to use variables and dynamically print out those messages. Let's go back and talk about functions quick.
 
 ### Function Parameters
 

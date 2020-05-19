@@ -54,7 +54,7 @@ On this page, Unity tells us everything about `MonoBehaviour.Start` that we need
 > Like the Awake function, Start is called exactly once in the lifetime of the script. However, Awake is called when the script object is initialised, regardless of whether or not the script is enabled. Start may not be called on the same frame as Awake if the script is not enabled at initialisation time.
 
 This might sound a little confusing as it is written by and for more experienced developers. That is ok though, you'll begin to understand it better as we go along.\
-For now I will paraphrase it.
+For now we will paraphrase.
 
 > The Start function is run as soon as the script becomes active in your game. It's only ever called once.
 
@@ -78,9 +78,9 @@ The main idea with [tabbing](http://mrbool.com/importance-of-code-indentation/29
 Most editors (like the one Unity will have opened for you) automatically indent your code and help maintain a standard "Syntax". Syntax is our fancy word for the formatting of code.
 
 There are tons of rules you can follow for writing syntactically nice code. Certain people prefer certain rule sets over others. This is mainly down to personal choice but it is **extremely** encouraged to follow a rule set, otherwise you will not have a good time.\
-There are too many rules to go over here so I will give you [this resource](https://dzone.com/articles/10-tips-how-to-improve-the-readability-of-your-sof) to read up on. Not everything might make sense now but as we move on continue to refer back to it.
+There are too many rules to go over here so we will give you [this resource](https://dzone.com/articles/10-tips-how-to-improve-the-readability-of-your-sof) to read up on. Not everything might make sense now but as we move on continue to refer back to it.
 
-There are three points of syntax I will touch on specifically.
+There are three points of syntax we will touch on specifically.
 
 ### White Space
 
@@ -109,7 +109,7 @@ UpperCamelCase just means that the first letter is capitalized along with the fi
 So `my code program` is written in UpperCamelCase as `MyCodeProgram`. As you'll notice this is the same as Unity's functions like `Start` or `UnityEngine`.\
 It is typically recomended to use this yourself in order to have your code look the same as to avoid confusion.
 
-Now that is for Unity's functions, classes, and the likes. Unity does use [lowerCamelCase](https://whatis.techtarget.com/definition/lowerCamelCase) for it's variables. We will talk about what variables are in the next lesson. For now just know they are written in lowerCamelCase. I bet you can guess what that means.
+Now that is for Unity's functions, classes, and the likes. Unity does use [lowerCamelCase](https://whatis.techtarget.com/definition/lowerCamelCase) for it's variables. We will talk about what variables are in the next lesson. For now just know they are written in lowerCamelCase. You can likely guess what that means.
 
 A variable we wanted to call `my great variable` would actually be called `myGreatVariable`. We'll leave the examples alone for now. Again this is usually recomended to follow these guidelines for now.
 
@@ -165,7 +165,7 @@ In the next lesson we'll talk about what string means so for now just call it a 
 The quotation marks `""` are specific to strings and not any value passing into a function.
 
 1. `;` denotes the end of a command. A command can be setting variables, functions, and a bunch more. Typically every line of code (not of the text editor) needs to end with a semi colon.\
-Obviously there is not a semicolon after the curly braces. I hesitate to say this is a rule but it is the norm.
+Obviously there is not a semicolon after the curly braces. We should hesitate to say this is a rule but it is the norm.
 
 As shown above we have looked the structure that upholds the rules of code. Code not written with these rules will error and not run.\
 In the next lesson we will go over some more of the building blocks of code and will begin to manipulate data.

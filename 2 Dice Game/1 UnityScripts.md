@@ -74,7 +74,7 @@ Typically don't remove these two unless you know you don't need them. Later we w
 Just below that we have `public class TestScript : MonoBehaviour` which creates a [class](https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/classes-and-objects).\
 Classes allow us to create multiple objects with all the same features. Quite similar to the Game Objects we've been using.\
 An example to think of is a car. A car has wheels, an engine, and a steering wheel but each car can have different wheels, engines, and steering wheels.\
-Instead of saying what a car is a bunch of times I can simply make `class Car` that contains things like the type of engine, the color, the ability to speed up.\
+Instead of saying what a car is a bunch of times we can simply make `class Car` that contains things like the type of engine, the color, the ability to speed up.\
 Then whenever you want to make a new car you can use this predefined `class` to speed up thaat process.\
 Classes are blueprints that can build off of each other. In this case `TestScript` inherits from ["MonoBehaviour"](https://docs.unity3d.com/ScriptReference/MonoBehaviour.html), denoted by the `:`, which is a class created by Unity.\
 Here we can use all of the functionality that was made in `MonoBehaviour` in a new way.\
