@@ -72,8 +72,8 @@ void Start() {
 
 ## Syntax
 
-Before we continue we should talk about my spacing. You'll notice that the `Start` and `Update` functions are tabbed in and now the `Debug.Log` is tabbed in again.\
-This is to ensure our code is ["readable"](https://medium.com/@egonelbre/psychology-of-code-readability-d23b1ff1258a) (*Note* some may call not like calling this syntax and instead use coding standards) so when have to come back to it or someone else wants to look at the code it is very easy to see where everything is and what it does.\
+Before we continue we should talk about the spacing being used. You'll notice that the `Start` and `Update` functions are tabbed in and now the `Debug.Log` is tabbed in again.\
+This is to ensure our code is ["readable"](https://medium.com/@egonelbre/psychology-of-code-readability-d23b1ff1258a) so when you have to come back to it or someone else wants to look at the code it is very easy to see where everything is and what it does.\
 The main idea with [tabbing](http://mrbool.com/importance-of-code-indentation/29079) in our code is that we want to be able to see what is inside of what. `Debug.Log` is inside our `Start` function. We know this because of the curly braces. So we make `Debug.Log` indented a little further than start.\
 Most editors (like the one Unity will have opened for you) automatically indent your code and help maintain a standard "Syntax". Syntax is our fancy word for the formatting of code.
 
@@ -97,12 +97,12 @@ That will run just just as well as what we had above.\
 Just remember that if you ever code like this and someone tries to use your code they might try and snuff you out.\
 Just because you can does **not** mean you should.
 
-*Note that inside of quotes `""` __is__ white space sensitive. You'll find out why in the next lesson.*
+*Note that inside of quotes `""` **is** white space sensitive. You'll find out why in the next lesson.*
 
 ### Case Sensitivity
 
 Case or capitalisation is important in C#. `Debug.Log()` is **not** the same as `debug.log()` or `deBUG.loG()`.\
-Every* pre-written function in Unity is written in ["UpperCamelCase"](https://whatis.techtarget.com/definition/UpperCamelCase).\
+Almost every pre-written function in Unity is written in ["UpperCamelCase"](https://whatis.techtarget.com/definition/UpperCamelCase).\
 UpperCamelCase is a type of CamelCase. CamelCase is a naming convention in which words are written with no spaces and instead use capitals to denote each word.\
 UpperCamelCase just means that the first letter is capitalized along with the first of each subsequent word.
 
@@ -111,12 +111,12 @@ It is typically recomended to use this yourself in order to have your code look 
 
 Now that is for Unity's functions, classes, and the likes. Unity does use [lowerCamelCase](https://whatis.techtarget.com/definition/lowerCamelCase) for it's variables. We will talk about what variables are in the next lesson. For now just know they are written in lowerCamelCase. You can likely guess what that means.
 
-A variable we wanted to call `my great variable` would actually be called `myGreatVariable`. We'll leave the examples alone for now. Again this is usually recomended to follow these guidelines for now.
+A variable we wanted to call `my great variable` would actually be called `myGreatVariable`. We'll leave the examples alone for now. Again it is usually recomended to follow these guidelines.
 
 ### Comments
 
 We already talked about comments in the [last lesson](./1%20UnityScripts.md/#comments) but will mention them again.\
-Comments are invaluable to keep track of code you write. You might think you can remember it all but trust me, you can not.\
+Comments are invaluable to keep track of code you write. You might think you can remember it all but trust us, you can not.\
 Use comments to quickly tell you what a block of code, or function, does. You don't need to use it for obvious things.
 
 Good : `// Returns the average of all elements in an array`

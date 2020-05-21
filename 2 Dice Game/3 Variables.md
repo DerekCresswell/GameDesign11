@@ -20,7 +20,7 @@ So now lets talk more about each specific one.
 
 ### Integers
 
-[Integers](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types), or ints, are the same as in math. The can only store whole numbers, positive or negative.\
+[Integers](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types), or ints, are the same as in math. They can only store whole numbers, positive or negative.\
 One key thing to note about is using them in math. If you were to do a division like `3 / 4` you would expect to get `0.75` back. If the numbers used are ints the output must also be a whole number and anything after a decimal is truncated.\
 Meaning `3 / 4` is equal to `0`. It does not get rounded, everything after the decimal is cut off.
 
@@ -131,7 +131,7 @@ float myNewFloat = 4.56;
 myFloat = myNewFloat;
 ```
 
-Go ahead and try setting some of the other variables to new values.\
+Go ahead and try setting some of the other variables to new values.
 
 Before we mentioned we can set these variables via an equation. Let's try making one with a variable.
 
@@ -148,7 +148,7 @@ Another important thing to mention is that you can set a variable with itself.
 myInt = myInt + 1;
 ```
 
-This here will increase `myInt` by one. [Operations](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators) like this are very common, for instance incrementing or decrementing a number, dividing it or multiplying by two. Since these are commong they have shortcuts.
+This here will increase `myInt` by one. [Operations](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators) like this are very common, for instance incrementing, decrementing a number, dividing, or multiplying. Since these are commong they have shortcuts.
 
 ```csharp
 myInt = myInt + 1;
