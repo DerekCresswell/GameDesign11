@@ -92,9 +92,9 @@ Of course this doesn't work as is. We need to figure out where we want to move t
 ```csharp
 void FixedUpdate() {
 
-	Vector2 moveTo = rb.position + movement * Time.fixedDeltaTime;; 
+	Vector2 moveTo = rb.position + movement * Time.fixedDeltaTime;
 	rb.MovePosition(moveTo);
-
+ 
 }
 ```
 
@@ -265,7 +265,7 @@ We are going to make a bullet prefab. Then in our `PlayerShoot` script we will s
 
 * In your scene make a new sprite (just like with the player prefab) and name it "Bullet".
 * Set the sprite to our [white circle sprite](../1%20Rube%20GoldBerg%20Machine/Assets/WhiteCircle.png) and give it a color if you want.
-* Set the scale of this sprite (under the transform) to around `0.5` or whatever looks best in comparision to our player.
+* Set the scale of this sprite (under the transform) to around `0.5` or whatever looks best in comparison to our player.
 * Add a Rigidbody 2D to the bullet.
 * Add a Circle Collider 2D to the bullet. Make sure the size is right.
 	* Also make sure you tick the box that says ["Is Trigger"](https://docs.unity3d.com/ScriptReference/Collider2D-isTrigger.html).
@@ -287,10 +287,10 @@ At the top of our script add in a new `public` variable of the type ["GameObject
 ```csharp
 public GameObject bulletPrefab;
 ```
-Save that and head back to Unity. If you click on the player prefab you will see the new variable under the PlayerShoot script. Drag the bullet prefab into that slot. This way when we run our game the variable `bulletPrefab` inside of the `PlayerShoot` script.\
+Save that and head back to Unity. If you click on the player prefab you will see the new variable under the PlayerShoot script. Drag the bullet prefab into that slot. This way when we run our game the variable `bulletPrefab` inside the `PlayerShoot` script.\
 Go back into our shooting script.\
-We are now going to replace the `Debug.Log`'s inside of our `Update` function with spawning a bullet. To spawn a prefab we can use the ["Instantiate"](https://docs.unity3d.com/ScriptReference/Object.Instantiate.html) function from Unity.\
-The `Instantiate` function takes three arguements. The first is the actual prefab we'd like to create. Next it needs a `Vector3` containing the XYZ coordinates of the new objects Transform. The third defines the rotation of the object as a ["Quaternion"](https://docs.unity3d.com/ScriptReference/Quaternion.html).\
+We are now going to replace the `Debug.Log`s inside our `Update` function with spawning a bullet. To spawn a prefab we can use the ["Instantiate"](https://docs.unity3d.com/ScriptReference/Object.Instantiate.html) function from Unity.\
+The `Instantiate` function takes three arguments. The first is the actual prefab we'd like to create. Next it needs a `Vector3` containing the XYZ coordinates of the new objects Transform. The third defines the rotation of the object as a ["Quaternion"](https://docs.unity3d.com/ScriptReference/Quaternion.html).\
 Here we've omitted the other `if` statements as they are trivial.
 
 ```csharp
@@ -395,7 +395,7 @@ rb.AddForce(direction, ForceMode2D.Impulse);
 Time to add a call to the `ShootBullet` function in the `Update` function instead of just instantiating a bullet.\
 You will need to give the function call a direction. What we want to use is `1` to mean up / right and `-1` to mean down / left depending on if it's in the x or y spot.\
 Try and draw out the grid and figure out which directions to give to which key presses (You'll have to pass it like `new Vector2(X, Y)`).\
-Don't simply guess and than look at the answer, go and try turning on the game and see if it works. Playing and testing your game is perhaps the best thing you can do to learn.
+Don't simply guess and then look at the answer, go and try turning on the game and see if it works. Playing and testing your game is perhaps the best thing you can do to learn.
 
 <details>
 <summary>Calling the ShootBullet function</summary>
@@ -439,7 +439,7 @@ Now what you may notice is that as we shoot a lot bullets the hierarchy fills up
 
 ![SpawnedBullets](Images/SpawnedBullets.JPG)
 
-This is bad. Everytime we create a bullet it will take resources to calculate the details about the object and will have to do these every frame, forever.\
+This is bad. Every time we create a bullet it will take resources to calculate the details about the object and will have to do these every frame, forever.\
 We need to get rid of bullets once they are no longer needed. The first thing we should do is destroy the bullet when it hits something.
 
 Go ahead and add some walls to the scene so that we have something to hit with our bullets.\
@@ -448,7 +448,7 @@ Just add some sprites and give them a box collider.
 ![WallsSetup](Images/WallsSetup.JPG)
 
 To destroy a bullet when it hits something we need to detect a collision on the bullet. Create a new script and name it "BulletDestroy" or similar.\
-We are going to use the built in function from Unity called ["OnTriggerEnter2D"](https://docs.unity3d.com/ScriptReference/Collider2D.OnTriggerEnter2D.html) for this. This will be called automatically when our bullet collides with something.
+We are going to use the built-in function from Unity called ["OnTriggerEnter2D"](https://docs.unity3d.com/ScriptReference/Collider2D.OnTriggerEnter2D.html) for this. This will be called automatically when our bullet collides with something.
 
 ```csharp
 public class BulletDestroy : MonoBehaviour {
@@ -468,10 +468,10 @@ Destroy(gameObject);
 ```
 
 *Note the lowercase g*\
-The bullets should now disapear when they hit anything.
+The bullets should now disappear when they hit anything.
 
-There is a posibility that your bullets may collide with another bullet so there is one check we should add to our `BulletDestroy`.\
-We can do this using ["tags"](https://docs.unity3d.com/Manual/Tags.html). These just put a name on an object more or less. We can than use these tags to easily check if we collided with a bullet.
+There is a possibility that your bullets may collide with another bullet so there is one check we should add to our `BulletDestroy`.\
+We can do this using ["tags"](https://docs.unity3d.com/Manual/Tags.html). These just put a name on an object more or less. We can then use these tags to easily check if we collided with a bullet.
 
 Open up the bullet prefab. At the top of the inspector there is a dropdown for tags. It should say "Untagged".
 
@@ -481,7 +481,7 @@ Click on "Add Tag". This will open a new menu. There should be an empty list of 
 
 ![AddNewTag](Images/AddNewTag.JPG)
 
-Now double click on your bullet prefab to bring it back into the Inspector.\
+Now double-click on your bullet prefab to bring it back into the Inspector.\
 Click onto the tags as before but now add the "BulletTag". Save that and open up the BulletDestroy script.\
 Around `Destroy(gameObject);` put an `if` statement. In the `OnTriggerEnter` function you can see that there is a ["Collider2D"](https://docs.unity3d.com/ScriptReference/Collider2D.html) passed in named "collision".\
 That `Collision2D` object has a variable we can access that contains the info of object we collided with called ["gameObject"](https://docs.unity3d.com/ScriptReference/Collision2D-gameObject.html). On that we can access the objects tag.\
@@ -536,4 +536,4 @@ Also try adding a timer that limits how quickly you can shoot.
 * `GetKey` is different from `GetKeyDown`, try looking it up in the manual.
 * Use `Time.deltaTime` to increment the timer.
 
-After giving this a go you can look at [KeyShooting.cs](./Library/KeyShooting.cs) for an implemantation of these two features.
+After giving this a go you can look at [KeyShooting.cs](./Library/KeyShooting.cs) for an implementation of these two features.
