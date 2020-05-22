@@ -4,7 +4,7 @@ What have we learned in this unit :
 
 * [Setting up and using the PlayerController for 2D movement](./1%20PlayerController.md).
 * [Creating animations using the animator](./2%20Animation.md#unitys-animation-system).
-* [Utilising the animation controller](./2%20Animation.md#animation-controllers).
+* [Utilizing the animation controller](./2%20Animation.md#animation-controllers).
 * [Creating tile palettes and drawing tile maps](./3%20TileEditor.md).
 * [Making a checkpoint system](./4%20Checkpoint.md).
 * [Simulating the parallax effect](./5%20ParallaxEffect.md).
@@ -23,13 +23,13 @@ Now it's time for the creative part. You can plan and create your game in any wa
 
 Here are the requirements to follow :
 
-* A character to move around the enviroment.
+* A character to move around the environment.
 * Animations for the player and enemies.
 * Clear goal and direction (Checkpoint, score, etc.).
 * Three gameplay levels, a start menu, end game screen, and death / loss screen.
 	* Make sure the levels look unique from one another.
 * Fair and fun level design that poses a challenge.
 * A head's up display with relevant information (health, score, etc.).
-* And finally, a secret easter egg for players to discover.
+* And finally, a secret Easter egg for players to discover.
 
 With that you can set off to plan and build your game!

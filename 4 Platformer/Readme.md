@@ -11,7 +11,7 @@ We will cover the following :
 * Creating a checkpoint system.
 * Making a parallax background.
 
-Once we've gone through all these tutorials we will be creating a platformer. Perhaps this will be the next Mario.\
+Once we've gone through all these tutorials, we will be creating a platformer. Perhaps this will be the next Mario.\
 All of this unit will be building off of the previous ones. You may have to refer back to those as we will not be going over things like a health script or player input again.\
 Don't worry as a lot of the scripts will work here with only minor modification.
 
