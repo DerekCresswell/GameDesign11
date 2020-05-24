@@ -4,7 +4,7 @@ Here we will talk about using a player controller to move our player around the 
 
 ## Using the PlayerController
 
-Lucky for you we will be using a premade controller for the platformer. This controller will deal with all the physics of moving, jumping, and more. We still need to capture input and hook this up to other scripts like a health script or animations.
+Lucky for you, we will be using a premade controller for the platformer. This controller will deal with all the physics of moving, jumping, and more. We still need to capture input and hook this up to other scripts like a health script or animations.
 
 Let's go through the basics of setting up an input controller for our script.
 
@@ -26,7 +26,7 @@ At the top of the `PlayerController` script you will see there are a few require
  * bottom of the main objects feet.
 ```
 
-To start, give this a object a "Rigidbody2D" to start. You can leave the default settings as is now.\
+To start, give this object a "Rigidbody2D" to start. You can leave the default settings as is now.\
 Next we need a "head" collider. This is simply a collider to cover the top half of the object. This can be whatever collider fits best, a box, circle, or capsule, as long as it's 2D.\
 Use the "Edit Collider" button to change and shift this into position. Obviously it depends on what sprite you will be using but it will likely look something like this :
 
@@ -35,14 +35,14 @@ Use the "Edit Collider" button to change and shift this into position. Obviously
 Now we need to do the same with the "feet". You can simply add this collider to the same object and then set up the size to be correct.\
 There is an important note here. You really should use a circle or capsule collider for this and **not** a box collider.\
 This is because have the sharp corners of a box can limit the movement of your player by getting caught on edges or being unable to climb slopes.\
-Do not worry if there is a little bit of your sprite not covered by the colliders, it will not make a noticable difference.\
+Do not worry if there is a little of your sprite not covered by the colliders, it will not make a noticeable difference.\
 Your colliders may look something like this :
 
 ![FootCollider](Images/FootCollider.JPG)
 
 #### Notes About Multiple Colliders
 
-Before now you may not have realized that it is possible to have multiple colliders on a single object.\
+Before now, you may not have realized that it is possible to have multiple colliders on a single object.\
 It is important to note that there are two very common caveats to this method.
 
 The first is that colliders can "catch" on other objects if they are not laid out properly.\
@@ -75,14 +75,14 @@ To move around a world we obviously need a world. Let's create a few platforms t
 
 ![BasicWorld](Images/BasicWorld.JPG)
 
-As you can see we've set up a couple platforms to test our movement in. On the right you see a basic ground block. It would be easiest to make that a prefab and place those into the scene rather than making a new block every time.\
+As you can see, we've set up a couple platforms to test our movement in. On the right you see a basic ground block. It would be easiest to make that a prefab and place those into the scene rather than making a new block every time.\
 If you want to then change the shape of the block just modify the "Scale" of the Transform.
 
 With that all set up we can begin to create a script that captures input to move this controller.
 
 ### Input Controller
 
-As stated [before](#using-the-playercontroller), the controller deals with all of the physics of how the character will move. You are still responsible to tell it what to do.\
+As stated [before](#using-the-playercontroller), the controller deals with all the physics of how the character will move. You are still responsible to tell it what to do.\
 Here we will begin to create an "input controller" which we use to forward player input to our PlayerController.
 
 #### Movement
@@ -138,7 +138,7 @@ pCont.Move(Input.GetAxis("Horizontal"));
 ```
 
 That should be all it takes to move our player left and right.\
-If this isn't working make sure you have setup the player object completely and correctly as well as your ground objects.
+If this isn't working make sure you have set up the player object completely and correctly as well as your ground objects.
 
 #### Jumping
 
@@ -165,7 +165,7 @@ void Update() {
 }
 ```
 *Note*\
-["GetButtonDown()"](https://docs.unity3d.com/ScriptReference/Input.GetButtonDown.html) is similar to get axis but it only return `true` or `false` when a given button is pressed. The `"Jump"` button is a default in Unity and is the space bar (<kbd>Space</kbd>).
+["GetButtonDown()"](https://docs.unity3d.com/ScriptReference/Input.GetButtonDown.html) is similar to get axis but it only returns `true` or `false` when a given button is pressed. The `"Jump"` button is a default in Unity and is the space bar (<kbd>Space</kbd>).
 
 This will allow our object to jump. It will only jump if the object is on the ground. If this doesn't work you may not have set the ground layer correctly or the ground check point.
 
@@ -181,7 +181,7 @@ Don't worry there is a function for that.
 ```
 
 This does the same thing as the `Jump` function but doesn't care about whether the player is on the ground.\
-Replace `pCont.Jump();` with `pCont.JumpUnconditionally();` in your script. Now you can double jump... and triple jump... and quadruaple jump and on. Not the most desirable results.\
+Replace `pCont.Jump();` with `pCont.JumpUnconditionally();` in your script. Now you can double jump... and triple jump... and quadruple jump and on. Not the most desirable results.\
 If we only want to jump a certain amount of times we need to set that up. We will need to keep track of how many jumps we have done in the current jump.
 
 Let's add two variables to the top of our script :
@@ -190,7 +190,7 @@ Let's add two variables to the top of our script :
 * `int currentJumps = 0;`
 
 We will use the max variable to say how many times we can jump in the air and the current variable to keep a count of how many times we've jumped.\
-Let's change our code to only allow a jump if we are under the max jump limit and than increment the current variable.
+Let's change our code to only allow a jump if we are under the max jump limit and then increment the current variable.
 
 ```csharp
 if(Input.GetButtonDown("Jump") && currentJumps < maxJumps) {
@@ -199,7 +199,7 @@ if(Input.GetButtonDown("Jump") && currentJumps < maxJumps) {
 }
 ```
 
-Now we can jump however many times we set `maxJumps` to, but we can only jump that amount, not everytime we enter the air.\
+Now we can jump however many times we set `maxJumps` to, but we can only jump that amount, not every time we enter the air.\
 How can we fix this?\
 Quite simply we just need to set `currentJumps` back to `0` when we land. How do we tell when we've landed? Again, lucky us, there is a variable we can use.
 
@@ -232,7 +232,7 @@ This will be left to you to implement if you would like to do it this way.
 
 ##### Jump Cancelling
 
-This next feature may not be something you want but it is aviable if you do.\
+This next feature may not be something you want but it is available if you do.\
 Jump cancelling allows us to create variable height jumps. When the player releases the jump key before the apex of their jump they will start falling much faster.\
 The function here is `JumpCancel` :
 
@@ -275,7 +275,7 @@ The controller also allows us to crouch. To crouch our object we just need to us
 
 As the API says, this will disable the collider you have placed into the variable `crouchDisableCollider`. That will effectively make the object as "tall" as the bottom collider.\
 Since this also says the object stays crouched until we explicitly tell it to un-crouch we can crouch similar to the way we jump.\
-To start let's setup a button for crouching.
+To start lets set up a button for crouching.
 
 Go to the top left of Unity and click "Edit" and then "Project Settings". Then find "Input". Here we need to add a new button and to do this you have to increase the "Size" at the top by one.\
 Now at the bottom of the list we have an extra button. Click into that, rename it "Crouch", and set the "Positive Button" to the button you want to be the crouch button.
@@ -290,12 +290,12 @@ if(Input.GetButtonDown("Crouch")) {
 }
 ```
 
-Currently we don't have any animations so it won't look like the object has crouched but it has. You can see this currently in two ways :
+Currently, we don't have any animations so it won't look like the object has crouched but it has. You can see this currently in two ways :
 
 * If you have a gap taller than your bottom collider but shorter than your top and bottom collider together you should only be able to go under once you've crouched.
 * If you have the inspector focused on the player while playing the game you can see that the top collider being disabled when you press the crouch button.
 
-Of course you will notice that the player slows down when crouching based on the `crouchSpeed` variable as well.\
+Of course, you will notice that the player slows down when crouching based on the `crouchSpeed` variable as well.\
 This is all well and good but at some point we need to stop crouching. We do this by simply calling the `UnCrouch` function.
 
 ```csharp
@@ -307,7 +307,7 @@ This is all well and good but at some point we need to stop crouching. We do thi
  *  again as soon as it can be.
 ```
 
-This is also very simple. We can simply check when the "Crouch" button is released. That uses ["GetButtonUp"](https://docs.unity3d.com/ScriptReference/Input.GetButtonUp.html) rather than `GetButtonDown`. This returns true as soon as we lift up a key rather than press it down.
+This is also very simple. We can simply check when the "Crouch" button is released. That uses ["GetButtonUp"](https://docs.unity3d.com/ScriptReference/Input.GetButtonUp.html) rather than `GetButtonDown`. This returns true as soon as a key lifts up rather than when it's pressed down.
 
 ```csharp
 if(Input.GetButtonUp("Crouch")) {
@@ -316,13 +316,13 @@ if(Input.GetButtonUp("Crouch")) {
 ```
 
 Now when we let go of the crouch button our object will un-crouch.\
-Through the methods mentioned earlier you can see when you un-crouch. You will notice if you try to un-crouch while in a place to short to un-crouch the command will be queued up and executed when your object has enough height to stand at full hieght.\
+Through the methods mentioned earlier you can see when you un-crouch. You will notice if you try to un-crouch while in a place to short to un-crouch the command will be queued up and executed when your object has enough height to stand at full height.\
 If you would rather the crouch be a toggle you can use the `isCrouching` boolean to see if pressing the crouch button should make you crouch or un-crouch.
 
 ### Extending Uses Of The Controller
 
-As mentioned [earlier](#movement) the [PlayerController](./Library/PlayerController.cs) has an API listing all of the functions and variables you can access.\
-They are all listed with a description of how to use them and what they do. We went through most but not all in this lesson. It would be very useful to look through all of the functionality in here as it can be useful when trying to create new features for your game.
+As mentioned [earlier](#movement) the [PlayerController](./Library/PlayerController.cs) has an API listing all the functions and variables you can access.\
+They are all listed with a description of how to use them and what they do. We went through most but not all in this lesson. It would be very useful to look through all the functionality in here as it can be useful when trying to create new features for your game.
 
 *Note*\
 The public variables, such as `maxMoveSpeed` are not listed in the API but can still be accessed for information.\

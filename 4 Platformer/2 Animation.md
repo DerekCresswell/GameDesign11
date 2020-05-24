@@ -4,16 +4,16 @@ Here we will discuss how to make and use animations in Unity.
 
 ## Unity's Animation System
 
-Unity has a **very** powerful [animation system](https://docs.unity3d.com/Manual/AnimationOverview.html). We could very easily get lost within this so we will have to focus down on a small part of it that we will start to use.
+Unity has a **very** powerful [animation system](https://docs.unity3d.com/Manual/AnimationOverview.html). We could very easily get lost within this, so we will have to focus down on a small part of it that we will start to use.
 
-First let us talk about the type of animation we will be doing. Sprite based animations, or sprite sheet animation, think the original Super Mario. This is opposed to rigging based, think a Call Of Duty character.\
+First let us talk about the type of animation we will be doing. Sprite based animations, or sprite sheet animation, think the original Super Mario. This is opposed to rigging based, think a Call of Duty character.\
 Sprite sheet animation is where we have basically a list of pics each defining a frame of the animation, or a pose. Checkout the image below :
 
 ![MarioRun](Images/MarioRun.JPG)
 
 You can see each frame is a distinct point in Mario's run animation. We can then put these one after another to create an animation for our character.
 
-Unity's animation system is split into two main parts, [animations](https://docs.unity3d.com/Manual/AnimationClips.html) (also refered to as animation clips) and [animation controllers](https://docs.unity3d.com/Manual/AnimatorControllers.html). We will get more into this later. Let's start by creating a walking animation for our object.
+Unity's animation system is split into two main parts, [animations](https://docs.unity3d.com/Manual/AnimationClips.html) (also referred to as animation clips) and [animation controllers](https://docs.unity3d.com/Manual/AnimatorControllers.html). We will get more into this later. Let's start by creating a walking animation for our object.
 
 ### Splitting Sprite Sheets
 
@@ -21,7 +21,7 @@ For this project we will be using [this sprite sheet](Assets/SoliderSpriteSheet.
 The first thing we need to do is split up this sheet into individual sprites.\
 Click on the image in your project and in the inspector change "Sprite Mode" from "Single" to "Multiple". Hit apply and then click "Sprite Editor".
 
-Here we need to split up our sprite. At the top you will see a button that says split. When you click on it there will be a drop down. It should start with "Type" being set to "Automatic". Automatic is not always perfect but it will do for this right now.\
+Here we need to split up our sprite. At the top you will see a button that says split. When you click on it there will be a drop down menu. It should start with "Type" being set to "Automatic". Automatic is not always perfect but it will do for this right now.\
 Hit slice and you should see your sprite split up by boxes around each frame of the animation.
 
 ![SlicingSprites](Images/SlicingSprites.JPG)
@@ -46,7 +46,7 @@ At first glance you may think we haven't covered the whole object but this isn't
 
 Now we can begin the animation.\
 At the top of Unity click on "Window", then scroll down to "Animation" and in the sub menu that pops out click "Animation". Place this window wherever.\
-You will see that it is telling us we need to create an "Animation Clip". Go ahead an press create. You should place this in a new folder called "Animations". Name the animation "PlayerIdle".
+You will see that it is telling us we need to create an "Animation Clip". Go ahead and press create. You should place this in a new folder called "Animations". Name the animation "PlayerIdle".
 
 Now when you go into the animation folder you will see two items have been created.
 
@@ -64,16 +64,16 @@ You should have your window looking like this :
 
 ![AnimationWindow](Images/AnimationWindow.JPG)
 
-To start changing a property with the animation we need to press "Add Property". This is likely greyed out and this is because we need to have an object selected in the hierarchy in order to change one of it's properties.\
+To start changing a property with the animation we need to press "Add Property". This is likely greyed out and this is because we need to have an object selected in the hierarchy in order to change one of its properties.\
 Click on the player object. Now you can press the "Add Property" button.\
 A drop will come out listing every component on the object. Inside each of those is another list of (more or less) all the public values.
 
 Since we want to change the sprite we should look under "Sprite Renderer" and find the "Sprite" property. Click the little plus icon beside it.\
-You will now see the sprite listed in the animation. Let's break this down
+You will now see the sprite listed in the animation. Let's break this down.
 
 ![AnimationWindowWithProperty](Images/AnimationWindowWithProperty.JPG)
 
-*You can also click the drop down on the sprite to see a mini preview.*
+*You can also click the drop down menu on the sprite to see a mini preview.*
 
 On the left you will see controls for playing and pausing the animation. You should see the name of the animation you are editing, the sample rate (how many frames are in a second), and a few buttons to add points on the time line.\
 Below that are the properties that are part of this animation. These are what we change.\
@@ -83,7 +83,7 @@ And on the right is the timeline. This shows what the properties should be at wh
 
 Now we can actually have the sprite change. Luckily since this is very common in Unity it does most of the work for us.\
 Go into the sprites folder and expand the sprite sheet. Click on the first sprite there and then shift-click on the fourth. All four sprites will be selected.\
-These four make up our idle animation. If you are wondering how we know this is is better visualized if you look at the [full sprite sheet](Assets/SoliderSpriteSheet.png). The first row contains the idle animation and it's four sprites long.
+These four make up our idle animation. If you are wondering how we know this is better visualized if you look at the [full sprite sheet](Assets/SoliderSpriteSheet.png). The first row contains the idle animation and it's four sprites long.
 
 We've got a bit of a fib here. Remove the sprite property from the animation window by clicking the little icon on the right side of the property. We just wanted that for a visual to demonstrate adding a property by hand.\
 With an empty animation and these four sprites selected, drag the sprites onto the animation window.
@@ -92,12 +92,12 @@ With an empty animation and these four sprites selected, drag the sprites onto t
 
 Unity has automatically added the sprite property and a key frame for each sprite. Awesome, that means we're done! Not quite, try hitting play on the animation window.\
 Yeah unless he drank a few hundred cups of coffee that doesn't look like an idle stance.\
-The problem is that Unity thinks there is sixty frames per second. Remember when we turned on "Show Sample Rate"? This is where that comes in handy. Just below the play buttons change sample rate to four. You can make this a little higher if you want it faster.
+The problem is that Unity thinks there are sixty frames per second. Remember when we turned on "Show Sample Rate"? This is where that comes in handy. Just below the play buttons change sample rate to four. You can make this a little higher if you want it faster.
 
 When you play the game you should see that your player moves around while playing the idle animation. If for some reason the player does not check that there is a "Animator" component added to the player (Unity should do this when you make the animation).\
-If it's not, add an "Animator" component to the player and set the "Controller" to "PlayerAC" (which should be the only avaliable option). This should fix the problem for now.
+If it's not, add an "Animator" component to the player and set the "Controller" to "PlayerAC" (which should be the only available option). This should fix the problem for now.
 
-Next we are going to setup the next two animations on our sheet in the same way.\
+Next we are going to set up the next two animations on our sheet in the same way.\
 Start by making a new animation by clicking on the name right below the animation windows controls. This should have the name of the currently selected animation. Here click "Create New Clip" and name it "PlayerRun".
 
 ![CreateNewClip](Images/CreateNewClip.JPG)
@@ -109,7 +109,7 @@ That should be good, the player should now be running in place.
 Do the exact same thing with the next eight sprites and make the "PlayerAttack" animation. **Careful**, the very last sprite on the sheet is not part of that animation.\
 You should now have three animations in your animation folder, "PlayerIdle", "PlayerRun", and "PlayerAttack". Go through and look at all of these in the animation window and make sure they are correct.
 
-There is certainly some fine tuning we could do, particularly slicing sprites, but for the example it looks great.\
+There is certainly some fine-tuning we could do, particularly slicing sprites, but for the example it looks great.\
 With that we can now get these hooked up to our game.
 
 ### Animation Controllers
@@ -123,28 +123,28 @@ If you look in the animations folder you should see the icon with a play button 
 	<img src="Images/AnimationControllerIcon.JPG">
 </p>
 
-Unity made this automatically as our animations will not work without one. Now we can use it to hook our animations together. Click on it and this screen should pop up :
+Unity made this automatically as our animations' will not work without one. Now we can use it to hook our animations together. Click on it and this screen should pop up :
 
 ![AnimatorWindow](Images/AnimatorWindow.JPG)
 
-What is this? This is, as the name implies, a controller for our animations on the player. In the right side of the window you will see a visual representation of our ["States"](https://docs.unity3d.com/Manual/StateMachineBasics.html). For our purposes each state is just an animation.\
+What is this? This is, as the name implies, a controller for our animations on the player. On the right side of the window you will see a visual representation of our ["States"](https://docs.unity3d.com/Manual/StateMachineBasics.html). For our purposes each state is just an animation.\
 We use this to transition between the different states, or, move between animations.
 
 #### States
 
-You can also see an arrow going from the "Entry" state to the "Idle" state. This is exactly what is mentioned above. Currently, when we play the game the idle animation is played. Because idle is hooked up to one of the special states. These are :
+You can also see an arrow going from the "Entry" state to the "Idle" state. This is exactly what is mentioned above. Currently, when we play the game the idle animation is played because idle is hooked up to one of the special states. These special states are :
 
 * Entry, this is where the controller starts. Think of the `Start` function.
 * Any State, this actually represents any of the other states. If you have a transition coming off of this it can be called from any other state.
 * Exit, tells the state machine to exit, meaning it no longer will do anything. We likely won't need this.
 
-We have our states, animations, and transitions that move us between them. But we need to tell these transitions when they should transistion. We do this with parameters.
+We have our states, animations, and transitions that move us between them. But we need to tell these transitions when they should transition. We do this with parameters.
 
 #### Parameters
 
 There is a tab on the left side of this window that says ["Paremeters"](https://docs.unity3d.com/Manual/AnimationParameters.html). Click on that and you'll see that there is nothing there. Let's start by adding one for the idle state.\
 We start by thinking of how the idle state works. Is idle a one time thing or can you be in it for a long time? Which states can you go to idle from?\
-Well we could at anytime stop moving and become idle and we can be there for as long as we want.\
+Well we could at anytime stop moving and become idle, and we can be there for as long as we want.\
 With that in mind click the plus sign off to the right of where it says "Parameters". A drop down list will come out with four options. To quote Unity themselves :
 
 >*Integer* - a whole number\
@@ -162,13 +162,13 @@ Now we can set a transition to that. Which states should we be able to go to idl
 To set this up we can right-click on the "Any State" state and hit "Make Transition". Then click on the "Idle" state to attach it. Now we have a transition from "Any State" to "Idle" and you can tell the direction because of the little arrow.\
 Now this doesn't do anything as is, we still need to tell it when to do this transition.
 
-Click on the transition (not the state). In the Inspector there will will be quite a few options avaliable. The main one we need is at the bottom, "Conditions".\
+Click on the transition (not the state). In the Inspector there will be quite a few options available. The main one we need is at the bottom, "Conditions".\
 Here we want to press the plus button. Unity will automatically fill this in and because there is only one parameter we should be good. It should have "pIdle" in the first box and "true" in the second.
 
 ![AddingTransitionsToAnimator](Images/AddingTransitionsToAnimator.JPG)
 
-Now when the condition is fufilled (`pIdle` being `true`) our object with transition from any state to the Idle state.\
-Above the transition there is a drop down labeled "Settings". In here the last option is called "Can Transition To Self". Make sure this un checked. This prevents our state from being able to enter the same state.\
+Now when the condition is fulfilled (`pIdle` being `true`) our object with transition from any state to the Idle state.\
+Above the transition there is a drop down menu labeled "Settings". In here the last option is called "Can Transition To Self". Make sure this un-checked. This prevents our state from being able to enter the same state.\
 That is all we really need to do here but for best practice we need to change two other things about this transition in the inspector. We need to ensure "Has Exit Time" is **not** checked. In the little timeline below there are a few things on the scrub bar at the top. Find the blue arrow that is farthest to the right and drag it to the left. This makes it so there is no blending between our two animations here. This doesn't really happen with sprites but still, best practice.
 
 There we go. We have a transition from any state to our Idle state whenever the `pIdle` variable is `true`. Still doesn't do anything exciting. For that we need to add the ability to transition to some other states.
@@ -180,7 +180,7 @@ You can do the same as before to the rest of the settings of this animation if y
 Last we have our "PlayerAttack" state. This one is a bit different.\
 Firstly, our attack is a fixed duration so a bool won't be the best choice. We should create a "Trigger" for this animation as we want it to fire once when we attack. Do just that and name it "pAttack".\
 Create a transition from "Any State" to "PlayerAttack" and give it the "pAttack" trigger as a condition. Give this transition all the same settings.\
-There is an extra bit here though. After our attack we don't want to just continually attack, we need to transition back to another state. We could setup some nice logic to figure out which one to go back to but for these purposes let's just make a transition from "PlayerAttack" to "PlayerIdle".\
+There is an extra bit here though. After our attack we don't want to just continually attack, we need to transition back to another state. We could set up some nice logic to figure out which one to go back to but for these purposes let's just make a transition from "PlayerAttack" to "PlayerIdle".\
 Click on the transition and this time we don't want any conditions and do want "Has Exit Time" checked. This means that the animation will transition using this transition after a certain amount of time. We will also have to set up the little timeline like this :
 
 ![TransitionWithExitTime](Images/TransitionWithExitTime.JPG)
@@ -205,7 +205,7 @@ public class PlayerInput : MonoBehaviour {
 
 Now all we have to do is call ["SetBool"](https://docs.unity3d.com/ScriptReference/Animator.SetBool.html) on that animator to set our parameters. This takes in a string for the name or the parameter and then a value for that parameter.
 
-When is our player moving? They are moving when our "GetAxis" for the horizontal is zero. Let's setup a little logic statement in our `Update` function.
+When is our player moving? They are moving when our "GetAxis" for the horizontal is zero. Lets set up a little logic statement in our `Update` function.
 
 ```csharp
 float xDir = Input.GetAxis("Horizontal");
@@ -243,8 +243,8 @@ if(xDir == 0) {
 ```
 
 That should be good. Now when you run your player will move between being idle and running.\
-Next we can setup the attack. We won't go over creating a physical attack here, just the animation.\
-Lucky for us this shouldn't be too hard. Just detect when the key we want is pressed and then play the attack. It really doesn't matter which button you use, in this case the space bar is used for jumping so we've just stuck "j" in there.
+Next we can set up the attack. We won't go over creating a physical attack here, just the animation.\
+Lucky for us this shouldn't be too hard. Just detect when the key we want is pressed and then play the attack. It really doesn't matter which button you use, in this case the space bar is used for jumping, so we've just stuck "j" in there.
 
 ```csharp
 if(Input.GetKeyDown("j")) {
@@ -254,7 +254,7 @@ if(Input.GetKeyDown("j")) {
 
 This uses ["SetTrigger"](https://docs.unity3d.com/ScriptReference/Animator.SetTrigger.html) because this parameter is a trigger.\
 Now once again you may rush to start swinging your sword and find that your player does not play the animation. This is again because since the other parameters can still be true Unity does not know which to go to.\
-This isn't quite working and we'll have to change the transitions around to fix it. The problem is that the frame after we trigger the attack either the idle or run will just take over again.\
+This isn't quite working. We'll have to change the transitions around to fix it. The problem is that the frame after we trigger the attack either the idle or run will just take over again.\
 The solution is to move our transitions to only use any state for the attack. You can figure out what parameters are needed to switch between the different states and set up your transitions to look like this (leave attack as it was) :
 
 ![RevisedTransitions](Images/RevisedTransitions.JPG)
@@ -265,7 +265,7 @@ Now we should be able to run around and swing our sword. It won't look perfect a
 
 ### Adding A Jump
 
-The last thing we will add is a jumping animation. This is just one frame that we will play whenever we are jumping but we still need to make it into an animation.\
+The last thing we will add is a jumping animation. This is just one frame that we will play whenever we are jumping, but we still need to make it into an animation.\
 Just as before go and create a new animation on the player. Just pass in the final sprite on our sprite sheet which we are using as the jump.\
 Then go back to the animator and the "PlayerJump" state should be there. If not just drag the animation into the animator window.\
 Make two new triggers, "pJump" and "pLand". Create a transition from "Any State" to "PlayerJump" with the "pJump" trigger as it's condition. Then create a transition from "PlayerJump" to "PlayerIdle" with "pLand" as the condition.
@@ -305,6 +305,6 @@ if(pCont.landed) {
 ```
 
 While both methods work the latter is best if you are a stickler for perfection.\
-That is due to it not transitioning into a state. This can perserve if you were, say, running of a ledge. It doesn't momentarialy transition back to idle stopping a tiny bit of studder.
+That is due to it not transitioning into a state. This can preserve if you were, say, running off a ledge. It doesn't momentarily transition back to idle stopping a tiny bit of stutter.
 
 That should do it. Now you can find or make your own sprite sheets and hook up awesome animators. It's encouraged that you look into the power of the animator because there are so many more things that can be done with it.
