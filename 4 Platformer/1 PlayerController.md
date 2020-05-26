@@ -12,6 +12,9 @@ Let's go through the basics of setting up an input controller for our script.
 
 First things first, drag the ["PlayerController"](./Library/PlayerController.cs) script into your scripts folder (or just copy the contents and make sure to name the file exactly the same).
 
+*Note*\
+You should not have to edit this PlayerController while making your game. Any code you write should be in a seperate script and simply interact with the controller.\
+
 Now create a new object for your player.\
 To start let's give this a sprite. You could just use the [box](../1%20Rube%20GoldBerg%20Machine/Assets/WhiteBox.png) and [circle](../1%20Rube%20GoldBerg%20Machine/Assets/WhiteCircle.png) sprites we have been using.\
 The only slight problem with that is we want to see which way the player is facing so you might want a sprite with distinct sides. Check in the [assets](./Assets/Knight.png) folder if you don't have one already.

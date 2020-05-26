@@ -11,6 +11,10 @@
  * A simple 2D controller to move an object in a 
  * platformer style.
  *
+ * It is unlikely you will need to edit this file
+ * directly. All your code interacting with this
+ * should be in a seperate script(s).
+ *
  */
 
 /* 
