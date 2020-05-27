@@ -2,7 +2,7 @@
 
 Let's first go over everything we've learned so far :
 
-* [How to create, edit, and utilise Prefabs](./1%20Prefabs.md).
+* [How to create, edit, and utilize Prefabs](./1%20Prefabs.md).
 * [Capturing player input](./2%20PlayerInput.md).
 * [Moving objects with code](./2%20PlayerInput.md/#moving-the-player).
 * [Creating game objects with code](./2%20PlayerInput.md/#spawning-a-bullet).
@@ -18,7 +18,7 @@ As always please feel free to look back at everything you've done to get a refre
 ## The Arcade
 
 Now we get to make the game. But what do we mean by "Top Down Arcade Game"?\
-We want to build a game that doesn't have gravity and is seen from a top down perspective. Think Pac Man, the original Legend of Zelda, and others.
+We want to build a game that doesn't have gravity and is seen from a top down perspective. Think Pac-Man, the original Legend of Zelda, and others.
 
 There is no central template for this game. There are useful scripts in the [Library](./Library/) folder that you may use. This is just about every main script we built during the lessons. You can use and extend them to fit your game.\
 Most importantly, be creative! You don't need shooting if you don't want it, or any other mechanic. Consider making a puzzle game or an adventure. Don't be tied to only doing what has been covered here.
@@ -26,7 +26,7 @@ Most importantly, be creative! You don't need shooting if you don't want it, or 
 Here are the requirements :
 
 * A player that you can control.
-* A core theme and unified asthetic including sprites and backgrounds.
+* A core theme and unified aesthetic including sprites and backgrounds.
 * A main and interesting gameplay loop / mechanic.
 * At least two different particle effects.
 * At least three different scenes to play, as well as a start and end screen.
