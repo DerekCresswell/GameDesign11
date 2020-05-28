@@ -22,7 +22,7 @@ If you click into the second scene you'll see there is nothing, great!\
 Unity has loaded the new scene which is empty seeing as we just made it. Go ahead and stick some things in there. You will want to use the prefabs you've made.\
 I would go back to the first scene and make the walls into prefabs and use those in the new scene. You will also need to remember to set up things like the camera again.
 
-Once you have these two different scenes set up try switching between. You'll see each is entirely seperate.\
+Once you have these two different scenes set up try switching between. You'll see each is entirely separate.\
 Go ahead and add some more scenes if you want.
 
 Flipping between scenes isn't great for gameplay though. Luckily we can use code to switch levels.
@@ -35,7 +35,7 @@ What we want to do here is set this up so when our player hits the box we load i
 * Detect a collision with the player.
 * Load a level that we choose.
 
-To detect the collision we just need to add in the `OnCollisionEnter2D` function we've used previously. Also the same as before we need this to only work when colliding with the player.
+To detect the collision we just need to add in the `OnCollisionEnter2D` function we've used previously. Also, the same as before we need this to only work when colliding with the player.
 
 ```csharp
 void OnCollisionEnter2D(Collision2D collision) {
@@ -90,21 +90,21 @@ For now it can just be a box. Give it a unique color and make sure it has a 2D c
 
 It wouldn't hurt to make that into a prefab.
 
-If you click on the object you can enter a string into the variable for `sceneName` in the inspector. This needs to be exactly the way you spelt the name of the scene. Here that should be "Scene1" (do the opposite of whichever scene you are currently on).\
+If you click on the object you can enter a string into the variable for `sceneName` in the inspector. This needs to be exactly the way you spelled the name of the scene. Here that should be "Scene1" (do the opposite of whichever scene you are currently on).\
 If you run your game and run into the level switching object you will get an error along the lines of "Scene couldn't be loaded because it isn't added to the build settings". This means we need to add the scene to our build settings.\
 How do we do that? Glad you asked.\
 In the top left of Unity go to "File" and then click on "Build Settings". A window will appear and it should have "Scenes in Build" at the top. Make sure all the scenes you have are added here, you can use the "Add Open Scenes" to add the open scene.
 
 ![AddScenesToBuild](Images/AddScenesToBuild.JPG)
 
-Now when you run your game you should be able to switch to which ever scene name is set on the switcher.
+Now when you run your game you should be able to switch to whichever scene name is set on the switcher.
 
 That's the basics of switching scenes. Remember, you can call `LoadScene` from anywhere in your code, not just with collisions.\
-Perhaps in the future you want to switch when your player dies. Well then you can put the code into your health script's death function. Possibilities are endless!
+Perhaps in the future you want to switch when your player dies. Well then you can put the code into your health script's death function. The possibilities are endless!
 
 ### Carrying Values Between Scenes
 
-One thing you will likely want to do is carry data between scenes, perhaps a players health. There are a few ways to do this but we will try doing this in a very simple way.\
+One thing you will likely want to do is carry data between scenes, perhaps a players' health. There are a few ways to do this but, we will try doing this in a very simple way.\
 We will create a new script that acts as a manager for our data. Before we load into a scene we give data to it and when the next scene starts we pull that data from it.
 
 To start create a new script called "DataManager" and open it.\
@@ -125,7 +125,7 @@ public static int playerHealth;
 
 Now this variable will exist "always".\
 Before we load a scene we can now set this variable to the player's current health.\
-Open up the level switch script and we can modify the `OnCollisionEnter2D` function to grab that health like so :
+Open up the level switch script and then we can modify the `OnCollisionEnter2D` function to grab that health like so :
 
 ```csharp
 void OnCollisionEnter2D(Collision2D collision) {
@@ -151,7 +151,7 @@ void Start() {
 
 When you run the game though you will see a problem. Our health starts at zero now. This is because the variable in `DataManager` was not set to anything at the start.\
 You could simply set `DataManager.playerHealth` to a default value but this will make it more difficult to change these values as they can't be used like a normal public variable.\
-If you want to use this method of passing variable you will likely have to stomach this inconvience. A slight "hacky" alternative would be to have a boolean declared that doesn't use the `DataManager`  the first time it's set.\
+If you want to use this method of passing variable you will likely have to stomach this inconvenience. A slight "hacky" alternative would be to have a boolean declared that doesn't use the `DataManager`  the first time it's set.\
 If you wish to try that you will have to figure out a way to set that up. For our uses, setting the value through the `DataManager` directly should work fine.
 
 It should be quite trivial to add new variables to this script and hook them into other scripts start functions.

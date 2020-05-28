@@ -1,6 +1,6 @@
 # Top Down Arcade Game 
 
-We have working health and attacking so we should come up with a way to  display to the player all the stats.
+We have working health and attacking, so we should come up with a way to  display to the player all the stats.
 
 ## HUD
 
@@ -18,10 +18,10 @@ This canvas is where Unity will put all of our UI or HUD parts.
 To start, how about we just stick a piece of text on our canvas.\
 Right click on the hierarchy and scroll down to "UI" and then click "Text".\
 You will see that Unity has automatically placed this as a child of the canvas object. Now if you look at your game you will see that there is some text displaying. If you play the game and move around you will see that the text does not move.\
-This will be the base of our HUDs. Let's start by moving this to the top right corner to be our health display. You will notice there are some extra markers popping up, this is due to our text using a ["Rect Transform"](https://docs.unity3d.com/Packages/com.unity.ugui@1.0/manual/class-RectTransform.html) as opposed to the normal transform.\
+This will be the base of our HUD. Let's start by moving this to the top right corner to be our health display. You will notice there are some extra markers popping up, this is due to our text using a ["Rect Transform"](https://docs.unity3d.com/Packages/com.unity.ugui@1.0/manual/class-RectTransform.html) as opposed to the normal transform.\
 This tool has some special features we want to take advantage of, for instance easily anchoring our text to a corner.
 
-To do this click on the little box that appears in the Rect Transform component. A drop down will appear. This is the anchoring of our object.\
+To do this click on the little box that appears in the Rect Transform component. A drop down menu will appear. This is the anchoring of our object.\
 There are some fancy things you can do but for our purposes we want to hold <kbd>Shift</kbd> and <kbd>Alt</kbd> the click one of the corners, here it'll be top left.
 
 ![RectTransformAnchor](Images/RectTransformAnchor.JPG)
@@ -51,7 +51,7 @@ public Text healthText;
 ```
 
 In a bit we will set this to the [text object](https://docs.unity3d.com/ScriptReference/UIElements.TextElement.html) we created.\
-Now we need to change this text to display our health. the way we will do this is accessing the ["text"](https://docs.unity3d.com/ScriptReference/UIElements.TextElement-text.html) property of the text object. That will look like :
+Now we need to change this text to display our health. The way we will do this is accessing the ["text"](https://docs.unity3d.com/ScriptReference/UIElements.TextElement-text.html) property of the text object. That will look like :
 
 ```csharp
 healthText.text = "This text here";
@@ -86,12 +86,12 @@ Displaying it is all the same.
 
 The canvas is not limited to just text. How about we change up our HUD to use a health bar rather than numbers.
 
-Unity has a built in UI element called a ["Slider"](https://docs.unity3d.com/Packages/com.unity.ugui@1.0/manual/script-Slider.html). We can use this to create a basic health bar.\
+Unity has a built-in UI element called a ["Slider"](https://docs.unity3d.com/Packages/com.unity.ugui@1.0/manual/script-Slider.html). We can use this to create a basic health bar.\
 Go to the hierarchy, go to down to UI, and make a new slider.\
 In our game you now have a slider and if you play the game you can control it with the mouse. This isn't what we want so let's do a few changes to make this into more of a health bar.
 
 To start, you will notice that this object was created with a little handle. We don't want this for a health bar. This is just a childed object on the slider, go ahead and delete the "Handle Slide Area" object.\
-If you play the game though you can still change the slider with your mouse. Giving ourselves more health is not something we want to do so we need to go back to the Slider object and under the Slider component you should see a check box labeled "Interactable". Uncheck this. Now we cannot modify the slider with our mouse.\
+If you play the game though you can still change the slider with your mouse. Giving ourselves more health is not something we want to do, so we need to go back to the Slider object and under the Slider component you should see a check box labeled "Interactable". Uncheck this. Now we cannot modify the slider with our mouse.\
 One more thing you can do is delete the child object called "Background". Here we will do this as it can make the bar look a little worse.
 
 Just a few more settings. On our slider component we want to tick the box labeled "Whole Numbers" as we are using integers for our players health.\
@@ -100,7 +100,7 @@ You will see just above that a setting for the "Min" and "Max" value. We don't n
 ![SliderComponentSetup](Images/SliderComponentSetup.JPG)
 
 Finally, you will see that the color of the color of the slider is an ugly off-white. It's probably better to make this red like the text we made.\
-This is a little odd, we can't just use the sliders that you see in the Slider component. Go to it's children and you will see one named "Fill", click this and set the color there under the "Image" component.\
+This is a little odd, we can't just use the sliders that you see in the Slider component. Go to its children and you will see one named "Fill", click this and set the color there under the "Image" component.\
 Now we should be good to go. Let's head back to the player health script.
 
 Make sure to anchor this slider to a corner, likely beside the health text.
@@ -148,21 +148,21 @@ void Start() {
 There we go! This game is starting to take shape.
 
 *Note*\
-If you want to make this slider bigger or smaller you can adjust it's width with the Rect Transform.
+If you want to make this slider bigger or smaller you can adjust its width with the Rect Transform.
 
 Once you are happy with the HUD you should make it into a prefab so you can easily set the same thing up in each scene.
 
 ### Buttons
 
 The last big thing about the HUD is ["buttons"](https://docs.unity3d.com/Packages/com.unity.ugui@1.0/manual/script-Button.html).\
-Currently we have two levels and we can switch between them with the level switcher we made. The next thing we need is a menu to start the game.
+Currently we have two levels which we can switch between them with the level switcher we made. The next thing we need is a menu to start the game.
 
 Make a new scene and call it "Start". Then create a new canvas here.\
 We want to add a new button. This is under the UI dropdown just like all previous UI elements.\
 Let's set the text on the button to say "Start". This is found on the child text object on the button.
 
 The way a button works in Unity is that we can choose which functions to run from a script when clicked. Before we hook up the button let's create a function to load a level.\
-We could jump onto a new script and start writing but that is a little unnecesary. We already have a script that does just that.\
+We could jump onto a new script and start writing but that is a little unnecessary. We already have a script that does just that.\
 Open up your LevelSwitch script. Here we want to add a new function called "OnClick". Then we can copy over the same code from the `OnCollisionEnter2D` function we made before. Except, we don't want to check if we hit the player.
 
 ```csharp
@@ -173,7 +173,7 @@ void LoadOnButton() {
 
 Nice and simple. We didn't even need a new script.\
 Add this script to the button we just made. Then you can set the "Scene Name" to "Scene1" or whatever scene you want to switch to.\
-Now if you look up at to the Button component you will see the bottom where it says "Load On Button ()" with an empty box. This is where we can set what happens when clickling the button.
+Now if you look up at to the Button component you will see the bottom where it says "Load On Button ()" with an empty box. This is where we can set what happens when clicking the button.
 
 ![ButtonEmptyOnClick](Images/ButtonEmptyOnClick.JPG)
 
