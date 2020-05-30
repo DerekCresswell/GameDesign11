@@ -1,6 +1,6 @@
 # Top Down Arcade Game
 
-Here we will explore the concept and utilisation of prefabs in Unity.
+Here we will explore the concept and utilization of prefabs in Unity.
 
 ## What Are Prefabs?
 
@@ -23,7 +23,7 @@ So how do we make a prefab?
 
 ## How To Make Prefabs
 
-While first we need to create an object that we will make into a prefab. At this point you just need to try and make one, it does not need a purpose in your project here.\
+First we need to create an object that we will make into a prefab. At this point you just need to make one, it does not need a purpose in your project here.\
 You can put whatever you want onto this object. Perhaps make a "Ball" object that has a sprite (look up a ball sprite online or use the circle from the [Rube Goldberg](../1%20Rube%20GoldBerg%20Machine/Assets/WhiteCircle.png)), a circle collider, and rigidbody 2D.
 
 ![BallObject](Images/BallObject.JPG)
@@ -45,7 +45,7 @@ You can also individually edit these objects. Try changing some colors or size o
 This is great so far but now to show you the real power of prefabs.\
 Say we had a thousand of these balls around our scene and all of a sudden we decide that we need to change something on them. Now we need to go through all of them and update them. We'd likely have to go through different levels of our game and try to find them all. If we miss even one it might seriously mess up our game.\
 Now if we used Prefabs we can update any number of these balls with a single click.\
-Go into the Prefabs folder and double click on the Ball prefab we made. This will open up a window where we can edit just our prefab.
+Go into the Prefabs folder and double-click on the Ball prefab we made. This will open up a window where we can edit just our prefab.
 
 ![EditingPrefabs](Images/EditingPrefabs.JPG)
 
@@ -61,9 +61,9 @@ Now in our scene it should look something like this :
 
 Not all of our circles are green. What's with that?\
 Well if you [look back](#using-prefabs) at the prefabs before we edited the color you'll notice that one of them was blue and two were white. So why did only the white ones change?\
-Well that's because those balls had the "default" color of the prefab. If a change is made to a prefab every instance of theat prefab that has the default of value will update.\
-Since the we made the one ball blue by hand it's color value was not **not** default and therefore not changed. The color was [overriden](https://docs.unity3d.com/Manual/PrefabInstanceOverrides.html).\
-Now try and make one of the green balls red and then go edit the prefab again. Take note of which ones update thier color.
+Well that's because those balls had the "default" color of the prefab. If a change is made to a prefab every instance of that prefab that has the default of value will update.\
+Since we made the one ball blue by hand it's color value was not **not** default and therefore not changed. The color was [overriden](https://docs.unity3d.com/Manual/PrefabInstanceOverrides.html).\
+Now try to make one of the green balls red and then go edit the prefab again. Take note of which ones update their color.
 
 ***Note***\
 If you'd like to see whether an object has default values or custom values compared to the prefab you can just look at the Inspector. Any value that is not the default will have a bold name like this :

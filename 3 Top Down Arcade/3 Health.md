@@ -39,8 +39,8 @@ void OnTriggerEnter2D(Collider2D collision) {
 This will just make our code simpler and look nicer.\
 Now just like before, we need to check what we collided with and using tags is very simple, so we will do it again.
 
-Currently, our enemies do not shoot bullets so we can't use the same tag from before. We can implement this later but for now our enemies will be more like a zombie and just try to run into the player.\
-We need to detect if the player has collided with an enemy and we will do this the same as with the bullet. If you need a reminder just see the section of [Deleting Bullets](./2%20PlayerInput.md#deleting-bullets) from the [last lesson](./2%20PlayerInput.md).
+Currently, our enemies do not shoot bullets, so we can't use the same tag from before. We can implement this later but for now our enemies will be more like a zombie and just try to run into the player.\
+We need to detect if the player has collided with an enemy, and we will do this the same as with the bullet. If you need a reminder, just see the section of [Deleting Bullets](./2%20PlayerInput.md#deleting-bullets) from the [last lesson](./2%20PlayerInput.md).
 
 ```csharp
 void OnTriggerEnter2D(Collider2D collision) {
@@ -61,7 +61,7 @@ If you are curious to test this further simply try removing the tag on the bulle
 
 With that working correctly we can begin to make this actually track health.\
 If you think about any game you've ever played the health is just a number. Perhaps we should store our health with a number then? Make a new `int` called `currentHealth` or similar.\
-It's a good idea to make this a `public` variable as so we can quickly change the value and balance the game. Feel free to give it a default value also.
+It's a good idea to make this a `public` variable as we can quickly change the value and balance the game that way. Feel free to give it a default value also.
 
 ```csharp
 public class EnemyHealth : MonoBehaviour {
@@ -71,7 +71,7 @@ public class EnemyHealth : MonoBehaviour {
 ```
 
 Instead of printing out "Hit!" let's print out `currentHealth`. Now if we think about this code for a second you might be able to realize that our health does nothing.\
-Each time the enemy is hit we simple print out the value of `currentHealth` without changing it. Once we're hit (by a bullet) we need to take away some health. Let's do that.
+Each time the enemy is hit we simply print out the value of `currentHealth` without changing it. Once we're hit (by a bullet), we need to take away some health. Let's do that.
 
 ```csharp
 void OnTriggerEnter2D(Collider2D collision) {
@@ -121,7 +121,7 @@ Now as you can see, when we shoot the enemy enough they are destroyed! This is a
 
 ## Player Health
 
-For the sake of simplicity we are going to make the players health a different script. Make a new script and call it "PlayerHealth". To Save time copy over all the contents of the `EnemyHealth` class into the `PlayerHealth` class.
+For the sake of simplicity we are going to make the players' health a different script. Make a new script and call it "PlayerHealth". To Save time copy over all the contents of the `EnemyHealth` class into the `PlayerHealth` class.
 
 ```csharp
 public class PlayerHealth : MonoBehaviour {
@@ -151,16 +151,16 @@ public class PlayerHealth : MonoBehaviour {
 }
 ```
 
-For now we won't have our enemy shoot, they will just try to ram you. Because of this we want to use `OnCollisionEnter2D` on the player (as the enemy is **not** a trigger).\
+For now, we won't have our enemy shoot, they will just try to ram you. Because of this we want to use `OnCollisionEnter2D` on the player (as the enemy is **not** a trigger).\
 We also will want to make and place a new "EnemyTag" onto the enemy prefab.
 
-It's recomended that you remove the `Debug.Log`s from these two scripts as the player of the game cannot see the console. At least once you export the game. They are just fine now while we are working.\
+It's recommended that you remove the `Debug.Log`s from these two scripts as the player of the game cannot see the console. At least once you export the game. They are just fine now while we are working.\
 Later we will create a heads up display to show things like health.
 
 ### Dealing More Than One Damage
 
 With the current script we've written the character is only dealt one damage at a time. This is fine and works but what if we want to have an enemy that deals more damage?\
-We won't get into too much detail here as we want to encourage you to try and figure this out on your own. Though we will describe the idea behind it.
+We won't get into too much detail here as we want to encourage you to try to figure this out on your own, though we will describe the idea behind it.
 
 To start, look at how we get a reference to the object we collided with. We can do more than that, in fact we can access a script we've put on that object and then use variables from them. It would look similar to this :
 
@@ -230,7 +230,7 @@ Remember to add the `moveSpeed` as a `public float` to the class.
 
 ### Rotating Towards The Player
 
-Currently the enemy just stays orientated forward. If we want to have the enemy "Look at" the player we can use the following inside of our update function.
+Currently, the enemy just stays orientated forward. If we want to have the enemy "Look at" the player, we can use the following inside of our update function.
 
 ```csharp
 Quaternion rotation = Quaternion.LookRotation(player.transform.position - transform.position, transform.TransformDirection(Vector3.up));

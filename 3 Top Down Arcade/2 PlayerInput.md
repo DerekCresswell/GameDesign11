@@ -7,9 +7,9 @@ This is where we will begin adding in player interaction to our game with moveme
 Before we start writing some scripts make sure you add a scripts folder to your project.\
 Put in a new script and let's call it "PlayerMovement". Then open that up.
 
-Unity has a very convient way for us to get input with the ["Input Class"](https://docs.unity3d.com/ScriptReference/Input.html). On this class there are two main functions we want. ["GetAxis"](https://docs.unity3d.com/ScriptReference/Input.GetAxis.html) for movement and ["GetButton"](https://docs.unity3d.com/ScriptReference/Input.GetButton.html) for button presses.\
+Unity has a very convenient way for us to get input with the ["Input Class"](https://docs.unity3d.com/ScriptReference/Input.html). On this class there are two main functions we want. ["GetAxis"](https://docs.unity3d.com/ScriptReference/Input.GetAxis.html) for movement and ["GetButton"](https://docs.unity3d.com/ScriptReference/Input.GetButton.html) for button presses.\
 To use these we simply need to call the function from the `Input` class (just like `Debug.Log`). In the case of `GetAxis` we pass in a `string` of which axis we want to get. For us, the ones we'll use are `"Horizontal"` and `"Vertical"` which by default tell us if the player is pressing "WASD" or the arrow keys.\
-For `GetButton`, which we'll use a bit later, we pass in a button name and the function will tell us whether or not that button is pressed.
+For `GetButton`, which we'll use a bit later, we pass in a button name and the function will tell us whether that button is pressed.
 
 ***Note***
 The names of these axes are set through the ["Input Manager"](https://docs.unity3d.com/Manual/class-InputManager.html). You can also add new ones. We will talk more about this in a [section](#setting-up-button-inputs) later on.
@@ -34,9 +34,9 @@ void Update() {
 
 Here we've stored the value returned from `GetAxis` to a `float` called `hAxis`. The `GetAxis` function returns a `float` and more specifically a number between -1 and 1.\
 This is to inform us of the magnitude of input as well as direction. What we mainly care about is the direction because without using a joystick our key presses don't have a "half pushed" mode, they are simply down or up.\
-The direction is refrencing the grid used by Unity for transformations. Basically meaning the sign of `GetAxis` (positive or negative) releates to the grid in Unity where positive horizontal axis means moving right on the grid.
+The direction is referencing the grid used by Unity for transformations. Basically meaning the sign of `GetAxis` (positive or negative) relates to the grid in Unity where positive horizontal axis means moving right on the grid.
 
-Now to test that code we've writen.\
+Now to test that code we've written.\
 First save the script and return to Unity. Go to your "Player" prefab and add the "PlayerMovement" script to it. Then run the game and watch the console as you press A and D or Left and Right arrow keys.\
 Hopefully this should illustrate how the `GetAxis` function works. Please try to change that code to show the vertical axis too and try that out.
 
@@ -45,10 +45,10 @@ Hopefully this should illustrate how the `GetAxis` function works. Please try to
 Now we can actually use our input to move our player object around the game world.
 
 First let's think of how we can do this.\
-Our player's position in the game is based on the objects Transform component. However we have a Rigidbody on our player which we use for collisions. This means we need to move the player using the Rigidbody.
+Our player's position in the game is based on the objects Transform component. However, we have a Rigidbody on our player which we use for collisions. This means we need to move the player using the Rigidbody.
 
 In our script let's start by storing the vertical and horizontal axis values in a ["Vector2"](https://docs.unity3d.com/ScriptReference/Vector2.html) that's declared above the `Update` function.\
-We need to use a `Vector2` so we can store two numbers, an X and Y position. This is not only convient but also necessary because other parts of Unity require data to be in this form.\
+We need to use a `Vector2` so we can store two numbers, an X and Y position. This is not only convenient but also necessary because other parts of Unity require data to be in this form.\
 Declare it just like a normal variable, just with `Vector2` as the type, and you can access it's X and Y value simply by using `.x` and `.y`.
 
 ```csharp
@@ -75,7 +75,7 @@ void Start() {
 }
 ```
 
-A **very** key thing to note is that since the Rigidbody is based on physics we need to update it in whats called the ["FixedUpdate"](https://docs.unity3d.com/ScriptReference/MonoBehaviour.FixedUpdate.html). This is very similar to `Update` but it's for physics.\
+A **very** key thing to note is that since the Rigidbody is based on physics we need to update it in what's called the ["FixedUpdate"](https://docs.unity3d.com/ScriptReference/MonoBehaviour.FixedUpdate.html). This is very similar to `Update` but it's for physics.\
 We will be using a function called ["MovePosition"](https://docs.unity3d.com/ScriptReference/Rigidbody2D.MovePosition.html) to move our Rigidbody to a given position. Put in the following into your script :
 
 ```csharp
@@ -103,7 +103,7 @@ Hop back to the game and try this out.
 
 Now we'll likely need to adjust that speed. First we will set this up and then make it editable from Unity rather than our text editor.\
 To start we know that we are adding a number between -1 and 1 to our movement vector. Because of this we can declare a max speed and use the value from our axis to give us a ratio of that max speed.\
-Start by adding in a new `float` and call it `maxSpeed` or similar. We then want to mulitply our `moveTo` vector by that number.
+Start by adding in a new `float` and call it `maxSpeed` or similar. We then want to multiply our `moveTo` vector by that number.
 
 ```csharp
 void FixedUpdate() {
@@ -117,7 +117,7 @@ void FixedUpdate() {
 
 Obviously setting `maxSpeed` to `1` does nothing to our speed. You could open your script and change this to a different value but there is a better way.\
 So far we've only worked inside the `Update`, `FixedUpdate`, and `Start` function but if you look up you'll see that these are inside a class named after the file. One very useful part of this class is that we can declare a variable outside of functions and set the value of that variable in Unity.\
-To start move the declaration of `maxSpeed` out of the update function but still within the class, in this case called `PlayerMovement`. It doesn't matter where abouts you place this but to make your file look nice, and remain readable, variables are typically the first thing in a class. Like so :
+To start move the declaration of `maxSpeed` out of the update function but still within the class, in this case called `PlayerMovement`. It doesn't matter where about you place this but to make your file look nice, and remain readable, variables are typically the first thing in a class. Like so :
 
 ```csharp
 public class PlayerMovement : MonoBehaviour {
@@ -126,15 +126,15 @@ public class PlayerMovement : MonoBehaviour {
 
 ```
 
-Now this will still work but we can't change the value of `maxSpeed` with Unity yet. To do this we need to make the variable ["public"](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/public). We just need to put `public` in front of the variable. Like :
+Now this will still work, but we can't change the value of `maxSpeed` with Unity yet. To do this we need to make the variable ["public"](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/public). We just need to put `public` in front of the variable. Like :
 
 ```csharp
 public float maxSpeed = 1;
 ```
 
-Now save that and return to Unity. Click on your Player object and and under the PlayerMovement script you should see an option for "maxSpeed". Try setting this value and playing the game!\
+Now save that and return to Unity. Click on your Player object and under the PlayerMovement script you should see an option for "maxSpeed". Try setting this value and playing the game!\
 Now a fun thing you can try to illustrate the usefulness of this `public` keyword would be to put a second Player prefab into your game and give the second one a different `maxSpeed` value to the first.\
-When you play the game you can see that even though these two objects use the same script they can have different values. This means that, just like prefabs, we can make one script and use it as many times as we like. Also using `public` speeds testing up ten fold. It's also good to note that anything you can turn into a variable can be `public`. Use it whenever you want to quickly alter values.
+When you play the game you can see that even though these two objects use the same script they can have different values. This means that, just like prefabs, we can make one script and use it as many times as we like. Also using `public` speeds testing up tenfold. It's also good to note that anything you can turn into a variable can be `public`. Use it whenever you want to quickly alter values.
 
 ### Following The Player With The Camera
 
@@ -172,7 +172,7 @@ public class CameraFollow : MonoBehaviour {
 }
 ```
 
-If you use this script you must do two things.
+If you use this script, you must do two things.
 
 * Do not have the camera childed to the player for this 
 * Place the camera where you want it in relation to the player before you start the game.
@@ -192,13 +192,13 @@ First thing to do is to make a new script called "PlayerShoot". Make sure to put
 Now this script will be controlled with the arrow keys by default. Which means we need to change our inputs because currently the arrow keys can move our character as well.\
 This is because the arrows keys are by default to set to be in the Horizontal and Vertical axes. The same ones we used in our movement script.
 
-We need to open up our input manager. In the top left go to "Edit", then down to "Project Settings". Once that opens click on "Input".
+We need to open up our input manager. In the top left go to "Edit", then down to "Project Settings". Once that opens, click on "Input".
 
 ![ProjectSettings](Images/ProjectSettings.JPG)
 
-This is the input manager. In here we can change which buttons correspond to which axis. We need to move the arrow keys from the Horizatonal and Vertical axis to new axes that will be for shooting.\
+This is the input manager. In here we can change which buttons correspond to which axis. We need to move the arrow keys from the Horizontal and Vertical axis to new axes that will be for shooting.\
 Click on "Horizontal" from the list of axes. Find "Negative Button" and "Positive Button" and delete their corresponding keys ("left" and "right" in this case). It's ok that those two fields are now empty because these axes have alternate keys specified.\
-Do the same for the "Vertical" axis and then play your game. You will notice that the arrow keys no longer move you player but WASD do.
+Do the same for the "Vertical" axis and then play your game. You will notice that the arrow keys no longer move the player, but WASD does move it.
 
 ![RemoveArrowInput](Images/RemoveArrowInput.JPG)
 
@@ -221,7 +221,7 @@ void Update() {
 ```
 
 Put this script onto your player and try running the game. You should be able to move with WASD and by pressing <kbd>&#8592;</kbd> the console will say "Left".\
-Perfect. Now we just need to expand this to use all four arrow keys. Let's start by adding in the right arrow key. To do this add an `else if` to our current code. Then changed which key we are using and the output.
+Perfect. Now we just need to expand this to use all four arrow keys. Let's start by adding in the right arrow key. To do this, add an `else if` to our current code. Then changed which key we are using and the output.
 
 ```csharp
 void Update() {
@@ -236,7 +236,7 @@ void Update() {
 ```
 
 We want to use the `else` statement here because you cannot move left and right at the same time. This makes it so only one can run each frame. Go ahead and try this out.\
-Next we add the <kbd>&#8593;</kbd> and <kbd>&#8595;</kbd> keys to this. We want to duplicate what we currently have so that left and right are an `if else` and up and down are a seperate `if else`.
+Next we add the <kbd>&#8593;</kbd> and <kbd>&#8595;</kbd> keys to this. We want to duplicate what we currently have so that left and right are an `if else` and up and down are a separate `if else`.
 
 ```csharp
 void Update() {
@@ -260,7 +260,7 @@ Now let's move on to turning this into actually shooting a bullet.
 
 ### Making A Bullet Prefab
 
-Before we can shoot a bullet we need to make a bullet. First let's outline what we are actually about to do.\
+Before we can shoot a bullet, we need to make a bullet. First let's outline what we are actually about to do.\
 We are going to make a bullet prefab. Then in our `PlayerShoot` script we will spawn an instance of the bullet prefab and give it a velocity. With that in mine we can make a simple bullet prefab.
 
 * In your scene make a new sprite (just like with the player prefab) and name it "Bullet".
@@ -394,7 +394,7 @@ rb.AddForce(direction, ForceMode2D.Impulse);
 
 Time to add a call to the `ShootBullet` function in the `Update` function instead of just instantiating a bullet.\
 You will need to give the function call a direction. What we want to use is `1` to mean up / right and `-1` to mean down / left depending on if it's in the x or y spot.\
-Try and draw out the grid and figure out which directions to give to which key presses (You'll have to pass it like `new Vector2(X, Y)`).\
+Try to draw out the grid and figure out which directions to give to which key presses (You'll have to pass it like `new Vector2(X, Y)`).\
 Don't simply guess and then look at the answer, go and try turning on the game and see if it works. Playing and testing your game is perhaps the best thing you can do to learn.
 
 <details>
@@ -431,7 +431,7 @@ Our bullets are hitting the Player's collider. Add this line into the `ShootBull
 Physics2D.IgnoreCollision(bullet.GetComponent<CircleCollider2D>(), GetComponent<BoxCollider2D>());
 ```
 
-Read through the line and see if you can make sense of it. If not try using the [Scripting API](https://docs.unity3d.com/ScriptReference/Physics2D.IgnoreCollision.html) page.
+Read through the line and see if you can make sense of it. If not, try using the [Scripting API](https://docs.unity3d.com/ScriptReference/Physics2D.IgnoreCollision.html) page.
 
 #### Deleting Bullets
 
@@ -521,7 +521,7 @@ void Start() {
 }
 ```
 
-As before we are using the `Destroy` function to delete our game object (in this case a bullet). Lucky for us, Unity lets us pass in a `float` after the object we want to destroy. If you give a value here, Unity will destroy the object after that many seconds.\
+As before, we are using the `Destroy` function to delete our game object (in this case a bullet). Lucky for us, Unity lets us pass in a `float` after the object we want to destroy. If you give a value here, Unity will destroy the object after that many seconds.\
 Completely arbitrarily we've done two seconds here. Feels like if a bullet has not found a target in two seconds, it likely missed.
 
 In the next lesson we will go over making a script to track the players and enemies health.
