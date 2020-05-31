@@ -118,8 +118,8 @@ class Test {
 ```
 
 New lines should be used to break up groups of similar variables.\
-Properties (Header, Range, Serializable) are placed on the line preceding their coresponding variable.\
-Arrange variables based on their Access Levels. Typically top to bottom like :
+Properties (Header, Range, Serializable) are placed on the line preceding their corresponding variable.\
+Arrange variables based on their Access Levels, typically top to bottom like :
 
 * Static
 * Public
