@@ -4,7 +4,7 @@ Here we will work together to create the basic template for a dice game.
 
 ## Basic Layout
 
-Before we jump right into coding we need to plan out our work. Though it can be really fun to just start coding, but without a plan it can be very difficult to break apart a big problem like "make a dice game".
+Before we jump right into coding, we need to plan out our work. Though it can be really fun to just start coding, but without a plan it can be very difficult to break apart a big problem like "make a dice game".
 
 First, let's go over what our dice game is :
 
@@ -101,8 +101,8 @@ That's a fine starting point and does what we needed to do in the first part of 
 ### Taking Turns
 
 The next part of our problem involves alternating between our players turns. Let's start with figuring out how we should go about this.\
-This may not be inherently obvious but we are going to use another `int` and check if it is even or odd. This is a very common method.\
-Start by creating another variable called `turnCounter` or similar. It will be an `int` and have an intial value of `0`;
+This may not be inherently obvious, but we are going to use another `int` and check if it is even or odd. This is a very common method.\
+Start by creating another variable called `turnCounter` or similar. It will be an `int` and have an initial value of `0`.
 
 ```csharp
 using System.Collections;
@@ -130,7 +130,7 @@ public class DiceGameTemplate : MonoBehaviour {
 
 Then as we said, we need to check it `turnCounter` is even or odd. We can do this with the ["modulus operator"](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators#remainder-operator-).\
 The modulus or remainder operator gives us the remainder of division between two numbers. It's used like `5 % 2` will return `1` because `2` can go into `5` twice with one left over.\
-Perhaps you can see just from that how we can check for even-ness. All we need to do is take the remainder of two. If it returns one, the number is odd. If it returns zero, the number is even. We can test this like so :
+Perhaps you can see just from that how we can check for evenness. All we need to do is take the remainder of two. If it returns one, the number is odd. If it returns zero, the number is even. We can test this like so :
 
 ```csharp
 3 % 2; // Equal to 1
@@ -155,7 +155,7 @@ void Start() {
 ```
 
 Just put this code into the `Start` function for now.
-Now we do need to update the `turnCounter` value otherwise it will stay zero forever. We want to always increment `turnCounter` regardless of who's turn it is so we should increment the value **After** the `if` and `else` statement.
+Now we do need to update the `turnCounter` value otherwise it will stay zero forever. We want to always increment `turnCounter` regardless of whose turn it is, so we should increment the value **After** the `if` and `else` statement.
 
 ```csharp
 // Start is called before the first frame update
@@ -176,7 +176,7 @@ That should be all for determining who's turn it is. Onto the next bit of the tu
 
 ### Random Numbers
 
-After getting our turns setup we need to actually do something in our turns. Otherwise this would be one boring game.\
+After getting our turns setup, we need to actually do something in our turns. Otherwise, this would be one boring game.\
 We now need to "roll some dice". We can do this using a pre-made Unity class called ["Random"](https://docs.unity3d.com/ScriptReference/Random.html). The Random class has a method perfect for us called ["Range"](https://docs.unity3d.com/ScriptReference/Random.Range.html).\
 If you open up that page you can read a bit about how it works. You can also see from the examples how we need to access this function. First we need to reference the class, `Random`, then access the `Range` function with a `.` like so `Random.Range();`.\
 Now this will error because we have not given the function any parameters. If you look at the [Scripting API](https://docs.unity3d.com/Manual/index.html) it will tell you that `Range` needs two numbers. These can be either `float` or `int` types, but seeing as we are simulating dice we will only want whole numbers.\
@@ -200,7 +200,7 @@ void Start() {
 ```
 
 Alright that might seem a little weird so let's pick it apart.\
-First thing is that we want to store this random number into a variable (`int dieOne`, We've used the suffix `One` here as there will be two dice later) because will need to use this number throughout the turn. If we did not store the number to a variable we'd only be able to access it once. Every time we call the `Range` function it creates a **new** number so we need to use a variable to access it more than once.\
+First thing is that we want to store this random number into a variable (`int dieOne`, We've used the suffix `One` here as there will be two dice later) because will need to use this number throughout the turn. If we did not store the number to a variable we'd only be able to access it once. Every time we call the `Range` function it creates a **new** number, so we need to use a variable to access it more than once.\
 Next is the placement. We've put it above the `if` statements because it doesn't matter who's turn it is we always need a random number. This also makes it accessible throughout the rest of the turn and in any `if`s we have.\
 The last bit is the values we've passed in, `1` and `7`. Now you could pass whatever you would like into this, here we are simply emulating a six sided die. The reason `1` is the lower limit and `7` is the upper limit is because the [Scripting API](https://docs.unity3d.com/Manual/index.html) tells us the integer version of `Range`, which we are using, has an inclusive minimum and exclusive maximum.\
 What this means is the first number passed in, here being `1`, is going to be inclusive. `Range` **can** return `1`.\
@@ -213,9 +213,9 @@ All of this boils down to having `dieOne` set to a random number between one and
 
 ### Turn Logic
 
-Now that we have a random number and have figured out who's turn it is, we ought to do something.\
-In this template we will use the number rolled to determine the "power" of an attack and take that away from the players health. If that makes sense it's encouraged that you try doing this on your own first and see how it goes. You can always come back after and use the methods listed here. There isn't really a wrong way to do this so go ahead and try it!\
-First let's list out what we'd like each dice roll to do. For the this template how about :
+Now that we have a random number and have figured out whose turn it is, we ought to do something.\
+In this template we will use the number rolled to determine the "power" of an attack and take that away from the players' health. If that makes sense it's encouraged that you try doing this on your own first and see how it goes. You can always come back after and use the methods listed here. There isn't really a wrong way to do this so go ahead and try it!\
+First let's list out what we'd like each dice roll to do. For this template how about :
 
 * `1` & `2` deal `5` damage.
 * `3` & `4` deal `10` damage.
@@ -226,7 +226,7 @@ Chose to do whatever you'd like for these.
 
 #### Structure
 
-Now that we've got that plan let's start implementing it. We will simply use `if else` statements to decide on the damage.\
+Now that we've got that plan lets start implementing it. We will simply use `if else` statements to decide on the damage.\
 The main thing we need to consider with this bit of logic is the order to do it in. If we lay out our if statements right we can make them simpler and faster.\
 Let's get the structure down.
 
@@ -279,25 +279,25 @@ if(dieOne >= 1) {
 }
 ```
 
-Now if `dieOne` was set to `4` the first two statements would fail and not execute their code. Then it would hit the third statement and it be true and execute that code. Then because there is no `else` statements, `dieOne` would be checked against the fourth `if` statement. Since `4` is greater or equal to `1` the code within that `if` would execute.\
-As you can see, this logic is flawed for our purpose as multiple `if`'s can be true and we do not want that, thus, we should use `else` statements. Of course you can use just `if`'s but the logic needs to be laid out differently.
+Now if `dieOne` was set to `4` the first two statements would fail and not execute their code. Then it would hit the third statement and it is true and execute that code. Then because there is no `else` statements, `dieOne` would be checked against the fourth `if` statement. Since `4` is greater or equal to `1` the code within that `if` would execute.\
+As you can see, this logic is flawed for our purpose as multiple `if`'s can be true, and we do not want that, thus, we should use `else` statements. Of course, you can use just `if`'s but the logic needs to be laid out differently.
 
 Now for the arbitrary choice.\
-This would be the logic we have put inside of our `if` statements. Let's start by saying you could write this any way you'd like and if it works, it pretty well should be good.\
+This would be the logic we have put inside our `if` statements. Let's start by saying you could write this any way you'd like and if it works, it pretty well should be good.\
 Here we've started with checking `6` directly with a `==`. This is simply because we want to check if the number rolled was a `6`. Then the same goes for `5`. In our little list above we had `6` and `5` separate so it makes sense to test for them individually.\
 After that we have `dieOne >= 3`. This checks to see if `dieOne` is `3` or above. As we showed above, if the number is `5` or `6` you may think that this will still trigger here. But remember, because we've used `else` statements only one of them may execute. Because we only have to check this third statement if both of the first two fail we can be certain the number is not `5` or `6`.\
-The same goes for the last `else` statement. We do not strictly need an `if` here because if all of the above checks have failed the only options left are `1` and `2` so it must be true. Of course you can just as well put `if(dieOne >= 1)` and nothing will change.\
+The same goes for the last `else` statement. We do not strictly need an `if` here because if all the above checks have failed the only options left are `1` and `2` so it must be true. Of course, you can just as well put `if(dieOne >= 1)` and nothing will change.\
 There are really countless ways to do this. You can check every number with a `==` if you'd like. As long as it works when you test it. What we have here would be considered the "right" way of doing this.
 
 Now that we've got the structure laid out let's start doing some damage, literally!
 
 #### Dealing Damage
 
-Now that our turn is set up properly we can start actually doing something with our dice rolls. This bit is nice and easy as we will simply subtract the values we stated [above](#turn-logic) from the players health.\
+Now that our turn is set up properly we can start actually doing something with our dice rolls. This bit is nice and easy as we will simply subtract the values we stated [above](#turn-logic) from the players' health.\
 This is all we will do in the example but if you can think of a different set of rules to go with try it out. Perhaps dealing damage times the die roll or use two dice and add in bonus damage if you roll snake eyes, damage based on current health, etc.\
 We simply need to add `playerVar -= damageValue` to each of our if statements while subbing in the correct values.
 
-*Note : This is player ONE's turn so we should damage player TWO.*
+*Note : This is player ONE's turn, so we should damage player TWO.*
 
 ```csharp
 if(dieOne == 6) {
@@ -336,7 +336,7 @@ if(dieOne == 6) {
 }
 ```
 
-This is fairly simple and works well for our purposes but we will leave an extra note here.\
+This is fairly simple and works well for our purposes, but we will leave an extra note here.\
 If your damage is **not** constant you will need to do something along the lines of :
 
 ```csharp
@@ -351,7 +351,7 @@ if(dieOne == 6) {
 
 Refer back to the [variables lesson](./3%20Variables.md/#using-variables) for more info on why we would do this. You could also use this to say "they have X health left".
 
-Now we can just expand our code to print everytime we deal damage.
+Now we can just expand our code to print every time we deal damage.
 
 ```csharp
 if(dieOne == 6) {
@@ -379,11 +379,11 @@ if(dieOne == 6) {
 
 You will have to make your messages more unique for your own dice game. We've done a little of that here.\
 You can also add messages to the start of the game or anywhere else in order to flesh out the story. Perhaps `Welcome to the game` at the beginning of the start function.\
-You can now go and take this logic for damage and printing and copy paste it into player two's turn. Remember, you will have to change the variable names.
+You can now go and take this logic for damage and printing and copy and paste it into player two's turn. Remember, you will have to change the variable names.
 
 ### Winning The Game
 
-Of course we can't really have a game if you can't win. We should check after dealing damage if either player's health is zero or below. Again this should be just a simple `if`.
+Of course, we can't really have a game if you can't win. We should check after dealing damage if either player's health is zero or below. Again this should be just a simple `if`.
 
 ```csharp
 // Start is called before the first frame update
@@ -407,8 +407,8 @@ void Start() {
 ```
 
 Now obviously for this template we're being rather basic. For yours make sure the message is more interesting than "Game Over".\
-We've put this after dealing the damage because checking for a win is not specific to who's turn it is.\
-Hopefully using `<= 0` is fairly obvious. We are seeing if the player's health is zero or less. We do need to check both players as the game ends whenever one of them dies. We can do this in one `if` using an ["or"](./4%20Logic.md/#or-operator) (`||`) to combine the two checks. If you don't remember what the or does check back to [here](./4%20Logic.md/#or-operator).
+We've put this after dealing the damage because checking for a win is not specific to whose turn it is.\
+Hopefully using `<= 0` is fairly obvious. We are seeing if the player's health is zero or less. We do need to check both players as the game ends whenever one of them dies. This can be done with one `if` using an ["or"](./4%20Logic.md/#or-operator) (`||`) to combine the two checks. If you don't remember what the or does check back to [here](./4%20Logic.md/#or-operator).
 
 ### Looping Through Turns
 
@@ -601,7 +601,7 @@ if(dieOne == 6) {
 }
 ```
 
-We want to use a function to try and reuse this multiple times. This means we want to use this for both players.\
+We want to use a function to try to reuse this multiple times. This means we want to use this for both players.\
 You might have noticed we got rid of the `One` and `Two`'s in that code because of that. We will need to change this up to use variables and dynamically print out those messages. Let's go back and talk about functions quick.
 
 ### Function Parameters
@@ -622,12 +622,12 @@ void decideDamage(int dieRoll) {
 }
 ``` 
 
-What we've done is add a parameter to the declarition of our function. This goes inside the parantheises `()`.\
+What we've done is added a parameter to the declaration of our function. This goes inside the parentheses `()`.\
 This is basically like declaring a variable as it goes type (`int`) and then name (`dieRoll`). We do not need set the value of this variable as we will be passing in a value when we call our function.\
 Now within the [scope](./6%20BasicGame.md/#scope) of this function we can use and manipulate the variable `dieRoll`. Make sure to use `dieRoll` in place of `dieOne` as that is the variable we are using now.
 
 The next chunk here is making the printed string dynamic so it can display which player has been hit.\
-To start let's add in another parameter to our function. We can make this an integer aswell and will name it along the lines of "playerNumber". We can do this by putting a comma after the current parameter. Like so :
+To start let's add-in another parameter to our function. We can make this an integer as well and will name it along the lines of "playerNumber". We can do this by putting a comma after the current parameter. Like so :
 
 ```csharp 
 void decideDamage(int dieRoll, int playerNumber) {
@@ -635,7 +635,7 @@ void decideDamage(int dieRoll, int playerNumber) {
 }
 ```
 
-We can now utilise an `int` called `playerNumber` inside of our function. Now let's incorperate it into our printed string. Remember we can do this using the `+` operator.
+We can now utilize an `int` called `playerNumber` inside our function. Now lets incorporate it into our printed string. Remember we can do this using the `+` operator.
 
 ```csharp
 void decideDamage(int dieRoll, int playerNumber) {
@@ -654,7 +654,7 @@ Now that should be setup pretty well. We can use the function to determine the d
 ***BUT!***\
 There is another problem that you may have spotted. Our `playerHealth` variable doesn't exist.\
 "Add it as a parameter", you say.\
-Sadly that will not work. This is beyond the scope of our lesson but basically the variable we pass into a function (`func(varToPass);`) and the variable the function uses (`func(int myVar)`) are **not** the same. So if we edit the var inside the function the one we passed in will not change.
+Sadly that will not work. This is beyond the scope of our lesson but basically the variable we pass into a function (`func(varToPass);`) and the variable the function uses (`func(int myVar)`) are **not** the same. So, if we edit the var inside the function the one we passed in will not change.
 
 Let's move on and finish up this function.
 
@@ -731,7 +731,7 @@ We will need a different way to find a different way to damage our player. Lucki
 
 ### Function Return Types
 
-Instead of using our variable inside of the function we are going to ["return"](https://docs.microsoft.com/en-us/dotnet/csharp/methods#return-values) a value and use that to change our health.\
+Instead of using our variable inside the function we are going to ["return"](https://docs.microsoft.com/en-us/dotnet/csharp/methods#return-values) a value and use that to change our health.\
 Basically the way this works is at the end of our function we can give back a value.\
 Let's set up our function to return an `int`. We need to change the keyword `void` before the name of our function to `int`.
 
@@ -802,7 +802,7 @@ int decideDamage(int dieRoll, int playerNumber) {
 
 As you can see, because our function returns an `int` we can use that value to set a variable. We then use this value to subtract our player's health.
 
-This may have not changed the output of our function in anyway but even by just looking at the code you should be able to tell that this is much cleaner and nicer.\
-If you'd like to bring your game to a higher level look for opportunities such as this to utilise the tools C# provides.
+This may have not changed the output of our function in any way but even by just looking at the code you should be able to tell that this is much cleaner and nicer.\
+If you'd like to bring your game to a higher level look for opportunities such as this to utilize the tools C# provides.
 
 Onto the project!
