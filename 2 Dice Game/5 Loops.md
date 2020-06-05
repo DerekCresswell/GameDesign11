@@ -4,8 +4,8 @@ Here we will talk about loops in our code.
 
 ## Loops
 
-We've already seen functions in our code and how they hold blocks of code so we can reuse them.\
-Functions aren't always the best fit for our problems though. Lot's of the time a loop better suits our needs. Let's go over the two main types of loops we will use.
+We've already seen functions in our code and how they hold blocks of code that we can reuse.\
+Functions aren't always the best fit for our problems though. Lots of the time a loop better suits our needs. Let's go over the two main types of loops we will use.
 
 ### For Loops
 
@@ -29,7 +29,7 @@ Hello World
 ```
 
 As we said, the for loop will execute a block of code a certain amount of times. In our case printing "Hello World" five times.\
-Let's go over the three main parts of making a `for` loop which you can remember with the mnemonic F.O.R. suprisingly.
+Let's go over the three main parts of making a `for` loop which you can remember with the mnemonic F.O.R. conveniently.
 
 * **F**irst
 	We need to initialize a variable that keeps track of how many times we've looped.\
@@ -38,7 +38,7 @@ Let's go over the three main parts of making a `for` loop which you can remember
 	
 * **O**perator
 	Than we need an operator to figure out if we should continue looping.\
-	The second part of the statement, in this case `i < 5;`, will determine, via a boolean or boolean statement, whether we continue looping. This can be whatever you want again as long as it give you `true` or `false`.\
+	The second part of the statement, in this case `i < 5;`, will determine, via a boolean or boolean statement, whether we continue looping. This can be whatever you want again as long as it gives you a `true` or `false` value.\
 	This is done every iteration of the loop before the code is executed.
 
 * **R**epeat
@@ -66,7 +66,7 @@ i++;
 // Loop back to the if!
 ```
 
-This misses some of the nuances of the loop but will do for our purposes.\
+This misses some nuances of the loop but will do for our purposes.\
 Use loops to repeat code a certain amount of times or until a condition is met.
 
 ### While Loops
@@ -113,7 +113,7 @@ while(myInt < 0) {
 ```
 
 Go ahead and try running these. Don't worry your computer won't burst into flames, it will just tell you that something is wrong.\
-When you get errors like this try stepping your code carefully. Often there is a single character out of place. Other times you may need to look more at the overlying logic of your code. Perhaps an `if` statement inside the loop has a loophole that will make it never be true.
+When you get errors like this try stepping your code carefully. Often there is a single character out of place. Other times you may need to look more at the overlying logic of your code. Perhaps an `if` statement inside the loop has a loophole that will make it be never true.
 
 ### Loop Statement Keywords
 
@@ -187,11 +187,11 @@ You'll notice that `5` is missing from the output as when `i == 5` we "continued
 
 ## On Your Own
 
-Loops can seem simplier on the outside than perhaps the [boolean logic](./4%20Logic.md) we just went through but they can become very versatile.\
+Loops can seem simpler on the outside than perhaps the [boolean logic](./4%20Logic.md) we just went through, but they can become very versatile.\
 Here's a few ideas to practice with.
 
 1. Make a loop that prints only even numbers, then make it print only odd numbers.
 
-1. Try putting a loop inside of another loop and figure out how it prints out some numbers.
+1. Try putting a loop inside another loop and figure out how it prints out some numbers.
 
-1. Print out a mathematical sequence of numbers. Exponential, the Fibonacci sequence, mulitples of x, or factorials perhaps.
+1. Print out a mathematical sequence of numbers. Exponential, the Fibonacci sequence, multiples of x, or factorials perhaps.
