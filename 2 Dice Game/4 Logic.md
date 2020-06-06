@@ -17,7 +17,7 @@ Here are all commonly used operators.
 
 This might seem a little weird at first but if we want to seem if two things are equal we use ["Equality Operator"](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/equality-operators#equality-operator-) `==`.\
 The reason being that a single `=`, the ["Assignment Operator"](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/assignment-operator) assigns a value to a variable. If we tried to use this when comparing values the computer would get confused.\
-`=` sets the value of a variable where as `==` compares two values.
+`=` sets the value of a variable whereas `==` compares two values.
 
 These can be used with most variable types.
 
@@ -37,8 +37,8 @@ myBool = 40 = 40;
 ### Greater And Lesser Than
 
 As stated above we've talked about `<` and `>` being used to see which side of the operator is larger.\
-A very common situation is wanting to is if a value is larger **or** equal to another value. The single signs only count if the value is larger or lesser. If the two are equal they return false.\
-To compare [greater](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/comparison-operators#greater-than-or-equal-operator-) / [lesser](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/comparison-operators#less-than-or-equal-operator-) or equal to we can use two shorthad operators. `<=` and `>=`.
+A very common situation is needing to know if a value is larger **or** equal to another value. The single signs only count if the value is larger or lesser. If the two are equal they return false.\
+To compare [greater](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/comparison-operators#greater-than-or-equal-operator-) / [lesser](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/comparison-operators#less-than-or-equal-operator-) or equal to we can use two shorthand operators. `<=` and `>=`.
 
 These are most useful for number values.
 
@@ -104,7 +104,7 @@ A | B | C
 ### OR Operator
 
 The ["OR Operator"](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/boolean-logical-operators#conditional-logical-or-operator-) checks if either of two booleans are true. We use `||` double pipe separators to denote this function.\
-Do note if both booleans are true the operator will still return true.
+Do note, if both booleans are true the operator will still return true.
 
 ```csharp
 bool myBool = true || false;
@@ -148,11 +148,11 @@ myBool = true && false || true;
 // The && is evaluated first followed by the ||.
 ```
 
-When you are in doubt, just use parantheses.
+When you are in doubt, just use parentheses.
 
 ## Control Structures
 
-Know that we can create more complex boolean statements we need a way to use them. This is where Control structures come in.
+Now that we can create more complex boolean statements we need a way to use them. This is where ["Control Structures"](http://faculty.cs.niu.edu/~hutchins/csci473/control.htm) come in.
 
 ### If Statements
 
@@ -174,19 +174,19 @@ if(myBool) {
 // The above block of code will NOT run as myBool was set to false in the first block.
 ```
 
-The out put of that program is :\
+The output of that program is :\
 `Hi`
 
 `Bye` is not printed because in the first statement we set the value of `myBool` to false.\
 The structure of an `if` has three parts :
 
-1. The keyword `if` denotes that this is an `if` statment. Pretty simple.
+1. The keyword `if` denotes that this is an `if` statement. Pretty simple.
 1. Next you have parenthesis `()`. These contain the boolean value, or boolean expression, that determines if the statement body should run.
 1. Then you have curly braces `{}` with the code to run in between them. Indent the code in here to keep it pretty.
 
-To determine whether or not the code executes you can use any boolean expression.\
+To determine whether the code executes you can use any boolean expression.\
 Above we directly use a bool to say `true` or `false`.\
-Similarily we can use expressions (like `if(true || false)`, `if(4 >= 2)`, and others shown [above](#boolean-order-of-operations)).
+Similarly we can use expressions (like `if(true || false)`, `if(4 >= 2)`, and others shown [above](#boolean-order-of-operations)).
 
 ### Else Statements
 
@@ -214,7 +214,7 @@ if(myBool) {
 // The above block of code will run the else statement.
 ```
 
-The out put of that program is :\
+The output of that program is :\
 `Hi`\
 `Else`
 
@@ -224,7 +224,7 @@ Think of it like :
 
 > If a condition is met, do this. Else do this.
 
-Almost seems like they though about the name.
+Almost seems like they thought about the name.
 
 ### Else If Statements
 
@@ -250,7 +250,7 @@ if(myBool) {
 
 We are effectively chaining the `if`'s together. If the first one fails we check against the next one, then the next, until finally if all else fails, our `else` runs.\
 It is important to note that only **ONE** block of code can run like this. If two `if` statements are both true, only the first one in the list will be run. If you need more than one `if` statement to be checked and run do not chain them with `else` statements.\
-Go and make your own series of `if` statements 
+Go and make your own series of `if` statements.
 
 ## Scope
 
@@ -278,7 +278,7 @@ class Test {
 }
 ```
 
-Here we see three "levels" or scopes to our code. Inside our class, inside our function, and inside the if statement. These scopes can been seen usually with the curly braces `{}`.\
+Here we see three "levels" or scopes to our code. Inside our class, inside our function, and inside the if statement. These scopes can be seen usually with the curly braces `{}`.\
 Let's change this program up to see how these scopes affect our variables.
 
 ```csharp
