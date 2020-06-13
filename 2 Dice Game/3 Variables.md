@@ -5,7 +5,7 @@ Here we will talk about how to use variables to store, modify, and use data.
 ## Variables
 
 [Variables](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/variables), or vars, allow us to store values. The uses for them are near endless but common ones include storing players health, keeping track of turns, determining values for attacks or moves.\
-You likely have an understanding of variables from math. While there are some things that carry over there will also be a lot of new things. Let's start with the types of variables we can have in code.
+You likely have an understanding of variables from math. While there are some things that carry over, there will also be a lot of new things. Let's start with the types of variables we can have in code.
 
 Type | Declaration | Stores | Example
 ---- | ----------- | ------ | -------
@@ -30,7 +30,7 @@ This goes for the next variable type, floats, as well.
 ### Floats
 
 [Floating point numbers](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types), or floats, are real numbers. They can store decimal points unlike ints.\
-Float math is does no truncate the result. Meaning when dividing two floats we keep the decimal, so `3 / 4` is equal to `0.75`. No rounding occurs.\
+Float math does not truncate the result. Meaning when dividing two floats we keep the decimal, so `3 / 4` is equal to `0.75`. No rounding occurs.\
 Now that's a bit of a fib. That equation would still equal `0`. This is because the numbers are still ints. If we wanted the computer to use float math for these we could write it like :
 
 `3.0 / 4.0` or `3f / 4f`
@@ -40,11 +40,11 @@ Adding a decimal, even zero, or a 'f' tells the code that the numbers are floats
 ### Booleans
 
 [Booleans](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/bool), despite only having two possible values, are likely the most useful and can become very complex.\
-Acceptable values for Booleans are, `true` and `false` or `1` and `0`.\
+Acceptable values for booleans are, `true` and `false` or `1` and `0`.\
 The zero and one are just like binary if you know what that is.\
 Booleans are how we interact with "control structures" which we will get to later and are the most useful part of coding.
 
-Booleans can be set with values like `5 > 4` which would give the variable a value of true. A similar order of operations applies to Booleans as well but we will talk about that during control structures.
+Booleans can be set with values like `5 > 4` which would give the variable a value of true. A similar order of operations applies to booleans as well, but we will talk about that during control structures.
 
 ### Characters
 
@@ -57,7 +57,7 @@ Capitals do matter as `'a'` is not the same as `'A'`.
 [Strings](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/index), or strings (yeah there's not really a nickname), are actually just a list of characters.\
 They can contain all letters and symbols that are valid characters. Again, certain special characters will require you to look up how to use them.\
 When creating a string it must be wrapped in quotations `""`, like `"Hello World"`.\
-Strings are very specific and case sensitive. `"Hello World"` is not the same as `"hello world"` or `"HelloWorld"`.
+Strings are very specific and case-sensitive. `"Hello World"` is not the same as `"hello world"` or `"HelloWorld"`.
 
 Now we move on to setting up, manipulating, and using variables.
 
@@ -83,12 +83,12 @@ Here we've just shown an example of each of the types we've used so far. What yo
 Variable declarations are made of three parts no matter the type :
 
 * First we need to [declare the type](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/value-types#initializing-value-types) as stated earlier. This is represented by the first part of the line.\
-For instance with the first line we wanted an integer value so we used `int` as the first word. We can get the type name we want from the table at the top of this lesson under the "Declaration" column.\
+For instance with the first line we wanted an integer value, so we used `int` as the first word. We can get the type name we want from the table at the top of this lesson under the "Declaration" column.\
 These declarations do require at least one space after them.
 
 * Next is the variable name. This is the name associated with our variable and how we will access them later in our code.\
 It comes after the type of variable with at least one space in between them. Variables name can include all letters, hyphens `-`, underscores `_`, and the dollar sign `$`.\
-You'll notice my variable names are written in [lowerCamelCase](https://whatis.techtarget.com/definition/lowerCamelCase). This is because Unity's prewritten variables use this format and it's nice to have everything match. Keeps the code readable like we talked about in the [last lesson](./2%20CodeStructure.md).\
+You'll notice my variable names are written in [lowerCamelCase](https://whatis.techtarget.com/definition/lowerCamelCase). This is because Unity's pre-written variables use this format and it's nice to have everything match. Keeps the code readable like we talked about in the [last lesson](./2%20CodeStructure.md).\
 Another rule to follow when making variable names is to make them descriptive, but don't make it redundant. Then later when you want to use your variable you will be able to tell what it does.\
 If you had a variable to store your bank account balance a good name could be `accountBalance`. A bad name would be `x` or `myCurrentBankAccountBalance`.
 
@@ -96,7 +96,7 @@ If you had a variable to store your bank account balance a good name could be `a
 It would be perfectly valid to say `int myInt;` (remembering lines need to end with a semi-colon `;`). This simply would create a variable of type `int` with the name `myInt` with no value. We will use this functionality in the future.\
 More often you'll want to set the data in the variable right away. We do this with an equal sign `=`.\
 The `=` comes right after our variable name and does not need a space, though we use one to make it more readable. After the `=` we need a value of the same type as the variable.\
-What you will have noticed above is that `myFloat` is a little different than the other variables. We've done this to show that you can use equations when setting variables.\
+What you will have noticed above is that `myFloat` is a little different from the other variables. We've done this to show that you can use equations when setting variables.\
 Below is exactly the same as above.
 
 ```csharp
@@ -112,7 +112,7 @@ string myString = "Hello " + "World";
 I've omitted the char as it is not usually used like this.\
 Also note the white space left within the quotations in `myString`.
 
-Go ahead and try decaring your own variables. Your editor will likely tell you if something is wrong.\
+Go ahead and try declaring your own variables. Your editor will likely tell you if something is wrong.\
 You can write these within the `Start` function like we did with `Debug.Log()`.
 
 ## Using Variables
@@ -120,18 +120,18 @@ You can write these within the `Start` function like we did with `Debug.Log()`.
 There are a few main reasons we use variables in our code.\
 They make it easier to read through, quicker to change values, and allow for storing of info.\
 
-Let's start with how we use variables. We're going to pretend we've declared all of the variables in the above section.\
+Let's start with how we use variables. We're going to pretend we've declared all the variables in the above section.\
 If we wanted access to our variable we could simply write `myInt;` or any of the other names. This will do absolutely nothing though, we need to use this variable for something.\
 Currently myInt stores the value `4`. What if we wanted to change that?\
 Pretty simply you can just type `myInt = 5` or whatever or number / equation you wanted.\
-We can even set a variable equal to another variable. The easiest way to think of it is just when you type the name of the variable imagine it being replaced verbatiam with the value.
+We can even set a variable equal to another variable. The easiest way to think of it is just when you type the name of the variable imagine it being replaced verbatim with the value.
 
 ```csharp
 float myNewFloat = 4.56;
 myFloat = myNewFloat;
 ```
 
-Go ahead and try setting some of the other variables to new values.
+Go ahead and try setting some other variables to new values.
 
 Before we mentioned we can set these variables via an equation. Let's try making one with a variable.
 
@@ -148,7 +148,7 @@ Another important thing to mention is that you can set a variable with itself.
 myInt = myInt + 1;
 ```
 
-This here will increase `myInt` by one. [Operations](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators) like this are very common, for instance incrementing, decrementing a number, dividing, or multiplying. Since these are commong they have shortcuts.
+This here will increase `myInt` by one. [Operations](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators) like this are very common, for instance incrementing, decrementing a number, dividing, or multiplying. Since these are common they have shortcuts.
 
 ```csharp
 myInt = myInt + 1;
@@ -166,7 +166,7 @@ myInt = myInt / 2;
 myInt /= 2;
 ```
 
-Each group of commands are equivilant. You'll notice that [incrementing](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators#increment-operator-) and [decrementing](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators#decrement-operator---) are so common they've been shortened even further.\
+Each group of commands is equivalent. You'll notice that [incrementing](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators#increment-operator-) and [decrementing](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators#decrement-operator---) are so common they've been shortened even further.\
 Try these out and experiment.
 
 The last big point of using variables we need to touch on  using them in the [context of functions](https://docs.microsoft.com/en-us/dotnet/csharp/methods#passing-parameters).\
@@ -209,4 +209,4 @@ Things like this can be very complex. It can be much harder to understand if you
 
 1. Use variables and equations to give you the volume of a sphere (4/3 * pi * r^3).
 
-In the next lesson we will be talking more about booleans and how we can use them to create inteligent code.
+In the next lesson we will be talking more about booleans and how we can use them to create intelligent code.
