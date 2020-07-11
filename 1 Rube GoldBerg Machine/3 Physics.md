@@ -22,10 +22,10 @@ Click on our first Circle Object and click add component and begin typing "Colli
 	<img src="Images/CircleCollider.JPG">
 </p>
 
-*Note, keen eyes might've noticed my Inspector looks different. We've simply collapsed the components to reduce visual clutter. Click the grey arrow in the top left corner of the component.*	
+*Note, keen eyes might've noticed my Inspector looks different. We've simply collapsed the components to reduce visual clutter. Click the gray arrow in the top left corner of the component.*	
 
 You will now see there is a green circle within your circle. This is what the Collider considers its edge.\
-Since this green circle is too small we need to change the size of the it. You can click on the "Edit Collider" button and drag the green squares to change it or in this case set the Radius to "0.5".\
+Since this green circle is too small we need to change the size of it. You can click on the "Edit Collider" button and drag the green squares to change it or in this case set the Radius to "0.5".\
 You can tell if the collider is the right size by simply seeing if the size of the green circle is close to the size of the white circle.
 In order for us to see the Collider in action we need something else to collide with. 
 
@@ -44,7 +44,7 @@ It should look like this :
 
 Now run your game!\
 Oh hold on, that was kinda lame. The box fell too. What good is ground if it falls too?\
-Let's fix this quick. We just need to change the boxs Rigidbody "Body Type" from ["Dynamic"](https://docs.unity3d.com/Manual/class-Rigidbody2D.html) to ["Static"](https://docs.unity3d.com/Manual/class-Rigidbody2D.html).\
+Let's fix this quick. We just need to change the Rigidbody "Body Type" of the box from ["Dynamic"](https://docs.unity3d.com/Manual/class-Rigidbody2D.html) to ["Static"](https://docs.unity3d.com/Manual/class-Rigidbody2D.html).\
 The "Body Type" tells Unity how to compute the physics of the Object. In our case Dynamic means the Object is affected by physics and Static means the Object is present in the "Physics Space" but not changed by interactions.
 
 Let's run the game again.\
@@ -55,7 +55,7 @@ Let's try one more thing.
 * Rename it to something like "Anchor".
 * Set the Y Position to "-3".
 * Set it's Scale to "1, 1, 1".
-* Finally set the first Boxs' (The big one on top) Body Type back to Dynamic.
+* Finally set the Body Type of the first box (the big one on top) back to Dynamic.
 
 Now run it!\
 We're cooking with gas now!\
@@ -76,7 +76,7 @@ If you can't get this setup just click below for the cheat sheet. But do try it 
 * Add a Circle Collider 2D and Rigidbody to the second circle. Just like on the first one.
 * Shift the second circle a little to the left.
 * Create a second Box with a Rigidbody set to Static and a box collider.
-* Set that boxs Position to "-5, -4.5", the Rotations Z to "-45" and the Scale to "7, 0.5, 1".
+* Set the Position of the box to "-5, -4.5", the Rotations Z to "-45" and the Scale to "7, 0.5, 1".
 
 These numbers don't need to be exact and you can change around the Scene to your liking. Feel free to play around with this. You will be able to understand this better if you do this yourself.
 
@@ -86,16 +86,16 @@ These numbers don't need to be exact and you can change around the Scene to your
 
 ## Physics
 
-Unity has a built in physics engine to make all of your game objects behave realistically. Rigidbodies and Colliders are key parts of the physics in Unity but don't strictly need to be affected by the physics.\
+Unity has a built-in physics engine to make all of your game objects behave realistically. Rigidbodies and Colliders are key parts of the physics in Unity but don't strictly need to be affected by the physics.\
 We're now going to talk about how you can change the way physics behave by using Physics Materials.
 
 ### Physics Materials
 
-In Unity we can give our Rigidbody a [Physics Material](https://docs.unity3d.com/Manual/class-PhysicsMaterial2D.html). These affect the way physics are calculated on our Objects. We can change the bounciness and friction of our elements.\
+In Unity, we can give our Rigidbody a [Physics Material](https://docs.unity3d.com/Manual/class-PhysicsMaterial2D.html). These affect the way physics are calculated on our Objects. We can change the bounciness and friction of our elements.\
 There are other things we can do but these are the most basic and useful to use.\
-*Just a note, Physics Materials and Materials are different things but we will be refering to Physics Material here.*
+*Just a note, Physics Materials and Materials are different things, but we will be referring to Physics Material here.*
 
-We need to make a Material first. We are going to up hold our current organization and start by making a new folder in our Project call it "Physics Materials". Just like we did before with the Sprites.
+We need to make a Material first. To up hold our current organization structure, start by making a new folder in our Project call it "Physics Materials". Just like we did before with the Sprites.
 
 <p align="center">
 	<img src="Images/Folders.JPG">
@@ -122,11 +122,11 @@ Click onto the Circle and then into its RigidBody. Click the setting named "Mate
 If you play the game now you will notice the first circle bounces much higher.\
 Go ahead and play with the "Bounciness" value until you find something you like.
 
-The other property on the the Physics Material 2D is Friction.\
+The other property on the Physics Material 2D is Friction.\
 The idea behind Friction is the same as the real world but the execution in Unity is a bit different.\
 Unity's friction is calculated based on the number of points of contact between two objects. Meaning that a circle isn't really affected by friction as technically there's only ever one point of contact.
 
-Below is is the effect in action. We've colored the high friction slope to be red for you easily identify.
+Below is the effect in action. We've colored the high friction slope to be red for you easily identify.
 
 ![FrictionDemo](https://media.giphy.com/media/L39MSN192NeEOdvlwZ/giphy.gif)
 
