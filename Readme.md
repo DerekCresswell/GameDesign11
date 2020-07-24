@@ -1,7 +1,7 @@
 # Grade 11 Video Game Design
 
 Interested in making your own video games?\
-This is an Open Source game design curriculum built to be used in a classroom enviroment. The course is built for anyone, even complete beginners, to get the core skills of building a game in Unity. There are also resources along to way to help more advanced users to test their skills.\
+This is an Open Source game design curriculum built to be used in a classroom environment. The course is built for anyone, even complete beginners, to get the core skills of building a game in Unity. There are also resources along the way to help more advanced users to test their skills.\
 Every topic brought up in these lessons is explained here, no prior knowledge is required.\
 Throughout the course there is opportunity for every type of student to show their skills including Programmers, Artists, Designers, and Musicians.
 
@@ -15,7 +15,7 @@ This course features five total units with in depth tutorials for each. They aim
 Along the way there are always external resources and extra challenges given to help you get that extra boost in skills needed to pursue Game Development!
 
 This course is licensed under the [MIT License](License.md) so it is entirely free to use.\
-This is to encourage usage in a classroom enviroment (as that was the original intention).
+This is to encourage usage in a classroom environment (as that was the original intention).
  
 ### Course Outcomes
 
@@ -40,7 +40,7 @@ In this course you will be going through five units. Each unit contains relevant
 
 ### Instructions 
 
-The units should be completed in the order shown here as the skills of each builds off of the previous entries in the course.\
+The units should be completed in the order shown here as the skills of each build off of the previous entries in the course.\
 Within each unit there is another Readme just like this that outlines the targets of each unit.\
 Then there are the numbered lessons. These should also be completed in order.\
 There are also some other folders. 
