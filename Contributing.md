@@ -1,6 +1,6 @@
 # Contributing
 
-Thank you for your intrest in building this repository!\
+Thank you for your interest in building this repository!\
 Please read through this before submitting [issues](#issues) and [pull requests](#pull-requests). Also contained are the [guidelines to follow](#guidelines) when writing material.
 
 ## Issues
@@ -18,7 +18,7 @@ Click [here](https://github.com/DerekCresswell/GameDesign11/issues/new) to start
 ## Pull Requests
 
 [Pull requests](https://github.com/DerekCresswell/GameDesign11/pulls) should be constrained to a single [issue](#issues) or addition. Please mention the issues in the title or body of the request.\
-Do not add extra things to a PR that do not pertain to it's main topic.\
+Do not add extra things to a PR that do not pertain to its main topic.\
 The [guidelines](#guidelines) need to followed for choice of language, linking, and markdown formatting.\
 If you are unsure about the quality of a PR just ask for a stricter review. If you have questions about the purpose of a PR please ask with / in an issue.
 
@@ -72,7 +72,7 @@ There are a couple style rules we follow to keep the structure of our work.
 
 `h1`'s are only used once at the top of the file to list the name of unit (I.E. `# 1 Rube Goldberg Machine`).\
 Smaller headers should be used to break up sections (I.E. this file) and need to be in sequential order. So an `h4` needs to have an `h3` above it before an `h2`.\
-Leave one space between the hashes and the title. Write titles in Upper-Camel-Case with no puncuation. Leave on blank line before and after each header.
+Leave one space between the hashes and the title. Write titles in Upper-Camel-Case with no punctuation. Leave on blank line before and after each header.
 
 ```
 # Unit Title
@@ -103,22 +103,22 @@ Here is a different idea.
 
 When using code blocks always format as csharp ```` ```csharp```` unless you really need not to.\
 A couple rules for our code syntax can be found in the [syntax file](./2%20Dice%20Game/Syntax.md). There is not many fancy tricks there.\
-Try to avoid repeating large code blocks. If you do skip a part make sure to leave a comment in it's place to avoid any confusion for students.\
-Use inline code when refering to statements, variables, and the likes.
+Try to avoid repeating large code blocks. If you do skip a part make sure to leave a comment in its place to avoid any confusion for students.\
+Use inline code when referring to statements, variables, and the likes.
 
 ### Language
 
 The main thing to highlight here is to avoid "I" as much as possible. Use "we".\
-When refering to certain parts of the repo the structure is as follows :
+When referring to certain parts of the repo the structure is as follows :
 
-* The repo itself is refered to as the "Course".
-* The folders within (I.E. the Rube Goldberg Folder) are refered to as a "Unit".
-* The files within the units are refered to as "Lessons".
+* The repo itself is referred to as the "Course".
+* The folders within (I.E. the Rube Goldberg Folder) are referred to as a "Unit".
+* The files within the units are referred to as "Lessons".
 * The final game of each unit is the "Project".
 
 ### Structure
 
-To keep our files nice and organized Follow the structure of :
+To keep our files nice and organized follow the structure of :
 
 * Course
   * Unit
@@ -137,8 +137,8 @@ The naming convention for files is :
 * Lesson : "1 NameLikeThis"
 * Files (I.E. image) : "NameLikeThis"
 
-### Refrences and Links
+### References and Links
 
-When mentioning a topic, item, or concept for the first time put it in double quotes ["Like So"](#refrences-and-links) and make it a link to relevant parts of the course or the C# Docs / Unity Manual. Please also capitalize accordingly.\
+When mentioning a topic, item, or concept for the first time put it in double quotes ["Like So"](#references-and-links) and make it a link to relevant parts of the course or the C# Docs / Unity Manual. Please also capitalize accordingly.\
 After something has been written and linked for the first time you do not need to capitalize and quote it. Only link it again if you are in a new section.\
 Do not link things inside of inline code blocks.
