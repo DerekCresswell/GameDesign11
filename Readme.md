@@ -1,6 +1,7 @@
 # Grade 11 Video Game Design
 
-Interested in making your own video games?\
+Interested in making your own video games?
+
 This is an Open Source game design curriculum built to be used in a classroom environment. The course is built for anyone, even complete beginners, to get the core skills of building a game in Unity. There are also resources along the way to help more advanced users to test their skills.\
 Every topic brought up in these lessons is explained here, no prior knowledge is required.\
 Throughout the course there is opportunity for every type of student to show their skills including Programmers, Artists, Designers, and Musicians.
@@ -16,6 +17,8 @@ Along the way there are always external resources and extra challenges given to 
 
 This course is licensed under the [MIT License](License.md) so it is entirely free to use.\
 This is to encourage usage in a classroom environment (as that was the original intention).
+
+Despite the name, this course can be used by any grade level.
  
 ### Course Outcomes
 

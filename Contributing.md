@@ -126,9 +126,6 @@ To keep our files nice and organized follow the structure of :
     * Images
     * Library
     * Lesson
-    * Lesson
-  * Unit
-* Course
 
 Where "Images" is a folder for all the images used within the lessons and "Assets" are things the student can use such as a sprite.\
 The naming convention for files is :
