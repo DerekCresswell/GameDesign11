@@ -74,6 +74,31 @@ class Test {
 
 As seen above, blocks of code should be split by one line based mainly on relevance to each other.
 
+All comments should have one leading new line and no trailing new lines.
+
+```csharp
+int myInt = 5;
+
+// My comment.
+int myNextInt = 4;
+```
+
+Functions, loops, and control statements should contain a new line after the opening brace and before the closing brace.\
+These are not required if there is only one line between the brackets.
+
+```csharp
+if(true) {
+
+    int myInt = 5;
+    int myNextInt = 4;
+
+}
+
+if(true) {
+    return 5;
+}
+```
+
 ### Casing
 
 Which casing standard to use for which parts of our code.
