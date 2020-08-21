@@ -17,6 +17,12 @@ For this project you first need to find one or two other partners to work with. 
 	* This is only needed if your game idea is large enough.
 	* This person is in charge of creating prefabs, building levels, and stitching together the others work into the final product. This person should also ensure that the plan is being followed and everything that is needed is being made.
 
+Just because you take on a role does not mean you are strictly stuck to it. We do want the majority of coding done by the coder for instance, but it is perfectly fine if another member writes a script or fixes a problem in an existing one.\
+This does not mean jobs can be a free for all. We still want to be clear on who has what responsiblities.\
+If you do mix jobs, you should make sure the other members of the group are aware you are doing that work.
+
+Make sure these partners are people you are willing to work with. You must be able take and give constructive critism to / from these partners.
+
 ### Plans
 
 Unlike the last few projects this should have a larger amount of time allotted for work. Not only does this mean the end result should be more polished but it means we need a stronger plan.\
