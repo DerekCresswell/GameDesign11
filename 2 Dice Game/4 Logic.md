@@ -9,7 +9,7 @@ We've already talked about how [booleans](https://docs.microsoft.com/en-us/dotne
 
 ### Boolean Operators
 
-In the [previous lesson](./3%20Variables.md/#booleans) we mentioned that booleans can be set using the [Greater Than](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/comparison-operators#greater-than-operator-) `>` and [Less Than](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/comparison-operators#less-than-operator-) `<` signs. These are what we call ["operators"](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/).\
+In the [previous lesson](./3%20Variables.md/#booleans) we mentioned that booleans can be set using the ["Greater Than"](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/comparison-operators#greater-than-operator-) `>` and ["Less Than"](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/comparison-operators#less-than-operator-) `<` signs. These are what we call ["operators"](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/).\
 Operators do things to our values. For instance the ["Addition Operator"](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators#addition-operator-) `+` and similar are also operators, just not for booleans.\
 Here are all commonly used operators.
 
@@ -22,16 +22,16 @@ The reason being that a single `=`, the ["Assignment Operator"](https://docs.mic
 These can be used with most variable types.
 
 ```csharp
-bool myBool = true == true;
 // This is rather a pointless statement but it works.
 // myBool is true.
+bool myBool = true == true;
 
-myBool = 30 == 23;
 // The equality operator is not exclusive to booleans.
 // myBool is false.
+myBool = 30 == 23;
 
-myBool = 40 = 40;
 // While this will not error, it will give you results you might not expect.
+myBool = 40 = 40;
 ```
 
 ### Greater And Lesser Than
@@ -43,11 +43,11 @@ To compare [greater](https://docs.microsoft.com/en-us/dotnet/csharp/language-ref
 These are most useful for number values.
 
 ```csharp
-bool myBool = 3 < 3;
 // myBool is false.
+bool myBool = 3 < 3;
 
-myBool = 3 <= 3;
 // myBool is true.
+myBool = 3 <= 3;
 ```
 
 ### NOT Operator
@@ -58,14 +58,14 @@ This simply switches our boolean. `true` becomes `false` and `false` becomes `tr
 We write it like this.
 
 ```csharp
-bool myBool = !true;
 // myBool is false.
+bool myBool = !true;
 
-myBool = !myBool;
 // myBool is true.
+myBool = !myBool;
 
-myBool = !!myBool;
 // myBool is still true.
+myBool = !!myBool;
 ```
 
 Here we will show you a new tool to see how these work. Truth tables.\
@@ -86,8 +86,8 @@ The ["AND Operator"](https://docs.microsoft.com/en-us/dotnet/csharp/language-ref
 We use the `&&` double ampersand with a boolean on each side to denote this operator. Just like this :
 
 ```csharp
-bool myBool = true && false;
 // myBool is false.
+bool myBool = true && false;
 ```
 
 And for all possibilities here's the truth table.
@@ -107,8 +107,8 @@ The ["OR Operator"](https://docs.microsoft.com/en-us/dotnet/csharp/language-refe
 Do note, if both booleans are true the operator will still return true.
 
 ```csharp
-bool myBool = true || false;
 // myBool is true.
+bool myBool = true || false;
 ```
 
 `C = A || B`
@@ -135,17 +135,17 @@ The order is as follows :
 If there are two or more of the same on a single line it will be evaluated left to right.
 
 ```csharp
-bool myBool = !true || false;
 // myBool is false.
 // !true is evaluated first followed by the ||.
+bool myBool = !true || false;
 
-myBool = !(true || false);
 // myBool is true.
 // The || is evaluated first followed by the !.
+myBool = !(true || false);
 
-myBool = true && false || true;
 // myBool is true.
 // The && is evaluated first followed by the ||.
+myBool = true && false || true;
 ```
 
 When you are in doubt, just use parentheses.
@@ -161,21 +161,24 @@ The ["if statement"](https://docs.microsoft.com/en-us/dotnet/csharp/language-ref
 ```csharp
 bool myBool = true;
 
+// The below code block will run as myBool was declared as true.
 if(myBool) {
 	// Code within these curly braces will be executed if myBool IS true.
 	Debug.Log("Hi");
 	myBool = false;
 }
-// The above block of code will run as myBool was declared as true.
 
+// The below code block will NOT run as myBool was set to false in the first block.
 if(myBool) {
 	Debug.Log("Bye");
 }
-// The above block of code will NOT run as myBool was set to false in the first block.
 ```
 
-The output of that program is :\
-`Hi`
+The output of that program is :
+
+```
+Hi
+```
 
 `Bye` is not printed because in the first statement we set the value of `myBool` to false.\
 The structure of an `if` has three parts :
@@ -196,6 +199,7 @@ The code within an `else` statement is executed if the `if` does not execute. So
 ```csharp
 bool myBool = true;
 
+// The below code block will run the if statement.
 if(myBool) {
 	// Code within these curly braces will be executed if myBool IS true.
 	Debug.Log("Hi");
@@ -204,19 +208,21 @@ if(myBool) {
 	// Code within these curly braces will be executed if myBool IS false.
 	Debug.Log("Bye");
 }
-// The above block of code will run the if statement.
 
+// The below code block will run the else statement.
 if(myBool) {
 	Debug.Log("If");
 } else {
 	Debug.Log("Else");
 }
-// The above block of code will run the else statement.
 ```
 
-The output of that program is :\
-`Hi`\
-`Else`
+The output of that program is :
+
+```
+Hi
+Else
+```
 
 `Bye` is not printed because in the first statement the `if` is executed.\
 In the second the `else` is executed because the `if` is false.\
@@ -245,7 +251,6 @@ if(myBool) {
 	// This code will run if the other statements fail.
 	Debug.Log("See ya later");
 }
-
 ```
 
 We are effectively chaining the `if`'s together. If the first one fails we check against the next one, then the next, until finally if all else fails, our `else` runs.\
@@ -289,15 +294,19 @@ class Test {
 	function myFunc() {
 
 		var1 = 3;
-		int var2 = var1; // This works. var2 == 3.
+
+		// This works. Now var2 == 3.
+		int var2 = var1;
 
 		if(true) {
 
-			int var3 = var1; // This works. var3 == 3;
+			// This works. Now var3 == 3;
+			int var3 = var1;
 
 		}
 
-		var2 = var3; // This errors. var3 is not declared within this scope.
+		// This errors. var3 is not declared within this scope.
+		var2 = var3;
 
 	}
 
@@ -309,7 +318,7 @@ Since `myFunc` is within the scope (the curly braces `{}`) of the class `Test` w
 Within the `if` statement we can also access `var1`. Again this is because the `if` is within the scope of the class `Test`. Though you might say the `if` is within `myFunc` which is within `Test`. Either work.\
 Then after our `if` statement we can see that trying to access `var3` and it errors. Since `var3` exists within the scope of the `if` we cannot access it from the scope of `myFunc`. This is because scopes only work one way, you can access something in a higher scope but not a lower scope.
 
-I've always thought of scopes as a series of doors.\
+A comparison often used is to think of scopes as a series of doors.\
 You start in one room (the class) with some variables. You can use these variables however you'd like. Then you go into the next room (a function) and you leave the door open behind you.\
 In this new room there are new variables that you can use. Since you left the door open you can still look back to the previous room and use those variables.\
 Once you are done in the function you leave the room and close the door meaning you can't see those variables (in the function) anymore.\
@@ -321,12 +330,11 @@ Hopefully that makes some sense.
 A side part of scopes would be this :
 
 ```csharp
-class Test {
+// ERROR, var1 is not defined.
+var1 = 3;
 
-	var1 = 3; // ERROR, var1 is not defined.
-	int var1; // var1 is defined here.
-
-}
+// var1 is defined here.
+int var1;
 ```
 
 Since our script runs top to bottom (ish) we cannot use a variable unless it's been declared already, Just like above.
